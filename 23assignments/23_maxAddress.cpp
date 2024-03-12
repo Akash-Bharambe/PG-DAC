@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
 
-int *maxi(int a, int b)
+int *maxi(int *a, int *b)
 {
-    return a > b ? &a : &b;
+    return *a > *b ? a : b;
 }
 
 int main()
@@ -17,7 +17,7 @@ int main()
     cout << "Address of a: " << &a << endl;
     cout << "Address of b: " << &b << endl;
 
-    cout <<"Maximum Number's Address is: "<< maxi(a, b);
+    cout <<"Maximum Number's Address is: "<< maxi(&a, &b);
 
     return 0;
 }
