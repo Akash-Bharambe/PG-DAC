@@ -10,11 +10,10 @@ void acceptArray(int arr[], int n)
     }
 }
 
-void swap(int &a, int &b)
-{
-    a ^= b;
-    b ^= a;
-    a ^= b;
+void swap(int &a, int &b){
+    a^=b;
+    b^=a;
+    a^=b;
 }
 
 void sortArray(int arr[], int n)
@@ -23,10 +22,12 @@ void sortArray(int arr[], int n)
     {
         for (int j = 0; j < n; j++)
         {
-            if (arr[j] > arr[i])
-                swap(arr[j], arr[i]);
+            if (arr[j]>arr[i])
+                swap(arr[j],arr[i]);
         }
+        
     }
+    
 }
 
 void printArray(int arr[], int n)
@@ -44,8 +45,8 @@ int main()
     cin >> n;
     int arr[n];
     acceptArray(arr, n);
-    sortArray(arr, n);
-    printArray(arr, n);
+    sortArray(arr,n);
+    printArray(arr,n);
 
     return 0;
 }
