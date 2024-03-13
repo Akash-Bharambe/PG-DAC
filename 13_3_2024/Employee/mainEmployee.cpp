@@ -16,14 +16,18 @@ int main()
     int choice;
     while ((choice = menuList()) != 0)
     {
+        int temp = Employee::getCount();
         switch (choice)
         {
         case 1:
             if (Employee::getCount() < 10)
             {
-                earr[Employee::getCount()] = new Employee;
-                cout << "\nNo of Employees: " << Employee::getCount() << endl;
-                earr[Employee::getCount() - 1]->acceptData();
+                //earr[Employee::getCount()] = new Employee;
+                //cout << "\nNo of Employees: " << Employee::getCount() << endl;
+                //earr[Employee::getCount() - 1]->acceptData();
+                Employee *emp1 = new Employee;
+                emp1->acceptData();
+                earr[temp - 1] = emp1;
             }
             break;
         case 2:
