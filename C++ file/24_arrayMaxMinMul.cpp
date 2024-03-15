@@ -1,3 +1,7 @@
+// 24. Accept five integers in an array and use separate functions to:
+// a. Find maximum and minimum of the integers. Do not sort the array.
+// b. Multiply each element of the array by 5 and store it in another array and display it.
+
 #include <iostream>
 #define SIZE 5
 using namespace std;
