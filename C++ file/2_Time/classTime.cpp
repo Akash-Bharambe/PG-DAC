@@ -20,12 +20,22 @@ void Timee::displayTime()
 }
 void Timee::acceptTime()
 {
-    cout << "Enter Hours: ";
-    cin >> this->hours;
-    cout << "Enter Minutes: ";
-    cin >> this->minutes;
-    cout << "Enter Seconds: ";
-    cin >> this->seconds;
+    do
+    {
+        cout << "Enter Hours: ";
+        cin >> this->hours;
+    } while (this->hours > 24 || this->hours < 0);
+    do
+    {
+        cout << "Enter Minutes: ";
+        cin >> this->minutes;
+    } while (this->minutes > 60 || this->minutes < 0);
+
+    do
+    {
+        cout << "Enter Seconds: ";
+        cin >> this->seconds;
+    } while (this->seconds > 60 || this->seconds < 0);
 }
 int Timee::getHours()
 {
@@ -41,29 +51,24 @@ int Timee::getSeconds()
 }
 int Timee::compareTime(Timee another)
 {
-    if (this->hours > another.getHours())
-        return 1;
+    if (this->hours != another.getHours())
+        return this->hours - another.getHours();
+    else if (this->minutes != another.getMinutes())
+        return this->minutes - another.getMinutes();
     else
-        return -1;
-    
-    if (this->minutes > another.getMinutes())
-        return 1;
-    else
-        return -1;
-    
-    if (this->seconds > another.getSeconds())
-        return 1;
-    else
-        return -1;
-    
-    return 0;
-    
+        return this->seconds - another.getSeconds();
 }
-void diffTime(Timee t1, Timee t2){
-    if (t1.compareTime(t2) == 1)
-        cout<<"Difference: "<<t1.getHours()-t2.getHours()<<":"<<t1.getMinutes()-t2.getMinutes()<<":"<<t1.getSeconds()-t2.getSeconds()<<endl;
-    else if (t1.compareTime(t2) == -1)
-        cout<<"Difference: "<<t2.getHours()-t1.getHours()<<":"<<t2.getMinutes()-t1.getMinutes()<<":"<<t2.getSeconds()-t1.getSeconds()<<endl;
-    else
-        cout<<"Time is SAME"<<endl;
+void diffTime(Timee t1, Timee t2)
+{
+    int diffHours = t1.getHours() - t2.getHours();
+    int diffMinutes = t1.getMinutes() - t2.getMinutes();
+    int diffSeconds = t1.getSeconds() - t2.getSeconds();
+
+    if (diffHours < 0 || diffMinutes < 0 || diffSeconds < 0)
+    {
+        diffHours = abs(diffHours);
+        diffMinutes = abs(diffMinutes);
+        diffSeconds = abs(diffSeconds);
+    }
+    cout << "Difference: " << diffHours << ":" << diffMinutes << ":" << diffSeconds << endl;
 }

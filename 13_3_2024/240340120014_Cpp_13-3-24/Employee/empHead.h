@@ -13,10 +13,6 @@ public:
     Employee();
     Employee(int, string, unsigned int);
     static int getCount();
-    static void removeEmployee();
     void acceptData();
     void displayData();
-    ~Employee();
 };
-
-int menuList();

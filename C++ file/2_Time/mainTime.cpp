@@ -3,6 +3,9 @@
 using namespace std;
 
 int main(){
-    Timee t1(11,9,45),t2(10,0,0);
+    Timee t1,t2;
+    t1.acceptTime();
+    t2.acceptTime();
+
     diffTime(t1,t2);
 }
