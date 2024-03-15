@@ -18,7 +18,7 @@ void Complex::acceptData()
 void Complex::displayData() const
 {
     char ch = (this->imag >= 0) ? '+' : '-';
-    cout << real << " " << ch << " i" << abs(imag);
+    cout << real << " " << ch << " i" << abs(imag)<<endl;
 }
 
 Complex Complex::operator+(const Complex &that) const
