@@ -17,16 +17,28 @@ public:
     Array();
     Array(int size);
     Array(const Array &that);
-    void display() const;
     int &operator[](int);
     void operator!();
-    istream& operator>>(int);
+    friend istream &operator>>(istream &, Array &);
+    friend ostream &operator<<(ostream &, const Array &);
     ~Array();
 };
 // cin>>arr[i]
-istream& Array::operator>>(int)
+istream &operator>>(istream &is, Array &a)
 {
-    return arr[];
+    for (int i = 0; i < a.size; i++)
+    {
+        cout << "Enter element at index " << i << ": ";
+        is >> a.arr[i];
+    }
+    return is;
+}
+
+ostream &operator<<(ostream &os, const Array &a)
+{
+    for (int i = 0; i < a.size; i++)
+        os << a.arr[i] << " ";
+    return os;
 }
 
 int &Array::operator[](int i)
@@ -49,7 +61,7 @@ Array::Array()
     this->size = 5;
     this->arr = new int[this->size];
     for (int i = 0; i < this->size; i++)
-        arr[i] = i;
+        arr[i] = 0;
 }
 
 Array::Array(int size)
@@ -57,7 +69,7 @@ Array::Array(int size)
     this->size = size;
     this->arr = new int[this->size];
     for (int i = 0; i < this->size; i++)
-        arr[i] = i;
+        arr[i] = 0;
 }
 
 Array::Array(const Array &that)
@@ -68,13 +80,6 @@ Array::Array(const Array &that)
         this->arr[i] = that.arr[i];
 }
 
-void Array::display() const
-{
-    for (int i = 0; i < this->size; i++)
-        cout << arr[i] << " ";
-    cout << endl;
-}
-
 Array::~Array()
 {
     delete[] arr;
@@ -82,11 +87,9 @@ Array::~Array()
 
 int main()
 {
-    Array a(10);
-    !a;
-    a.display();
-    a[1] = 5;
-    a.display();
+    Array a;
+    cin >> a;
+    cout << a;
 
     return 0;
 }
