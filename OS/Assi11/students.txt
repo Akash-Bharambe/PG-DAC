@@ -1,0 +1,4 @@
+RollNo: Name: Marks_Hindi: Marks_Maths: Marks_Physics
+14: Akash: 91: 91: 85
+4: Abhijeet: 90: 80: 85
+56: Chinmay: 90: 91: 92

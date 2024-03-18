@@ -1,4 +1,0 @@
-sr.no : name : rollno : marks
-1 : Akash : 14 : 9.8
-2 : Abhijeet : 4 : 10
-3 : Chinmay : 56 : 10
