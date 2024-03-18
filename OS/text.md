@@ -1,4 +1,4 @@
-# Day 1
+## Day 1
 
 - Shell Files Extension is .sh
 
@@ -100,8 +100,9 @@ student@dac-Veriton-M200-H310:~/Downloads/OS$ bash ./01_script.sh
 Hello World!
 ```
 
-- Can work without giving permission by using bash command
-  **Comments**
+- Can work without giving permission by using bash command.
+
+### Comments
 
 ```sh
 #!/bin/bash
@@ -117,7 +118,7 @@ Multi_Line_Comment
 - Single Line Comment Starts with `#`
 - Multi Line Comment Starts with `<<` followed by a name to that comment, when the comment ends same name has to be typed again to specify end of comment
 
-**Variables**
+### Variables
 
 ```sh
 #!/bin/bash
@@ -186,7 +187,7 @@ Password 1234
 sonu@Akash:/mnt/d/Study/PG-DAC/PG-DAC/OS$
 ```
 
-**Mathematical Operations:**
+### Mathematical Operations
 
 ```sh
 #!/bin/bash
@@ -238,7 +239,7 @@ echo "sum: $c"
 | **-gt**          | Greater than                      |
 | **-lt**          | Less than                         |
 
-**If Else:**
+### If Else
 
 ```sh
 #!/bin/bash
@@ -259,7 +260,7 @@ fi
 - `fi` means `if` statement ends here.
 - Indents are not Compulsary but Spaces are.
 
-**For Loop:**
+### For Loop
 
 ```sh
 #!/bin/bash
@@ -367,6 +368,8 @@ Saturday
 | %:::z     | numeric time zone with : to necessary precision (e.g., -04, +05:30) |
 | %Z        | alphabetic time zone abbreviation (e.g., EDT)                       |
 
+## Day 2
+
 **grep command**
 
 The `grep` command in Unix/Linux is a powerful tool used for searching and manipulating text patterns within files.
@@ -408,7 +411,7 @@ student@dac-Veriton-M200-H310:~/Downloads/OS$ grep Akash test_awk.txt
 1 Akash 14
 ```
 
-**Accessing Data From Files**
+### Accessing Data From Files
 
 **awk command**
 
@@ -516,7 +519,7 @@ student@dac-Veriton-M200-H310:~/Downloads/OS$ awk 'NR==4 {print $1, $2}' test_aw
 3 Chinmay
 ```
 
-## String Manipulation
+### String Manipulation
 
 ```sh
 #!/bin/bash
@@ -550,7 +553,7 @@ student@dac-Veriton-M200-H310:~/Downloads/OS$ rev <<< Akash
 hsakA
 ```
 
-## Functions
+### Functions
 
 ```sh
 #!/bin/bash
