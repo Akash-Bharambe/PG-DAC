@@ -618,3 +618,38 @@ add 10 20
 student@dac-Veriton-M200-H310:~/Downloads/OS$ /bin/bash "/home/student/Downloads/OS/function.sh"
 sum: 30
 ```
+
+- `>`: Redirect Operator redirects/ overwrites data of a command, stdin, stdout, stderr in apecified file
+
+```bash
+student@dac-Veriton-M200-H310:~/Downloads/OS/new$ ls > log.txt
+student@dac-Veriton-M200-H310:~/Downloads/OS/new$ cat log.txt 
+another.txt
+log.txt
+```
+
+- 0 for `stdin`
+- 1 for `stdout`
+- 2 for `stderr`
+
+```bash
+student@dac-Veriton-M200-H310:~/Downloads/OS/new$ grep "for" another 2> log.txt 
+student@dac-Veriton-M200-H310:~/Downloads/OS/new$ cat log.txt 
+grep: another: No such file or directory
+```
+
+- `>>`: Append Operator appends data after existing data
+
+```bash
+student@dac-Veriton-M200-H310:~/Downloads/OS/new$ ls >> log.txt 
+student@dac-Veriton-M200-H310:~/Downloads/OS/new$ cat log.txt 
+another.txt
+log.txt
+another.txt
+log.txt
+```
+
+```bash
+student@dac-Veriton-M200-H310:~/Downloads/OS$ grep "^1 :" students.txt 
+1 : Akash : 14 : 9.8
+```
