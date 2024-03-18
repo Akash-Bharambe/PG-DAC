@@ -180,10 +180,10 @@ echo "Password $psd"
 ```
 
 ```bash
-sonu@Akash:/mnt/d/Study/PG-DAC/PG-DAC/OS$ bash 04_readingVariables.sh 
-Enter Password: 
+sonu@Akash:/mnt/d/Study/PG-DAC/PG-DAC/OS$ bash 04_readingVariables.sh
+Enter Password:
 Password 1234
-sonu@Akash:/mnt/d/Study/PG-DAC/PG-DAC/OS$ 
+sonu@Akash:/mnt/d/Study/PG-DAC/PG-DAC/OS$
 ```
 
 **Mathematical Operations:**
@@ -318,99 +318,54 @@ Saturday
 - `date +%u` displays Day of week in integer
 - `date +%A` displays Day of Week
 
-```
-%%     a literal %
-
-       %a     locale's abbreviated weekday name (e.g., Sun)
-
-       %A     locale's full weekday name (e.g., Sunday)
-
-       %b     locale's abbreviated month name (e.g., Jan)
-
-       %B     locale's full month name (e.g., January)
-
-       %c     locale's date and time (e.g., Thu Mar  3 23:05:25 2005)
-
-       %C     century; like %Y, except omit last two digits (e.g., 20)
-
-       %d     day of month (e.g., 01)
-
-       %D     date; same as %m/%d/%y
-
-       %e     day of month, space padded; same as %_d
-
-       %F     full date; like %+4Y-%m-%d
-
-       %g     last two digits of year of ISO week number (see %G)
-
-       %G     year of ISO week number (see %V); normally useful only with %V
-
-       %h     same as %b
-
-       %H     hour (00..23)
-
-       %I     hour (01..12)
-
-       %j     day of year (001..366)
-
-       %k     hour, space padded ( 0..23); same as %_H
-
-       %l     hour, space padded ( 1..12); same as %_I
-
-       %m     month (01..12)
-
-       %M     minute (00..59)
-
-       %n     a newline
-
-       %N     nanoseconds (000000000..999999999)
-
-       %p     locale's equivalent of either AM or PM; blank if not known
-
-       %P     like %p, but lower case
-
-       %q     quarter of year (1..4)
-
-       %r     locale's 12-hour clock time (e.g., 11:11:04 PM)
-
-       %R     24-hour hour and minute; same as %H:%M
-
-       %s     seconds since 1970-01-01 00:00:00 UTC
-
-       %S     second (00..60)
-
-       %t     a tab
-
-       %T     time; same as %H:%M:%S
-
-       %u     day of week (1..7); 1 is Monday
-
-       %U     week number of year, with Sunday as first day of week (00..53)
-
-       %V     ISO week number, with Monday as first day of week (01..53)
-
-       %w     day of week (0..6); 0 is Sunday
-
-       %W     week number of year, with Monday as first day of week (00..53)
-
-       %x     locale's date representation (e.g., 12/31/99)
-
-       %X     locale's time representation (e.g., 23:13:48)
-
-       %y     last two digits of year (00..99)
-
-       %Y     year
-
-       %z     +hhmm numeric time zone (e.g., -0400)
-
-       %:z    +hh:mm numeric time zone (e.g., -04:00)
-
-       %::z   +hh:mm:ss numeric time zone (e.g., -04:00:00)
-
-       %:::z  numeric time zone with : to necessary precision (e.g., -04, +05:30)
-
-       %Z     alphabetic time zone abbreviation (e.g., EDT)
-```
+| Directive | Description                                                         |
+| --------- | ------------------------------------------------------------------- |
+| %%        | a literal %                                                         |
+| %a        | locale's abbreviated weekday name (e.g., Sun)                       |
+| %A        | locale's full weekday name (e.g., Sunday)                           |
+| %b        | locale's abbreviated month name (e.g., Jan)                         |
+| %B        | locale's full month name (e.g., January)                            |
+| %c        | locale's date and time (e.g., Thu Mar 3 23:05:25 2005)              |
+| %C        | century; like %Y, except omit last two digits (e.g., 20)            |
+| %d        | day of month (e.g., 01)                                             |
+| %D        | date; same as %m/%d/%y                                              |
+| %e        | day of month, space padded; same as %\_d                            |
+| %F        | full date; like %+4Y-%m-%d                                          |
+| %g        | last two digits of year of ISO week number (see %G)                 |
+| %G        | year of ISO week number (see %V); normally useful only with %V      |
+| %h        | same as %b                                                          |
+| %H        | hour (00..23)                                                       |
+| %I        | hour (01..12)                                                       |
+| %j        | day of year (001..366)                                              |
+| %k        | hour, space padded ( 0..23); same as %\_H                           |
+| %l        | hour, space padded ( 1..12); same as %\_I                           |
+| %m        | month (01..12)                                                      |
+| %M        | minute (00..59)                                                     |
+| %n        | a newline                                                           |
+| %N        | nanoseconds (000000000..999999999)                                  |
+| %p        | locale's equivalent of either AM or PM; blank if not known          |
+| %P        | like %p, but lower case                                             |
+| %q        | quarter of year (1..4)                                              |
+| %r        | locale's 12-hour clock time (e.g., 11:11:04 PM)                     |
+| %R        | 24-hour hour and minute; same as %H:%M                              |
+| %s        | seconds since 1970-01-01 00:00:00 UTC                               |
+| %S        | second (00..60)                                                     |
+| %t        | a tab                                                               |
+| %T        | time; same as %H:%M:%S                                              |
+| %u        | day of week (1..7); 1 is Monday                                     |
+| %U        | week number of year, with Sunday as first day of week (00..53)      |
+| %V        | ISO week number, with Monday as first day of week (01..53)          |
+| %w        | day of week (0..6); 0 is Sunday                                     |
+| %W        | week number of year, with Monday as first day of week (00..53)      |
+| %x        | locale's date representation (e.g., 12/31/99)                       |
+| %X        | locale's time representation (e.g., 23:13:48)                       |
+| %y        | last two digits of year (00..99)                                    |
+| %Y        | year                                                                |
+| %z        | +hhmm numeric time zone (e.g., -0400)                               |
+| %:z       | +hh:mm numeric time zone (e.g., -04:00)                             |
+| %::z      | +hh:mm:ss numeric time zone (e.g., -04:00:00)                       |
+| %:::z     | numeric time zone with : to necessary precision (e.g., -04, +05:30) |
+| %Z        | alphabetic time zone abbreviation (e.g., EDT)                       |
 
 **grep command**
 
@@ -549,15 +504,15 @@ student@dac-Veriton-M200-H310:~/Downloads/OS$ ls -l | awk '{print $5, $9}' | sor
 ```
 
 ```bash
-student@dac-Veriton-M200-H310:~/Downloads/OS$ awk 'NR==1 {print $0}' test_awk.txt 
+student@dac-Veriton-M200-H310:~/Downloads/OS$ awk 'NR==1 {print $0}' test_awk.txt
 sr.no name marks
-student@dac-Veriton-M200-H310:~/Downloads/OS$ awk 'NR==2 {print $0}' test_awk.txt 
+student@dac-Veriton-M200-H310:~/Downloads/OS$ awk 'NR==2 {print $0}' test_awk.txt
 1 Akash 14
-student@dac-Veriton-M200-H310:~/Downloads/OS$ awk 'NR==3 {print $0}' test_awk.txt 
+student@dac-Veriton-M200-H310:~/Downloads/OS$ awk 'NR==3 {print $0}' test_awk.txt
 2 Abhijeet 4
-student@dac-Veriton-M200-H310:~/Downloads/OS$ awk 'NR==4 {print $0}' test_awk.txt 
+student@dac-Veriton-M200-H310:~/Downloads/OS$ awk 'NR==4 {print $0}' test_awk.txt
 3 Chinmay 56
-student@dac-Veriton-M200-H310:~/Downloads/OS$ awk 'NR==4 {print $1, $2}' test_awk.txt 
+student@dac-Veriton-M200-H310:~/Downloads/OS$ awk 'NR==4 {print $1, $2}' test_awk.txt
 3 Chinmay
 ```
 
@@ -636,7 +591,7 @@ sum: 30
 
 ```bash
 student@dac-Veriton-M200-H310:~/Downloads/OS/new$ ls > log.txt
-student@dac-Veriton-M200-H310:~/Downloads/OS/new$ cat log.txt 
+student@dac-Veriton-M200-H310:~/Downloads/OS/new$ cat log.txt
 another.txt
 log.txt
 ```
@@ -646,16 +601,16 @@ log.txt
 - 2 for `stderr`
 
 ```bash
-student@dac-Veriton-M200-H310:~/Downloads/OS/new$ grep "for" another 2> log.txt 
-student@dac-Veriton-M200-H310:~/Downloads/OS/new$ cat log.txt 
+student@dac-Veriton-M200-H310:~/Downloads/OS/new$ grep "for" another 2> log.txt
+student@dac-Veriton-M200-H310:~/Downloads/OS/new$ cat log.txt
 grep: another: No such file or directory
 ```
 
 - `>>`: Append Operator appends data after existing data
 
 ```bash
-student@dac-Veriton-M200-H310:~/Downloads/OS/new$ ls >> log.txt 
-student@dac-Veriton-M200-H310:~/Downloads/OS/new$ cat log.txt 
+student@dac-Veriton-M200-H310:~/Downloads/OS/new$ ls >> log.txt
+student@dac-Veriton-M200-H310:~/Downloads/OS/new$ cat log.txt
 another.txt
 log.txt
 another.txt
@@ -663,6 +618,6 @@ log.txt
 ```
 
 ```bash
-student@dac-Veriton-M200-H310:~/Downloads/OS$ grep "^1 :" students.txt 
+student@dac-Veriton-M200-H310:~/Downloads/OS$ grep "^1 :" students.txt
 1 : Akash : 14 : 9.8
 ```
