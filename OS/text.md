@@ -133,7 +133,7 @@ echo "Hello $a"
 - While using the variable `$` should be used before variable to use its value
 - Shell scripting is weakly typed language hence no data type is there in this language.
 
-**Taking Input from user: **
+**Taking Input from user**
 
 ```sh
 #!/bin/bash
@@ -165,12 +165,25 @@ echo "Age: $age"
 
 ```bash
 student@dac-Veriton-M200-H310:~/Downloads/OS$ bash ./04_script.sh
-Enter Your Name:
-Akash
-Hello Akash
+
 Enter your Age: 21
 Age: 21
 student@dac-Veriton-M200-H310:~/Downloads/OS$
+```
+
+```sh
+#!/bin/bash
+
+read -sp "Enter Password: " psd
+echo
+echo "Password $psd"
+```
+
+```bash
+sonu@Akash:/mnt/d/Study/PG-DAC/PG-DAC/OS$ bash 04_readingVariables.sh 
+Enter Password: 
+Password 1234
+sonu@Akash:/mnt/d/Study/PG-DAC/PG-DAC/OS$ 
 ```
 
 **Mathematical Operations:**

@@ -6,3 +6,6 @@ echo "Hello $a"
 
 read -p "Enter your Age: " age
 echo "Age: $age"
+read -sp "Enter Password: " psd
+echo
+echo "Password $psd"
