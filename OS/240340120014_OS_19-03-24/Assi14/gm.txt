@@ -1,0 +1,4 @@
+1122:j.b. saxena :g.m. :accountss :12/12/52:6000
+2233:n.k. gupta :d.g.m :sales :31/12/40:9000
+1265:chanchal singhvi:g.m. :admin :12/09/63:6000
+7733:jayant :d.g.m :sales :29/02/70:6000

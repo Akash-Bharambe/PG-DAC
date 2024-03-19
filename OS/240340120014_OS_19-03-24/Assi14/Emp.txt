@@ -1,8 +1,0 @@
-1122|j.b. saxena |g.m. |account |12/12/52|6000
-2233|n.k. gupta |d.g.m |sales |31/12/40|9000
-4545|anil agarwal |director |account |06/07/47|7500
-5656|lalit choudhury |executive|marketing|07/09/50|5000
-1265|chanchal singhvi|g.m. |admin |12/09/63|6000
-0110|shyam saksena |chairman |marketing|12/12/43|8000
-5566|jai sharma |director |account |23/12/89|7000
-7733|jayant |d.g.m |sales |29/02/70|6000
