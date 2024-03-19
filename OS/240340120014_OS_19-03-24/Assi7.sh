@@ -4,7 +4,6 @@
 
 read -p "Enter Roll No: " rollno
 
-search=$(grep -e $rollno students.txt)
-
-echo $search
+if [ grep -e $rollno students.txt ]; then
+    
 

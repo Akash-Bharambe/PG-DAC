@@ -1,4 +1,0 @@
-sr.no name marks
-1 Akash 14
-2 Abhijeet 4
-3 Chinmay 56

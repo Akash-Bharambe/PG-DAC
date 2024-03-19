@@ -1,4 +1,4 @@
-## Day 1
+# Day 1
 
 - Shell Files Extension is .sh
 
@@ -100,9 +100,8 @@ student@dac-Veriton-M200-H310:~/Downloads/OS$ bash ./01_script.sh
 Hello World!
 ```
 
-- Can work without giving permission by using bash command.
-
-### Comments
+- Can work without giving permission by using bash command
+  **Comments**
 
 ```sh
 #!/bin/bash
@@ -118,7 +117,7 @@ Multi_Line_Comment
 - Single Line Comment Starts with `#`
 - Multi Line Comment Starts with `<<` followed by a name to that comment, when the comment ends same name has to be typed again to specify end of comment
 
-### Variables
+**Variables**
 
 ```sh
 #!/bin/bash
@@ -134,7 +133,7 @@ echo "Hello $a"
 - While using the variable `$` should be used before variable to use its value
 - Shell scripting is weakly typed language hence no data type is there in this language.
 
-**Taking Input from user**
+**Taking Input from user: **
 
 ```sh
 #!/bin/bash
@@ -166,28 +165,15 @@ echo "Age: $age"
 
 ```bash
 student@dac-Veriton-M200-H310:~/Downloads/OS$ bash ./04_script.sh
-
+Enter Your Name:
+Akash
+Hello Akash
 Enter your Age: 21
 Age: 21
 student@dac-Veriton-M200-H310:~/Downloads/OS$
 ```
 
-```sh
-#!/bin/bash
-
-read -sp "Enter Password: " psd
-echo
-echo "Password $psd"
-```
-
-```bash
-sonu@Akash:/mnt/d/Study/PG-DAC/PG-DAC/OS$ bash 04_readingVariables.sh
-Enter Password:
-Password 1234
-sonu@Akash:/mnt/d/Study/PG-DAC/PG-DAC/OS$
-```
-
-### Mathematical Operations
+**Mathematical Operations:**
 
 ```sh
 #!/bin/bash
@@ -239,7 +225,7 @@ echo "sum: $c"
 | **-gt**          | Greater than                      |
 | **-lt**          | Less than                         |
 
-### If Else
+**If Else:**
 
 ```sh
 #!/bin/bash
@@ -260,7 +246,7 @@ fi
 - `fi` means `if` statement ends here.
 - Indents are not Compulsary but Spaces are.
 
-### For Loop
+**For Loop:**
 
 ```sh
 #!/bin/bash
@@ -319,56 +305,99 @@ Saturday
 - `date +%u` displays Day of week in integer
 - `date +%A` displays Day of Week
 
-| Directive | Description                                                         |
-| --------- | ------------------------------------------------------------------- |
-| %%        | a literal %                                                         |
-| %a        | locale's abbreviated weekday name (e.g., Sun)                       |
-| %A        | locale's full weekday name (e.g., Sunday)                           |
-| %b        | locale's abbreviated month name (e.g., Jan)                         |
-| %B        | locale's full month name (e.g., January)                            |
-| %c        | locale's date and time (e.g., Thu Mar 3 23:05:25 2005)              |
-| %C        | century; like %Y, except omit last two digits (e.g., 20)            |
-| %d        | day of month (e.g., 01)                                             |
-| %D        | date; same as %m/%d/%y                                              |
-| %e        | day of month, space padded; same as %\_d                            |
-| %F        | full date; like %+4Y-%m-%d                                          |
-| %g        | last two digits of year of ISO week number (see %G)                 |
-| %G        | year of ISO week number (see %V); normally useful only with %V      |
-| %h        | same as %b                                                          |
-| %H        | hour (00..23)                                                       |
-| %I        | hour (01..12)                                                       |
-| %j        | day of year (001..366)                                              |
-| %k        | hour, space padded ( 0..23); same as %\_H                           |
-| %l        | hour, space padded ( 1..12); same as %\_I                           |
-| %m        | month (01..12)                                                      |
-| %M        | minute (00..59)                                                     |
-| %n        | a newline                                                           |
-| %N        | nanoseconds (000000000..999999999)                                  |
-| %p        | locale's equivalent of either AM or PM; blank if not known          |
-| %P        | like %p, but lower case                                             |
-| %q        | quarter of year (1..4)                                              |
-| %r        | locale's 12-hour clock time (e.g., 11:11:04 PM)                     |
-| %R        | 24-hour hour and minute; same as %H:%M                              |
-| %s        | seconds since 1970-01-01 00:00:00 UTC                               |
-| %S        | second (00..60)                                                     |
-| %t        | a tab                                                               |
-| %T        | time; same as %H:%M:%S                                              |
-| %u        | day of week (1..7); 1 is Monday                                     |
-| %U        | week number of year, with Sunday as first day of week (00..53)      |
-| %V        | ISO week number, with Monday as first day of week (01..53)          |
-| %w        | day of week (0..6); 0 is Sunday                                     |
-| %W        | week number of year, with Monday as first day of week (00..53)      |
-| %x        | locale's date representation (e.g., 12/31/99)                       |
-| %X        | locale's time representation (e.g., 23:13:48)                       |
-| %y        | last two digits of year (00..99)                                    |
-| %Y        | year                                                                |
-| %z        | +hhmm numeric time zone (e.g., -0400)                               |
-| %:z       | +hh:mm numeric time zone (e.g., -04:00)                             |
-| %::z      | +hh:mm:ss numeric time zone (e.g., -04:00:00)                       |
-| %:::z     | numeric time zone with : to necessary precision (e.g., -04, +05:30) |
-| %Z        | alphabetic time zone abbreviation (e.g., EDT)                       |
+```
+%%     a literal %
 
-## Day 2
+       %a     locale's abbreviated weekday name (e.g., Sun)
+
+       %A     locale's full weekday name (e.g., Sunday)
+
+       %b     locale's abbreviated month name (e.g., Jan)
+
+       %B     locale's full month name (e.g., January)
+
+       %c     locale's date and time (e.g., Thu Mar  3 23:05:25 2005)
+
+       %C     century; like %Y, except omit last two digits (e.g., 20)
+
+       %d     day of month (e.g., 01)
+
+       %D     date; same as %m/%d/%y
+
+       %e     day of month, space padded; same as %_d
+
+       %F     full date; like %+4Y-%m-%d
+
+       %g     last two digits of year of ISO week number (see %G)
+
+       %G     year of ISO week number (see %V); normally useful only with %V
+
+       %h     same as %b
+
+       %H     hour (00..23)
+
+       %I     hour (01..12)
+
+       %j     day of year (001..366)
+
+       %k     hour, space padded ( 0..23); same as %_H
+
+       %l     hour, space padded ( 1..12); same as %_I
+
+       %m     month (01..12)
+
+       %M     minute (00..59)
+
+       %n     a newline
+
+       %N     nanoseconds (000000000..999999999)
+
+       %p     locale's equivalent of either AM or PM; blank if not known
+
+       %P     like %p, but lower case
+
+       %q     quarter of year (1..4)
+
+       %r     locale's 12-hour clock time (e.g., 11:11:04 PM)
+
+       %R     24-hour hour and minute; same as %H:%M
+
+       %s     seconds since 1970-01-01 00:00:00 UTC
+
+       %S     second (00..60)
+
+       %t     a tab
+
+       %T     time; same as %H:%M:%S
+
+       %u     day of week (1..7); 1 is Monday
+
+       %U     week number of year, with Sunday as first day of week (00..53)
+
+       %V     ISO week number, with Monday as first day of week (01..53)
+
+       %w     day of week (0..6); 0 is Sunday
+
+       %W     week number of year, with Monday as first day of week (00..53)
+
+       %x     locale's date representation (e.g., 12/31/99)
+
+       %X     locale's time representation (e.g., 23:13:48)
+
+       %y     last two digits of year (00..99)
+
+       %Y     year
+
+       %z     +hhmm numeric time zone (e.g., -0400)
+
+       %:z    +hh:mm numeric time zone (e.g., -04:00)
+
+       %::z   +hh:mm:ss numeric time zone (e.g., -04:00:00)
+
+       %:::z  numeric time zone with : to necessary precision (e.g., -04, +05:30)
+
+       %Z     alphabetic time zone abbreviation (e.g., EDT)
+```
 
 **grep command**
 
@@ -411,7 +440,7 @@ student@dac-Veriton-M200-H310:~/Downloads/OS$ grep Akash test_awk.txt
 1 Akash 14
 ```
 
-### Accessing Data From Files
+**Accessing Data From Files**
 
 **awk command**
 
@@ -519,7 +548,7 @@ student@dac-Veriton-M200-H310:~/Downloads/OS$ awk 'NR==4 {print $1, $2}' test_aw
 3 Chinmay
 ```
 
-### String Manipulation
+## String Manipulation
 
 ```sh
 #!/bin/bash
@@ -553,7 +582,7 @@ student@dac-Veriton-M200-H310:~/Downloads/OS$ rev <<< Akash
 hsakA
 ```
 
-### Functions
+## Functions
 
 ```sh
 #!/bin/bash
@@ -620,7 +649,242 @@ another.txt
 log.txt
 ```
 
+- `<`: Standard Input Operator. Used to provide input to something
+
+```sh
+#!/bin/bash
+
+read -p "Enter File Name: " filename
+
+while read line
+do
+    echo "$line"
+done < $filename
+```
+
+- Above code while read whole file and print every line.
+
 ```bash
 student@dac-Veriton-M200-H310:~/Downloads/OS$ grep "^1 :" students.txt
 1 : Akash : 14 : 9.8
 ```
+
+# Day 3
+
+## Array
+
+```sh
+#!/bin/bash
+
+myarray=(a 2 hello "Hello All") # Declare Array
+
+echo "${myarray[0]}" # Print 1st element of Array
+echo "${myarray[*]}" # Print all args of Array
+
+echo "Length: ${#myarray[*]}" # Length of Array
+
+echo "${myarray[*]:1}" # Print array after position 1
+echo "${myarray[*]:1:2}" # Print array after position 1 after that 2 elements
+
+myarray+=(5 4 array) # Add elements to existing array
+echo "${myarray[*]}"
+```
+
+```bash
+student@dac-Veriton-M200-H310:~/Downloads/OS$ /bin/bash "/home/student/Downloads/OS/10_Array.sh"
+a
+a 2 hello Hello All
+Length: 4
+2 hello Hello All
+2 hello
+a 2 hello Hello All 5 4 array
+```
+
+## Command Line Arguments
+
+```sh
+#!/bin/bash
+
+echo "Number of args: $#"
+echo "Script Name: $0"
+echo "1st Argument: $1"
+echo "2nd Argument: $2"
+echo "Argument Passed: $@" # $@ and $* works same
+echo "Argument Passed: $*"
+
+#bash 11_CommandLineArgs.sh  hello world hiiiii
+```
+
+- Output:
+
+```bash
+student@dac-Veriton-M200-H310:~/Downloads/OS$ bash 11_CommandLineArgs.sh  hello world five
+Number of args: 3
+Script Name: 11_CommandLineArgs.sh
+1st Argument: hello
+2nd Argument: world
+Argument Passed: hello world five
+Argument Passed: hello world five
+```
+
+## Reading a File
+
+```sh
+#!/bin/bash
+
+read -p "Enter File Name: " filename
+
+while read line
+do
+    echo "$line"
+done < $filename
+
+c=$(cat $filename | wc -c) # wc -c counts number of characters in the file
+w=$(cat $filename | wc -w) # wc -w counts number of words in the file
+
+echo "No of Words: $w"
+echo "No of Characters: $c"
+```
+
+- Output:
+
+```bash
+student@dac-Veriton-M200-H310:~/Downloads/OS$ /bin/bash "/home/student/Downloads/OS/12_file.sh"
+Enter File Name: 10_Array.sh
+#!/bin/bash
+
+myarray=(a 2 hello "Hello All") # Declare Array
+
+echo "${myarray[0]}" # Print 1st element of Array
+echo "${myarray[*]}" # Print all args of Array
+
+echo "Length: ${#myarray[*]}" # Length of Array
+
+echo "${myarray[*]:1}" # Print array after position 1
+echo "${myarray[*]:1:2}" # Print array after position 1 after that 2 elements
+
+myarray+=(5 4 array) # Add elements to existing array
+echo "${myarray[*]}"
+No of Words: 64
+No of Characters: 445
+```
+
+## File Test Operators
+
+- -b file : block files [ `-b $file` ]
+- -e file : file exists [ `-e $file` ]
+- -f file : Ordinary file [ `-f $file` ]
+- -d : directory [ `-d $file` ]
+
+## `sed` command
+
+- Allows to edit data in a file
+
+- **display data in file**
+
+```bash
+student@dac-Veriton-M200-H310:~/Downloads/OS$ cat students_copy.txt
+sr.no : name : rollno : marks
+1 : Akash : 14 : 9.8
+2 : Abhijeet : 4 : 10
+3 : Chinmay : 56 : 10student@dac-Veriton-M200-H310:~/Downloads/OS$ sed -n '3p' students_copy.txt
+2 : Abhijeet : 4 : 10
+```
+
+- **display last line**
+
+```bash
+tudent@dac-Veriton-M200-H310:~/Downloads/OS$ sed -n '$p' students_copy.txt
+3 : Chinmay : 56 : 10
+```
+
+- **Display range of lines**
+
+- Below code prints from line 2 to 4
+
+```bash
+student@dac-Veriton-M200-H310:~/Downloads/OS$ sed -n '2, 4p' students_copy.txt
+1 : Akash : 14 : 9.8
+2 : Abhijeet : 4 : 10
+3 : Chinmay : 56 : 10
+```
+
+- Below code prints from line 2 till 2 more lines
+
+```bash
+student@dac-Veriton-M200-H310:~/Downloads/OS$ sed -n '2, +2p' students_copy.txt
+1 : Akash : 14 : 9.8
+2 : Abhijeet : 4 : 10
+3 : Chinmay : 56 : 10
+```
+
+- **Search word in a file**
+
+```bash
+student@dac-Veriton-M200-H310:~/Downloads/OS$ sed -n '/Akash/p' students_copy.txt
+1 : Akash : 14 : 9.8
+```
+
+- **Search multiple words in a file**
+
+```bash
+student@dac-Veriton-M200-H310:~/Downloads/OS$ sed -n -e '/Akash/p' -e '/56/p' students_copy.txt
+1 : Akash : 14 : 9.8
+3 : Chinmay : 56 : 10
+```
+
+- `-e` : Expression
+
+- **Modifying Data**
+
+- Below only prints data do not modify it.
+- Akash is changed to Bharambe.
+- s: Substitute
+
+```bash
+student@dac-Veriton-M200-H310:~/Downloads/OS$ sed 's/Akash/Bharambe/p' students_copy.txt
+sr.no : name : rollno : marks
+1 : Bharambe : 14 : 9.8
+1 : Bharambe : 14 : 9.8
+2 : Abhijeet : 4 : 10
+3 : Chinmay : 56 : 10
+```
+
+- Below code modifies data into the file
+
+- File Before
+
+```
+sr.no : name : rollno : marks
+1 : Akash : 14 : 9.8
+2 : Abhijeet : 4 : 10
+3 : Chinmay : 56 : 10
+```
+
+```bash
+student@dac-Veriton-M200-H310:~/Downloads/OS$ sed -i 's/Akash/Bharambe/g' students_copy.txt
+student@dac-Veriton-M200-H310:~/Downloads/OS$ cat students_copy.txt 
+sr.no : name : rollno : marks
+1 : Bharambe : 14 : 9.8
+2 : Abhijeet : 4 : 5
+3 : Chinmay : 56 : 8
+```
+
+```bash
+student@dac-Veriton-M200-H310:~/Downloads/OS$ sed -i '1, 3 s/:/|/g' students_copy.txt 
+student@dac-Veriton-M200-H310:~/Downloads/OS$ cat students_copy.txt 
+sr.no | name | rollno | marks
+1 | Bharambe | 14 | 9.8
+2 | Abhijeet | 4 | 5
+3 : Chinmay : 56 : 8
+```
+
+### Inserting Data in file
+
+```bash
+student@dac-Veriton-M200-H310:~/Downloads/OS$ sed -i '2 i\0 : Akash : 5 : 9.8' students_copy.txt
+```
+
+- insert data `0 : Akash : 5 : 9.8` at 2nd line and shift everything else down.
+
+- To delete data d is used
