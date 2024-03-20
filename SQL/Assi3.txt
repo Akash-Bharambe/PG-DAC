@@ -1,0 +1,83 @@
+mysql> create database college;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use college;
+Database changed
+
+mysql> create table student ( roll int ,name varchar (20),class varchar(10),marks int,age int );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into student value(1,"abhijeet","PG-DAC",95,21)
+    -> ,(2,"akash","PGDESD",99,21),(3,"chinmay","PGVLSI",98,21),(4,"lokesh","PGDAI",100,25),(5,"sohan","PGIOT",99,21);
+Query OK, 5 rows affected (0.00 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------+----------+--------+-------+------+
+| roll | name     | class  | marks | age  |
++------+----------+--------+-------+------+
+|    1 | abhijeet | PG-DAC |    95 |   21 |
+|    2 | akash    | PGDESD |    99 |   21 |
+|    3 | chinmay  | PGVLSI |    98 |   21 |
+|    4 | lokesh   | PGDAI  |   100 |   25 |
+|    5 | sohan    | PGIOT  |    99 |   21 |
++------+----------+--------+-------+------+
+5 rows in set (0.00 sec)
+
+mysql> delete from student where roll=4;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from student;
++------+----------+--------+-------+------+
+| roll | name     | class  | marks | age  |
++------+----------+--------+-------+------+
+|    1 | abhijeet | PG-DAC |    95 |   21 |
+|    2 | akash    | PGDESD |    99 |   21 |
+|    3 | chinmay  | PGVLSI |    98 |   21 |
+|    5 | sohan    | PGIOT  |    99 |   21 |
++------+----------+--------+-------+------+
+4 rows in set (0.00 sec)
+
+mysql> update student set marks=99 where roll=3;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++------+----------+--------+-------+------+
+| roll | name     | class  | marks | age  |
++------+----------+--------+-------+------+
+|    1 | abhijeet | PG-DAC |    95 |   21 |
+|    2 | akash    | PGDESD |    99 |   21 |
+|    3 | chinmay  | PGVLSI |    99 |   21 |
+|    5 | sohan    | PGIOT  |    99 |   21 |
++------+----------+--------+-------+------+
+4 rows in set (0.00 sec)
+
+mysql> update student set marks = marks+0.5;
+Query OK, 4 rows affected (0.00 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> truncate table student;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from student;
+Empty set (0.00 sec)
+
+mysql> insert into student value(1,"abhijeet","PG-DAC",95,21) ,(2,"akash","PGDESD",99,21),(3,"chinmay","PGVLSI",98,21),(4,"lokesh","PGDAI",100,25),(5,"sohan","PGIOT",99,21);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------+----------+--------+-------+------+
+| roll | name     | class  | marks | age  |
++------+----------+--------+-------+------+
+|    1 | abhijeet | PG-DAC |    95 |   21 |
+|    2 | akash    | PGDESD |    99 |   21 |
+|    3 | chinmay  | PGVLSI |    98 |   21 |
+|    4 | lokesh   | PGDAI  |   100 |   25 |
+|    5 | sohan    | PGIOT  |    99 |   21 |
++------+----------+--------+-------+------+
+5 rows in set (0.00 sec)
+
+mysql> 
+
