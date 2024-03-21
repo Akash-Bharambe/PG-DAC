@@ -276,6 +276,6 @@ use information_schema;
 show tables;
 desc table_constraints;
 select constraints_name from table_constraints where table_schema = "<database_name>";
-use <table_name>;
+use <database_name>;
 alter table <table_name> drop constraint <constraint_name>;
 ```
