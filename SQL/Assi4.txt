@@ -225,3 +225,87 @@ mysql> select * from student order by marks;
 +------+----------+--------+-------+------+
 5 rows in set (0.00 sec)
 
+mysql> select * from student having roll = 1;
++------+-------+-------+-------+------+
+| roll | name  | class | marks | age  |
++------+-------+-------+-------+------+
+|    1 | Akash | DAC   |  99.3 |   21 |
++------+-------+-------+-------+------+
+1 row in set (0.00 sec)
+
+mysql> insert into student (roll,name,marks,age) value(8,"Shiv",90,20);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from student where class is null;
++------+------+-------+-------+------+
+| roll | name | class | marks | age  |
++------+------+-------+-------+------+
+|    8 | Shiv | NULL  |    90 |   20 |
++------+------+-------+-------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from student where class is not null;
++------+----------+--------+-------+------+
+| roll | name     | class  | marks | age  |
++------+----------+--------+-------+------+
+|    1 | Akash    | DAC    |  99.3 |   21 |
+|    2 | Abhijeet | DBDA   |  95.4 |   22 |
+|    3 | Chinmay  | DIOT   |  91.5 |   25 |
+|    4 | Lokeshan | DESD   |  80.6 |   19 |
+|    5 | Sohan    | DHPCSA |  98.9 |   20 |
++------+----------+--------+-------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from student where roll in (1,2,4);
++------+----------+-------+-------+------+
+| roll | name     | class | marks | age  |
++------+----------+-------+-------+------+
+|    1 | Akash    | DAC   |  99.3 |   21 |
+|    2 | Abhijeet | DBDA  |  95.4 |   22 |
+|    4 | Lokeshan | DESD  |  80.6 |   19 |
++------+----------+-------+-------+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from student where roll not in (1,2,4);
++------+---------+--------+-------+------+
+| roll | name    | class  | marks | age  |
++------+---------+--------+-------+------+
+|    3 | Chinmay | DIOT   |  91.5 |   25 |
+|    5 | Sohan   | DHPCSA |  98.9 |   20 |
+|    8 | Shiv    | NULL   |    90 |   20 |
++------+---------+--------+-------+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from student where name like "%sh%";
++------+----------+-------+-------+------+
+| roll | name     | class | marks | age  |
++------+----------+-------+-------+------+
+|    1 | Akash    | DAC   |  99.3 |   21 |
+|    4 | Lokeshan | DESD  |  80.6 |   19 |
+|    8 | Shiv     | NULL  |    90 |   20 |
++------+----------+-------+-------+------+
+3 rows in set (0.00 sec)
+
+mysql> select distinct age from student;
++------+
+| age  |
++------+
+|   21 |
+|   22 |
+|   25 |
+|   19 |
+|   20 |
++------+
+5 rows in set (0.00 sec)
+
+mysql> select * from student where roll between 1 and 3;
++------+----------+-------+-------+------+
+| roll | name     | class | marks | age  |
++------+----------+-------+-------+------+
+|    1 | Akash    | DAC   |  99.3 |   21 |
+|    2 | Abhijeet | DBDA  |  95.4 |   22 |
+|    3 | Chinmay  | DIOT  |  91.5 |   25 |
++------+----------+-------+-------+------+
+3 rows in set (0.00 sec)
+
+
