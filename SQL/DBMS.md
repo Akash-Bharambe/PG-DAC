@@ -269,3 +269,13 @@
 
 ## Data Models
 
+## How to check constraints on a table
+
+```mysql
+use information_schema;
+show tables;
+desc table_constraints;
+select constraints_name from table_constraints where table_schema = "<table_name>";
+use <table_name>;
+alter table <table_name> drop constraint <constraint_name>;
+```
