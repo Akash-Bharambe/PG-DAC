@@ -211,6 +211,8 @@
 
 ### Types of SQL Statements
 
+- SQL commands are instructions. It is used to communicate with the database. It is also used to perform specific tasks, functions, and queries of data.
+- SQL can perform various tasks like create a table, add data to tables, drop the table, modify the table, set permission for users.
 - Here are five types of widely used SQL queries.
   - Data Definition Language **(DDL)**
   - Data Manipulation Language **(DML)**
@@ -220,27 +222,19 @@
 
 ![sql_commands](https://i.imgur.com/WTh24MG.png)
 
-#### Common SQL Commands
-
-- SQL commands are instructions. It is used to communicate with the database. It is also used to perform specific tasks, functions, and queries of data.
-- SQL can perform various tasks like create a table, add data to tables, drop the table, modify the table, set permission for users.
-
-- **CREATE** – defines the database structure schema
-- **INSERT** – inserts data into the row of a table
-- **UPDATE** – updates data in a database
-- **DELETE** – removes one or more rows from a table
-- **SELECT** – selects the attribute based on the condition described by the WHERE clause
-- **DROP** – removes tables and databases
-
 #### Data Definition Language
 
 - DDL changes the structure of the table like creating a table, deleting a table, altering a table, etc.
 - All the command of DDL are auto-committed that means it permanently save all the changes in the database.
 - Here are some commands that come under DDL:
-  - CREATE
-  - ALTER
-  - DROP
-  - TRUNCATE
+  - **CREATE**
+    - It is used to create a new table in the database.
+  - **DROP**
+    - It is used to delete both the structure and record stored in the table.
+  - **ALTER**
+    - It is used to alter the structure of the database. This change could be either to modify the characteristics of an existing attribute or probably to add a new attribute.
+  - **TRUNCATE**
+    - It is used to delete all the rows from the table and free the space containing the table.
 
 #### Data Manipulation Language
 
@@ -257,6 +251,22 @@
 - Here are some commands that come under DCL:
   - Grant
   - Revoke
+
+#### Transaction Control Language
+
+- TCL commands can only use with DML commands like INSERT, DELETE and UPDATE only.
+- These operations are automatically committed in the database that's why they cannot be used while creating tables or dropping them.
+- Here are some commands that come under TCL:
+  - COMMIT
+  - ROLLBACK
+  - SAVEPOINT
+
+#### Data Query Language
+
+- DQL is used to fetch the data from the
+  database.
+- It uses only one command:
+  - SELECT
 
 ## NoSQL
 
@@ -313,6 +323,58 @@
 
 ## Data Models
 
+- Data modeling (data modelling) is the process of creating a data model for the data to be stored in a database.
+- This data model is a conceptual representation of Data objects, the associations between different data objects, and the rules.
+- Data modeling helps in the visual representation of data and enforces business rules, regulatory compliances, and government policies on the data.
+- It ensure consistency in naming conventions, default values, semantics, security while ensuring quality of the data
+- The Data Model is defined as an abstract model that organizes data description, data semantics, and consistency constraints of data.
+- The data model emphasizes on what data is needed and how it should be organized instead of what operations will be performed on data.
+- Data Model is like an architect’s building plan, which helps to build conceptual models and set a relationship between data items.
+- The two types of Data Modeling Techniques are
+  - Entity Relationship (E-R) Model
+  - UML (Unified Modelling Language)
+
+### Why Data Model?
+
+- Ensures that all data objects required by the database are accurately represented. Omission of data will lead to creation of faulty reports and produce incorrect results.
+- A data model helps design the database at the conceptual, physical and logical levels.
+- Data Model structure helps to define the relational tables, primary and foreign keys and stored procedures.
+- It provides a clear picture of the base data and can be used by database developers to create a physical database.
+- It is also helpful to identify missing and redundant data.
+- Though the initial creation of data model is labor and time consuming, in the long run, it makes your IT infrastructure upgrade and maintenance cheaper and faster.
+
+### Types of Models
+
+- Conceptual Data Model: This Data Model defines WHAT the system contains. This model is typically created by Business stakeholders and Data Architects. The purpose is to organize, scope and define business concepts and rules.
+- Logical Data Model: Defines HOW the system should be implemented regardless of the DBMS. This model is typically created by Data Architects and Business Analysts. The purpose is to developed technical map of rules and data structures.
+- Physical Data Model: This Data Model describes HOW the system will be implemented using a specific DBMS system. This model is typically created by DBA and developers. The purpose is actual implementation of the database.
+
+![Types of Data Model](https://i.imgur.com/KD3M08s.png)
+
+#### Conceptual Data Model
+
+- A Conceptual Data Model is an organized view of database concepts and their relationships. The purpose of creating a conceptual data model is to establish entities, their attributes, and relationships.
+- In this data modeling level, there is hardly any detail available on the actual database structure. Business stakeholders and data architects typically create a conceptual data model.
+- The conceptual model is developed independently of hardware specifications like data storage capacity, location or software specifications like DBMS vendor and technology. The focus is to represent data as a user will see it in the “real world
+- The 3 basic tenants of Conceptual Data Model are:
+  - Entity: A real-world thing
+  - Attribute: Characteristics or properties of an entity
+  - Relationship: Dependency or association between two entities
+- Data model example:
+  - Customer and Product are two entities. Customer number and name are attributes of the Customer entity
+  - Product name and price are attributes of product entity
+  - Sale is the relationship between the customer and product
+
+![Screenshot 2024-03-22 205852](https://i.imgur.com/ziU7wvy.png)
+
+#### Logical Data Model
+
+- The Logical Data Model is used to define the structure of data elements and to set relationships between them. 
+- It adds further information to the conceptual data model elements. 
+- The advantage of using a Logical data model is to provide a foundation to form the base for the Physical model. However, the modeling structure remains generic.
+- At this Data Modeling level, no primary or secondary key is defined. 
+- At this Data modeling level, you need to verify and adjust the connector details that were set earlier for relationships.
+
 ## How to check constraints on a table
 
 ```sql
@@ -328,9 +390,9 @@ ALTER TABLE <table_name> DROP CONSTRAINT <constraint_name>;
 
 ```sql
 mysql> show create table <table_name>;
-+---------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Table   | Create Table                                                                                                                                                                                                                                                                                                                                          |
-+---------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------+--------------------------------------------------------+
+| Table   | Create Table                                           |
++---------+--------------------------------------------------------+
 | student | CREATE TABLE `student` (
   `roll` int NOT NULL,
   `name` varchar(20) DEFAULT NULL,
@@ -341,5 +403,5 @@ mysql> show create table <table_name>;
   UNIQUE KEY `name` (`name`),
   CONSTRAINT `student_chk_1` CHECK ((`age` > 18))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
-+---------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------+--------------------------------------------------------+
 ```
