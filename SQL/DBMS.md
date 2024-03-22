@@ -365,15 +365,69 @@
   - Product name and price are attributes of product entity
   - Sale is the relationship between the customer and product
 
-![Screenshot 2024-03-22 205852](https://i.imgur.com/ziU7wvy.png)
+![Screenshot 2024-03-22 210927](https://i.imgur.com/xEx1soP.png)
 
 #### Logical Data Model
 
-- The Logical Data Model is used to define the structure of data elements and to set relationships between them. 
-- It adds further information to the conceptual data model elements. 
+- The Logical Data Model is used to define the structure of data elements and to set relationships between them.
+- It adds further information to the conceptual data model elements.
 - The advantage of using a Logical data model is to provide a foundation to form the base for the Physical model. However, the modeling structure remains generic.
-- At this Data Modeling level, no primary or secondary key is defined. 
+- At this Data Modeling level, no primary or secondary key is defined.
 - At this Data modeling level, you need to verify and adjust the connector details that were set earlier for relationships.
+
+![Screenshot 2024-03-22 210711](https://i.imgur.com/yr7duaH.png)
+
+• Describes data needs for a single project but could integrate with other logical data models based on the scope of the project.
+• Designed and developed independently from the DBMS.
+• Data attributes will have datatypes with exact precisions and length.
+• Normalization processes to the model is applied typically till 3NF.
+
+#### Physical Data Model
+
+- A Physical Data Model describes a database-specific implementation of the data model.
+- It offers database abstraction and helps generate the schema. This is because of the richness of meta-data offered by a Physical Data Model.
+- The physical data model also helps in visualizing database structure by replicating database column keys, constraints, indexes, triggers, and other RDBMS features.
+- The physical data model describes data need for a single project or application though it maybe integrated with other physical data models based on project scope.
+- Data Model contains relationships between tables that which addresses cardinality and nullability of the relationships.
+- Developed for a specific version of a DBMS, location, data storage or technology to be used in the project.
+- Columns should have exact datatypes, lengths assigned and default values.
+- Primary and Foreign keys, views, indexes, access profiles, and authorizations, etc. are defined.
+
+![Screenshot 2024-03-22 211642](https://i.imgur.com/lgUPXmt.png)
+
+## DBMS Design
+
+- Database Design is a collection of processes that facilitate the designing, development, implementation and maintenance of enterprise data management systems.
+- Properly designed database are easy to maintain, improves data consistency and are cost effective in terms of disk storage space.
+- The database designer decides how the data elements correlate and what data must be stored.
+- The main objectives of database design in DBMS are to produce logical and physical designs models of the proposed database system.
+- The logical model concentrates on the data requirements and the data to be stored independent of physical considerations. It does not concern itself with how the data will be stored or where it will be stored physically.
+- The physical data design model involves translating the logical DB design of the database onto physical media using hardware resources and software systems such as database management systems (DBMS).
+
+![Database Lifecycle](https://i.imgur.com/fiM49Fp.png)
+
+### Database Design Techniques
+
+- Two Types of Database Techniques
+  1. Normalization
+  2. ER Modeling
+
+#### ER Diagram
+
+- ER Diagram stands for **Entity Relationship Diagram,** also known as **ERD** is a diagram that displays the relationship of entity sets stored in a database.
+- In other words, ER diagrams help to explain the logical structure of databases. ER diagrams are created based on three basic concepts: **entities, attributes and relationships.**
+- ER Diagrams contain different symbols that use rectangles to represent entities, ovals to define attributes and diamond shapes to represent relationships.
+
+![Screenshot 2024-03-22 213241](https://i.imgur.com/8mVg5Cb.png)
+
+- Helps you to define terms related to entity relationship modeling
+- Provide a preview of how all your tables should connect, what fields are going to be on each table
+- Helps to describe entities, attributes, relationships
+- ER diagrams are translatable into relational tables which allows you to build databases quickly
+- ER diagrams can be used by database designers as a blueprint for implementing data in specific software applications
+- The database designer gains a better understanding of the information to be contained in the database with the help of ER diagram
+- ER Diagram allows you to communicate with the logical structure of the database to users.
+
 
 ## How to check constraints on a table
 
