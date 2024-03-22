@@ -177,15 +177,19 @@
 - Data get stored in the form of records that are connected via links.
 - Each child record in the tree will contain only one parent. On the other hand, each parent record can have multiple child records.
 
-## What is SQL?
+## SQL
 
+- SQL (Structured Query Language) is used to perform operations on the records stored in the database, such as updating records, inserting records, deleting records, creating and modifying database tables, views, etc.
+- SQL is not a database system, but it is a **query language.**
+- Suppose you want to perform the queries of SQL language on the stored data in the database. You are required to install any database management system in your systems, for example, Oracle, MySQL, MongoDB, PostgreSQL, SQL Server, DB2, etc
+- SQL stands for **Structured Query language**, pronounced as **“S-Q-L”** or sometimes as **“See-Quel”**... Relational databases like MySQL Database, Oracle, MS SQL Server, Sybase, etc. use ANSI SQL.
+- This query language became the standard of ANSI in the year of 1986 and ISO in the year of 1987.
 - SQL is the standard language for dealing with **Relational Databases.**
-- SQL can be used to insert, search, update, and delete database records. SQL can do lots of other operations, including optimizing and maintenance of databases.
-- SQL Full Form
-  - SQL stands for **Structured Query language**, pronounced as **“S-Q-L”** or sometimes as **“See-Quel”**... Relational databases like MySQL Database, Oracle, MS SQL Server, Sybase, etc. use ANSI SQL.
+- "A Relational Model of Data for Large Shared Data Banks" was a paper which was published by the great computer scientist "E.F. Codd" in 1970.
+- The IBM researchers Raymond Boyce and Donald Chamberlin originally developed the SEQUEL (Structured English Query Language) after learning from the paper given by E.F. Codd.
+- They both developed the SQL at the San Jose Research laboratory of IBM Corporation in 1970.
 
-## What is SQL used for?
-
+### What is SQL used for?
 
 - It helps users to access data in the **RDBMS** system.
 - It helps you to describe the data.
@@ -194,7 +198,18 @@
 - SQL offers you to use the function in a database, create a view, and stored procedure.
 - You can set permissions on tables, procedures, and views.
 
-## Types of SQL Statements
+### SQL: Process
+
+- When we are executing the command of SQL on any Relational database management system, then the system automatically finds the best routine to carry out our request, and the SQL engine determines how to interpret that particular command.
+- Structured Query Language contains the following four components in its process:
+  - Query Dispatcher
+  - Optimization Engines
+  - Classic Query Engine
+  - SQL Query Engine, etc.
+
+![sql-process](https://i.imgur.com/yfKjel7.png)
+
+### Types of SQL Statements
 
 - Here are five types of widely used SQL queries.
   - Data Definition Language **(DDL)**
@@ -203,7 +218,12 @@
   - Transaction Control Language **(TCL)**
   - Data Query Language **(DQL)**
 
-### Common SQL Commands
+![sql_commands](https://i.imgur.com/WTh24MG.png)
+
+#### Common SQL Commands
+
+- SQL commands are instructions. It is used to communicate with the database. It is also used to perform specific tasks, functions, and queries of data.
+- SQL can perform various tasks like create a table, add data to tables, drop the table, modify the table, set permission for users.
 
 - **CREATE** – defines the database structure schema
 - **INSERT** – inserts data into the row of a table
@@ -212,7 +232,31 @@
 - **SELECT** – selects the attribute based on the condition described by the WHERE clause
 - **DROP** – removes tables and databases
 
-![sql-process](https://i.imgur.com/yfKjel7.png)
+#### Data Definition Language
+
+- DDL changes the structure of the table like creating a table, deleting a table, altering a table, etc.
+- All the command of DDL are auto-committed that means it permanently save all the changes in the database.
+- Here are some commands that come under DDL:
+  - CREATE
+  - ALTER
+  - DROP
+  - TRUNCATE
+
+#### Data Manipulation Language
+
+- DML commands are used to modify the database. It is responsible for all form of changes in the database.
+- The command of DML is not auto-committed that means it can't permanently save all the changes in the database. They can be rollback.
+- Here are some commands that come under DML:
+  - INSERT
+  - UPDATE
+  - DELETE
+
+#### Data Control Language
+
+- DCL commands are used to grant and take back authority from any database user.
+- Here are some commands that come under DCL:
+  - Grant
+  - Revoke
 
 ## NoSQL
 
