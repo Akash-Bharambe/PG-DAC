@@ -51,3 +51,17 @@ mysql> select * from departments;
 |       4 | Electronic Communication | D-Block    |
 +---------+--------------------------+------------+
 4 rows in set (0.00 sec)
+
+mysql> select a.name, a.birth, b.dept_name, b.dept_block FROM employee a JOIN departments b WHERE a.de
+pt_id = b.dept_id;
++--------------+------------+--------------------------+------------+
+| name         | birth      | dept_name                | dept_block |
++--------------+------------+--------------------------+------------+
+| Maria Gloria | 1994-03-12 | Information Technology   | C-Block    |
+| John Smith   | 1993-02-07 | Computer Science         | B-Block    |
+| Gal Rao      | 1992-09-11 | Electronic Communication | D-Block    |
+| Jakey Smith  | 1990-08-31 | Information Technology   | C-Block    |
+| Rama Saho    | 1994-12-09 | Computer Science         | B-Block    |
+| Maria Gaga   | 1993-10-09 | Electronic Communication | D-Block    |
++--------------+------------+--------------------------+------------+
+6 rows in set (0.00 sec)
