@@ -276,7 +276,7 @@
 - NoSQL systems are also sometimes called **"Not only SQL"** to emphasize that they may support SQL-like query languages or sit alongside SQL databases in polyglot-persistent architectures.
 - Motivations for this approach include: **simplicity of design, simpler "horizontal" scaling to clusters of machines** (which is a problem for relational databases), finer control over availability and limiting the object-relational impedance mismatch.
 - The data structures used by NoSQL databases (e.g. key–value pair, wide column, graph, or document) are different from those used by default in relational databases, making some operations faster in NoSQL.
-- The particular suitability of a given NoSQL database depends on the problem it must solve. Sometimes the data structures used by NoSQL databases are also viewed as "more flexible" than relational database tables.
+- The particular suitability of a given NoSQL database depends on the problem it must solve. Sometimes the data structures used by NoSQL databases are also viewed as **"more flexible"** than relational database tables.
 
 ## SQL vs NoSQL
 
@@ -326,13 +326,13 @@
 - Data modeling (data modelling) is the process of creating a data model for the data to be stored in a database.
 - This data model is a conceptual representation of Data objects, the associations between different data objects, and the rules.
 - Data modeling helps in the visual representation of data and enforces business rules, regulatory compliances, and government policies on the data.
-- It ensure consistency in naming conventions, default values, semantics, security while ensuring quality of the data
-- The Data Model is defined as an abstract model that organizes data description, data semantics, and consistency constraints of data.
+- It ensure consistency in naming conventions, default values, semantics, security while ensuring quality of the data.
+- The Data Model is defined as an **abstract model** that organizes data description, data semantics, and consistency constraints of data.
 - The data model emphasizes on what data is needed and how it should be organized instead of what operations will be performed on data.
 - Data Model is like an architect’s building plan, which helps to build conceptual models and set a relationship between data items.
 - The two types of Data Modeling Techniques are
   - Entity Relationship (E-R) Model
-  - UML (Unified Modelling Language)
+  - Unified Modelling Language (UML)
 
 ### Why Data Model?
 
@@ -345,35 +345,35 @@
 
 ### Types of Models
 
-- Conceptual Data Model: This Data Model defines WHAT the system contains. This model is typically created by Business stakeholders and Data Architects. The purpose is to organize, scope and define business concepts and rules.
-- Logical Data Model: Defines HOW the system should be implemented regardless of the DBMS. This model is typically created by Data Architects and Business Analysts. The purpose is to developed technical map of rules and data structures.
-- Physical Data Model: This Data Model describes HOW the system will be implemented using a specific DBMS system. This model is typically created by DBA and developers. The purpose is actual implementation of the database.
+- **Conceptual Data Model:** This Data Model defines WHAT the system contains. This model is typically created by Business stakeholders and Data Architects. The purpose is to organize, scope and define business concepts and rules.
+- **Logical Data Model:** Defines HOW the system should be implemented regardless of the DBMS. This model is typically created by Data Architects and Business Analysts. The purpose is to developed technical map of rules and data structures.
+- **Physical Data Model:** This Data Model describes HOW the system will be implemented using a specific DBMS system. This model is typically created by DBA and developers. The purpose is actual implementation of the database.
 
 ![Types of Data Model](https://i.imgur.com/KD3M08s.png)
 
 #### Conceptual Data Model
 
-- A Conceptual Data Model is an organized view of database concepts and their relationships. The purpose of creating a conceptual data model is to establish entities, their attributes, and relationships.
-- In this data modeling level, there is hardly any detail available on the actual database structure. Business stakeholders and data architects typically create a conceptual data model.
-- The conceptual model is developed independently of hardware specifications like data storage capacity, location or software specifications like DBMS vendor and technology. The focus is to represent data as a user will see it in the “real world
+- A Conceptual Data Model is an organized view of database concepts and their relationships. The purpose of creating a conceptual data model is to **establish entities, their attributes, and relationships.**
+- In this data modeling level, there is hardly any detail available on the actual database structure.
+- The conceptual model is developed independently of hardware specifications like data storage capacity, location or software specifications like DBMS vendor and technology. The focus is to represent data as a user will see it in the “real world"
 - The 3 basic tenants of Conceptual Data Model are:
-  - Entity: A real-world thing
-  - Attribute: Characteristics or properties of an entity
-  - Relationship: Dependency or association between two entities
+  - **Entity:** A real-world thing
+  - **Attribute:** Characteristics or properties of an entity
+  - **Relationship:** Dependency or association between two entities
 - Data model example:
-  - Customer and Product are two entities. Customer number and name are attributes of the Customer entity
-  - Product name and price are attributes of product entity
-  - Sale is the relationship between the customer and product
+  - Customer and Product are two entities. Customer number and name are attributes of the Customer entity.
+  - Product name and price are attributes of product entity.
+  - Sale is the relationship between the customer and product.
 
 ![Screenshot 2024-03-22 210927](https://i.imgur.com/xEx1soP.png)
 
 #### Logical Data Model
 
-- The Logical Data Model is used to define the structure of data elements and to set relationships between them.
+- The Logical Data Model is used to **define the structure of data elements and to set relationships between them.**
 - It adds further information to the conceptual data model elements.
 - The advantage of using a Logical data model is to provide a foundation to form the base for the Physical model. However, the modeling structure remains generic.
 - At this Data Modeling level, no primary or secondary key is defined.
-- At this Data modeling level, you need to verify and adjust the connector details that were set earlier for relationships.
+- You need to verify and adjust the connector details that were set earlier for relationships.
 
 ![Screenshot 2024-03-22 210711](https://i.imgur.com/yr7duaH.png)
 
@@ -384,11 +384,11 @@
 
 #### Physical Data Model
 
-- A Physical Data Model describes a database-specific implementation of the data model.
+- A Physical Data Model describes a **database-specific implementation** of the data model.
 - It offers database abstraction and helps generate the schema. This is because of the richness of meta-data offered by a Physical Data Model.
 - The physical data model also helps in visualizing database structure by replicating database column keys, constraints, indexes, triggers, and other RDBMS features.
 - The physical data model describes data need for a single project or application though it maybe integrated with other physical data models based on project scope.
-- Data Model contains relationships between tables that which addresses cardinality and nullability of the relationships.
+- Data Model contains **relationships between tables** that which addresses cardinality and nullability of the relationships.
 - Developed for a specific version of a DBMS, location, data storage or technology to be used in the project.
 - Columns should have exact datatypes, lengths assigned and default values.
 - Primary and Foreign keys, views, indexes, access profiles, and authorizations, etc. are defined.
@@ -420,14 +420,136 @@
 
 ![Screenshot 2024-03-22 213241](https://i.imgur.com/8mVg5Cb.png)
 
-- Helps you to define terms related to entity relationship modeling
-- Provide a preview of how all your tables should connect, what fields are going to be on each table
-- Helps to describe entities, attributes, relationships
-- ER diagrams are translatable into relational tables which allows you to build databases quickly
-- ER diagrams can be used by database designers as a blueprint for implementing data in specific software applications
-- The database designer gains a better understanding of the information to be contained in the database with the help of ER diagram
+- Helps you to define terms related to entity relationship modeling.
+- Provide a preview of how all your tables should connect, what fields are going to be on each table.
+- Helps to describe entities, attributes, relationships.
+- ER diagrams are translatable into relational tables which allows you to build databases quickly.
+- ER diagrams can be used by database designers as a blueprint for implementing data in specific software applications.
+- The database designer gains a better understanding of the information to be contained in the database with the help of ER diagram.
 - ER Diagram allows you to communicate with the logical structure of the database to users.
 
+##### ER Diagram: Symbols and Notations
+
+- **Rectangles:** This Entity Relationship Diagram symbol represents entity types
+- **Ellipses:** Symbol represent attributes
+- **Diamonds:** This symbol represents relationship types
+- **Lines:** It links attributes to entity types and entity types with other relationship types
+- **Primary key:** attributes are underlined
+- **Double Ellipses:** Represent multi-valued attributes
+
+![chens-notation-1](https://i.imgur.com/tzYJKbZ.png)
+
+##### Entity
+
+- A real-world thing either living or non-living that is easily recognizable and nonrecognizable. It is anything in the enterprise that is to be represented in our database.
+- It may be a physical thing or simply a fact about the enterprise or an event that happens in the real world.
+- An entity can be place, person, object, event or a concept, which stores data in the database.
+- The characteristics of entities are must have an attribute, and a unique key. Every entity is made up of some ‘attributes’ which represent that entity.
+
+- Examples of entities:
+  - **Person:** Employee, Student, Patient
+  - **Place:** Store, Building
+  - **Object:** Machine, product, and Car
+  - **Event:** Sale, Registration, Renewal
+  - **Concept:** Account, Course
+
+###### Entity Set
+
+- Student
+  - An entity set is a group of similar kind of entities. It may contain entities with attribute sharing similar values.
+  - Entities are represented by their properties, which also called attributes. All attributes have their separate values.
+  - For example, a student entity may have a name, age, class, as attributes.
+
+![Screenshot 2024-03-23 123649](https://i.imgur.com/12QjCiM.png)
+
+###### Relationships
+
+- Relationship is nothing but an association among
+  two or more entities. E.g., Tom works in the
+  Chemistry department.
+- Entities take part in relationships. We can often
+  identify relationships with verbs or verb phrases.
+
+![Screenshot 2024-03-23 123658](https://i.imgur.com/Ubdh7qG.png)
+
+###### Cardinality
+
+- Defines the numerical attributes of the relationship between two entities or entity sets.
+- Different types of cardinal relationships are:
+  - One-to-One Relationships
+  - One-to-Many Relationships
+  - Many to One Relationships
+  - Many-to-Many Relationships
+
+![relationship-cardinality-notation-l](https://i.imgur.com/e92Qawu.jpeg)
+
+### Codd’s 12 Rules for RDBMS
+
+- Every database has tables, and constraints cannot be referred to as a rational database system. And if any database has only relational data model, it cannot be a Relational Database System (RDBMS).
+- So, some rules define a database to be the correct RDBMS. These rules were developed by Dr. Edgar F. Codd (E.F. Codd) in 1985, who has vast research knowledge on the Relational Model of database Systems.
+- Codd presents his 13 rules for a database to test the concept of DBMS against his relational model, and if a database follows the rule, it is called a true relational database (RDBMS).
+
+![Codd’s 12 Rules for RDBMS](https://i.imgur.com/Szvv0eQ.jpeg)
+
+#### Rule 0: The Foundation Rule
+
+The database must be in relational form. So that the systemcan handle the database through its relational capabilities.
+
+#### Rule 1: Information Rule
+
+A database contains various information, and thisinformation must be stored in each cell of a table in theform of rows and columns.
+
+#### Rule 2: Guaranteed Access Rule
+
+Every single or precise data (atomic value) may be accessedlogically from a relational database using the combinationof primary key value, table name, and column name.
+
+#### Rule 3: Systematic Treatment of Null Values
+
+This rule defines the systematic treatment of Null values in database records. The null value has various meanings in the database, like missing the data, no value in a cell, inappropriate information, unknown data and the primary key should not be null.
+
+#### Rule 4: Active/Dynamic Online Catalog based on the relational model
+
+It represents the entire logical structure of the descriptive database that must be stored online and is known as a database dictionary. It authorizes users to access the database and implement a similar query language to access the database.
+
+#### Rule 5: Comprehensive Data SubLanguage Rule
+
+– The relational database supports various languages, and if we want to access the database, the language must be the explicit, linear or well-defined syntax, character strings and supports the comprehensive: data definition, view definition, data manipulation, integrity constraints, and limit transaction management operations.
+– If the database allows access to the data without any language, it is considered a violation of the database.
+
+#### Rule 6: View Updating Rule
+
+All views table can be theoretically updated and must be practically updated by the database systems.
+
+#### Rule 7: Relational Level Operation (High-Level Insert, Update and delete) Rule
+
+A database system should follow high-level relational operations such as insert, update, and delete in each level or a single row. It also supports union, intersection and minus operation in the database system.
+
+#### Rule 8: Physical Data Independence Rule
+
+All stored data in a database or an application must be physically independent to access the database. Each data should not depend on other data or an application.
+If data is updated or the physical structure of the database is changed, it will not show any effect on external applications that are accessing the data from the database.
+
+#### Rule 9: Logical Data Independence Rule
+
+It is similar to physical data independence. It means, if any changes occurred to the logical level (table structures), it should not affect the user's view (application).
+For example, suppose a table either split into two tables, or two table joins to create a single table, these changes should not be impacted on the user view application.
+
+#### Rule 10: Integrity Independence Rule
+
+A database must maintain integrity independence when inserting data into table's cells using the SQL query language.
+All entered values should not be changed or rely on any external factor or application to maintain integrity.
+It is also helpful in making the database-independent for each front-end application.
+
+#### Rule 11: Distribution Independence Rule
+
+The distribution independence rule represents a database that must work properly, even if it is stored in different locations and used by different end-users.
+Suppose a user accesses the database through an application; in that case, they should not be aware that another user uses particular data, and the data they always get is only located on one site.
+The end users can access the database, and these access data should be independent for every user to perform the SQL queries.
+
+#### Rule 12: Non Subversion Rule
+
+The non-submersion rule defines RDBMS as a SQL language to store and manipulate the data in the database.
+If a system has a low-level or separate language other than SQL to access the database system, it should not subvert or bypass integrity to transform data.
 
 ## How to check constraints on a table
 
