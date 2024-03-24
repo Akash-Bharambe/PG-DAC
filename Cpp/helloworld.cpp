@@ -20,7 +20,7 @@ void loopTill(int till, string &str)
 int main()
 {
     string str = "";
-    int count = 97, start = 97;
+    int start = 97;
     int h = 104, e = 101, l = 108, o = 111;
     int w = 119, r = 114, d = 100;
 
@@ -28,7 +28,6 @@ int main()
     {
         cout << char(i) << endl;
         str = char(i);
-        count++;
         if (i == h)
         {
             loopTill(e, str);
