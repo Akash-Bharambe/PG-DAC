@@ -519,9 +519,7 @@ mysql> SELECT * FROM  Worker WHERE SALARY IN ( SELECT SALARY FROM Worker GROUP B
 2 rows in set (0.00 sec)
 
 Database changed
-mysql> SELECT *
-    -> FROM Worker
-    -> WHERE YEAR(JOINING_DATE) = 2014 AND MONTH(JOINING_DATE) = 2;
+mysql> SELECT * FROM Worker WHERE YEAR(JOINING_DATE) = 2014 AND MONTH(JOINING_DATE) = 2;
 +-----------+------------+-----------+--------+---------------------+------------+
 | WORKER_ID | FIRST_NAME | LAST_NAME | SALARY | JOINING_DATE        | DEPARTMENT |
 +-----------+------------+-----------+--------+---------------------+------------+
