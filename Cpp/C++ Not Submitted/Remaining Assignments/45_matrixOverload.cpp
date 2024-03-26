@@ -27,7 +27,7 @@ public:
     ~Matrix();
 
     friend ostream &operator<<(ostream &, const Matrix &);
-    friend const istream &operator>>(istream &, const Matrix &);
+    friend istream &operator>>(istream &,  Matrix &);
 };
 
 Matrix::Matrix() : i(3), j(3)
@@ -55,7 +55,7 @@ Matrix::Matrix(int i, int j) : i(i), j(j)
 Matrix::Matrix(const Matrix &m) : i(m.i), j(m.j)
 {
     this->arr = new int *[i];
-    for (int x = 0; x < j; x++)
+    for (int x = 0; x < i; x++)
         arr[x] = new int[j];
     for (int x = 0; x < i; x++)
         for (int y = 0; y < j; y++)
@@ -100,20 +100,21 @@ ostream &operator<<(ostream &os, const Matrix &m)
     for (int x = 0; x < m.i; x++)
     {
         for (int y = 0; y < m.j; y++)
-            cout << m.arr[x][y] << " ";
-        cout << endl;
+            os << m.arr[x][y] << " ";
+        os << endl;
     }
     return os;
 }
 
-const istream &operator>>(istream &is, const Matrix &m)
+istream &operator>>(istream &is, Matrix &m)
 {
     for (int x = 0; x < m.i; x++)
     {
+        m.arr[x] = new int[m.j];
         for (int y = 0; y < m.j; y++)
         {
             cout << "Enter i" << x + 1 << " j" << y + 1 << ": ";
-            cin >> m.arr[x][y];
+            is >> m.arr[x][y];
         }
     }
     return is;
