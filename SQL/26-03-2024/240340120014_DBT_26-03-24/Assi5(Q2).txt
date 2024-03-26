@@ -1,0 +1,29 @@
+mysql> CREATE TABLE employee1( id INT PRIMARY KEY, name VARCHAR(20), dept_id INT , birth VARCHAR(20));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO employee1 (id, name, dept_id, birth) VALUES     (1, 'Maria', 2, '1994-03-12'),     (2, 'John', 1, '1993-02-07'),     (3, 'Gal', 4, '1992-09-11'),     (4, 'Jakey', 2, '1990-08
+-31'),     (5, 'Rama', 1, '1994-12-09'),     (6, 'Maria', 4, '1993-10-09');
+Query OK, 6 rows affected (0.00 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee1;
++----+-------+---------+------------+
+| id | name  | dept_id | birth      |
++----+-------+---------+------------+
+|  1 | Maria |       2 | 1994-03-12 |
+|  2 | John  |       1 | 1993-02-07 |
+|  3 | Gal   |       4 | 1992-09-11 |
+|  4 | Jakey |       2 | 1990-08-31 |
+|  5 | Rama  |       1 | 1994-12-09 |
+|  6 | Maria |       4 | 1993-10-09 |
++----+-------+---------+------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM employee1 WHERE name LIKE "____a";
++----+-------+---------+------------+
+| id | name  | dept_id | birth      |
++----+-------+---------+------------+
+|  1 | Maria |       2 | 1994-03-12 |
+|  6 | Maria |       4 | 1993-10-09 |
++----+-------+---------+------------+
+2 rows in set (0.00 sec)

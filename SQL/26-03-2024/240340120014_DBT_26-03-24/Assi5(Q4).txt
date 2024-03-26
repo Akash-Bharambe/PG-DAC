@@ -1,0 +1,145 @@
+mysql> CREATE TABLE employees ( Employee_id INT PRIMARY KEY, First_name VARCHAR(255), Last_name VARCHAR(255), Salary DECIMAL(10, 2), Joining_date DATE, Departement VARCHAR(255));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO employees (Employee_id, First_name, Last_name, Salary, Joining_date, Departement) VALUES (1, 'Bob', 'Kinto', 1000000, '2019-01-20', 'Finance'), (2, 'Jerry', 'Kansxo', 6000000, '2019-01-15', 'IT'), (3, 'Philip', 'Jose', 8900000, '2019-02-05', 'Banking'), (4, 'John', 'Abraham', 2000000, '2019-02-25', 'Insurance'), (5, 'Michael', 'Mathew', 2200000, '2019-02-28', 'Finance'), (6, 'Alex', 'Chreketo', 4000000, '2019-05-10', 'IT'), (7, 'Yohan', 'Soso', 1230000, '2019-06-20', 'Banking');
+Query OK, 7 rows affected (0.01 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE Reward ( Employee_ref_id INT, date_reward DATE, amount DECIMAL(10, 2));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO Reward (Employee_ref_id, date_reward, amount) VALUES (1, '2019-05-11', 1000), (2, '2019-02-15', 5000), (3, '2019-04-22', 2000), (1, '2019-06-20', 8000);
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from employees;
++-------------+------------+-----------+------------+--------------+-------------+
+| Employee_id | First_name | Last_name | Salary     | Joining_date | Departement |
++-------------+------------+-----------+------------+--------------+-------------+
+|           1 | Bob        | Kinto     | 1000000.00 | 2019-01-20   | Finance     |
+|           2 | Jerry      | Kansxo    | 6000000.00 | 2019-01-15   | IT          |
+|           3 | Philip     | Jose      | 8900000.00 | 2019-02-05   | Banking     |
+|           4 | John       | Abraham   | 2000000.00 | 2019-02-25   | Insurance   |
+|           5 | Michael    | Mathew    | 2200000.00 | 2019-02-28   | Finance     |
+|           6 | Alex       | Chreketo  | 4000000.00 | 2019-05-10   | IT          |
+|           7 | Yohan      | Soso      | 1230000.00 | 2019-06-20   | Banking     |
++-------------+------------+-----------+------------+--------------+-------------+
+7 rows in set (0.00 sec)
+
+mysql> select First_name, Last_name from employees;
++------------+-----------+
+| First_name | Last_name |
++------------+-----------+
+| Bob        | Kinto     |
+| Jerry      | Kansxo    |
+| Philip     | Jose      |
+| John       | Abraham   |
+| Michael    | Mathew    |
+| Alex       | Chreketo  |
+| Yohan      | Soso      |
++------------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> select First_name as Employee_Name from employees;
++---------------+
+| Employee_Name |
++---------------+
+| Bob           |
+| Jerry         |
+| Philip        |
+| John          |
+| Michael       |
+| Alex          |
+| Yohan         |
++---------------+
+7 rows in set (0.00 sec)
+
+mysql> select Lower(Last_name) from employees;
++------------------+
+| Lower(Last_name) |
++------------------+
+| kinto            |
+| kansxo           |
+| jose             |
+| abraham          |
+| mathew           |
+| chreketo         |
+| soso             |
++------------------+
+7 rows in set (0.00 sec)
+
+mysql> select Upper(Last_name) from employees;
++------------------+
+| Upper(Last_name) |
++------------------+
+| KINTO            |
+| KANSXO           |
+| JOSE             |
+| ABRAHAM          |
+| MATHEW           |
+| CHREKETO         |
+| SOSO             |
++------------------+
+7 rows in set (0.00 sec)
+
+mysql> select distinct Departement from employees;
++-------------+
+| Departement |
++-------------+
+| Finance     |
+| IT          |
+| Banking     |
+| Insurance   |
++-------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT SUBSTRING( First_name, 1,4) FROM employees;
++-----------------------------+
+| SUBSTRING( First_name, 1,4) |
++-----------------------------+
+| Bob                         |
+| Jerr                        |
+| Phil                        |
+| John                        |
+| Mich                        |
+| Alex                        |
+| Yoha                        |
++-----------------------------+
+7 rows in set (0.02 sec)
+
+mysql> SELECT POSITION( "h" in First_name) FROM employees WHERE First_Name = "John";
++------------------------------+
+| POSITION( "h" in First_name) |
++------------------------------+
+|                            3 |
++------------------------------+
+1 row in set (0.01 sec)
+
+mysql> select RTRIM(First_name) from employees;
++-------------------+
+| RTRIM(First_name) |
++-------------------+
+| Bob               |
+| Jerry             |
+| Philip            |
+| John              |
+| Michael           |
+| Alex              |
+| Yohan             |
++-------------------+
+7 rows in set (0.00 sec)
+
+mysql> select TRIM(First_name) from employees;
++-------------------+
+| LTRIM(First_name) |
++-------------------+
+| Bob               |
+| Jerry             |
+| Philip            |
+| John              |
+| Michael           |
+| Alex              |
+| Yohan             |
++-------------------+
+7 rows in set (0.00 sec)
+

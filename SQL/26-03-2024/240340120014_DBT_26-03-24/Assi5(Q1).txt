@@ -1,0 +1,67 @@
+mysql> CREATE TABLE employee( id INT PRIMARY KEY, name VARCHAR(20), dept_id INT , birth VARCHAR(20));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO employee (id, name, dept_id, birth)
+    -> VALUES
+    ->     (1, 'Maria Gloria', 2, '1994-03-12'),
+    ->     (2, 'John Smith', 1, '1993-02-07'),
+    ->     (3, 'Gal Rao', 4, '1992-09-11'),
+    ->     (4, 'Jakey Smith', 2, '1990-08-31'),
+    ->     (5, 'Rama Saho', 1, '1994-12-09'),
+    ->     (6, 'Maria Gaga', 4, '1993-10-09');
+Query OK, 6 rows affected (0.00 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++----+--------------+---------+------------+
+| id | name         | dept_id | birth      |
++----+--------------+---------+------------+
+|  1 | Maria Gloria |       2 | 1994-03-12 |
+|  2 | John Smith   |       1 | 1993-02-07 |
+|  3 | Gal Rao      |       4 | 1992-09-11 |
+|  4 | Jakey Smith  |       2 | 1990-08-31 |
+|  5 | Rama Saho    |       1 | 1994-12-09 |
+|  6 | Maria Gaga   |       4 | 1993-10-09 |
++----+--------------+---------+------------+
+6 rows in set (0.00 sec)
+
+mysql> CREATE TABLE departments (
+    ->     dept_id INT PRIMARY KEY,
+    ->     dept_name VARCHAR(255),
+    ->     dept_block VARCHAR(10)
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO departments (dept_id, dept_name, dept_block)
+    -> VALUES
+    ->     (1, 'Computer Science', 'B-Block'),
+    ->     (2, 'Information Technology', 'C-Block'),
+    ->     (3, 'Mechanical', 'A-Block'),
+    ->     (4, 'Electronic Communication', 'D-Block');
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from departments;
++---------+--------------------------+------------+
+| dept_id | dept_name                | dept_block |
++---------+--------------------------+------------+
+|       1 | Computer Science         | B-Block    |
+|       2 | Information Technology   | C-Block    |
+|       3 | Mechanical               | A-Block    |
+|       4 | Electronic Communication | D-Block    |
++---------+--------------------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select a.name, a.birth, b.dept_name, b.dept_block FROM employee a JOIN departments b WHERE a.de
+pt_id = b.dept_id;
++--------------+------------+--------------------------+------------+
+| name         | birth      | dept_name                | dept_block |
++--------------+------------+--------------------------+------------+
+| Maria Gloria | 1994-03-12 | Information Technology   | C-Block    |
+| John Smith   | 1993-02-07 | Computer Science         | B-Block    |
+| Gal Rao      | 1992-09-11 | Electronic Communication | D-Block    |
+| Jakey Smith  | 1990-08-31 | Information Technology   | C-Block    |
+| Rama Saho    | 1994-12-09 | Computer Science         | B-Block    |
+| Maria Gaga   | 1993-10-09 | Electronic Communication | D-Block    |
++--------------+------------+--------------------------+------------+
+6 rows in set (0.00 sec)
