@@ -401,3 +401,20 @@ mysql> SELECT AVG(Salary) AS Average_Salary_OfPermanent_Employees FROM EmpSalary
 +--------------------------------------+
 1 row in set (0.01 sec)
 
+mysql> create view data_rview as select a.ClientName,b.ProjectId,b.StartYear,b.EndYear from ClientTab
+le as a join EmpProject as b on a.ClientId=b.ClientID;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select *from data_rview;
++------------+-----------+-----------+---------+
+| ClientName | ProjectId | StartYear | EndYear |
++------------+-----------+-----------+---------+
+| ABC Group  | p-1       |      2010 |    2010 |
+| PQR        | p-2       |      2010 |    2012 |
+| XYZ        | p-1       |      2013 |    NULL |
+| ABC Group  | p-4       |      2014 |    2015 |
+| mnp        | p-4       |      2015 |    NULL |
++------------+-----------+-----------+---------+
+5 rows in set (0.00 sec)
+
+
