@@ -22,47 +22,36 @@ void Timee::acceptTime()
 {
     do
     {
-        cout << "Enter Hours: ";
+        cout << "Enter Hours ( Between 0-24 ): ";
         cin >> this->hours;
     } while (this->hours > 24 || this->hours < 0);
     do
     {
-        cout << "Enter Minutes: ";
+        cout << "Enter Minutes ( Between 0-60 ): ";
         cin >> this->minutes;
     } while (this->minutes > 60 || this->minutes < 0);
 
     do
     {
-        cout << "Enter Seconds: ";
+        cout << "Enter Seconds ( Between 0-60 ): ";
         cin >> this->seconds;
     } while (this->seconds > 60 || this->seconds < 0);
 }
-int Timee::getHours()
-{
-    return this->hours;
-}
-int Timee::getMinutes()
-{
-    return this->minutes;
-}
-int Timee::getSeconds()
-{
-    return this->seconds;
-}
+
 int Timee::compareTime(Timee another)
 {
-    if (this->hours != another.getHours())
-        return this->hours - another.getHours();
-    else if (this->minutes != another.getMinutes())
-        return this->minutes - another.getMinutes();
+    if (this->hours != another.hours)
+        return this->hours - another.hours;
+    else if (this->minutes != another.minutes)
+        return this->minutes - another.minutes;
     else
-        return this->seconds - another.getSeconds();
+        return this->seconds - another.seconds;
 }
-void diffTime(Timee t1, Timee t2)
+void Timee::diffTime(Timee t2)
 {
-    int diffHours = t1.getHours() - t2.getHours();
-    int diffMinutes = t1.getMinutes() - t2.getMinutes();
-    int diffSeconds = t1.getSeconds() - t2.getSeconds();
+    int diffHours = this->hours - t2.hours;
+    int diffMinutes = this->minutes - t2.minutes;
+    int diffSeconds = this->seconds - t2.seconds;
 
     if (diffHours < 0 || diffMinutes < 0 || diffSeconds < 0)
     {
@@ -70,5 +59,5 @@ void diffTime(Timee t1, Timee t2)
         diffMinutes = abs(diffMinutes);
         diffSeconds = abs(diffSeconds);
     }
-    cout << "Difference: " << diffHours << ":" << diffMinutes << ":" << diffSeconds << endl;
+    cout << "Difference: " << diffHours << " hours " << diffMinutes << " minutes " << diffSeconds << " seconds" << endl;
 }

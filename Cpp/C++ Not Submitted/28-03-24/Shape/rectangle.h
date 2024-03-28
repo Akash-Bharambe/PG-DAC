@@ -2,7 +2,7 @@
 #define RECTANGLE_H
 #include "shape.h"
 
-class Rectangle: public Shape
+class Rectangle : public Shape
 {
 private:
     float length;
@@ -10,7 +10,7 @@ private:
 
 public:
     Rectangle();
-    Rectangle(float length, float breadth);
+    Rectangle(float, float);
     void accept();
     float calcArea();
     float calcPeri();

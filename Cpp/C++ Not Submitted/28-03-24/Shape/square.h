@@ -2,14 +2,14 @@
 #define SQUARE_H
 #include "shape.h"
 
-class Square: public Shape
+class Square : public Shape
 {
 private:
     float side;
 
 public:
     Square();
-    Square(float side); 
+    Square(float);
     void accept();
     float calcArea();
     float calcPeri();

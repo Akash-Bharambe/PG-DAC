@@ -11,8 +11,5 @@ public:
     void displayTime();
     void acceptTime();
     int compareTime(Timee);
-    int getHours();
-    int getMinutes();
-    int getSeconds();
+    void diffTime(Timee);
 };
-void diffTime(Timee, Timee);

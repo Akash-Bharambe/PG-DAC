@@ -7,5 +7,5 @@ int main(){
     t1.acceptTime();
     t2.acceptTime();
 
-    diffTime(t1,t2);
+    t1.diffTime(t2);
 }

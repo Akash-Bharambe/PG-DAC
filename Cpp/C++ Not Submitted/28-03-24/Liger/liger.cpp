@@ -8,8 +8,8 @@ private:
 
 public:
     Animal();
-    Animal(int weight);
-    void setWeight(int weight);
+    Animal(int);
+    void setWeight(int);
     void showWeight();
 };
 Animal::Animal() : weight(0) {}
@@ -31,7 +31,7 @@ private:
 
 public:
     Lion();
-    Lion(int length, int weight);
+    Lion(int, int);
 };
 
 Lion::Lion() : length(0) {}
@@ -47,7 +47,7 @@ private:
 
 public:
     Tiger();
-    Tiger(int height, int weight);
+    Tiger(int, int);
 };
 
 Tiger::Tiger() : height(height) {}
@@ -69,4 +69,3 @@ int main(int argc, char const *argv[])
     pa->showWeight();
     return 0;
 }
-
