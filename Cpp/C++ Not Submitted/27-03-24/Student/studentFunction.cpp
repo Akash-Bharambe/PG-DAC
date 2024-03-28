@@ -6,7 +6,6 @@ Student::Student() : name(""), roll(0) {}
 Student::Student(string name, int roll) : name(name), roll(roll) {}
 Student::Student(string name, int roll, int flatNumber, string area, string pinCode, string certiName, int certiNumber, string issuingAuth) : name(name), roll(roll), addr(flatNumber, area, pinCode), certi(certiName, certiNumber, issuingAuth) {}
 
-
 void Student::accept()
 {
     cout << "Enter Name of Student: ";
@@ -16,6 +15,7 @@ void Student::accept()
     addr.accept();
     certi.accept();
 }
+
 void Student::display()
 {
     cout<<"----------------------------------------------------------------"<<endl;
