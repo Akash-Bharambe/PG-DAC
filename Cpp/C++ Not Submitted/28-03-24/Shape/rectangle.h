@@ -11,9 +11,9 @@ private:
 public:
     Rectangle();
     Rectangle(float length, float breadth);
-    virtual void accept();
-    virtual float calcArea();
-    virtual float calcPeri();
+    void accept();
+    float calcArea();
+    float calcPeri();
 };
 
 #endif

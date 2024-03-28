@@ -9,10 +9,10 @@ private:
 
 public:
     Circle();
-    Circle(float radius);
-    virtual void accept();
-    virtual float calcArea();
-    virtual float calcPeri();
+    Circle(float radius); 
+    void accept();
+    float calcArea();
+    float calcPeri();
 };
 
 #endif
