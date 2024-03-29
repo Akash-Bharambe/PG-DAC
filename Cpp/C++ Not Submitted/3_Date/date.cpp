@@ -41,4 +41,55 @@ int Date::diffDate(Date d)
     return totalDays;
 }
 
+bool Date::comparedate(Date d)
+{
+    return (this->dd == d.dd && this->mm == d.mm && this->yy == d.yy) ? true : false;
+}
+
+bool Date::operator==(Date d)
+{
+    return (this->dd == d.dd && this->mm == d.mm && this->yy == d.yy) ? true : false;
+}
+
+bool Date::operator!=(Date d)
+{
+    return !((*this) == d);
+}
+
+Date Date::operator+(Date d)
+{
+    int dd1 = this->dd + d.dd;
+    int mm1 = this->mm + d.mm;
+    int yy1 = this->yy + d.yy;
+    if (dd1 > 30)
+    {
+        dd1-=30;
+        mm1++;
+    }
+    if (mm1 > 12)
+    {
+        mm1-=12;
+        yy1++;
+    }
+    return Date(dd1,mm1,yy1);
+}
+
+Date Date::operator-(Date d)
+{
+    int dd1 = this->dd > d.dd ? this->dd - d.dd : d.dd - this->dd;
+    int mm1 = this->mm - d.mm;
+    int yy1 = this->yy - d.yy;
+    if (dd1 > 30)
+    {
+        dd1-=30;
+        mm1++;
+    }
+    if (mm1 > 12)
+    {
+        mm1-=12;
+        yy1++;
+    }
+    return Date();
+}
+
 Date::~Date() {}

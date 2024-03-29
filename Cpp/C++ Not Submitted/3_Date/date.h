@@ -26,6 +26,11 @@ public:
     Date();
     Date(int, int, int);
     int diffDate(Date);
+    bool comparedate(Date);
+    bool operator==(Date);
+    bool operator!=(Date);
+    Date operator+(Date);
+    Date operator-(Date);
     ~Date();
 };
 bool isLeapYear(int);
