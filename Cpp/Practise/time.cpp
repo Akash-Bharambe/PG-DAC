@@ -18,6 +18,5 @@ int main()
          << setw(2) << setfill('0') << localTime->tm_hour << ":"        // Hour
          << setw(2) << setfill('0') << localTime->tm_min << ":"         // Minute
          << setw(2) << setfill('0') << localTime->tm_sec << endl;       // Second
-
     return 0;
 }
