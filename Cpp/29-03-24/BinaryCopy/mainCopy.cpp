@@ -31,5 +31,7 @@ int main(int argc, char const *argv[])
     //     fout << ch;
     //     cout << "fout: " << ch << endl;
     // }
+    fin.close();
+    fout.close();
     return 0;
 }
