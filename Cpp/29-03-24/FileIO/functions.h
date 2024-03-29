@@ -5,8 +5,8 @@ class Utils
 {
 public:
     static int menulist();
-    static void readerr(ifstream &, const Student &);
-    static void writerr(ofstream &, Student &);
+    static void readerr(char [], const Student &);
+    static void writerr(char [], Student &);
 };
 
 #endif

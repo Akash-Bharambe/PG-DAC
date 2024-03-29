@@ -1,6 +1,7 @@
 #ifndef STUDENT_H
 #define STUDENT_H
-
+#include <fstream>
+using namespace std;
 class Student
 {
 private:

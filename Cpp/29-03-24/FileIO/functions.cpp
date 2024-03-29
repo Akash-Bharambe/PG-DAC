@@ -1,14 +1,20 @@
 #include "functions.h"
 #include <iostream>
-#include <fstream>
 using namespace std;
 int Utils::menulist()
 {
-    return 0;
+    int ip;
+    cout<<"1. Add Student"<<endl;
+    cout<<"2. Display Student"<<endl;
+    cout<<"0. Exit"<<endl;
+    cin>>ip;
+    return ip;
 }
 
-void Utils::readerr(ifstream &fin, const Student &s)
+void Utils::readerr(char fileName[], const Student &s)
 {
+    ifstream fin(fileName, ios::in | ios::binary);
+
     if (!fin)
     {
         cerr << "File Cannot be Opened" << endl;
@@ -21,21 +27,15 @@ void Utils::readerr(ifstream &fin, const Student &s)
     fin.close();
 }
 
-void Utils::writerr(ofstream &fout, Student &s)
+void Utils::writerr(char fileName[], Student &s)
 {
+    ofstream fout(fileName, ios::app | ios::binary);
     if (!fout)
     {
         cerr << "File Cannot be Opened" << endl;
         exit(-1);
     }
-    char ch;
-    do
-    {
         s.accept();
         fout.write((char *)&s, sizeof(Student));
-        cout << "Do you Wish to Continue (y/n): ";
-        cin >> ch;
-        cin.get();
-    } while (ch != 'n');
     fout.close();
 }

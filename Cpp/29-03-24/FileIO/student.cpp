@@ -11,6 +11,7 @@ Student::Student(int rollno, char name[]) : rollno(rollno)
 void Student::accept()
 {
     cout << "Enter name of Student: ";
+    cin.get();
     cin.getline(this->name, 20);
     cout << "Enter roll no: ";
     cin >> this->rollno;
