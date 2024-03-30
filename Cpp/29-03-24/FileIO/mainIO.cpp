@@ -8,9 +8,6 @@ int main()
     char fileName[20];
     cout << "Enter File Name: ";
     cin.getline(fileName, 20);
-    int size;
-    cout << "Enter number of students you want to add: ";
-    cin >> size;
     Student s[10];
 
     int ch, i = 0;
