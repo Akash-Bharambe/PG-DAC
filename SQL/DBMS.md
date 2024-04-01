@@ -551,6 +551,82 @@ The end users can access the database, and these access data should be independe
 The non-submersion rule defines RDBMS as a SQL language to store and manipulate the data in the database.
 If a system has a low-level or separate language other than SQL to access the database system, it should not subvert or bypass integrity to transform data.
 
+## MySQL Data Types
+
+- A Data Type specifies a particular type of data, like integer, floating points, Boolean, etc.
+- It also identifies the possible values for that type, the operations that can be performed on that type, and the way the values of that type are stored.
+- In MySQL, each database table has many columns and contains specific data types for each column.
+- We can determine the data type in MySQL with the following characteristics:
+  - The type of values (fixed or variable) it represents.
+  - The storage space it takes is based on whether the values are a fixed-length or variable length.
+  - Its values can be indexed or not.
+  - How MySQL performs a comparison of values of a particular data type.
+
+### Numeric Data Types
+
+- MySQL has all essential SQL numeric data types. These data types can include the exact numeric data types (For example, integer, decimal, numeric, etc.), as well as the approximate numeric data types (For example, float, real, and double precision).
+- It also supports BIT datatype to store bit values. In MySQL, numeric data types are categories into two types, either signed or unsigned except for bit data type.
+
+1. TINYINT
+   - It is a very small integer that can be signed or unsigned. If signed, the allowable range is from -128 to 127. If unsigned, the allowable range is from 0 to 255. We can specify a width of up to 4 digits. It takes 1 byte for storage.
+1. SMALLINT
+   - It is a small integer that can be signed or unsigned. If signed, the allowable range is from -32768 to 32767. If unsigned, the allowable range is from 0 to 65535. We can specify a width of up to 5 digits. It requires 2 bytes for storage.
+1. MEDIUMINT
+   - It is a medium-sized integer that can be signed or unsigned. If signed, the allowable range is from -8388608 to 8388607. If unsigned, the allowable range is from 0 to 16777215. We can specify a width of up to 9 digits. It requires 3 bytes for storage.
+1. INT
+   - It is a normal-sized integer that can be signed or unsigned. If signed, the allowable range is from -2147483648 to 2147483647. If unsigned, the allowable range is from 0 to 4294967295. We can specify a width of up to 11 digits. It requires 4 bytes for storage.
+1. BIGINT
+   - It is a large integer that can be signed or unsigned. If signed, the allowable range is from -9223372036854775808 to 9223372036854775807. If unsigned, the allowable range is from 0 to 18446744073709551615. We can specify a width of up to 20 digits. It requires 8 bytes for storage.
+1. FLOAT(m,d)
+   - It is a floating-point number that cannot be unsigned. You can define the display length (m) and the number of decimals (d). This is not required and will default to 10,2, where 2 is the number of decimals, and 10 is the total number of digits (including decimals). Decimal precision can go to 24 places for a float type. It requires 2 bytes for storage.
+1. DOUBLE(m,d)
+   - It is a double-precision floating-point number that cannot be unsigned. You can define the display length (m) and the number of decimals (d).
+   - This is not required and will default to 16,4, where 4 is the number of decimals. Decimal precision can go to 53 places for a double. Real is a synonym for double. It requires 8 bytes for storage.
+1. DECIMAL(m,d)
+   - An unpacked floating-point number that cannot be unsigned. In unpacked decimals, each decimal corresponds to one byte. Defining the display length (m) and the number of decimals (d) is required. Numeric is a synonym for decimal.
+1. BIT(m)
+   - It is used for storing bit values into the table column. Here, M determines the number of bit per value that has a range of 1 to 64.
+1. BOOL
+   - It is used only for the true and false condition. It considered numeric value 1 as true and 0 as false.
+1. BOOLEAN
+   - It is Similar to the BOOL.
+
+### Date and Time
+
+- This data type is used to represent temporal values such as date, time, datetime, timestamp, and year.
+- Each temporal type contains values, including zero. When we insert the invalid value, MySQL cannot represent it, and then zero value is used.
+
+1. YEAR[(2|4)]
+   - Year value as 2 digits or 4 digits. The default is 4 digits. It takes 1 byte for storage.
+1. DATE
+   - Values range from '1000-01-01' to '9999-12-31'. Displayed as 'yyyy-mm-dd'. It takes 3 bytes for storage.
+1. TIME
+   - Values range from '-838:59:59' to '838:59:59'. Displayed as 'HH:MM:SS'. It takes 3 bytes plus fractional seconds for storage.
+1. DATETIME
+   - Values range from '1000-01-01 00:00:00' to '9999-12-31 23:59:59'. Displayed as 'yyyy-mm-dd hh:mm:ss'. It takes 5 bytes plus fractional seconds for storage.
+1. TIMESTAMP(m)
+   - Values range from '1970-01-01 00:00:01' UTC to '2038-01-19 03:14:07' TC. Displayed as 'YYYY-MMDD HH:MM:SS'. It takes 4 bytes plus fractional seconds for storage.
+
+### String
+
+- The string data type is used to hold plain text and binary data, for example, files, images, etc.
+- MySQL can perform searching and comparison of string value based on the pattern matching such as LIKE operator, Regular Expressions, etc.
+
+1. CHAR(size)
+   - It can have a maximum size of 255 characters. Here size is the number of characters to store. Fixed-length strings. Space padded on the right to equal size characters.
+1. VARCHAR(size)
+   - It can have a maximum size of 255 characters. Here size is the number of characters to store. Variable-length string.
+1. TINYTEXT(size)
+   - It can have a maximum size of 255 characters. Here size is the number of characters to store.
+1. TEXT(size)
+   - Maximum size of 65,535 characters. Here size is the number of characters to store.
+1. MEDIUMTEXT(size)
+   - It can have a maximum size of 16,777,215 characters. Here size is the number of characters to store.
+1. LONGTEXT(size)
+   - It can have a maximum size of 4GB or 4,294,967,295 characters. Here size is the number of characters to store.
+1. BINARY(size)
+   - It can have a maximum size of 255 characters. Here size is the number of binary characters to store. Fixed-length strings. Space padded on the right to equal size characters.
+
 ## How to check constraints on a table
 
 ```sql
