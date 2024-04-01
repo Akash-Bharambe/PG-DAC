@@ -417,4 +417,40 @@ mysql> select *from data_rview;
 +------------+-----------+-----------+---------+
 5 rows in set (0.00 sec)
 
+mysql> delimiter &&
+mysql> create procedure get_avg_salary()
+    -> begin
+    -> select avg(salary) from EmpSalary;
+    -> end &&
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call get_avg_salary();
++-------------+
+| avg(salary) |
++-------------+
+| 4240.000000 |
++-------------+
+1 row in set (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter &&
+mysql> create procedure get_data() begin select a.Empid, c.Salary, a.ContactNo, b.DeptName from EmpDept as b JOIN Employee as a on a.Department = b.DeptId JOIN EmpSalary as c on c.EmpId = a.Empid; end&&
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call get_data();
++-------+----------+------------+-------------+
+| Empid | Salary   | ContactNo  | DeptName    |
++-------+----------+------------+-------------+
+|   101 |  2000.00 | 1234567890 | HR          |
+|   102 | 10000.00 | 1234567890 | Sales       |
+|   103 |  5000.00 | 1234567890 | HR          |
+|   104 |  1900.00 | 1234567890 | Development |
+|   105 |  2300.00 | 1234567890 | HR          |
++-------+----------+------------+-------------+
+5 rows in set (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
 
