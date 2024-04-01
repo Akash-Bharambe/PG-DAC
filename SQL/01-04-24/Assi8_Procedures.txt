@@ -1,0 +1,110 @@
+mysql> CREATE DATABASE college;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE college;
+Database changed
+mysql> CREATE TABLE student (roll int, name varchar(20), class varchar(5), marks float, age int);
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| roll  | int         | YES  |     | NULL    |       |
+| name  | varchar(20) | YES  |     | NULL    |       |
+| class | varchar(5)  | YES  |     | NULL    |       |
+| marks | float       | YES  |     | NULL    |       |
+| age   | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> INSERT INTO student (roll, name, class, marks, age)
+    -> VALUES
+    ->     (101, 'John Doe', '12A', 85.5, 18),
+    ->     (102, 'Jane Smith', '11B', 78.0, 17),
+    ->     (103, 'Alice Johnson', '10C', 92.5, 16),
+    ->     (104, 'Bob Brown', '12A', 70.2, 18),
+    ->     (105, 'Eva Lee', '11B', 88.7, 17),
+    ->     (106, 'Michael Clark', '10C', 95.0, 16),
+    ->     (107, 'Olivia White', '12A', 81.3, 18);
+Query OK, 7 rows affected (0.00 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------+---------------+-------+-------+------+
+| roll | name          | class | marks | age  |
++------+---------------+-------+-------+------+
+|  101 | John Doe      | 12A   |  85.5 |   18 |
+|  102 | Jane Smith    | 11B   |    78 |   17 |
+|  103 | Alice Johnson | 10C   |  92.5 |   16 |
+|  104 | Bob Brown     | 12A   |  70.2 |   18 |
+|  105 | Eva Lee       | 11B   |  88.7 |   17 |
+|  106 | Michael Clark | 10C   |    95 |   16 |
+|  107 | Olivia White  | 12A   |  81.3 |   18 |
++------+---------------+-------+-------+------+
+7 rows in set (0.01 sec)
+
+mysql> delimiter &&
+mysql> create procedure get_range(in start int, in end int)
+    -> begin
+    -> select name from student where marks between start and end;
+    -> end
+    -> &&
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call get_range(85,93);
++---------------+
+| name          |
++---------------+
+| John Doe      |
+| Alice Johnson |
+| Eva Lee       |
++---------------+
+3 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delimiter &&
+mysql> create procedure get_summary() begin select sum(marks),avg(marks),min(marks),max(marks) from student; end&&
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delimiter ;
+mysql> call get_summary();
++-------------------+-------------------+------------+------------+
+| sum(marks)        | avg(marks)        | min(marks) | max(marks) |
++-------------------+-------------------+------------+------------+
+| 591.1999969482422 | 84.45714242117745 |       70.2 |         95 |
++-------------------+-------------------+------------+------------+
+1 row in set (0.01 sec)
+
+mysql> delimiter &&
+mysql> create procedure get_marks(in r int, out m float) begin select marks into m from student where roll = r; end&&
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delimiter ;
+mysql> call get_marks(102, @m);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select @m;
++------+
+| @m   |
++------+
+|   78 |
++------+
+1 row in set (0.00 sec)
+
+mysql> delimiter &&
+mysql> create procedure get_cnt() begin select count(name) from student where marks < 80; end&&
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call get_cnt();
++-------------+
+| count(name) |
++-------------+
+|           2 |
++-------------+
+1 row in set (0.00 sec)
+
+
