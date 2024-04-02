@@ -1,0 +1,456 @@
+mysql> create database assi7;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use assi7;
+Database changed
+mysql> CREATE TABLE Employee ( Empid INT PRIMARY KEY, EmpName VARCHAR(255), Department VARCHAR(255), ContactNo VARCHAR(15), EmailId VARCHAR(255), EmpHeadId INT );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> INSERT INTO Employee (Empid, EmpName, Department, ContactNo, EmailId, EmpHeadId) VALUES (101, 'Isha', 'E-101', '1234567890', 'isha@gmail.com', 105), (102, 'Priya', 'E-104', '1234567890', 'priya@yahoo.com', 103), (103, 'Neha', 'E-101', '1234567890', 'neha@gmail.com', 101), (104, 'Rahul', 'E-102', '1234567890', 'rahul@yahoo.com', 105), (105, 'Abhishek', 'E-101', '1234567890', 'abhishek@gmail.com', 102);
+Query OK, 5 rows affected (0.02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE EmpDept ( DeptId VARCHAR(10) PRIMARY KEY, DeptName VARCHAR(255), Dept_off VARCHAR(255), DeptHead INT);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO EmpDept (DeptId, DeptName, Dept_off, DeptHead) VALUES ('E-101', 'HR', 'Monday', 105), ('E-102', 'Development', 'Tuesday', 101), ('E-103', 'House Keeping', 'Saturday', 103), ('E-104', 'Sales', 'Sunday', 104), ('E-105', 'Purchase', 'Tuesday', 104);
+Query OK, 5 rows affected (0.00 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE EmpSalary ( EmpId INT PRIMARY KEY, Salary INT, IsPermanent VARCHAR(3));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO EmpSalary (EmpId, Salary, IsPermanent) VALUES (101, 2000, 'Yes'), (102, 10000, 'Yes'), (103, 5000, 'No'), (104, 1900, 'Yes'), (105, 2300, 'Yes');
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE Project ( ProjectId VARCHAR(10) PRIMARY KEY, Duration INT);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> INSERT INTO Project (ProjectId, Duration) VALUES ('p-1', 23), ('p-2', 15), ('p-3', 45), ('p-4', 2), ('p-5', 30);
+Query OK, 5 rows affected (0.00 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE Country ( cid VARCHAR(10) PRIMARY KEY, cname VARCHAR(255));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO Country (cid, cname) VALUES ('c-1', 'India'), ('c-2', 'USA'), ('c-3', 'China'), ('c-4', 'Pakistan'), ('c-5', 'Russia');
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE ClientTable ( ClientId VARCHAR(10) PRIMARY KEY, ClientName VARCHAR(255), cid VARCHAR(10), FOREIGN KEY (cid) REFERENCES Country(cid));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO ClientTable (ClientId, ClientName, cid) VALUES ('cl-1', 'ABC Group', 'c-1'), ('cl-2', 'PQR', 'c-1'), ('cl-3', 'XYZ', 'c-2'), ('cl-4', 'tech altum', 'c-3'), ('cl-5', 'mnp', 'c-5');
+Query OK, 5 rows affected (0.02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE EmpProject ( EmpId INT, ProjectId VARCHAR(10), ClientId VARCHAR(10), StartYear INT, EndYear INT, PRIMARY KEY (EmpId, ProjectId), FOREIGN KEY (EmpId) REFERENCES Employee(EmpId), FOREIGN KEY (ProjectId) REFERENCES Project(ProjectId), FOREIGN KEY (ClientId) REFERENCES ClientTable(ClientId) );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> INSERT INTO EmpProject (EmpId, ProjectId, ClientId, StartYear, EndYear) VALUES ('101', 'p-1', 'cl-1', 2010, 2010), ('102', 'p-2', 'cl-2', 2010, 2012), ('103', 'p-1', 'cl-3', 2013, NULL), ('104', 'p-4', 'cl-1', 2014, 2015), ('105', 'p-4', 'cl-5', 2015, NULL);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from Employee;
++-------+----------+------------+------------+--------------------+-----------+
+| Empid | EmpName  | Department | ContactNo  | EmailId            | EmpHeadId |
++-------+----------+------------+------------+--------------------+-----------+
+|   101 | Isha     | E-101      | 1234567890 | isha@gmail.com     |       105 |
+|   102 | Priya    | E-104      | 1234567890 | priya@yahoo.com    |       103 |
+|   103 | Neha     | E-101      | 1234567890 | neha@gmail.com     |       101 |
+|   104 | Rahul    | E-102      | 1234567890 | rahul@yahoo.com    |       105 |
+|   105 | Abhishek | E-101      | 1234567890 | abhishek@gmail.com |       102 |
++-------+----------+------------+------------+--------------------+-----------+
+5 rows in set (0.01 sec)
+
+mysql> select * from EmpDept;
++--------+---------------+----------+----------+
+| DeptId | DeptName      | Dept_off | DeptHead |
++--------+---------------+----------+----------+
+| E-101  | HR            | Monday   |      105 |
+| E-102  | Development   | Tuesday  |      101 |
+| E-103  | House Keeping | Saturday |      103 |
+| E-104  | Sales         | Sunday   |      104 |
+| E-105  | Purchase      | Tuesday  |      104 |
++--------+---------------+----------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from EmpSalary;
++-------+--------+-------------+
+| EmpId | Salary | IsPermanent |
++-------+--------+-------------+
+|   101 |   2000 | Yes         |
+|   102 |  10000 | Yes         |
+|   103 |   5000 | No          |
+|   104 |   1900 | Yes         |
+|   105 |   2300 | Yes         |
++-------+--------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Project;
++-----------+----------+
+| ProjectId | Duration |
++-----------+----------+
+| p-1       |       23 |
+| p-2       |       15 |
+| p-3       |       45 |
+| p-4       |        2 |
+| p-5       |       30 |
++-----------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Country;
++-----+----------+
+| cid | cname    |
++-----+----------+
+| c-1 | India    |
+| c-2 | USA      |
+| c-3 | China    |
+| c-4 | Pakistan |
+| c-5 | Russia   |
++-----+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from ClientTable;
++----------+------------+------+
+| ClientId | ClientName | cid  |
++----------+------------+------+
+| cl-1     | ABC Group  | c-1  |
+| cl-2     | PQR        | c-1  |
+| cl-3     | XYZ        | c-2  |
+| cl-4     | tech altum | c-3  |
+| cl-5     | mnp        | c-5  |
++----------+------------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from EmpProject;
++-------+-----------+----------+-----------+---------+
+| EmpId | ProjectId | ClientId | StartYear | EndYear |
++-------+-----------+----------+-----------+---------+
+|   101 | p-1       | cl-1     |      2010 |    2010 |
+|   102 | p-2       | cl-2     |      2010 |    2012 |
+|   103 | p-1       | cl-3     |      2013 |    NULL |
+|   104 | p-4       | cl-1     |      2014 |    2015 |
+|   105 | p-4       | cl-5     |      2015 |    NULL |
++-------+-----------+----------+-----------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Employee WHERE EmpName LIKE "P%";
++-------+---------+------------+------------+-----------------+-----------+
+| Empid | EmpName | Department | ContactNo  | EmailId         | EmpHeadId |
++-------+---------+------------+------------+-----------------+-----------+
+|   102 | Priya   | E-104      | 1234567890 | priya@yahoo.com |       103 |
++-------+---------+------------+------------+-----------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(Salary) FROM EmpSalary WHERE IsPermanent = "Yes" AND Salary > 5000;
++---------------+
+| COUNT(Salary) |
++---------------+
+|             1 |
++---------------+
+1 row in set (0.02 sec)
+
+mysql> SELECT * FROM Employee JOIN EmpSalary ON Employee.Empid = EmpSalary.EmpId WHERE Employee.Empid IN (SELECT EmpId FROM EmpSalary WHERE IsPermanent = "Yes" AND Salary > 5000);
++-------+---------+------------+------------+-----------------+-----------+-------+--------+-------------+
+| Empid | EmpName | Department | ContactNo  | EmailId         | EmpHeadId | EmpId | Salary | IsPermanent |
++-------+---------+------------+------------+-----------------+-----------+-------+--------+-------------+
+|   102 | Priya   | E-104      | 1234567890 | priya@yahoo.com |       103 |   102 |  10000 | Yes         |
++-------+---------+------------+------------+-----------------+-----------+-------+--------+-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM Employee WHERE EmailId LIKE "%@gmail.com";;
++-------+----------+------------+------------+--------------------+-----------+
+| Empid | EmpName  | Department | ContactNo  | EmailId            | EmpHeadId |
++-------+----------+------------+------------+--------------------+-----------+
+|   101 | Isha     | E-101      | 1234567890 | isha@gmail.com     |       105 |
+|   103 | Neha     | E-101      | 1234567890 | neha@gmail.com     |       101 |
+|   105 | Abhishek | E-101      | 1234567890 | abhishek@gmail.com |       102 |
++-------+----------+------------+------------+--------------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Employee WHERE Department IN ("E-104","E-102");
++-------+---------+------------+------------+-----------------+-----------+
+| Empid | EmpName | Department | ContactNo  | EmailId         | EmpHeadId |
++-------+---------+------------+------------+-----------------+-----------+
+|   102 | Priya   | E-104      | 1234567890 | priya@yahoo.com |       103 |
+|   104 | Rahul   | E-102      | 1234567890 | rahul@yahoo.com |       105 |
++-------+---------+------------+------------+-----------------+-----------+
+2 rows in set (0.01 sec)
+
+mysql> SELECT DeptId, DeptName FROM EmpDept WHERE DeptId = "E-102";
++--------+-------------+
+| DeptId | DeptName    |
++--------+-------------+
+| E-102  | Development |
++--------+-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT SUM(SALARY) FROM EmpSalary WHERE IsPermanent = "Yes";
++-------------+
+| SUM(SALARY) |
++-------------+
+|       16200 |
++-------------+
+1 row in set (0.02 sec)
+
+mysql> SELECT EmpName FROM Employee WHERE EmpName LIKE "%a";
++---------+
+| EmpName |
++---------+
+| Isha    |
+| Priya   |
+| Neha    |
++---------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT ProjectId,COUNT(EmpId) FROM EmpProject GROUP BY ProjectId;
++-----------+--------------+
+| ProjectId | COUNT(EmpId) |
++-----------+--------------+
+| p-1       |            2 |
+| p-2       |            1 |
+| p-4       |            2 |
++-----------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(StartYear) AS Project_Started_In_2010 FROM EmpProject WHERE StartYear = 2010;
++-------------------------+
+| Project_Started_In_2010 |
++-------------------------+
+|                       2 |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(StartYear) AS ProjectFinishedInSameYearStarted FROM EmpProject WHERE StartYear = EndYear;
++----------------------------------+
+| ProjectFinishedInSameYearStarted |
++----------------------------------+
+|                                1 |
++----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT EmpName FROM Employee WHERE EmpName LIKE "__h%";
++----------+
+| EmpName  |
++----------+
+| Isha     |
+| Neha     |
+| Rahul    |
+| Abhishek |
++----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT E.EmpId, ED.DeptName FROM Employee E JOIN EmpDept ED WHERE E.Department = ED.DeptId AND E.Empid >103;
++-------+-------------+
+| EmpId | DeptName    |
++-------+-------------+
+|   104 | Development |
+|   105 | HR          |
++-------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT EmpName FROM Employee WHERE EmpHeadId = (SELECT Empid FROM Employee WHERE EmpName = "Abhishek");
++---------+
+| EmpName |
++---------+
+| Isha    |
+| Rahul   |
++---------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT EmpName AS HR_DEPT_HEAD FROM Employee WHERE EmpId = ( SELECT DeptHead FROM EmpDept WHERE DeptName = "HR" );
++--------------+
+| HR_DEPT_HEAD |
++--------------+
+| Abhishek     |
++--------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT EmpName AS PERMANENT_HEAD FROM Employee WHERE EmpId IN ( SELECT DeptHead FROM EmpDept WHERE DeptHead IN ( SELECT EmpId FROM EmpSalary WHERE IsPermanent = "Yes") );
++----------------+
+| PERMANENT_HEAD |
++----------------+
+| Isha           |
+| Rahul          |
+| Abhishek       |
++----------------+
+3 rows in set (0.02 sec)
+
+mysql> SELECT EmpName,EmailId AS NonPermanent_Head FROM Employee WHERE EmpId IN ( SELECT DeptHead FROM EmpDept WHERE DeptHead IN ( SELECT EmpId FROM EmpSalary WHERE IsPermanent = "No") );
++---------+-------------------+
+| EmpName | NonPermanent_Head |
++---------+-------------------+
+| Neha    | neha@gmail.com    |
++---------+-------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT EmpName AS Monday_Off FROM Employee WHERE Department = ( SELECT DeptId FROM EmpDept WHERE Dept_off = "Monday" );
++------------+
+| Monday_Off |
++------------+
+| Isha       |
+| Neha       |
+| Abhishek   |
++------------+
+3 rows in set (0.01 sec)
+
+mysql> SELECT C.*,Cl.* FROM Country AS C JOIN ClientTable AS Cl WHERE C.cid = Cl.cid AND C.cname = "India";
++-----+-------+----------+------------+------+
+| cid | cname | ClientId | ClientName | cid  |
++-----+-------+----------+------------+------+
+| c-1 | India | cl-1     | ABC Group  | c-1  |
+| c-1 | India | cl-2     | PQR        | c-1  |
++-----+-------+----------+------------+------+
+2 rows in set (0.03 sec)
+
+mysql> SELECT * FROM Employee WHERE Department = (SELECT DeptId FROM EmpDept WHERE DeptName ="Development");
++-------+---------+------------+------------+-----------------+-----------+
+| Empid | EmpName | Department | ContactNo  | EmailId         | EmpHeadId |
++-------+---------+------------+------------+-----------------+-----------+
+|   104 | Rahul   | E-102      | 1234567890 | rahul@yahoo.com |       105 |
++-------+---------+------------+------------+-----------------+-----------+
+1 row in set (0.01 sec)
+
+mysql> SELECT * FROM Employee AS E INNER JOIN EmpDept AS ED WHERE E.Department = ED.DeptId;
++-------+----------+------------+------------+--------------------+-----------+--------+-------------+----------+----------+
+| Empid | EmpName  | Department | ContactNo  | EmailId            | EmpHeadId | DeptId | DeptName    | Dept_off | DeptHead |
++-------+----------+------------+------------+--------------------+-----------+--------+-------------+----------+----------+
+|   101 | Isha     | E-101      | 1234567890 | isha@gmail.com     |       105 | E-101  | HR          | Monday   |      105 |
+|   102 | Priya    | E-104      | 1234567890 | priya@yahoo.com    |       103 | E-104  | Sales       | Sunday   |      104 |
+|   103 | Neha     | E-101      | 1234567890 | neha@gmail.com     |       101 | E-101  | HR          | Monday   |      105 |
+|   104 | Rahul    | E-102      | 1234567890 | rahul@yahoo.com    |       105 | E-102  | Development | Tuesday  |      101 |
+|   105 | Abhishek | E-101      | 1234567890 | abhishek@gmail.com |       102 | E-101  | HR          | Monday   |      105 |
++-------+----------+------------+------------+--------------------+-----------+--------+-------------+----------+----------+
+5 rows in set (0.00 sec)
+
+mysql> CREATE TABLE CEmployee SELECT * FROM Employee;
+Query OK, 5 rows affected (0.17 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM Employee;
++-------+----------+------------+------------+--------------------+-----------+
+| Empid | EmpName  | Department | ContactNo  | EmailId            | EmpHeadId |
++-------+----------+------------+------------+--------------------+-----------+
+|   101 | Isha     | E-101      | 1234567890 | isha@gmail.com     |       105 |
+|   102 | Priya    | E-104      | 1234567890 | priya@yahoo.com    |       103 |
+|   103 | Neha     | E-101      | 1234567890 | neha@gmail.com     |       101 |
+|   104 | Rahul    | E-102      | 1234567890 | rahul@yahoo.com    |       105 |
+|   105 | Abhishek | E-101      | 1234567890 | abhishek@gmail.com |       102 |
++-------+----------+------------+------------+--------------------+-----------+
+5 rows in set (0.01 sec)
+
+mysql> SELECT * FROM CEmployee;
++-------+----------+------------+------------+--------------------+-----------+
+| Empid | EmpName  | Department | ContactNo  | EmailId            | EmpHeadId |
++-------+----------+------------+------------+--------------------+-----------+
+|   101 | Isha     | E-101      | 1234567890 | isha@gmail.com     |       105 |
+|   102 | Priya    | E-104      | 1234567890 | priya@yahoo.com    |       103 |
+|   103 | Neha     | E-101      | 1234567890 | neha@gmail.com     |       101 |
+|   104 | Rahul    | E-102      | 1234567890 | rahul@yahoo.com    |       105 |
+|   105 | Abhishek | E-101      | 1234567890 | abhishek@gmail.com |       102 |
++-------+----------+------------+------------+--------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Employee UNION SELECT * FROM CEmployee;
++-------+----------+------------+------------+--------------------+-----------+
+| Empid | EmpName  | Department | ContactNo  | EmailId            | EmpHeadId |
++-------+----------+------------+------------+--------------------+-----------+
+|   101 | Isha     | E-101      | 1234567890 | isha@gmail.com     |       105 |
+|   102 | Priya    | E-104      | 1234567890 | priya@yahoo.com    |       103 |
+|   103 | Neha     | E-101      | 1234567890 | neha@gmail.com     |       101 |
+|   104 | Rahul    | E-102      | 1234567890 | rahul@yahoo.com    |       105 |
+|   105 | Abhishek | E-101      | 1234567890 | abhishek@gmail.com |       102 |
+|   106 | Kiran    | E-102      | 1234567890 | kiran@example.com  |       105 |
+|   107 | Riya     | E-103      | 1234567890 | riya@example.com   |       102 |
+|   108 | Amit     | E-104      | 1234567890 | amit@example.com   |       103 |
++-------+----------+------------+------------+--------------------+-----------+
+8 rows in set (0.02 sec)
+
+mysql> SELECT * FROM Employee EXCEPT SELECT * FROM CEmployee;
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM CEmployee EXCEPT SELECT * FROM Employee;
++-------+---------+------------+------------+-------------------+-----------+
+| Empid | EmpName | Department | ContactNo  | EmailId           | EmpHeadId |
++-------+---------+------------+------------+-------------------+-----------+
+|   106 | Kiran   | E-102      | 1234567890 | kiran@example.com |       105 |
+|   107 | Riya    | E-103      | 1234567890 | riya@example.com  |       102 |
+|   108 | Amit    | E-104      | 1234567890 | amit@example.com  |       103 |
++-------+---------+------------+------------+-------------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM CEmployee INTERSECT SELECT * FROM Employee;
++-------+----------+------------+------------+--------------------+-----------+
+| Empid | EmpName  | Department | ContactNo  | EmailId            | EmpHeadId |
++-------+----------+------------+------------+--------------------+-----------+
+|   101 | Isha     | E-101      | 1234567890 | isha@gmail.com     |       105 |
+|   102 | Priya    | E-104      | 1234567890 | priya@yahoo.com    |       103 |
+|   103 | Neha     | E-101      | 1234567890 | neha@gmail.com     |       101 |
+|   104 | Rahul    | E-102      | 1234567890 | rahul@yahoo.com    |       105 |
+|   105 | Abhishek | E-101      | 1234567890 | abhishek@gmail.com |       102 |
++-------+----------+------------+------------+--------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT AVG(Salary) AS Average_Salary_OfPermanent_Employees FROM EmpSalary WHERE IsPermanent = "Yes";
++--------------------------------------+
+| Average_Salary_OfPermanent_Employees |
++--------------------------------------+
+|                            4050.0000 |
++--------------------------------------+
+1 row in set (0.01 sec)
+
+mysql> create view data_rview as select a.ClientName,b.ProjectId,b.StartYear,b.EndYear from ClientTab
+le as a join EmpProject as b on a.ClientId=b.ClientID;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select *from data_rview;
++------------+-----------+-----------+---------+
+| ClientName | ProjectId | StartYear | EndYear |
++------------+-----------+-----------+---------+
+| ABC Group  | p-1       |      2010 |    2010 |
+| PQR        | p-2       |      2010 |    2012 |
+| XYZ        | p-1       |      2013 |    NULL |
+| ABC Group  | p-4       |      2014 |    2015 |
+| mnp        | p-4       |      2015 |    NULL |
++------------+-----------+-----------+---------+
+5 rows in set (0.00 sec)
+
+mysql> delimiter &&
+mysql> create procedure get_avg_salary()
+    -> begin
+    -> select avg(salary) from EmpSalary;
+    -> end &&
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call get_avg_salary();
++-------------+
+| avg(salary) |
++-------------+
+| 4240.000000 |
++-------------+
+1 row in set (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter &&
+mysql> create procedure get_data() begin select a.Empid, c.Salary, a.ContactNo, b.DeptName from EmpDept as b JOIN Employee as a on a.Department = b.DeptId JOIN EmpSalary as c on c.EmpId = a.Empid; end&&
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call get_data();
++-------+----------+------------+-------------+
+| Empid | Salary   | ContactNo  | DeptName    |
++-------+----------+------------+-------------+
+|   101 |  2000.00 | 1234567890 | HR          |
+|   102 | 10000.00 | 1234567890 | Sales       |
+|   103 |  5000.00 | 1234567890 | HR          |
+|   104 |  1900.00 | 1234567890 | Development |
+|   105 |  2300.00 | 1234567890 | HR          |
++-------+----------+------------+-------------+
+5 rows in set (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
