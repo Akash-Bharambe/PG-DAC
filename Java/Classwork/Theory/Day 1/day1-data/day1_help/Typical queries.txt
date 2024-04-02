@@ -1,0 +1,26 @@
+1. Student's query 
+What will happen ?
+class Test {
+/* public static void Main(String[] args )
+ {
+   s.o.p("testing.....");
+ }*/
+}
+
+Options
+1. javac err
+2. run time err
+3. no err , o/p testing 
+
+2. System.out.println
+System : class in java.lang pkg
+out : static data member of the System class , 
+data type : PrintStream  class (java.io)
+print/println/printf : Methods of PrintStream class
+
+
+
+
+
+
+
