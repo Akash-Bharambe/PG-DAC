@@ -1,0 +1,120 @@
+Day 1
+1. Refer to "Installation Instructions" from day1-data\day1_help & complete the same.
+
+2. MUST go through "sequence.txt"  from day1-data\day1_help\ & day1-data\day1_help\slides\PPTDay1.pdf
+
+3. Go through  code samples from day1-data\code\src
+
+4. Solve (Hands on)
+4.1 Accept 2 double values from User (using Scanner). Check data type.
+. If arguments are not doubles , supply suitable error message & terminate.
+If numbers are double values , print its average.
+Hint : Method of Scanner to use : hasNextDouble , nextDouble 
+
+4.2 Display food menu to user. User will select items from menu along with the quantity. (eg 1. Dosa 2. Samosa 3. Idli ... 10 . Generate Bill ) Assign fixed prices to food items(hard code the prices)
+When user enters 'Generate Bill' option(10) , display total bill & exit.
+
+
+OR 
+Create java application for the following
+Accept 2 numbers from user & operation to perform
+1. Add 2.Subtract 3. Multiply 4.Divide 5.Exit
+Display the result of the operation. 
+Java app must continue to run till user chooses exit option.
+
+5. 
+
+Additional reference for long to float conversion
+https://stackoverflow.com/questions/15229323/java-why-is-converting-a-long-64-to-float-32-considered-widening/15229379
+
+
+Day 2
+
+1. MUST revise from today's sequence ("day2-data\day2_help\sequence.txt") n
+refer : day2-data\code
+Revise :  mem pics for Java data areas(stack,heap,method area),
+Garbage collection introduction
+
+refer : day1-data\day1_help\diagrams\different type of vars.png
+
+
+2. Solve Tank assignment along with memory picture.
+
+What will be the output ?
+
+class Tank {
+  private int level;
+  Tank(int l)
+   {
+     level=l;
+   }
+  public void setLevel(int level1)
+  {
+    level=level1;
+  }
+  public int getLevel()
+  {
+    return level;
+  }
+}	
+
+public class Assignment {
+  public static void main(String[] args) {
+    Tank t1 = new Tank(10);
+    Tank t2 = new Tank(20);
+     s.o.p("1: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t1 = t2;//1st tank obj is marked GC
+    s.o.p("2: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t1.setLevel(27);
+     s.o.p("3: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t2.setLevel(t1.getLevel()+10);
+     s.o.p("4: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+  }
+}
+
+3. What will happen (solve ready code samples : along with mem pics )
+day2-data\day2_help\params_passing
+3.1 TestParamPassing1.java
+3.2 TestParamPassing1.java
+
+4. Hands on
+(Currently place all the classes in the default un named package)
+
+Create a  class Point2D   for representing a point in x-y co-ordinate system.
+
+4.1 Create a parameterized constructor to accept x & y co-ords.
+
+4.2 Add  show() method  --to return point's x & y co-ords
+eg : public String show() {.....}
+
+4.3 (Optional work)
+Add a non static  , isEqual method to Point2D class : boolean returning method : must return true if both points are having same x,y co-ords or false otherwise.
+
+How will you invoke it from the tester 
+A Hint : 
+
+eg : p1.isEqual(p2); 
+OR
+p2.isEqual(p1)
+
+4.4 (Optional work)
+Add a non static method , calculateDistance , to calc distance between 2 points
+Hint : use distance formula.
+
+eg : In Tester :
+double distance=p1.calculateDistance(p2);
+
+4.5  Create a separate Driver(main)  class(for UI )  , "TestPoint" , with main(..)
+
+4.6  Accept x,y co-ordinates for 2 points n store the co-ordinates
+4.7  Display x,y co-ordinates of both of the points plotted  (using show() method)
+4.8  (Optional work)
+Find out if the points  are same or different (Hint : isEqual)
+Print the message accordingly. (print SAME or DIFFERENT)
+If points are not same , display distance between these 2 points.
+
+
