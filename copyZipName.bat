@@ -27,5 +27,5 @@ REM Concatenate day, month, and year in the desired format
 set "TODAY=%DAY%-%MONTH%-24"
 
 REM Add the formatted date to clipboard
-echo 240340120014_Cpp_%TODAY%| clip
+echo 240340120014_Java_%TODAY%| clip
 echo Text copied to clipboard!
