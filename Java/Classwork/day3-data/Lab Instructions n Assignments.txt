@@ -118,3 +118,43 @@ Print the message accordingly. (print SAME or DIFFERENT)
 If points are not same , display distance between these 2 points.
 
 
+Day 3
+Refer to today's sequence.txt
+
+1. Use day3.1 , to revise 
+access specifiers , packages n methods to pass the reference n methods returning reference.
+
+2. Start the IDE (STS 3.9.18 : Eclipse IDE with Spring plug in)
+Create a new workspace for core java.
+With lab faculty's help , you can import day3.2 , in your workspace
+Revise : arrays of primitive type n array of references
+for-each loop
+for vs for-each loop
+
+3. Complete pending work
+
+OPTIONAL hands on WORK
+
+1. Modify yesterday's Point2D's assignment
+Re factor (modify) n add Point2D class under the package - com.developers.geometry
+Add TestPoints class under the package - com.tester
+Make necessary changes .
+
+2.1   Create a driver  class(for UI)  , in the "tester" package "TestPoints" , with main(..)
+
+1. Prompt user , how many points to plot? 
+Create suitable array. (Hint : array of references)
+
+2. Show following options
+
+Options : 
+1. Plot a point
+Inputs : array index , x  ,y
+Check boundary conditions  , check if some point is already plotted at the same index , if not then store the point details.
+In case of any errors , display suitable error message.
+
+2.   Display x,y co-ordinates of all the points plotted so far ,using for-each loop.
+
+0. Exit 
+
+
