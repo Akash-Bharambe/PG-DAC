@@ -11,6 +11,10 @@
 		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.Preferences"/>
 		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
 			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.equinox.p2.category"/>
+			<item value="org.eclipse.debug.ui"/>
+			<item value="org.eclipse.mylyn.tasks.ui.wizards.export.category"/>
+			<item value="org.eclipse.team.ui.exportWizards"/>
 		</list>
 		<section name="ImportExportWizard.dialogBounds">
 		</section>
@@ -19,17 +23,19 @@
 		<item key="" value="C:\Users\aakas\Downloads\pref.epf"/>
 		<item key="WizardPreferencesExportPage1.STORE_OVERWRITE_EXISTING_FILES_ID" value="false"/>
 		<item key="WizardPreferencesExportPage1.EXPORT_ALL_PREFERENCES_ID" value="false"/>
+		<item key="" value="C:\Users\aakas\Downloads\pref.epf"/>
 		<list key="WizardPreferencesExportPage1.STORE_DESTINATION_NAMES_ID">
 			<item value="C:\Users\aakas\Downloads\pref.epf"/>
 		</list>
 		<list key="WizardPreferencesExportPage1.TRANSFER_PREFERENCES_NAMES_ID">
 			<item value="org.eclipse.jdt.internal.ui.transfer.codestyle"/>
+			<item value="org.eclipse.ui.ide.transfer.keys"/>
 		</list>
 		<section name="PreferencesExportWizard.dialogBounds">
 			<item key="DIALOG_X_ORIGIN" value="706"/>
 			<item key="DIALOG_Y_ORIGIN" value="187"/>
 			<item key="DIALOG_WIDTH" value="525"/>
-			<item key="DIALOG_HEIGHT" value="576"/>
+			<item key="DIALOG_HEIGHT" value="594"/>
 			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 		</section>
 	</section>
