@@ -1,0 +1,198 @@
+Today's  Topics
+Revision
+static keyword
+Enter Inheritance 
+Enter polymorphism
+-----------------------------
+1. Revision
+1.1 for vs for-each
+Suppose in Emp class :
+private boolean permanent;
+getter : isPermanent
+
+In Tester class :
+Emp[] emps=new Emp[10];
+Added emps to the array
+//Display permanent status of all emps
+for(Emp e : emps) //e=emps[0].....
+ sop(e.isPermanent());
+
+for-each :
+works on a copy , so can't modify array elems
+iterates from 1st elem --last elem
+
+1.2 Array of references
+Suppose you are creating Customer Management System
+Typical Options  : 
+Customer Sign Up
+Customer Sign In
+Display all customer details (under admin role)
+Update customer details
+Un subscribe customer
+.....
+Exit
+How will you store customer details ?
+In CMS app :
+sop("Enter max no of customers");
+Customer[] customers=new Customer[sc.nextInt()];//100
+//Method area : name of class : [Lcom.app.Customer => Customer[] class
+//Heap : array obj CP , length=100 , 0-99 : null , Stack : customers : array ref var.
+int counter=0;
+case 1 : //Customer Sign Up
+if(counter < customers.length) {
+  sop("Enter customer details");
+  customers[counter]=new Customer(.....);
+	counter++;'
+sop("new customer registered....");
+}
+else 
+sop("reg full !!!!!");
+break;
+
+
+1.3 Conside earlier Box class .
+ Double box width for all boxes having volume > 100.(Can you use for-each & solve this) 
+eg : 
+Box[] boxes=new Box[100];
+//Suppose there are 10 boxes already created.
+for(Box b : boxes)
+{
+  if(b != null) {
+   if(b.getVolume() > 100)
+    b.setWidth(b.getWidth()*2)
+ }
+}
+//use another for-each loop to display details
+
+
+2.Regarding static keyword
+refer : "day4_help\readmes\regarding static.txt"
+
+3.
+Enter Inheritance 
+refer : "day4_help\readmes\readme inheritance_polymorphism.txt"
+
+
+3.1 Test constructor invocation in multi level inheritance hierarchy
+
+3.2 Design 
+Person-Student-Faculty scenario
+Person -- firstName,lastName
+Student --firstName,lastName,grad year,course,fees,marks
+Faculty -- firstName,lastName,yrs of experience , sme
+
+3.3 Identify constructors
+
+In Person class :
+public Person(String fn,String ln)
+{...}
+
+In Student class :
+public Student(fn ,ln ,grad year,course,fees,marks)
+{
+  super(fn,ln);
+  ......
+}
+
+
+
+ 
+
+3.3 Create a simple tester app to create student n faculty 
+Display their details
+How ?
+
+3.4 
+java.lang.Object class Method
+public String toString() : Rets the String containing Fully Qualified(F.Q) className@hashCode
+hashCode : address of the object in the heap.
+eg : In Box class : no overriding form of toString()
+Box b1=new Box(1,23);
+sop(b1);//com.cdac.core.Box@332556
+Q : How will System.out.println(b1) , will auto invoke
+System.out.println(b1.toString());
+Hint : JavaDocs : java.io.PrintStream : println(Object ref)
+
+Is it  useful in a practical scenario ? NO !
+So instead of adding new functionality in sub classes (eg : getDetails() in Person , Student,Faculty) can we override toString itself ?
+What's the need of overriding toString ?
+To replace hashCode(address) returning version by the actual details.
+
+3.5 Real world Objective to apply these concepts 
+Arrange an event to invite the participants (students n faculties. Later you can invite Center Head , Guest Speaker , Support staff etc)
+
+Develop EventOrganizer app -
+Prompt user for event capacity.
+Create suitable data structure to hold the participant details
+Person[] participants=new Person[sc.nextInt()];
+
+Options 
+1. Register Student -
+i/p : student details
+participants[counter]=new Student(.....);
+
+2. Register Faculty -
+i/p : faculty details
+3. Display all participant details : for-each 
+4. Display specific participant details
+i/p : seat no
+0. Exit
+
+Steps
+1. Identify inheritance hierarchy
+classes : Person , Student , Faculty
+
+2. Add suitable constructors , to init complete state
+
+3. Add a method in the super class , to return details of Person/Student/Faculty ....
+(using method overriding)
+
+NOTE : 
+super --keyword in java
+
+super keyword usages
+1. To invoke IMMEDIATE super cls' s MATCHING ctor
+
+2. To access ACCESSIBLE members of the super class
+
+
+Important Summary statement for inheritance n polymorphism
+Sub class IS-A super class n optionally additional state n additional behavior
+n optionally can modify the inherited  behavior
+
+
+
+Add a new method "study" in Student class & "teach" in Faculty class
+Option 5 : User i/p : seat no
+Check if seat no is valid .
+In case of valid seat no  --- If it's a Student , invoke study method , if it's a Faculty invoke teach method
+
+
+
+
+
+When is downcasting required ?
+Any problems ?
+
+Solution : instanceof : keyword in java
+refer to : readme 
+eg : Object <----Emp <---Mgr <---SalesMgr, HRMgr
+Object <---- Emp <--- Worker <--TempWorker
+
+Emp e=new SalesMgr(......);
+e instanceof SalesMgr : 
+e instanceof HRMgr : 
+e instanceof Worker : 
+e instanceof Mgr : 
+e instanceof TempWorker : 
+e instanceof Emp : 
+e instanceof Object : 
+e=null
+e instanceof SalesMgr : 
+e instanceof HRMgr
+e instanceof WorkerMgr
+e instanceof Mgr
+e instanceof TempWorker
+e instanceof Emp
+e instanceof Object : 
+

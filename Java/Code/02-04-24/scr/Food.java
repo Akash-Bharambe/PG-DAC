@@ -4,6 +4,7 @@
 
 import java.util.Scanner;
 
+
 public class Food{
 	
 	private static int menulist(Scanner sc){
