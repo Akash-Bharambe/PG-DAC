@@ -1,0 +1,279 @@
+Day 1
+1. Refer to "Installation Instructions" from day1-data\day1_help & complete the same.
+
+2. MUST go through "sequence.txt"  from day1-data\day1_help\ & day1-data\day1_help\slides\PPTDay1.pdf
+
+3. Go through  code samples from day1-data\code\src
+
+4. Solve (Hands on)
+4.1 Accept 2 double values from User (using Scanner). Check data type.
+. If arguments are not doubles , supply suitable error message & terminate.
+If numbers are double values , print its average.
+Hint : Method of Scanner to use : hasNextDouble , nextDouble 
+
+4.2 Display food menu to user. User will select items from menu along with the quantity. (eg 1. Dosa 2. Samosa 3. Idli ... 10 . Generate Bill ) Assign fixed prices to food items(hard code the prices)
+When user enters 'Generate Bill' option(10) , display total bill & exit.
+
+
+OR 
+Create java application for the following
+Accept 2 numbers from user & operation to perform
+1. Add 2.Subtract 3. Multiply 4.Divide 5.Exit
+Display the result of the operation. 
+Java app must continue to run till user chooses exit option.
+
+5. 
+
+Additional reference for long to float conversion
+https://stackoverflow.com/questions/15229323/java-why-is-converting-a-long-64-to-float-32-considered-widening/15229379
+
+
+Day 2
+
+1. MUST revise from today's sequence ("day2-data\day2_help\sequence.txt") n
+refer : day2-data\code
+Revise :  mem pics for Java data areas(stack,heap,method area),
+Garbage collection introduction
+
+refer : day1-data\day1_help\diagrams\different type of vars.png
+
+
+2. Solve Tank assignment along with memory picture.
+
+What will be the output ?
+
+class Tank {
+  private int level;
+  Tank(int l)
+   {
+     level=l;
+   }
+  public void setLevel(int level1)
+  {
+    level=level1;
+  }
+  public int getLevel()
+  {
+    return level;
+  }
+}	
+
+public class Assignment {
+  public static void main(String[] args) {
+    Tank t1 = new Tank(10);
+    Tank t2 = new Tank(20);
+     s.o.p("1: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t1 = t2;//1st tank obj is marked GC
+    s.o.p("2: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t1.setLevel(27);
+     s.o.p("3: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t2.setLevel(t1.getLevel()+10);
+     s.o.p("4: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+  }
+}
+
+3. What will happen (solve ready code samples : along with mem pics )
+day2-data\day2_help\params_passing
+3.1 TestParamPassing1.java
+3.2 TestParamPassing1.java
+
+4. Hands on
+(Currently place all the classes in the default un named package)
+
+Create a  class Point2D   for representing a point in x-y co-ordinate system.
+
+4.1 Create a parameterized constructor to accept x & y co-ords.
+
+4.2 Add  show() method  --to return point's x & y co-ords
+eg : public String show() {.....}
+
+4.3 (Optional work)
+Add a non static  , isEqual method to Point2D class : boolean returning method : must return true if both points are having same x,y co-ords or false otherwise.
+
+How will you invoke it from the tester 
+A Hint : 
+
+eg : p1.isEqual(p2); 
+OR
+p2.isEqual(p1)
+
+4.4 (Optional work)
+Add a non static method , calculateDistance , to calc distance between 2 points
+Hint : use distance formula.
+
+eg : In Tester :
+double distance=p1.calculateDistance(p2);
+
+4.5  Create a separate Driver(main)  class(for UI )  , "TestPoint" , with main(..)
+
+4.6  Accept x,y co-ordinates for 2 points n store the co-ordinates
+4.7  Display x,y co-ordinates of both of the points plotted  (using show() method)
+4.8  (Optional work)
+Find out if the points  are same or different (Hint : isEqual)
+Print the message accordingly. (print SAME or DIFFERENT)
+If points are not same , display distance between these 2 points.
+
+
+Day 3
+Refer to today's sequence.txt
+
+1. Use day3.1 , to revise 
+access specifiers , packages n methods to pass the reference n methods returning reference.
+
+2. Start the IDE (STS 3.9.18 : Eclipse IDE with Spring plug in)
+Create a new workspace for core java.
+With lab faculty's help , you can import day3.2 , in your workspace
+Revise : arrays of primitive type n array of references
+for-each loop
+for vs for-each loop
+
+3. Complete pending work
+
+OPTIONAL hands on WORK
+
+1. Modify yesterday's Point2D's assignment
+Re factor (modify) n add Point2D class under the package - com.developers.geometry
+Add TestPoints class under the package - com.tester
+Make necessary changes .
+
+2.1   Create a driver  class(for UI)  , in the "tester" package "TestPoints" , with main(..)
+
+1. Prompt user , how many points to plot? 
+Create suitable array. (Hint : array of references)
+
+2. Show following options
+
+Options : 
+1. Plot a point
+Inputs : array index , x  ,y
+Check boundary conditions  , check if some point is already plotted at the same index , if not then store the point details.
+In case of any errors , display suitable error message.
+
+2.   Display x,y co-ordinates of all the points plotted so far ,using for-each loop.
+
+0. Exit 
+
+
+Day 4
+
+We have started with extremely important topics today - inheritance , up casting (indirect referencing) n  run time polymorphism.
+
+Please complete the revision first , as per instructions below.
+If time permits , then complete the pending work.
+No new assignments !!!
+
+1. import day4.1 project in the workspace.
+1.1 Refer - day4-data\code\day4.1\src\test_static\Test.java
+refer to - "day4-data\day4_help\readmes\regarding static.txt"
+Revise static data member , methods, init block
+
+1.2 refer - "day4-data\code\day4.1\src\tester\Test1.java"
+To revise constructor invocation , in multi level inheritance hierarchy
+
+1.3 refer - "day4-data\code\day4.1\src\tester\Test2.java" n Person , Student , Faculty 
+To revise inheritance , super keyword , method overriding 
+readme - "day4-data\day4_help\readmes\readme inheritance_polymorphism.txt"
+
+
+1.4 refer - "day4-data\code\day4.1\src\tester\Test3.java"  
+To revise up casting , run time polymorphism
+
+2. import day4.2 project in the workspace.
+2.1 refer -"day4-data\code\day4.2\src\tester\TestToSring.java"
+Revise toString of Object class , overridden by the sub classes.
+(Here using Person p : as the super class reference)
+
+2.2 refer -"day4-data\code\day4.2\src\tester\TestToSring2.java"
+Revise toString of Object class , overridden by the sub classes.
+(Here using Object p : as the super class reference)
+
+2.3 Application of all of above : 
+refer - "day4-data\code\day4.2\src\tester\EventOrganizerApp.java"
+As you know , we have not yet tested it. So please go through it n test it thoroughly !
+
+3. Reading H.W
+Box b=new Box(1,2,3);
+System.out.println(b);
+Q : In abve line , why it will call b.toString() automatically ?
+
+
+
+Day 5
+0. Refer to today's "sequence.txt"
+
+1. import day5.1 , to revise 
+inheritance ,upcasting , downcasting n instanceof checking.
+IMPORTANT Readmes (MUST go through over the week end)
+ "day4-data\day4_help\readmes\readme inheritance_polymorphism.txt"
+"day5-data\day5_help\readmes\regarding instanceof.txt"
+
+2. import day5.2 , to revise 
+abstract methods n classes.
+
+
+3. As a friendly suggestion , if you want to gain better confidence , try this assignment below.
+Try to complete as much as possible !
+
+
+Hands on 
+Read complete assignment n then only solve.
+
+4.1 Can you arrange Fruit,Apple,Orange,Mango in inheritance hierarchy ?
+Use tight encapsulation.
+
+4.2 Properties (instance variables)  : color : String , weight : double , name:String, fresh : boolean
+
+4.3 Add suitable constructor
+
+4.4 Override  toString correctly to return state of all fruits (return only  : name ,color , weight )
+
+4.5 Add a taste() method : public String taste()
+
+For Fruit : Can you identify taste of any general fruit ? NO
+So add a taste() with this definition : returns "no specific taste" 
+OR is there any BETTER solution ????
+
+Apple : should return  "sweet n sour"
+Mango : should return  "sweet"
+Orange : should return  "sour"
+
+4.6 Add specific functionality , in the sub classes
+In Mango : public void pulp() {Display name n color of the fruit + a mesg  creating  pulp!}
+In Orange : public void juice() {Display name n weight of the fruit + a mesg extracting juice!}
+In Apple : public void jam() {Display name of the fruit + a mesg  making jam!}
+
+4.7 Add all of above classes under the package "com.app.fruits"
+4.8 Create java application FruitBasket , with main method , as a tester
+4.9 Prompt user for the basket size n create suitable data structure
+
+4.10 Supply options
+1. Add Mango
+2. Add Orange
+3. Add Apple
+NOTE : You will be ALWAYS adding a fresh fruit in the basket , in all of above options.
+
+4. Display names of all fruits in the basket.
+
+5. Display name,color,weight , taste of all fresh fruits , in the basket.
+
+
+6. Mark a fruit in a basket , as stale(=not fresh)
+i/p : index 
+o/p : error message (in case of invalid index) or mark it stale
+
+7. Mark all sour fruits stale 
+Hint : Use equals() method of the String class.
+
+8. Invoke fruit specific functionality (pulp / juice / jam)
+i/p : index
+Invoke correct functionality (pulp / juice / jam)
+
+9. Exit 
+
+
+
+
