@@ -1,5 +1,6 @@
 package com.customer;
 
+
 public class Customer {
 	private int id;
 	private String nameString;
