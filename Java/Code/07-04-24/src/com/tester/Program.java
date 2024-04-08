@@ -1,5 +1,6 @@
 package com.tester;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.stack.FixedStack;
@@ -12,15 +13,22 @@ public class Program {
 	private static GrowableStack growableStack = new GrowableStack();
 
 	private static int menuList() {
+		int ch = 1;
 		System.out.println("0. EXIT");
 		System.out.println("1. Growable Array");
 		System.out.println("2. Fixed Array");
-		return scanner.nextInt();
+		try {
+			ch = scanner.nextInt();
+		} catch (InputMismatchException e) {
+			System.out.println(e.toString()+": Selecting Growable Stack...");
+		}
+		return ch;
 	}
 
 	public static void main(String[] args) {
 
 		int ch;
+
 		while ((ch = menuList()) != 0) {
 			switch (ch) {
 			case 1:
@@ -29,6 +37,7 @@ public class Program {
 			case 2:
 				FixedStackTest.fixedStackMethod(fixedStack);
 			default:
+				System.out.println("Enter Valid Input...!!!");
 				break;
 			}
 		}
