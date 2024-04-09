@@ -67,69 +67,85 @@ public class FruitBasket {
 						System.out.println(f);
 				break;
 			case 5:
-				for (Fruits f : fruits)
-					if (f instanceof Mango) {
-						System.out.println(f.taste());
-						break;
-					} else {
-						System.out.println("Cannot taste, add mangoes");
-						break;
-					}
-				break;
-			case 6:
-				for (Fruits f : fruits)
-					if (f instanceof Apple) {
-						System.out.println(f.taste());
-						break;
-					} else {
-						System.out.println("Cannot taste, add Apple");
-						break;
-					}
-				break;
-			case 7:
-				for (Fruits f : fruits)
-					if (f instanceof Orange) {
-						System.out.println(f.taste());
-						break;
-					} else {
-						System.out.println("Cannot taste, add Orange");
-						break;
-					}
-				break;
-			case 8:
+				boolean mangoFound = false;
 				for (Fruits f : fruits) {
 					if (f instanceof Mango) {
+						mangoFound = true;
+						System.out.println(f.taste());
+						break;
+					}
+				}
+				if (!mangoFound) {
+					System.out.println("Cannot taste, add mangoes");
+				}
+				break;
+			case 6:
+				boolean appleFound = false;
+				for (Fruits f : fruits) {
+					if (f instanceof Apple) {
+						appleFound = true;
+						System.out.println(f.taste());
+						break;
+					}
+				}
+				if (!appleFound) {
+					System.out.println("Cannot taste, add Apple");
+				}
+				break;
+			case 7:
+				boolean orangeFound = false;
+				for (Fruits f : fruits) {
+					if (f instanceof Orange) {
+						orangeFound = true;
+						System.out.println(f.taste());
+						break;
+					}
+				}
+				if (!orangeFound) {
+					System.out.println("Cannot taste, add Oranges");
+				}
+				break;
+			case 8:
+				boolean mangoPulpExtracted = false;
+				for (Fruits f : fruits) {
+					if (f instanceof Mango) {
+						mangoPulpExtracted = true;
 						Mango mango = (Mango) f;
 						System.out.println(mango.pulp());
 						break;
-					} else {
-						System.out.println("Cannot Pulp, add mangoes");
-						break;
 					}
+				}
+				if (!mangoPulpExtracted) {
+					System.out.println("Cannot extract pulp, add mangoes");
 				}
 				break;
 			case 9:
+				boolean orangeJuiceMade = false;
 				for (Fruits f : fruits) {
 					if (f instanceof Orange) {
+						orangeJuiceMade = true;
 						Orange orange = (Orange) f;
 						System.out.println(orange.juice());
 						break;
-					} else {
-						System.out.println("Cannot make juice, add oranges");
-						break;
 					}
 				}
+				if (!orangeJuiceMade) {
+					System.out.println("Cannot make juice, add oranges");
+				}
 				break;
+
 			case 10:
+				boolean appleJamMade = false;
 				for (Fruits f : fruits) {
 					if (f instanceof Apple) {
+						appleJamMade = true;
 						Apple apple = (Apple) f;
 						System.out.println(apple.jam());
 						break;
-					} else {
-						System.out.println("Cannot make jam, add apples");
-						break;
 					}
+				}
+				if (!appleJamMade) {
+					System.out.println("Cannot make jam, add apples");
 				}
 				break;
 			case 11:
