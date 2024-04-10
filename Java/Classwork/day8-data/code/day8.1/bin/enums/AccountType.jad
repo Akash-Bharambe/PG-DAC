@@ -1,0 +1,54 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   AccountType.java
+
+package enums;
+
+
+public final class AccountType extends Enum
+{
+
+    private AccountType(String s, int i)
+    {
+        super(s, i);
+    }
+
+    public String toString()
+    {
+        return name().toLowerCase();
+    }
+
+    public static AccountType[] values()
+    {
+        AccountType aaccounttype[];
+        int i;
+        AccountType aaccounttype1[];
+        System.arraycopy(aaccounttype = ENUM$VALUES, 0, aaccounttype1 = new AccountType[i = aaccounttype.length], 0, i);
+        return aaccounttype1;
+    }
+
+    public static AccountType valueOf(String s)
+    {
+        return (AccountType)Enum.valueOf(enums/AccountType, s);
+    }
+
+    public static final AccountType SAVING;
+    public static final AccountType CURRENT;
+    public static final AccountType FD;
+    public static final AccountType DMAT;
+    public static final AccountType LOAN;
+    private static final AccountType ENUM$VALUES[];
+
+    static 
+    {
+        SAVING = new AccountType("SAVING", 0);
+        CURRENT = new AccountType("CURRENT", 1);
+        FD = new AccountType("FD", 2);
+        DMAT = new AccountType("DMAT", 3);
+        LOAN = new AccountType("LOAN", 4);
+        ENUM$VALUES = (new AccountType[] {
+            SAVING, CURRENT, FD, DMAT, LOAN
+        });
+    }
+}

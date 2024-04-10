@@ -1,0 +1,221 @@
+Today's Topics
+
+Revise Exception handling
+try-with-resources
+Custom Exception
+String Handling
+Date Time Handling : Pending
+
+
+Revise
+
+1. Explain the Flow of execution
+Eg. 
+
+try {
+int[] data={1,2,3,4};
+sop(data[4]);
+sop("end of try ...");
+} catch (ArrayIndexOutOfBoundsException e)
+{
+  sop("in catch");
+}
+sop("cntd"); 
+
+
+2. What is the syntax of "throw" keyword ?
+throw Throwable instance
+eg : throw new ArrayIndexOutOfBoundsException("Index 4 Len 4");
+
+
+3. Who all can use "throw" keyword ?
+JVM - to raise system(built in excs) eg --InterruptedExc, IOExc , NPE, SQLException
+OR 
+Prog typically uses throw keyword -- to raise custom exceptions (eg : validation failures OR Business logic failure : B.L )
+
+In either case what will JVM do ?
+Does NOT continue with normal flow of exec --searches for MATCHING catch block
+found -- execs it n continues
+not found --JVM supplies def exc handler --aborts the code
+
+
+4. Explain Inheritance hierarchy of exc handling classes
+Throwable <---Error , Exception <--- RunTimeException
+
+5. which of the following are legal ? 
+
+try {....} catch (AE e ){..} 
+try {....} : illegal
+try {....} catch (AE e ){..}  catch (NPE e) {..} catch(Exception e) {catch-all block} 
+try {....} catch (AE | NPE| NFE e ){..}  catch(Exception e) {catch-all} 
+try {....} catch(Exception e) {catch-all} catch (AE | NPE| NFE e ){..} : illegal
+try(Scanner sc=new Scanner(...)) {...} : LATER !
+try {...} finally {...} 
+try {...} finally {...} catch(Exception e){....} : illegal
+try {...} catch(Exception e){....} finally {...} 
+ 
+8. checked vs un checked exceptions
+How to identify ? 
+RunTimeExc n it's sub classes n Error n it's sub classes --un checked
+rest all : checked exception
+(Important Statement)
+
+who doesn't differentiate between checked vs un checked exceptions : JVM
+who differentiates n how ? : javac
+Imp statement : Javac forces the handling of checked excs.
+How to satisfy ?
+try-catch
+OR
+throws
+(otherwise javac error !)
+
+9. throw vs throws
+
+throw :keyword used to  raise the  exception(JVM uses it : system/built-in excs , Prog : uses it to raise custom exc), 
+java statement ,
+It  appears in method definition
+syntax : throw Throwable instance;
+
+throws : meant for javac , appears in method declaration 
+eg : public void show(....) throws IOException,InterruptedException
+{
+ ......
+}
+Meaning : show() method : may throw the exc(possibility) , curnt method is NOT handling the exc. , so its' caller should handle.
+
+When is adding "throws" keyword mandatory ?
+checked n un handled
+BUT as a good prog policy , even when method may raise un checked excs --add throws keyowrd.
+
+ 
+
+10. Explain finally : keyword --block
+code within finally block : always called 
+except : JVM terminate (System.exit)
+
+ typical use case  : to clean up the resources.
+eg : 
+Scanner sc=new Scanner (System.in);
+try {
+......
+}catch-all
+finally {
+sc.close(); --> invoke it from finally block
+}
+
+
+
+
+
+11. Better alternative to clean up resources : 
+try-with-resources block: syntax 
+try (open AutoCloseable resource/s)
+{
+ .....B.L (business logic)
+} //JVM will auto call close() on the resources
+OR
+
+try (open AutoCloseable resource/s)
+{
+ .....B.L (business logic)
+} //JVM will auto call close() on the resources
+catch-all 
+
+eg : try (Scanner sc=new Scanner(System.in))
+{
+....
+} //sc.close();
+catch-all : optional
+
+Today's Topics begin ....
+
+1. Can you open ANY Resource(i.e can you create ANY class instance) using try-with-resources block 's header? NO 
+Resource(class) MUST be AutoCloseable 
+
+
+2. What's the need of Custom exceptions ?
+To detect validation and  B.L(business logic)  failures  n then alter the flow of execution.
+
+Steps
+1. Create a class extends : Throwable/Error/Exception/RunTimeExcetion
+Recommendation for checked custom exc : Exception
+
+2. Add parameterized ctor : to init err mesg , by invoking super cls ctor
+eg : public class MyExc extends Exception
+{
+ public MyExc(String mesg)
+ {
+ super(mesg);
+ }
+}
+This mesg can be accessed , in catch block :
+sop(e.getMessage());
+or
+sop(e);
+or
+e.printStackTrace();
+
+
+Objective : To check speed of a vehicle on a highway
+min speed : 40
+max speed : 80
+If vehicle --running within speed limits -- no exc !
+If outside limits -- raise the custom exc n alert the driver !
+
+
+3. String Handling 
+String Overview
+
+3.1 Immutability of strings
+3.2 == vs equals
+IMPORTANT facts regarding equals : 
+Object class Method -
+public boolean equals(Object anotherObject)
+Rets true iff both refs(this==anotherObject) are referring to the SAME object
+i.e based upon reference (address) equality
+
+String class has overridden the equals method , inherited from Object class - to replace ref equality by content equality(seq of chars) , in a case sensitive manner.
+
+eg : String s1=new String("hello");
+String s2=new String("hello");
+sop(s1==s2);//f
+sop(s1.equals(s2));//t
+
+Object o1=new String("hello");//up casting
+Object o2=new String("hello");//up casting
+sop(o1==o2);//f
+sop(o1.equals(o2));//t : run time poly. ---JVM resolves : late binding --by the type of instance (String)
+i.e JVM calls overriding form of equals : String => content equality.
+sop(o1);//invokes toString : String
+sop(o1.equalsIgnoreCase(o2));//javac err ! , since Object class DOES NOT have equalsIgnoreCase
+
+Answer this .
+Given : Emp class - public double computeNetSalary(){
+   return 1;
+}
+Mgr extends Emp n add overriding method
+@Override
+public double computeNetSalary(){
+   return 2;
+}
+//adds a new method
+public void manageEmps(String deptId) {....}
+
+Tester :
+Emp e=new Mgr(...);//up casting
+e.computeNetSalary();//no javac err , ref : Emp , instance : Mgr , computeNetSalary : Mgr
+e.manageEmps("RnD");//javac err , since manageEmps is not in Emp class
+
+3.3 literal vs non literal string
+3.4 String class API (important methods only)
+eg : charAt,contains , indexOf,lastIndexOf, split , compareTo
+API of String class
+public String[] split(String pattern)
+
+API of java.util.Arrays class
+public static String toString(Object[] objects)
+
+Solve this :
+How will you display , the tokens splitted around a whitespace ?
+String s1=sc.nextLine();
+sop(Arrays.toString(s1.split(" ")));

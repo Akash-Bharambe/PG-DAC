@@ -1,0 +1,88 @@
+Q 1 :  Solve
+	 String s=new String("hello");
+		String s1=s.concat(" abc !");
+		System.out.println(s);//hello
+		System.out.println(s1);//hello abc !
+		s=s.concat("12345");
+		System.out.println(s);//hello12345
+		System.out.println(s.toUpperCase());//upper cased
+		System.out.println(s);//hello12345
+		String s2=s.replace('l', 't');
+		System.out.println(s);//hello12345
+		System.out.println(s2);//hetto12345
+		s.concat(3456);//javac err !
+
+Q 2 : Solve
+
+		String s1=new String("testing strings");
+		String s2=new String("testing strings");
+		String s3=new String("Testing Strings");
+		System.out.println(s1==s2);//f
+		System.out.println(s1.equals(s2));//t
+		System.out.println(s1==s3);//f
+		System.out.println(s1.equals(s3));//f
+		System.out.println(s1.equalsIgnoreCase(s3));//t
+
+What will you use in the practical environment. to chk equality of 2 strings ? == OR equals
+equals
+
+
+Q 3 : Solve
+		String s1 = "Hello Students";//s1 --> literal string
+		String s2 = new String(s1);//s2 --> non literal string : Hello Students
+		String s3 = s1.toUpperCase();//s3 --> non literal string : HELLO ....
+		String s4 = s2.intern();//s4 ,s1 -> same lietral string
+		String s5 = s3.intern();//s3, s5 --> literal string (HELLO ....)
+
+		String s6 = "HELLO STUDENTS";//s6,s3,s5 --> HELLO STUDENTS
+		System.out.println(s1 == s2);//f
+		System.out.println(s1 == s4);//t
+		System.out.println(s5 == s6);//t
+		System.out.println(s3 == s5);//t
+
+
+Q 4 :  Solve
+
+		String s="Hello";
+		s.toUpperCase();
+		s.concat("12345");
+		System.out.println(s);
+		String s1="testing strings";
+		String s2=new String(s1);
+		System.out.println(s1==s2);
+		System.out.println(s1.equals(s2));
+		String s3="He"+"llo";
+		String s4="He".concat("llo");
+		String s5="hello";
+		String s6="he";
+		String s7="llo";
+		String s8=s6+s7;
+		System.out.println(s==s3);
+		System.out.println(s==s4);
+		System.out.println(s==s5);
+		System.out.println(s5==s8);
+
+
+Q 5 Solve 
+public static void main(String[] args) {
+		String s1="hello";
+		String s2="hello";
+		String s3=new String(s1);
+		String s4=s3.intern();
+		String s9=new String(s1.toUpperCase());
+                String s10=s9.intern();
+		//concat vs + operator
+		String s5="he"+"llo";
+		String s6="he".concat("llo"); 
+		System.out.println(s1==s2);
+		System.out.println(s1==s3);
+		System.out.println(s1==s4);
+		System.out.println(s1==s5);
+		System.out.println(s1==s6);
+		System.out.println(s3==s6);
+
+		String s7=new String("Hello");
+		String s8=new String("hello");
+		String s11="HELLO";
+		System.out.println(s10==s11);
+	}
