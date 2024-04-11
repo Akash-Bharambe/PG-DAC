@@ -1,0 +1,29 @@
+Banking case study
+
+Create Java application to provide core banking features to the bank customer.
+
+Fetaures(Services)
+1. Open bank account
+2. Deposit
+3. Withdraw
+4. Funds transfer
+5. Display All accounts (for bank manager role)
+6. Close account.
+n many more......
+
+Identify the design 
+1. Core classes 
+BankAccount - account no , customer name, account type , customer dob , a/c creation date , balance
+
+2. Validation rules
+2.1 min balance condition
+2.2 account type must be the supported type
+2.3 customer should not be a minor
+(age > 18)
+2.4 a/c creation date must be after the beginning of the current financial year
+2.5 account no must not be duplicate
+....
+
+3. Any custom exception classes required ?
+
+4. Tester : Bank Application

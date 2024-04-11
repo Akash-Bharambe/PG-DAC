@@ -7,16 +7,16 @@ import static com.vehicle.exception.ValidationRules.*;
 public class Program {
 
 	public static int menuList() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("0. EXIT");
-		System.out.println("1. Validate Speed");
-		System.out.println("2. Validate Fuel");
-		System.out.println("3. Validate License");
-		System.out.print("Enter Choice: ");
-		return scanner.nextInt();
+		try (Scanner scanner = new Scanner(System.in)) {
+			System.out.println("0. EXIT");
+			System.out.println("1. Validate Speed");
+			System.out.println("2. Validate Fuel");
+			System.out.println("3. Validate License");
+			System.out.print("Enter Choice: ");
+			return scanner.nextInt();
+		}
 	}
 
-	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		int ch;
 		try (Scanner scanner = new Scanner(System.in)) {
@@ -33,7 +33,7 @@ public class Program {
 						break;
 					case 3:
 						System.out.print("Enter Expiry Date of License in format yyyy mm dd ");
-					validateDate(LocalDate.of(scanner.nextInt(), scanner.nextInt(), scanner.nextInt()));
+						validateDate(LocalDate.of(scanner.nextInt(), scanner.nextInt(), scanner.nextInt()));
 						break;
 
 					default:

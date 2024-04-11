@@ -1,0 +1,114 @@
+Method overriding n exception handling
+Help : Overriding form of the method(in sub class) can't add any NEW or BROADER checked exceptions
+Confirm with examples.
+eg :
+1.  package p1;
+class A
+{
+  void show()
+  {
+    sop("1");
+  }
+}
+
+class B extends A
+{
+  @Override
+  void show() throws InterruptedException 
+  {
+    sop("2");
+  }
+}
+
+In Tester 
+A ref=new B();
+ref.show();
+
+
+2.  package p1;
+class A
+{
+  void show() throws IOException
+  {
+    sop("1");
+  }
+}
+
+class B extends A
+{
+  @Override
+  void show() 
+  {
+    sop("2");
+  }
+}
+
+3.  package p1;
+class A
+{
+  void show() throws IOException
+  {
+    sop("1");
+  }
+}
+
+class B extends A
+{
+  @Override
+  void show() throws FileNotFoundException
+  {
+    sop("2");
+  }
+}
+4.  package p1;
+class A
+{
+  void show() throws IOException
+  {
+    sop("1");
+  }
+}
+
+class B extends A
+{
+  @Override
+  void show() throws Exception 
+  {
+    sop("2");
+  }
+}
+5.  package p1;
+class A
+{
+  void show() throws IOException
+  {
+    sop("1");
+  }
+}
+
+class B extends A
+{
+  @Override
+  void show() throws NumberFormatException , NullPointerException
+  {
+    sop("2");
+  }
+}
+
+6.  package p1;
+class A
+{
+  void show() throws IOException,SQLException
+  {
+    sop("1");
+  }
+}
+
+class B extends A
+{
+  @Override
+  void show() throws SQLException
+  {
+    sop("2");
+  }
+}
