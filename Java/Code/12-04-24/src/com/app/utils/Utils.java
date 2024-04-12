@@ -42,6 +42,7 @@ public class Utils {
 		for (BankApplication acc : accounts) {
 			if (acc.equals(new BankApplication(accountNo))) {
 				System.out.println(acc);
+				break;
 			}else {
 				throw new BankException("Account Not Found");
 			}
