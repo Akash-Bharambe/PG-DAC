@@ -1,0 +1,65 @@
+Revision of -
+Generics n Collection Framework Overview
+New Topics -
+List Handling
+API
+Understand API with Integer List
+Start with Banking Case study based upon ArrayList (CRUD ,searching , sorting)
+
+
+1. Why generics ?
+Flexibility along with type safety , where type un safe ops will be detected as java errors
+
+1.1 To access the data , explicit downcasting IS NOT required
+1.2 NO chance of ClassCastException
+eg : Holder<Customer> customerHolder=new Holder<>("abcdef");//javac err
+Holder<Customer> customerHolder=new Holder<>(12345);//javac err
+Holder<Customer> customerHolder=new Holder<> (new Customer(...));
+Customer cust=customerHolder.getRef();
+
+Holder<BankAccount> acctHolder=new Holder<>("abcdef");//javac err
+acctHolder=new Holder<>(new SavingAccount(....));//no err !
+
+2.Collection Framework Overview
+
+
+
+2. Collection Framework overview -
+
+3. List Features -
+
+Today's topics
+
+List API
+
+List implementation classes - ArrayList
+
+Constructors n methods
+
+Integer List
+
+Banking case study
+Begin 
+Fetaures(Services)
+1. Open bank account
+2. Deposit
+3. Withdraw
+4. Funds transfer
+5. Display All accounts (for bank manager role)
+6. Close account.
+n many more......
+
+Identify the design 
+1. Core classes 
+BankAccount - account no , customer name(first name last name), account type , customer dob , a/c creation date , balance
+1.1 state
+1.2 parameterized ctor to init state
+1.3 toString
+1.4 override equals to replace -ref equality by UID equality based upon PK
+simple PK - acct number
+
+
+
+
+
+

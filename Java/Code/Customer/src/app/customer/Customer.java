@@ -16,6 +16,26 @@ public class Customer {
 	static {
 		idCount = 0;
 	}
+
+
+	public Customer(int cutomerID, String fName, String lName, String email, double registrationAmmount, LocalDate dob,
+			PlanType plan) {
+		super();
+		this.cutomerID = cutomerID;
+		this.fName = fName;
+		this.lName = lName;
+		this.email = email;
+		this.registrationAmmount = registrationAmmount;
+		this.dob = dob;
+		this.plan = plan;
+	}
+
+
+	public Customer(int cutomerID) {
+		super();
+		this.cutomerID = cutomerID;
+	}
+	
 	
 	
 	

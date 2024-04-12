@@ -1,0 +1,55 @@
+Banking case study
+
+Create Java application to provide core banking features to the bank customer.
+
+Fetaures(Services)
+1. Open bank account
+2. Deposit
+3. Withdraw
+4. Funds transfer
+5. Display All accounts (for bank manager role)
+6. Close account.
+n many more......
+
+Identify the design 
+1. Core classes 
+BankAccount - account no , customer name(first name last name), account type , customer dob , a/c creation date , balance
+state - account no , customer name(first name last name), account type , customer dob , a/c creation date , balance
+1.1 state
+1.2 parameterized ctor to init state
+1.3 toString
+1.4 override equals to replace -ref equality by UID equality based upon PK
+simple PK - acct number
+
+
+2. Validation rules
+2.1 min balance condition
+2.2 account type must be the supported type
+2.3 customer should not be a minor
+(age > 18)
+2.4 a/c creation date must be after the beginning of the current financial year
+2.5 account no must not be duplicate
+....
+
+3. Any custom exception classes required ?
+
+4. Tester : Bank Application , using ArrayList to store acct details
+
+Solve
+Create BankValidationRules -class
+
+Add a public static methods to validate -
+1 account type must be the supported type
+
+public static AccountType validateAcType(String acType) throws IllegalArgumentException
+{
+  return AccountType.valueOf(acType.toUpperCase());
+}
+
+2.  min balance condition
+public static double checkOpeningBal(AccountType type,double bal) throws ....
+{
+  if(bal < type.getMinBalance()) 
+   throw new BankHandlingException("insuf. opening bal!!!!!");
+  return bal;
+}

@@ -13,8 +13,10 @@ public enum PlanType {
 	}
 	
 	@Override
-	public String toString(Object o) {
-		
+	public String toString() {
+		return name() + " "+ charges;
 	}
+	
+	
 	
 }
