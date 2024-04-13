@@ -16,7 +16,9 @@ public enum PlanType {
 	public String toString() {
 		return name() + " "+ charges;
 	}
-	
-	
+
+	public double getCharges() {
+		return charges;
+	}
 	
 }
