@@ -28,8 +28,8 @@ public class BankApplication implements Comparable<BankApplication> {
 
 	@Override
 	public String toString() {
-		return "BankApplication [accountNo=" + accountNo + ", fName=" + fName + ", lName=" + lName + ", accType="
-				+ accType + ", balance=" + balance + ", dob=" + dob + "]";
+		return "[accountNo=" + accountNo + ", fName=" + fName + ", lName=" + lName + ", accType=" + accType
+				+ ", balance=" + balance + ", dob=" + dob + "]";
 	}
 
 	@Override
@@ -45,6 +45,14 @@ public class BankApplication implements Comparable<BankApplication> {
 		return balance;
 	}
 
+	public LocalDate getDob() {
+		return dob;
+	}
+
+	public void setDob(LocalDate dob) {
+		this.dob = dob;
+	}
+
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
@@ -53,4 +61,5 @@ public class BankApplication implements Comparable<BankApplication> {
 	public int compareTo(BankApplication o) {
 		return this.accountNo - o.accountNo;
 	}
+
 }
