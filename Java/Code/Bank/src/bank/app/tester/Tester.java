@@ -1,8 +1,10 @@
 package bank.app.tester;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import bank.app.Bank.AccountType;
 import bank.app.Bank.BankApplication;
 import bank.app.utils.Utils;
 
@@ -25,9 +27,28 @@ public class Tester {
 		System.out.print("Enter Choice: ");
 		return scanner.nextInt();
 	}
-	
+
 	private static void populateBank(ArrayList<BankApplication> accounts) {
-		
+		accounts.add(new BankApplication(201, "Akash", "Bharambe", AccountType.FD, 10000.50D,
+				LocalDate.parse("2002-06-26")));
+		BankApplication[] sampleData = new BankApplication[] {
+				new BankApplication(202, "John", "Doe", AccountType.SAVINGS, 15000.75D, LocalDate.parse("2000-03-15")),
+				new BankApplication(203, "Jane", "Smith", AccountType.CURRENT, 20000.0D, LocalDate.parse("1998-11-20")),
+				new BankApplication(204, "Michael", "Johnson", AccountType.FD, 50000.25D,
+						LocalDate.parse("2005-07-10")),
+				new BankApplication(205, "Emily", "Williams", AccountType.SAVINGS, 25000.50D,
+						LocalDate.parse("1999-09-05")),
+				new BankApplication(206, "David", "Brown", AccountType.CURRENT, 30000.0D,
+						LocalDate.parse("2001-12-30")),
+				new BankApplication(207, "Sarah", "Jones", AccountType.FD, 100000.0D, LocalDate.parse("2003-05-25")),
+				new BankApplication(208, "Matthew", "Martinez", AccountType.SAVINGS, 35000.75D,
+						LocalDate.parse("2004-08-12")),
+				new BankApplication(209, "Jessica", "Taylor", AccountType.CURRENT, 40000.0D,
+						LocalDate.parse("1997-04-18")),
+				new BankApplication(210, "Daniel", "Garcia", AccountType.FD, 75000.25D, LocalDate.parse("2006-10-07")),
+				new BankApplication(211, "Olivia", "Hernandez", AccountType.SAVINGS, 45000.50D,
+						LocalDate.parse("2002-01-01")) };
+		accounts.add(sampleData);
 	}
 
 	public static void main(String[] args) {
