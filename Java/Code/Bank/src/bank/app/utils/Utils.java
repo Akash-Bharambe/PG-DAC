@@ -1,13 +1,13 @@
 package bank.app.utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 import bank.app.Bank.BankApplication;
 import bank.app.Bank.ValidationRules;
 import bank.app.exception.BankException;
-
-
+import bank.app.sort.BankAscBalanceComparator;
 
 public class Utils {
 	private static Scanner scanner = new Scanner(System.in);
@@ -30,6 +30,20 @@ public class Utils {
 
 	}
 
+	public static int findAccount(ArrayList<BankApplication> accounts) throws BankException {
+		int accountNo;
+		System.out.print("\nEnter account Number: ");
+		accountNo = scanner.nextInt();
+		BankApplication a = new BankApplication(accountNo);
+
+		int index = accounts.indexOf(a);
+
+		if (index == -1) {
+			throw new BankException("Account Not Found...");
+		}
+		return index;
+	}
+
 	public static void showAllAccounts(ArrayList<BankApplication> accounts) {
 		for (BankApplication acc : accounts) {
 			System.out.println(acc);
@@ -37,54 +51,59 @@ public class Utils {
 	}
 
 	public static void displaySummary(ArrayList<BankApplication> accounts) throws BankException {
-		int accountNo;
-		System.out.print("\nEnter account Number: ");
-		accountNo = scanner.nextInt();
-
-		for (BankApplication acc : accounts) {
-			if (acc.equals(new BankApplication(accountNo))) {
-				System.out.println(acc);
-				break;
-			}else {
-				throw new BankException("Account Not Found");
-			}
-		}
+		System.out.println(accounts.get(findAccount(accounts)));
 	}
 
 	public static void depositFunds(ArrayList<BankApplication> accounts) throws BankException {
-		int accountNo;
-		System.out.print("\nEnter account Number: ");
-		accountNo = scanner.nextInt();
-		for (BankApplication acc : accounts) {
-			if (acc.equals(new BankApplication(accountNo))) {
-				System.out.println("\nEnter Amount to Deposit");
-				acc.setBalance(scanner.nextDouble() + acc.getBalance());
-				break;
-			}else {
-				throw new BankException("Account Not Found");
-			}
-
-		}
+		BankApplication acc = accounts.get(findAccount(accounts));
+		System.out.println("\nEnter Amount to Deposit");
+		acc.setBalance(scanner.nextDouble() + acc.getBalance());
 	}
 
 	public static void withdrawFunds(ArrayList<BankApplication> accounts) throws BankException {
-		int accountNo;
-		System.out.print("\nEnter account Number: ");
-		accountNo = scanner.nextInt();
-		for (BankApplication acc : accounts) {
-			if (acc.equals(new BankApplication(accountNo))) {
-				System.out.println("\nEnter Amount to Withdraw");
-				Double amt = scanner.nextDouble();
-				if (amt < acc.getBalance()) {
-					acc.setBalance(acc.getBalance() - amt);
-					break;
-				}else {
-					throw new BankException("Insufficient Funds");
-				}
-			}else {
-				throw new BankException("Account Not Found");
-			}
+		BankApplication acc = accounts.get(findAccount(accounts));
 
+		System.out.println("\nEnter Amount to Withdraw");
+		Double amt = scanner.nextDouble();
+		if (amt < acc.getBalance()) {
+			acc.setBalance(acc.getBalance() - amt);
+		} else {
+			throw new BankException("Insufficient Funds");
 		}
+	}
+
+	public static void transferFunds(ArrayList<BankApplication> accounts) throws BankException {
+		
+		System.out.println("Source account details...");
+		BankApplication src = accounts.get(findAccount(accounts));
+		System.out.println("Destination account details...");
+		BankApplication dest = accounts.get(findAccount(accounts));
+				
+		Double amt = scanner.nextDouble();
+		if (amt < src.getBalance()) {
+			src.setBalance(src.getBalance() - amt);
+		} else {
+			throw new BankException("Insufficient Funds");
+		}
+		
+		System.out.print("Amount to Transfer: ");
+		double fund=scanner.nextDouble();
+		dest.setBalance(fund + dest.getBalance());
+	}
+
+	public static void closeAccount(ArrayList<BankApplication> accounts) throws BankException {
+		BankApplication acc = accounts.get(findAccount(accounts));
+		accounts.remove(acc);
+		System.out.println("Account Closed...");
+	}
+
+	public static void sortAccountNumber(ArrayList<BankApplication> accounts) {
+		Collections.sort(accounts,null);
+		showAllAccounts(accounts);
+	}
+
+	public static void sortAccountBalance(ArrayList<BankApplication> accounts) {
+		Collections.sort(accounts, new BankAscBalanceComparator());
+		showAllAccounts(accounts);
 	}
 }

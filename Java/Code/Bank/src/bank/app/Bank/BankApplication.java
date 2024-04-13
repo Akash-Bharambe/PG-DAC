@@ -2,7 +2,7 @@ package bank.app.Bank;
 
 import java.time.LocalDate;
 
-public class BankApplication {
+public class BankApplication implements Comparable<BankApplication> {
 	private int accountNo;
 	private String fName;
 	private String lName;
@@ -47,5 +47,10 @@ public class BankApplication {
 
 	public void setBalance(double balance) {
 		this.balance = balance;
+	}
+
+	@Override
+	public int compareTo(BankApplication o) {
+		return this.accountNo - o.accountNo;
 	}
 }
