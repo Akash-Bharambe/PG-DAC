@@ -14,7 +14,7 @@ public enum AccountType {
 	
 	@Override
 	public String toString() {
-		return name() +" : "+ minBalance;
+		return name();
 	}
 	
 }

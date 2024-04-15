@@ -22,9 +22,10 @@ public class Tester {
 		System.out.println("5. Withdraw funds.");
 		System.out.println("6. Funds Transfer");
 		System.out.println("7. Close Account");
-		System.out.println("8. Sort accounts as per ASCENDING order of ACCOUNT NUMBER");
-		System.out.println("9. Sort accounts as per ASCENDING order of ACCOUNT BALANCE");
-		System.out.println("10. Sort accounts as per ASCENDING order of DOB and DESCENDING order of ACCOUNT BALANCE");
+		System.out.println("8. Show Transactions");
+		System.out.println("9. Sort accounts as per ASCENDING order of ACCOUNT NUMBER");
+		System.out.println("10. Sort accounts as per ASCENDING order of ACCOUNT BALANCE");
+		System.out.println("11. Sort accounts as per ASCENDING order of DOB and DESCENDING order of ACCOUNT BALANCE");
 		System.out.print("Enter Choice: ");
 		return scanner.nextInt();
 	}
@@ -84,12 +85,15 @@ public class Tester {
 					Utils.closeAccount(accounts);
 					break;
 				case 8:
-					Utils.sortAccountNumber(accounts);
+					Utils.showTransactions(accounts);
 					break;
 				case 9:
-					Utils.sortAccountBalance(accounts);
+					Utils.sortAccountNumber(accounts);
 					break;
 				case 10:
+					Utils.sortAccountBalance(accounts);
+					break;
+				case 11:
 					Utils.sortDateBalance(accounts);
 					break;
 				default:

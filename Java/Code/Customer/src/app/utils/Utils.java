@@ -1,9 +1,11 @@
 package app.utils;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
 import app.customer.Customer;
+import app.customer.PlanType;
 import app.customer.ValidationRules;
 import app.exception.CustomerException;
 
@@ -19,20 +21,24 @@ public class Utils {
 
 		System.out.print("Enter email: ");
 		String email = scanner.next();
+		ValidationRules.validateEmail(email.toLowerCase(), list);
 
-		System.out.print("Enter password: ");
+		System.out.print("Enter password (Passsword must contain 1 atleast Uppercase letter, 1 Lowercase Letter, 1 symbol and at least 1 number) : ");
 		String pass = scanner.next();
-
+		ValidationRules.validatePass(pass);
+		
+		System.out.print("Enter Plan: ");
+		String plan = scanner.next();
+		PlanType planType = ValidationRules.validatePlan(plan);
+		
 		System.out.print("Enter Registration Amount: ");
 		double registrationAmount = scanner.nextDouble();
-
+		ValidationRules.validateRegistrationAmount(planType, registrationAmount);
+		
 		System.out.print("Enter BirthDate(yyyy-mm-dd): ");
 		String dob = scanner.next();
 
-		System.out.print("Enter Plan: ");
-		String plan = scanner.next();
-
-		list.add(ValidationRules.ValidateCustomer(fName, lName, email, pass, registrationAmount, dob, plan, list));
+		list.add(new Customer(fName, lName, email, pass, registrationAmount, LocalDate.parse(dob), planType));
 		System.out.println("Customer Added...");
 	}
 
