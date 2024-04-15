@@ -16,7 +16,7 @@ void Player::enrollSport(vector<Sports> sports)
     {
         if (sports[i] == sports[ch-1])
         {
-            /* code */
+            
         }
         
     }
