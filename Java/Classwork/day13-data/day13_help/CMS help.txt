@@ -1,0 +1,27 @@
+List<Customer> customers=.....
+
+case 2 :
+sign in
+sop(em n pass);
+customerLogin(em,pass, customers);
+
+pre req : 
+In Customer class 
+1. overloaded ctor : em
+2. equals : em
+
+public static Customer customerLogin(em,pass, customers)  throws custom exc {
+  Customer c1=new Customer(em);
+  int index=customers.indexOf(c1);//Customer's equals 
+   if(index == -1)
+     throw invalid em;
+  Customer c=customers.get(index);
+  if(c.getPwd().equals(pass))
+   return c;
+  throw invalid pwd;
+
+
+}
+
+
+

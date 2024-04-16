@@ -1,0 +1,84 @@
+Map overview
+Map API
+HashMap implementation for Banking system
+Revise Hashing algorithm using HashMap 
+
+More Details about generic syntax
+
+
+
+1. Map overview 
+Refer - "day13_help\maps handling\regarding maps.png"
+
+2. Map API 
+Refer - "day13_help\maps handling\Map API.txt"
+
+3. NOTE : Hashing algo in HashSet or HashMap is same
+HashSet internally maintains HashMap instance (HashSet HAS-A HashMap)
+eg : HashSet<Emp> --> HashMap <Emp,Object>
+i.e when you call hs.add(e1) --> hm.put(e1,new Object());
+hs.remove(e1) ---> hm.remove(e1);
+
+
+3.1 For revision of Hashing algo with HashMap : 
+HashMap<K,V> hm=new HM<>();
+hm.put(k1,v1);//1st entry added
+hm.put(k2,v2);//Given : k1 n k2 have different hashcode => 
+hm.put(k3,v3); //Given : k1 n k3 have same hashcode => 
+hm.put(k1,v4); 
+hm.put(k5,v5); //Given : k1 n k5 have same hashcode => 
+hm.put(null,v6);
+
+How will you explain it ? (With mem diagram)
+
+4. Solve Banking assignment using Maps
+
+To sort the Map as per value based criteria -
+steps 
+1. Convert the map the Collection<V> using values()
+2. Copy the Collection<V> to ArrayList/LinkedList
+3. Use
+Collections.sort(List<T> list, Comparator<T> comp)
+
+
+4.1 Solve 
+Display names of bank customers , having specific a/c type
+i/p : a/c type (string) -->enum (valueOf) : acType
+soln - 
+for(BankAccount a : accountMap.values())
+ if(a.getType().equals(acType))
+  sop(a.getName());
+
+4.2 Delete all dormant a/cs
+API Help - to compute days/month/years between 2 dates(LocalDate)
+Refer - java.time.period.ChronoUnit -enum
+Look at the constants --DAYS/MONTHS/YEARS
+Use between method
+long between​(Temporal temporal1Inclusive, Temporal temporal2Exclusive)
+Try it out !!!!
+
+5.  More advanced Generic Syntax 
+
+5.1 Generic methods
+eg : Arrays.asList
+
+5.2 (? , extends , super )
+
+Solve : 
+Create Utils class --Add a static method
+1. Add a method to print all elements from any of the following
+ Test cases : AL<String> , LL<Integer> , Vector<LocalDate> , HS<Double> , LHS<Emp> ,TS<Fruit>
+eg : public static void printElements(Collection<Object> collection)
+{
+  for(Object o : collection)
+  sop(o);
+}
+
+Any problems observed while using it ?????????????
+What is the possible solution ???
+
+
+
+
+
+
