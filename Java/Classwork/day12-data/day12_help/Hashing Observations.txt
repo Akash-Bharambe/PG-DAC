@@ -1,0 +1,85 @@
+Hashing Observations
+1. In Emp class
+equals n hashCode : not yet overridden
+ O/P 
+Added true
+Added true
+Added true
+Added true
+Added true
+size 5
+Employee [id=rnd-001, name=Rama Patil, salary=123456.0]
+Employee [id=rnd-002, name=Mihir Waze, salary=223456.0]
+Employee [id=rnd-006, name=Rama Patil, salary=123456.0]
+Employee [id=rnd-0011, name=Rama Patil, salary=123456.0]
+Employee [id=rnd-001, name=Rama Patil, salary=123456.0]
+
+Comment -
+
+2. In Emp class
+equals : overridden as per PK
+hashCode : not yet overridden
+ O/P -
+Added true
+Added true
+Added true
+Added true
+Added true
+size 5
+Employee [id=rnd-001, name=Rama Patil, salary=123456.0]
+Employee [id=rnd-002, name=Mihir Waze, salary=223456.0]
+Employee [id=rnd-006, name=Rama Patil, salary=123456.0]
+Employee [id=rnd-0011, name=Rama Patil, salary=123456.0]
+Employee [id=rnd-001, name=Rama Patil, salary=123456.0]
+
+Comment - 
+
+3. In Emp class
+equals : overridden 
+hashCode :  overridden BUT returning a constant value
+(i.e Equal  objects returning SAME hashcode n  un- equal objs also returning SAME hashcode)
+ O/P -
+in emp's hashCode
+Added true
+in emp's hashCode
+in emp's equals
+Added true
+in emp's hashCode
+in emp's equals
+Added false
+in emp's hashCode
+in emp's equals
+in emp's equals
+Added true
+in emp's hashCode
+in emp's equals
+in emp's equals
+in emp's equals
+Added true
+size 4
+Employee [id=rnd-001, name=Rama Patil, salary=123456.0]
+Employee [id=rnd-002, name=Mihir Waze, salary=223456.0]
+Employee [id=rnd-006, name=Rama Patil, salary=123456.0]
+Employee [id=rnd-0011, name=Rama Patil, salary=123456.0]
+
+4. In Emp class
+equals : overridden based upon PK
+hashCode :  overridden n returning different values
+(i.e Equal  objects returning SAME hashcode n  un- equal objs  returning DIFFERENT hashcode)
+O/P -
+in emp's hashCode
+Added true
+in emp's hashCode
+Added true
+in emp's hashCode
+in emp's equals
+Added false
+in emp's hashCode
+Added true
+in emp's hashCode
+Added true
+size 4
+Employee [id=rnd-006, name=Rama Patil, salary=123456.0]
+Employee [id=rnd-002, name=Mihir Waze, salary=223456.0]
+Employee [id=rnd-001, name=Rama Patil, salary=123456.0]
+Employee [id=rnd-0011, name=Rama Patil, salary=123456.0]

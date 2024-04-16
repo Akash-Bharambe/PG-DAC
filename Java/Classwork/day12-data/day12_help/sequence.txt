@@ -1,0 +1,117 @@
+Today's topics -
+Revise - Sorting in Java
+Iterator n ListIterator
+ArrayList vs LinkedList
+Sets Overview
+Hashing algorithm internals 
+
+
+Revision
+1. Solve :
+What will happen ?
+LinkedList<Integer> list=new LinkedList<>();
+list.add(1);list.add(2);.....list.add(20);
+Iterator<Integer> itr=list.iterator();
+//itr.remove();//run time err -IllegalStateExc
+list.add(21);
+sop(itr.next());//run time err -ConcModExc=> fail-fast behavior
+
+
+2. Solve :
+What will happen ?
+Vector<Integer> list=new Vector<>();
+list.add(1);list.add(2);.....list.add(20);
+Iterator<Integer> itr=list.iterator();
+itr.next();
+itr.remove();
+itr.next();
+itr.remove();
+sop(list);//no err , o/p 3---20
+
+3. Solve
+String[] names= {"one","two","three","four","five"};
+ArrayList<String> strings=new ArrayList<>();
+for(String s : names)
+ strings.add(s);
+for(int i=0;i<strings.size();i++)
+ strings.remove(i);
+System.out.println(strings); // no err , o/p : [two,four]
+
+Point - Any time to remove the elems from the Collection(List n Set implementation classes) , BEST option : use Iterator's remove.
+ONLY till you enter - functional programming !
+
+Today's topics -
+
+1. ListIterator API
+public boolean hasPrevious()
+public E previous();
+public int previousIndex()
+public int nextIndex()
+public void add(E element)
+
+
+Objective : Display customer list in the reverse order, using ListIterator
+eg : customerList : AL/LinkedList/Vector
+ListIterator<Customer> custItr=customerList.listIterator(customerList.size());
+while(custItr.hasPrevious())
+ sop(custItr.previous());
+//sop(custItr.previous());//exc -- NoSuchElemExc
+
+
+2. ArrayList vs Vector
+List implementation classes, backed up by resizable array
+add/remove from anywhere -- O(n) => variable time performance
+get/set , size --O(1) => constant time performance
+
+Differences 
+ Vector : legacy class , inherently thread safe .(synchronized)st in place of Vector , for faster perfomance.
+In case of ArrayList , JVM chooses it's own capa increment(typically new capa=curnt capa*1.5)
+In Vector --
+Vector(int initCapa,int capaIncrement) => prog can specify capa Increment.
+
+2.5 LinkedList
+Refer - "day12_help\linked_list"
+
+ArrayList vs LinkedList
+1.AL implements RandomAccess i/f , LinkedList does not !
+For get/set -- AL : O(1)
+LL -- O(n)
+2. Data structure
+AL -- resizable array
+LL -- doubly linked chain of nodes (prev,elem,next)
+3. Time complexity for add/remove operations
+AL - O(n)
+LinkedList -- O(1) --for insert / delete for head n tail position
+Faster perfomance than  AL for any other position.
+
+4. Memory requirements 
+LinkedList will need more memory than AL , to store prev, elem, next .
+....
+
+
+3. Sets Overview 
+Refer - "day12_help\sets handling"
+Inheritance Hierarchy
+Different Types of Set implementation classes
+HashSet<E> , LinkedHashSet<E> , TreeSet<E>
+Hashing algorithm
+
+
+
+
+
+
+
+Example of strings having same hashcode
+Aa BB
+Ba CB 
+Ca DB
+Da EB
+BBBB AaBB AaAa BBAa
+FB Ea
+
+
+For additional reference to Red and Black Tree : 
+https://www.geeksforgeeks.org/introduction-to-red-black-tree/
+
+

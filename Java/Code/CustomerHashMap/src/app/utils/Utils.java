@@ -42,7 +42,12 @@ public class Utils {
 		System.out.println("Enter Plan: ");
 		String plan = scanner.next();
 		PlanType planType = validatePlan(plan);
-		
+		List<Customer> customers = new ArrayList<>(map.values());
+		for (Customer customer : customers) {
+			if (planType == customer.getPlan()) {
+				System.out.println(customer);
+			}
+		}
 		
 	}
 

@@ -47,6 +47,10 @@ public class Customer {
 		this.pass = pass;
 	}
 
+	public PlanType getPlan() {
+		return plan;
+	}
+
 	public double getRegistrationAmmount() {
 		return registrationAmmount;
 	}

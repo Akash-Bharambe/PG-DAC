@@ -49,6 +49,9 @@ public class Tester {
 				case 9:
 					sortDOB(customersMap);
 					break;
+				case 10:
+					filterPaln(customersMap);
+					break;
 				default:
 					System.out.println("Please Enter Valid Input...!!!");
 					break;
