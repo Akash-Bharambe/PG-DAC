@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import bank.app.Bank.AccountType;
 import bank.app.Bank.BankApplication;
-import bank.app.utils.Utils;
+import static bank.app.utils.Utils.*;
 
 public class Tester {
 	private static Scanner scanner = new Scanner(System.in);
@@ -63,38 +63,37 @@ public class Tester {
 			try {
 				switch (ch) {
 				case 1:
-					BankApplication a = Utils.openBankAccount();
-					accounts.add(a);
+					accounts.add(openBankAccount());
 					break;
 				case 2:
-					Utils.showAllAccounts(accounts);
+					showAllAccounts(accounts);
 					break;
 				case 3:
-					Utils.displaySummary(accounts);
+					displaySummary(accounts);
 					break;
 				case 4:
-					Utils.depositFunds(accounts);
+					depositFunds(accounts);
 					break;
 				case 5:
-					Utils.withdrawFunds(accounts);
+					withdrawFunds(accounts);
 					break;
 				case 6:
-					Utils.transferFunds(accounts);
+					transferFunds(accounts);
 					break;
 				case 7:
-					Utils.closeAccount(accounts);
+					closeAccount(accounts);
 					break;
 				case 8:
-					Utils.showTransactions(accounts);
+					showTransactions(accounts);
 					break;
 				case 9:
-					Utils.sortAccountNumber(accounts);
+					sortAccountNumber(accounts);
 					break;
 				case 10:
-					Utils.sortAccountBalance(accounts);
+					sortAccountBalance(accounts);
 					break;
 				case 11:
-					Utils.sortDateBalance(accounts);
+					sortDateBalance(accounts);
 					break;
 				default:
 					System.out.println("Please enter a valid Input...!!!");

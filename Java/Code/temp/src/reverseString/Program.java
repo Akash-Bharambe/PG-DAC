@@ -1,4 +1,4 @@
-package temp;
+package reverseString;
 
 public class Program {
 	public static void main(String[] args) {
