@@ -8,7 +8,6 @@ import static app.customer.ValidationRules.validateRegistrationAmount;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -42,25 +41,16 @@ public class Utils {
 		System.out.println("Enter Plan: ");
 		String plan = scanner.next();
 		PlanType planType = validatePlan(plan);
-		List<Customer> customers = new ArrayList<>(map.values());
-		for (Customer customer : customers) {
-			if (planType == customer.getPlan()) {
-				System.out.println(customer);
-			}
-		}
-		
+		map.values().forEach(c -> {
+			if (planType == c.getPlan())
+				System.out.println(c);
+		});
 	}
 
 	public static void sortDOB(Map<String, Customer> map) {
 		List<Customer> customerList = new ArrayList<Customer>(map.values());
 
-		Collections.sort(customerList, new Comparator<Customer>() {
-
-			@Override
-			public int compare(Customer o1, Customer o2) {
-				return o1.getDob().compareTo(o2.getDob());
-			}
-		});
+		Collections.sort(customerList, (c1, c2) -> c1.getDob().compareTo(c2.getDob()));
 		displayAllCustomers(customerList);
 	}
 
@@ -70,13 +60,7 @@ public class Utils {
 	}
 
 	public static void sortEmailDesc(Map<String, Customer> map) {
-		TreeMap<String, Customer> treeMap = new TreeMap<String, Customer>(new Comparator<String>() {
-			@Override
-			public int compare(String o1, String o2) {
-
-				return o2.compareTo(o1);
-			}
-		});
+		TreeMap<String, Customer> treeMap = new TreeMap<String, Customer>((o1, o2) -> o2.compareTo(o1));
 		treeMap.putAll(map);
 		displayAllCustomers(treeMap);
 	}
@@ -84,12 +68,7 @@ public class Utils {
 	public static void sortBalance(Map<String, Customer> map) {
 		List<Customer> customersList = new ArrayList<>(map.values());
 
-		Collections.sort(customersList, new Comparator<Customer>() {
-			@Override
-			public int compare(Customer o1, Customer o2) {
-				return (int) (o1.getRegistrationAmmount() - o2.getRegistrationAmmount());
-			}
-		});
+		Collections.sort(customersList, (c1, c2) -> (int) (c1.getRegistrationAmmount() - c2.getRegistrationAmmount()));
 		displayAllCustomers(customersList);
 	}
 
@@ -191,15 +170,11 @@ public class Utils {
 	}
 
 	public static void displayAllCustomers(Map<String, Customer> customersMap) {
-		for (Customer customer : customersMap.values()) {
-			System.out.println(customer);
-		}
+		customersMap.values().forEach(c -> System.out.println(c));
 	}
 
 	public static void displayAllCustomers(List<Customer> customers) {
-		for (Customer customer : customers) {
-			System.out.println(customer);
-		}
+		customers.forEach(c -> System.out.println(c));
 	}
 
 }
