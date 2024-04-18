@@ -73,9 +73,9 @@ public class Watch {
 
 	@Override
 	public String toString() {
-		return "[id=" + id + " " + category + " " + brand + " " + shape + " "
-				+ style + " " + band + ", stock=" + stock + ", ListingDate=" + stockListingDate
-				+ ", UpdateDate=" + stockUpdateDate + ", price=" + price + ", discount=" + discount + "]";
+		return String.format(
+				"[id=%-2d %6s %-10s %-9s %-7s %-15s, stock=%-3d, ListingDate=%-10s, UpdateDate=%-10s, price=%-6.2f, discount=%-6.2f]",
+				id, category, brand, shape, style, band, stock, stockListingDate, stockUpdateDate, price, discount);
 	}
 
 	@Override
