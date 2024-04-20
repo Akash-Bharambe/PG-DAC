@@ -21,11 +21,8 @@ public:
 };
 Fraction::Fraction() : nume(1), deno(1) {}
 Fraction::Fraction(int nume, int deno) : nume(nume), deno(deno) {}
-Fraction::Fraction(const Fraction &that)
-{
-    this->nume = that.nume;
-    this->deno = that.deno;
-}
+Fraction::Fraction(const Fraction &that): nume(that.nume), deno(that.deno) {}
+
 ostream &operator<<(ostream &os, const Fraction &temp)
 {
     if (temp.deno != 1)
@@ -34,6 +31,7 @@ ostream &operator<<(ostream &os, const Fraction &temp)
         os << temp.nume;
     return os;
 }
+
 void Fraction::reduced(Fraction &temp)
 {
     int a = temp.nume, b = temp.deno;

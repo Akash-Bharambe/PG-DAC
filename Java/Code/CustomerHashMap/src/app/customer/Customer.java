@@ -1,8 +1,10 @@
 package app.customer;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Customer {
+@SuppressWarnings("serial")
+public class Customer implements Serializable{
 	private static int idCount;
 	private int cutomerID;
 	private String fName;

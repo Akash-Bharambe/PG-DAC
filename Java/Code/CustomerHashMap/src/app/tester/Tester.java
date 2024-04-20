@@ -52,6 +52,12 @@ public class Tester {
 				case 10:
 					filterPaln(customersMap);
 					break;
+				case 11:
+					writeToFile(customersMap);
+					break;
+				case 12:
+					readFromFile();
+					break;
 				default:
 					System.out.println("Please Enter Valid Input...!!!");
 					break;

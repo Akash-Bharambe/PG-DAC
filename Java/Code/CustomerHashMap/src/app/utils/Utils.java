@@ -5,6 +5,12 @@ import static app.customer.ValidationRules.validatePass;
 import static app.customer.ValidationRules.validatePlan;
 import static app.customer.ValidationRules.validateRegistrationAmount;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,9 +40,25 @@ public class Utils {
 		System.out.println("8. Sort Balance");
 		System.out.println("9. Sort DOB");
 		System.out.println("10. Filter Plans");
+		System.out.println("11. Write Data in File");
+		System.out.println("12. Read from file");
 		return scanner.nextInt();
 	}
+	
+	public static void writeToFile(Map<String, Customer> map) throws FileNotFoundException, IOException {
+		try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("customers.ser"))) {
+			outputStream.writeObject(map);
+			System.out.println("Done Writing");
+		}
+	}
 
+	public static void readFromFile() throws FileNotFoundException, IOException, ClassNotFoundException {
+		try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("customers.ser"))) {
+			System.out.println(inputStream.readObject());
+			System.out.println("Reading Complete");
+		}
+	}
+	
 	public static void filterPaln(Map<String, Customer> map) {
 		System.out.println("Enter Plan: ");
 		String plan = scanner.next();

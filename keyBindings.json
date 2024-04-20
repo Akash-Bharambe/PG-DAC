@@ -1,0 +1,79 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+shift+h",
+        "command": "editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "-editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    },
+    {
+        "key": "ctrl+shift+h",
+        "command": "editor.action.formatDocument.none",
+        "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "-editor.action.formatDocument.none",
+        "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "code-runner.run"
+    },
+    {
+        "key": "ctrl+alt+n",
+        "command": "-code-runner.run"
+    },
+    {
+        "key": "ctrl+alt+numpad1",
+        "command": "turboConsoleLog.displayLogMessage"
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "-turboConsoleLog.displayLogMessage"
+    },
+    {
+        "key": "ctrl+alt+numpad2",
+        "command": "turboConsoleLog.deleteAllLogMessages"
+    },
+    {
+        "key": "shift+alt+d",
+        "command": "-turboConsoleLog.deleteAllLogMessages"
+    },
+    {
+        "key": "ctrl+alt+numpad4",
+        "command": "turboConsoleLog.commentAllLogMessages"
+    },
+    {
+        "key": "shift+alt+c",
+        "command": "-turboConsoleLog.commentAllLogMessages"
+    },
+    {
+        "key": "ctrl+alt+numpad5",
+        "command": "turboConsoleLog.uncommentAllLogMessages"
+    },
+    {
+        "key": "shift+alt+u",
+        "command": "-turboConsoleLog.uncommentAllLogMessages"
+    },
+    {
+        "key": "ctrl+shift+win+n",
+        "command": "workbench.action.newWindow"
+    },
+    {
+        "key": "ctrl+shift+n",
+        "command": "-workbench.action.newWindow"
+    },
+    {
+        "key": "ctrl+shift+n",
+        "command": "explorer.newFile"
+    },
+    {
+        "key": "ctrl+shift+u",
+        "command": "editor.action.transformToUppercase"
+    }
+]
