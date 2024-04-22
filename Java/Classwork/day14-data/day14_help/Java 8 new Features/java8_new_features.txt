@@ -1,0 +1,88 @@
+1. Addition of "default" keyword to add default method implementation ,  in interfaces.
+
+Java 8 onwards allows us to add non-abstract method implementations to interfaces by using the default keyword. This feature is also known as Extension Methods. 
+
+Why default keyword ?
+1. To maintain backward compatibility with earlier Java SE versions
+2. To avoid implementing new functionality in all existing implementation classes.
+eg : Java 8  added in Iterable<T> interface , new method
+default void forEach(Consumer<? super T> action) -- as a default method implementation
+
+eg :
+
+interface Formula {
+    double calculate(double a);//public n abstract : added implicitly by javac
+	//public : added implicitly by javac
+    default double sqrt(double a,double b) {
+        return Math.sqrt(a+b);
+    }
+}
+
+API eg : Iterable's forEach , Map's forEach ...
+
+Implementation class can either inherit this default implementation OR if needed , can override the same.
+
+In case of ambiguity or to refer to default imple. from i/f -- use InterfaceName.super.methodName(...) syntax
+Javac makes it mandatory to override the method , in case of dup default methods.
+
+
+
+2  Can add static methods in java interfaces --- It's a better alternative to writing static library methods in helper class(eg --Arrays or Collections)
+
+eg of static methods in i/f : List.of 
+eg : List<Integer> list=List.of(10,20,30);
+Rets un modifiable list (i.e add ,remove , set => UnsupportedOPerationExc)
+still supports : get ,  contains ,indexOf.....
+
+Such static methods can't be overridden in implementation class.
+BUT can be re-declared.
+
+They have to be invoked using interface name , even in implementation or non implementation classes.(otherwise compiler error)
+
+eg :
+
+interface Formula {
+    double calculate(double a);//public n abstract : added implicitly by javac
+	//public : added implicitly by javac
+    default double sqrt(double a,double b) {
+        return Math.sqrt(a+b);
+    }
+//javac adds implicity : public
+    static boolean testMe(String mesg)
+    {
+      //some imple. logic
+    }
+}
+
+API eg : List.of methods
+
+
+3. Functional interfaces ---An interface which has exactly single abstract method(SAM)  is called functional interface.
+eg Runnable,Comparable,Comparator,Iterable,Consumer,Predicate,Function,Supplier...
+New compile time annotation introduced -- @FunctionalInterface
+New package introduced : java.util.function
+(since Java SE 8)
+Functional i/f references can be substituted by lambda expressions, method references, or constructor references.
+(i.e Since Java 8 , you can pass directly a functionality w/o wrapping it in the class)
+Known as : parametrization of behavior
+
+Solve --  Is following valid functional interface ?
+public interface A { double calc(int a,int b);}   : YES (SAM: calc)
+public interface B extends A {} : YES (SAM: calc)
+public interface C extends A { void show();} : NO 2 abstract methods
+public interface D {}  : marker i/f 
+public interface E extends A {
+ default void show(){}
+ static void test() {...}
+} : YES (SAM : calc)
+
+
+4. Lambda Expressions
+refer to readme of lambda expressions.
+
+Objective -- Perform add/subtract/multiply/divide ...  operations on 2 double i/ps 
+& return result.
+
+How ?
+
+

@@ -1,0 +1,223 @@
+
+1.Revise
+Name the abstract super classes in java.io , for I/O handling
+InputStream , OutputStream , Reader , Writer
+
+What are node streams ?
+The streams that provide Abstraction.
+They are  meant as device handling streams (wrapper)
+
+How will you copy contents from src file to dest txt file using buffering (FP approach)
+1. chain of strms
+R : Java App <----BR <----FR <---- Text src file
+W : Java App ---> PW ---> FW ---> Dest Text file
+try(Scanner sc=new Scanner(System.in);
+BR br=new BR(new FR(srcFileName));
+PW pw=new PW(new FW(destFileName))
+)
+{
+   br.lines() //Stream<String> 
+   .forEach(line -> pw.println(line));
+}//close
+
+
+
+
+2. Enter Binary streams 
+Which abstract super classes ? InputStream , OutputStream
+ 
+
+2.1 Node streams for bin file handling : FileInputStream(String fileName) throws FileNotFoundException , FileOutputStream(String fileName)
+2.2 Buffering of bin data : BufferedInputStream(InputStream in) , BOS(OutputStream out)
+
+2.3 Objective : 
+Integration of Collection + I/O
+Store n later restore the products from bin file
+
+
+Objective : Store product details in raw(binary) format
+Chain of streams : Java App ---> BOS ---> FOS --> Bin file
+try(BOS out=new BOS(new FOS(fileName)) {
+//write data
+}
+
+Limited APIs : The methods to write data to BOS : write(int) ,write(byte[]) , write(byte[] , int offset, int len)
+
+
+Who will have to do the conversion from (product id , name , desc , date ) primitive data types , string, date ,enums ---> binary ? Prog.
+Any better alternative ?  Yes ! Use ready made conversion streams
+
+For data write operation
+DataOutputStream class implements DataOutput (i/f)
+Represents conversion stream , to convert any prim type , String ---> binary
+Ctor 
+DataOutputStream(OutputStream out)
+Methods
+public void writeInt(int i) throws IOException
+public void writeBoolean(boolean i) throws IOException
+public void writeDouble(double i) throws IOException
+....
++
+public void writeUTF(String s) throws IOException
+
+eg : try(DOS out=new DOS(new BOS(new FOS(fileName))))
+{
+//pid , name , desc , price , date , category....
+  productList.forEach(product -> {
+   out.writeInt(product.getId());
+   .....(writeUTF,writeDouble.....)
+ });
+} 
+
+For Data Read operation
+Chain of strms
+Java App <--- DataInputStream <--- BIS  <---- FIS <---- BIn file
+Ctor : DataInputStream(InputStream in)
+Methods : 
+public int readInt() throws IOException
+public double readDouble() throws IOException
+public boolean readBoolean() throws IOException
+public String readUTF() throws IOException
+.....
+
+Data I/O streams => mixed data strms
+
+//pid , name , desc , price , date , category....
+How to read?
+try (DIS in=new DIS(new BIS(new FIS(fileName)))) {
+  //read product data
+  // in.readInt() , readUTF , readDouble
+}
+
+Any limitations ?
+Using Data I/O streams , prog still has to iterate over the collection(list/set/map), convert individual data -->  bin n restore the same !
+
+Enter : 
+MOST advanced I/O streams : Object streams (serialization n de-serialization)
+
+Classes involved 
+java.io.ObjectOutputStream : conversion stream
+Performs serialization=Conversion from object ---> binary stream
+Object : state , behavior
+ONLY state of the object is converted in to bin form (+some meta data info)
+state : non static n non transient data members.
+
+For de serialization
+java.io.ObjectInputStream : conversion stream
+Performs de-serialization=Conversion from binary stream---> object
+Pre requisites :
+1. state : available from bin file
+2. classes(.class files) to load java classes in method area.
+(Refer :serialization_in_detail.txt) for complete details.
+
+Steps
+1. Get populated Map of products --store these details in a bin file , using bin streams
+
+1.1 Core classes  : Product , Category 
+
+1.2 custom exc
+
+1.3 ShopUtils --collection utils --
+populate list
+populate map
+
+
+1.4 IOUtils -- i/f
+add a static method --to store the  products in a bin file
+
+1.5 Tester : StoreProductDetails --
+Accept name of file from user n call our own API
+JVM throws : java.io.NotSerializableException , when it comes ANY non serializable object during ser. n later during de-ser.
+
+How does it test ?
+If the class has imple. java.io.Serializable i/f --continues with ser.(conversion)
+java.io.Serializable i/f : marker i/f (i.e empty i/f , no fields n no methods)
+Represents : a run time Marker.
+
+How does JVM find out about serializability ?
+Using Java Reflection API (java.lang.Class, java.lang.reflect ) , JVM can find out COMPLETE details of loaded objects , including the i/fs implemented.(to be discussed in future!)
+
+2. Restore the product details from a bin file ---> Java App (map)
+
+De-Serialization =restoring / reconstructing entire obj graph in mem
+
+Confirming pre requisites of the de-serialization
+1.state -- bin .ser file
+2. behavior -- .class files (user defined classes) ---
+what's best possible way to share these dependencies with de-ser ?
+using JAR file.
+If JVM's class loader can't find these classes (in the run time classpath) -- throws 
+java.lang.ClassNotFoundExc : checked exc
+
+
+3.During ser --Product.java --Product.class --products.ser is created 
+Prog modifies --Product.java --Product.class
+de -ser -- .ser file + modified Product.class
+What will happen during de-serial?
+JVM will throw : java.io.InvalidClassException
+HOw JVM detects this incompatibility ?
+Based upon SerailVerUID
+JVM during ser. computes SerialVerUID n stores it in the bin strm. It's computed based upon class structure.
+During de-ser , JVM computes this SerialVerUID , based upon .class files , available in the classpath. Then tries to match this computed(local) SerialVerUID , with the one in the bin file. If it matches --continues with conversion (de-ser) 
+o.w throws java.io.InvalidClassException
+
+
+transient keyword
+
+----------------------------------
+
+Enter Multi threading in Java : 
+
+
+1. Multitasking :
+Multi processing vs multi threading
+(Process based vs Thread based) 
+Refer to a diagram
+
+2. Thread state transitions
+Does Not Exist ,NEW,Runnable(Ready-to-run n Running),Blocked
+, Dead
+
+3. Thread related API
+3.1 Different ways of creating threads
+extends Thread 
+implements Runnable
+OR
+Executor framework
+
+4. Thread class methods
+start,sleep,run.....
+
+5. Write a multi threaded app , to test the concurrency(i.e concurrent execution of threads)
+5.1 extends Thread 
+5.2 implements Runnable
+
+5.3 When does JVM (Java app) terminate ?
+When all non daemon threads(user threads) have completed the exec.
+Only daemon thread curntly in the system : GC
+
+6. More Threads API
+join 
+join(msec)
+interrupt
+
+
+
+6.5 Discuss lab work : 
+Lab work : Create a multi threaded app to solve these objective in a parallel manner
+1. Accept range of nos from user : main
+2. print all even nos : even_printer thrd
+3. print all odd nos : odd_printer
+4. print average of the range supplied : averager thrd
+
+----------------------Pending---------------------
+
+
+8.Think of a joint account scenario
+example of the sharing of resources , among concurrent threads.
+eg : Book My Show or any online reservation system
+Identify the problem n then apply the solution.
+
+
+
+

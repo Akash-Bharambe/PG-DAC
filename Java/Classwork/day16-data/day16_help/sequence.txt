@@ -1,0 +1,280 @@
+Tomorrow's topics 
+Revise Java 8 Functional streams through code samples , from fresh scenario
+Revise I/O
+Text File Handling
+Bin file Handling
+Serialization n De serialization
+
+
+1. Revise Functional Streams -
+1.1 Solve
+day15-data\day15_help\ready code\strms\TestLazyEvalStreams.java
+TestExecOrder.java
+TestExecOrder2.java
+TestMe.java
+
+
+1.2 Regarding java.util.Optional<T>
+OptionalInt, OptionalDouble , OptionalLong
+Represents a class that may or may not contain a value.
+Using Optional is a better practice than checking null values , in modern Java.
+
+API of Optional
+refer java docs
+
+
+2. New Scenario - Student , Address , Subject
+Refer - "\day16_help\ready code"
+
+
+2.1 Display  student details for specified subject , sorted as per DoB
+eg : List<Student> students =populateList();
+Subject subject=Subject.valueOf(sc.next().toUpperCase());
+Comparator<Student> comp=(s1,s2) -> s1.getDob().compareTo(s2.getDob());
+students.stream() //Stream<Student>
+.filter(s -> s.getSubject()==subject) //Stream<Student> : filtered
+.sorted(comp) //Stream<Student> : sorted
+.forEach(s->sop(s));
+
+2.2 Print average of  marks of students from the specified state
+i/p : name of the state
+
+2.3 Print name of specified subject  topper
+i/p : subject name
+
+2.4 Print no of  failures for the specified subject chosen  from user.
+i/p : subject name
+(failure is GPA < 5.0)
+
+2.5 Display names of students enrolled in a specified subject , securing marks > specified marks
+i/p : subject name , marks
+
+2.6 Suppose a subject faculty is unavailable n then subject is cancelled . Collect the specified subject student into the list n display it.
+i/p : subject name
+
+3. Resume I/O
+Java supports handling of different devices
+eg : Keyboard(System.in), Console(System.out), File(text file n bin files) ,networking Sockets(end point of communication in distributed computing) , Pipes(virtual data pipe existing between multiple threads)
+.....
+
+I/O Streams
+Stream : represents data transfer to/fro Java app n device
+Input stream : Reads data from device --> Java App
+Output stream : Writes data from Java App --> device
+
+The packages used for handling devices in Java : java.io, java.nio
+
+java.io : In case of any errs in read/write operation ---JVM throws : java.io.IOException
+(checked exc)
+
+read/write methods :blocking or non blocking ? : Represnts blocking API
+Meaning : It causes the blocking of invoker thread , until read/write operation is complete.
+
+Inheritance hierarchy of classes in java.io
+refer : to a diagram
+
+Java 8 Streams(Functional streams ) : represents pipeline of big data ops(aggregate ops) to be perfromed on seq. of elems derived from : arrays / collection /file....
+eg : java.util.stream.Stream<T>,IntStream,LongStream,DoubleStream
+eg of higher order funs : intermediate ops --filter,map,mapToDouble,sorted,flatMap
+forEach,collect,count,sum,average : terminal ops
+eg : empList.stream().filter(e.getDept() == dept) .count() --> no of emps from a specific dept
+
+I/O Stream -- represent data transfer (bytes/chars) from/to java app to/from device(eg : file , pipe,socket,memory,console...)
+For  reading data from data src into java  app : input stream
+For  writing data to data sink from java  app :output stream
+
+java.io --2 types of strms
+1. Binary strms
+2. char strms
+
+Name 4 abstract super classes in I/O hierarchy :  InputStream,OutputStream,Reader,Writer
+
+Node streams : device handling strms
+File Handling strms : FIS,FOS,FR,FW
+Buffering strms : BIS,BOS,BR,BW(PW)
+
+Objective : 
+1. Text files 
+1.1 copy text files using buffered streams
+i/p : src n dest file names
+
+API
+1. FileReader Constructor 
+FileReader(String fileName) throws FileNotFoundException
+
+2. BufferedReader Constructor
+BufferedReader(Reader r)
+BufferedReader(Reader r,int size)
+
+To chain the I/O streams for reading text data , in a buffered manner :
+BufferedReader br=new BufferedReader(new FileReader(fileName));
+
+Methods of BR 
+1. public String readLine() throws IOException
+Tries to read next line of data from the buffer.
+Returns null at the end of stream (buffer) condition.
+eg : BR br=new BR(new FR(fileName));
+//write code to read buffer contents till EOF n display it on the console
+String s=null;
+while((s=br.readLine()) != null)
+ sop(s);
+
+OR use FP
+
+2. public Stream<String> lines()
+Returns a Stream, the elements of which are lines read from this BufferedReader.
+eg : BR br=new BR(new FR(fileName));
+//write code to read buffer contents till EOF n display it on the console
+br.lines().forEach(s -> sop(s));
+
+
+Which are the triggers for the PrintWriter(any buffered writer) to send data to the next node ?
+1. buffer full
+2. public void flush() 
+3. public void close() or AutoCloseable
+
+
+Practical requirement (optional work - to be tried in the next week!)
+Suppose you have a text data file : emps.txt
+
+Emp ID Name  		DeptId 	Designation Salary JoinDate
+1          Rama Patil   Testing      SD		   34567  2023-10-20
+........
+
+Display average salary of all SDs in the organization
+Sort all Data Scientists in the organazation , as per their join date
+......
+
+API 
+1. FileWriter constructor
+FileWriter(String fileName) throws IOException
+It will create a new file if none exists or replaces the existiing file
+
+2. FileWriter constructor
+FileWriter(String fileName,boolean append) throws IOException
+It will create a new file if none exists or appends to existing file if append=true
+
+3. PrintWriter constructor
+PrintWrite(Writer w)
+Creates a new Printwriter , with a default size buffer.
+
+4. Methods of PrintWriter
+print , println , printf methods
+(similar to java.io.PrintStream)
+
+1.2 Suppose you have product details in a list/map. Can you store these details sorted as per price in a text file , in a buffered manner ?
+Lab work
+
+
+2. Enter Binary file handling streams 
+2.1 Node streams -- FileInputStream , FileOutputStream
+2.2 Buffering of bin data : BufferedInputStream(InputStream in) , BufferedOutputStream(OutputStream out)
+Has similar constructors as earlier.
+
+
+2.3 Integration of Collection + I/O
+Store product details (Map) in the bin file
+Restore the product details in to Map from bin file
+
+
+Steps
+1. Get populated list of products --store these details in a bin file , using bin streams
+
+1.1 Core classes  : Product , Category 
+
+1.2 custom exc
+
+1.3 ShopUtils --collection utils --
+populate list
+populate map
+
+
+1.4 IOUtils -- i/f
+add a static method --to store the  products in a bin file       
+eg : static void storeProductDetails(Map<Integer,Product> map,StringFile)
+{
+ //Java App --> BOS --> FOS --> bin file
+ try(...)
+{
+}
+}
+BOS : API
+write methods
+1. to write a byte
+OR
+write byrte[]
+
+Problem -- In above example , if you use BOS(BufferedOutputStream) then a prog has to convert product details --> binary (a complex task !!!!)
+Soln -- Use conversion streams
+1. java.io.DataOutputStream : class (bin o/p stream)
+Job - to convert java primitive types n Strings --> bianry
+Ctor -- DataOutputStream(OutputStream out)
+Method --
+public void writeInt(int i) throws IOException
+public void writeDouble(double i) throws IOException
+public void writeLong(long i) throws IOException
+......+
+public void writeUTF(String s) throws IOException
+For restoring the details in bin format
+2. java.io.DataInputStream : class (bin i/p stream)
+Job - to convert bianry ---> prim types or strings 
+Ctor -- DataInputStream(InputStream out)
+Method --
+public int readInt() throws IOException
+public double readDouble() throws IOException
+public long readLong() throws IOException
+......+
+public String readUTF() throws IOException
+
+In above example , prog STILL has to convert Product state (eg : id ,name, price...) to binary by calling the methods(writeInt , writeUTF , writeDouble....) n later has to call readInt,readUTF,readDouble....
+OR
+use most advanced conversion bin streams -- Object Streams
+1. ObjectOutputStream : class extends OutputStream
+implements --DataOutput,ObjectOutput
+Class Performs serialization
+serialization = conversion of object(i.e -state of the object
+state = non static n non transient data members) --> binary
+
+Methods 
+public void writeInt(int i) throws IOException
+public void writeDouble(double i) throws IOException
+public void writeLong(long i) throws IOException
+......+
+public void writeUTF(String s) throws IOException
++ 
+public void writeObject(Object o) throws IOException
+(serialization)
+
+What happens during ser ?
+JVM checks the serializability of ENTIRE object graph (eg : out.writeObject(map))
+If it comes across ANY non serializable node , it aborts the conversion(ser) by throwing -java.io.NotSerilizableException
+otherwise contines with the conversion
+
+How to make objects serializable ?
+The class of the object (eg : Product) MUST implement --java.io.Serializable i/f
+
+Serializable i/f -marker i/f (meaning empty i/f -no methods n no data members)
+
+Role of Serializable i/f -- To provide run time marker(meant for JVM!)
+
+Enter De-serialization
+class : ObjectInputStream --extends OutputStream
+implements DataInput , ObjectInput
+
+Ctor - ObjectInputStream(InputStream in)
+Methods -
+public int readInt() throws IOException
+public double readDouble() throws IOException
+public long readLong() throws IOException
+......+
+public String readUTF() throws IOException
++ 
+public Object readObject() throws ClassNotFoundException, InvalidClassException, IOException
+
+1.5 Tester : StoreProductDetails --
+Accept name of file from user n call our own API
+
+2. Restore the product details from a bin file ---> Java App (List)
+
+
+

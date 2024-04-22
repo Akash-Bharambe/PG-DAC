@@ -1,0 +1,287 @@
+Today's Topics 
+Functional Programming(FP)  overview
+Revise Functional programming through examples
+Java 8 Functional Streams overview
+I/O handling
+
+
+Revise
+
+1. Regarding FP - 
+Earlier programming paradigm(using OOP)  ,where programmer has to supply ENTIRE details consisting of "WHAT" n "HOW" , is called as imperative style.
+
+Modern approach is declarative style or functional programming style
+
+OOP uses imperative style of programming (where you will have to specify what's to be done & how --both) .
+FP uses declarative style of programming (where you will just have to specify what's to be done )
+
+What is a functional programming  paradigm ?
+A language where below features are supported.
+
+Functions are treated as a first class citizens.
+Meaning :  You can 
+1.1  define anonymous functions
+1.2  assign a function to a variable (function literal)
+1.3  pass function as a parameter
+1.4  return function as a return value
+
+Why FP ?
+
+1. To write more readable , maintainable , clean & concise code.
+2. To use Functional Stream APIs easily n effectively.
+3. To enable parallel processing 
+
+Sample example : Objective 
+Find out the average salary of emp from the specified dept.
+
+How will you do it in imperative manner? 
+eg : Suppose you have a populated ArrayList of emps : l1: AL<Emp>
+sop("Enter dept name");
+String dept=sc.next();
+double total=0;
+int num=0;
+for(Emp e : empMap.values())
+  if(e.getDept().equals(dept)) {
+   total += e.getSal();
+   num++;
+  }
+sop(total/num);
+
+
+Vs
+How to do it in declarative style ?
+eg : 
+empMap.values().
+stream()
+.filter(e->.getDept().equals(dept))
+.mapToDouble(Emp::getSal)
+.average().getAsDouble();
+
+1.1 Some more revision
+
+1.What is a  Functional interface ? 
+
+eg : Runnable , Comparable , Comparator 
+
+New annotation since Java 8 : @FunctionalInterface
+Is it mandatory ? NO  , recommended!
+
+New package  : java.util.function
+Consists of new functional i/fs ---Consumer, Supplier, Predicate,Function,BiConsumer.....
+
+Java 8 new features : 
+1. default keyword : to add default method implementation in i/f 
+Why 
+1. Prog DOES not have to imple. new func in the imple classes
+2. to maintain backword compatibility
+
+Can imple class simply inherit def methods ? YES
+
+Can imple class override def methods ? YES
+
+
+2. static methods can be added in the i/f
+Can you override such static methods ?  NO
+Can be re declared in the imple class. YES
+
+3. Lambda expression
+
+syntax of lambda expr in Java 
+(arg list) -> {body}
+eg : s -> sop(s)
+
+IMPORTANT : Can func i/f be substituted by lambda expression(ano function) ? YES
+Why : Func i/f --- SAM --single abstract func --> represented by a lambda expression
+
+2. Revise FP with higher order functions 
+
+2.1  Display all students (from a student list)
+using internal iteration
+eg : studentList.forEach(s -> sop(s));
+
+2.2 Display all students  (from a student map)
+eg : studentMap.forEach((k,v) -> sop(k+" "+v));
+
+2.3 Offer discount in fees , to all the students from the map
+i/p : discount
+double discount=sc.nextDouble();
+eg : studentMap.forEach((k,v) -> v.setFees(v.getFees()-discount));
+studentMap.forEach((k,v) -> sop(k+" "+v));
+
+2.4  Sort the products as per category n display the list.
+eg : sop("Choose a category");
+Category chosen=Category.valueOf(sc.next().toUpperCase());
+//function literal
+Comparator<Product> comp=(p1,p2) -> p1.getCategory().compareTo(p2.getCategory());
+Collections.sort(productList,comp);
+productList.forEach(p -> sop(p));
+
+2.5 Remove all expired products n then display the remaining products from map
+eg : Hint -LocalDate API --isEqual , isAfter , isBefore
+In Product class --- expDate : LocalDate
+LocalDate today=LocalDate.now();
+int expDays=sc.nextInt();
+productMap.values() //Collection<Product>
+.removeIf(p -> today.isAfter(p.getManuDate().plusDays(expDays));
+
+
+
+
+
+
+3. Enter  Functional streams 
+3.1 Refer to "streams_sequence.txt"
+3.2 Refer to <streams> : diagrams
+3.3 collections vs streams 
+
+
+
+
+4.  
+
+Enter I/O(Input / Output)
+
+Java supports handling of different devices
+eg : Keyboard(System.in), Console(System.out), File(text file n bin files) ,networking Sockets(end point of communication in distributed computing) , Pipes(virtual data pipe existing between multiple threads)
+.....
+
+I/O Streams
+Stream : represents data transfer to/fro Java app n device
+Input stream : Reads data from device --> Java App
+Output stream : Writes data from Java App --> device
+
+The packages used for handling devices in Java : java.io, java.nio
+
+java.io : In case of any errs in read/write operation ---JVM throws : java.io.IOException
+(checked exc)
+
+read/write methods :blocking or non blocking ? : Represnts blocking API
+Meaning : It causes the blocking of invoker thread , until read/write operation is complete.
+
+Inheritance hierarchy of classes in java.io
+refer : to a diagram
+
+Java 8 Streams(Functional streams ) : represents pipeline of big data ops(aggregate ops) to be perfromed on seq. of elems derived from : arrays / collection /file....
+eg : java.util.stream.Stream<T>,IntStream,LongStream,DoubleStream
+eg of higher order funs : intermediate ops --filter,map,mapToDouble,sorted,flatMap
+forEach,collect,count,sum,average : terminal ops
+eg : empList.stream().filter(e.getDept() == dept) .count() --> no of emps from a specific dept
+
+I/O Stream -- represent data transfer (bytes/chars) from/to java app to/from device(eg : file , pipe,socket,memory,console...)
+For  reading data from data src into java  app : input stream
+For  writing data to data sink from java  app :output stream
+
+java.io --2 types of strms
+1. Binary strms
+2. char strms
+
+Name 4 abstract super classes in I/O hierarchy :  InputStream,OutputStream,Reader,Writer
+
+Node streams : device handling strms
+File Handling strms : FIS,FOS,FR,FW
+Buffering strms : BIS,BOS,BR,BW(PW)
+
+Objective : 
+1. Text files 
+1.1 copy text files using buffered streams
+i/p : src n dest file names
+
+
+
+
+
+
+API
+1. FileReader Constructor 
+FileReader(String fileName) throws FileNotFoundException
+
+2. BufferedReader Constructor
+BufferedReader(Reader r)
+BufferedReader(Reader r,int size)
+
+To chain the I/O streams for reading text data , in a buffered manner :
+BufferedReader br=new BufferedReader(new FileReader(fileName));
+
+Methods of BR 
+1. public String readLine() throws IOException
+Tries to read next line of data from the buffer.
+Returns null at the end of stream (buffer) condition.
+
+
+OR use FP
+
+2. public Stream<String> lines()
+Returns a Stream, the elements of which are lines read from this BufferedReader.
+
+
+Practical requirement (optional work : completely EXTRA)
+Suppose you have a text data file : emps.txt
+
+Emp ID Name  		DeptId 	Designation Salary JoinDate
+1          Rama Patile   Testing      SD		   34567  2023-10-20
+........
+
+Display average salary of all SDs in the organization
+Sort all Data Scientists in the organazition , as per their join date
+
+API 
+1. FileWriter constructor
+FileWriter(String fileName) throws IOException
+It will create a new file if none exists or replaces the existiing file
+
+2. FileWriter constructor
+FileWriter(String fileName,boolean append) throws IOException
+It will create a new file if none exists or appends to existing file if append=true
+
+3. PrintWriter constructor
+PrintWrite(Writer w)
+Creates a new Printwriter , with a default size buffer.
+
+4. Methods of PrintWriter
+print , println , printf methods
+(similar to java.io.PrintStream)
+
+1.2 Suppose you have product details in a list/map. Can you store these details sorted as per price in a text file , in a buffered manner ?
+Lab work
+
+
+2. Enter Binary file handling streams 
+2.1 Node streams -- FileInputStream , FileOutputStream
+2.2 Buffering of bin data : BufferedInputStream(InputStream in) , BufferedOutputStream(OutputStream out)
+Has similar constructors as earlier.
+
+
+2.3 Integration of Collection + I/O
+Store product details (Map) in the bin file
+Restore the product details in to Map from bin file
+
+
+Steps
+1. Get populated list of products --store these details in a bin file , using bin streams
+
+1.1 Core classes  : Product , Category 
+
+1.2 custom exc
+
+1.3 ShopUtils --collection utils --
+populate list
+populate map
+
+
+1.4 IOUtils -- i/f
+add a static method --to store the  products in a bin file       
+
+
+1.5 Tester : StoreProductDetails --
+Accept name of file from user n call our own API
+
+2. Restore the product details from a bin file ---> Java App (List)
+
+
+
+
+
+
+https://stackoverflow.com/questions/2723397/what-is-pecs-producer-extends-consumer-super
+
+https://howtodoinjava.com/java/generics/java-generics-what-is-pecs-producer-extends-consumer-super/

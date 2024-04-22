@@ -3,8 +3,11 @@ package app.customer;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@SuppressWarnings("serial")
 public class Customer implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static int idCount;
 	private int cutomerID;
 	private String fName;

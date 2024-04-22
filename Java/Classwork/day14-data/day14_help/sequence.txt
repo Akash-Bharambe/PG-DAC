@@ -1,0 +1,266 @@
+Revise generic syntax
+Learn about extends n super with generics.
+
+Enter functional programming in Java 
+Java 8/11 more new features
+Lambda expression
+Functional programming
+
+Revise
+0. Did you try this ?
+Given : Fruit class in not abstract.
+Fruit f=new Mango(...);
+f.pulp();
+//what will happen in above case ??? n can you solve the error ?
+
+Try it out n we will discuss tomorrow !
+Mango m=new Fruit();
+m.pulp();
+
+0.5  What will happen?
+Object o=new Mgr(....);
+((Mgr)o).computeNetSal();
+
+Mgr m=new Object();
+
+Mgr m=(Mgr)new Object(); 
+m.computeNetSal();
+
+1. Generic methods 
+eg : Arrays.asList , Collections.sort
+
+
+2. 
+Solve (What will happen)
+Given : Emp hierarchy
+Emp e =new Mgr(...);
+e=new Worker(...);
+List<Emp> emps=new ArrayList<>();
+emps.add(new Mgr(...));
+emps.add(new TempWorker(...));//till this all ok !
+
+Understanding inheritance/flexibilty in generics -
+ArrayList<Emp> emps=new ArrayList<Mgr>();//javac err
+Reason : Even though , Mgr extends Emp , AL<Mgr> IS NOT a sub type of AL<Emp>
+
+ArrayList<Object> emps=new ArrayList<Mgr>();//javac err !
+List<Emp> emps=new Vector<Worker>();//javac err !
+emps=new LinkedList<SalesMgr>();//javac err !
+
+Above states --loss of flexibility!!!
+So what's the solution for getting back this flexibility ?
+wild card in generics : ? 
+? => any unknown type 
+How do you create list of unknown type ???
+List<?> anyList;
+anyList=new ArrayList<Mgr>();//no err
+anyList=new Vector<Worker>();
+anyList=new LinkedList<SalesMgr>();
+anyList=new HashSet<>();//javac err , HS IS NOT a List
+anyList=new Vector<Fruit>();//works
+
+List<T> anyList;	
+
+
+3.Create Utils class --Add a static method
+3.1  Add a method to print all elements from any of the following
+ Test cases : AL<String> , LL<Integer> , Vector<LocalDate> , HS<Double> , LHS<Emp> ,TS<Fruit>
+eg : public static void printElements(Collection<Object> collection)
+{
+  for(Object o : collection)
+  sop(o);
+}
+In Tester : 
+Set<String> strings=new HashSet<>();
+strings.add("one").....
+Utils.printElements(strings);//javac err!
+
+eg : public static void printElements(Collection<?> collection)
+{
+  for(Object o : collection)
+  sop(o);
+}
+In Tester : 
+Set<String> strings=new HashSet<>();
+strings.add("one").....
+Utils.printElements(strings);//no javac err!
+LinkedList<Emp> emps=....
+Utils.printElements(emps);
+
+
+
+
+	
+2. Add a method to find sum of salary of emps from any List 
+Test cases : AL<Mgr> ,LL<Worker> , Vector<SM> ....
+What can be added to such a list ?
+
+public static double computeSalarySum(List<Emp> emps)
+{
+  double sum=0;
+  for(Emp e : emps)
+   sum += e.computeNetSal();
+  return sum;
+}
+
+? => any unknow type , can be replaced by any java type
+extends => upper bound
+super => lower bound
+
+? extends T => T or it's sub type
+? super T => T or it's super type
+
+eg : Ctor of ArrayList<E> 
+ArrayList(Collection<? extends E> coll)
+E : Emp
+Meaning : Creates populated AL of type Emp from
+ANY Collection(eg : List n Set vimplementation classes) of type
+Emp or any of its sub type(eg : Mgr, Worker, SalesMgr....)
+
+
+3. Explain :
+public ArrayList​(Collection<? extends E> c)
+E : Emp 
+=> ????
+
+4. Add a method to hire a any worker to the list
+What should be the type of the List ?
+
+Solve -
+T : Emp 
+AL<? extends Emp> list = ????
+What all are legal options of RHS ?
+1. AL<Emp> : 
+2. AL<Mgr>
+3. AL<Worker>
+4. AL <SalesMgr>
+5. AL <Object>
+6. AL<Fruit>
+7. AL<Vehicle>
+Ans : 1,2,3,4
+
+super : represents lower bound in generics
+? super T => T or it's super types
+
+eg
+AL<? super Mgr> list = ????
+What all are legal options of RHS ?
+1. AL<Emp> : 
+2. AL<Mgr>
+3. AL<Worker>
+4. AL <SalesMgr>
+5. AL <Object>
+6. AL<Fruit>
+7. AL<Vehicle>
+Ans : 1,2,5
+
+
+
+6.  Enter Functional programming in Java 
+
+Refer to "java8_new_features.txt"
+default methods in the interface keyword
+static methods in the interface keyword
+Functional interface
+Lambda expression
+
+
+1. Create your own functional interface n use it in lambda expression
+
+eg : Perform ANY arithmetic operation on 2 double values & return the result
+eg --add/multiply/subtract/divide....  ANY such operation !
+
+
+1.1 Create i/f : SAM => Functional i/f
+eg : Computable 
+
+1.2 How to make use of this interface ?
+In traditional/conventional manner ?
+
+1.3 Create a Tester n use it.
+Operations to perform : add/multiply/subtract/divide ....
+
+
+
+Earlier programming paradigm ,where programmer has to supply ENTIRE details consisting of "WHAT" n "HOW" , is called as imperative style.
+
+Modern approach is declarative style or functional programming style
+
+OOP uses imperative style of programming (where you will have to specify what's to be done & how --both) .
+FP uses declarative style of programming (where you will just have to specify what's to be done )
+
+What is a functional programming  paradigm ?
+A language where below features are supported.
+
+Functions are treated as a first class citizens.
+Meaning :  You can 
+1.1  define anonymous functions
+1.2  assign a function to a variable (function literal)
+1.3  pass function as a parameter
+1.4  return function as a return value
+
+Why FP ?
+
+1. To write more readable , maintainable , clean & concise code.
+2. To use Stream APIs easily n effectively.
+3. To enable parallel processing 
+
+eg : Objective 
+Find out the average salary of emp from the specified dept.
+
+How will you do it in imperative manner? 
+eg : Suppose you have a populated ArrayList of emps : l1: AL<Emp>
+sop("Enter dept name");
+String dept=sc.next();
+double total=0;
+int num=0;
+for(Emp e : l1)
+  if(e.getDept().equals(dept)) {
+   total += e.getSal();
+   num++;
+  }
+sop(total/num);
+
+
+
+Vs
+How to do it in declarative style ?
+eg : 
+l1.stream().filter(e->e.getDept().equals(dept)).mapToDouble(Emp::getSal).average().getAsDouble();
+
+
+1. Create your own functional interface n use it in lambda expression
+
+eg : Perform ANY arithmetic operation on 2 double values & return the result
+eg --add/multiply/subtract/divide....  ANY such operation !
+
+
+
+Explore Existing higher order functions/methods
+
+Copy ready code first.
+
+Solve :  Create immutable List of double values , display the same
+List<Double> doubles=List.of(1.0,2.7,3.8,45.9);
+for(double d : doubles)
+  sop(d);
+
+1.
+Display all products (from a product list)
+API :  Iterable : forEach 
+
+2. 
+Display all products (from a product map)
+Ans this 
+Is Map Iterable ?
+Can u attach DIRECTLY a for-each loop to the map ? 
+
+Imperative style
+for(Product p : map.values())
+ sop(p);
+Any Declarative (Functional prog solution ?)
+
+3. Sort the products from the list , as per price : custom ordering
+How ?
+
+

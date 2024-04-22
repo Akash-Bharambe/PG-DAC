@@ -1,12 +1,19 @@
 package app.tester;
 
+import static app.utils.IOUtils.restoreDetails;
+import static app.utils.IOUtils.storeDetails;
 import static app.utils.Utils.changePassword;
 import static app.utils.Utils.displayAllCustomers;
+import static app.utils.Utils.filterPaln;
 import static app.utils.Utils.menuList;
 import static app.utils.Utils.populateList;
 import static app.utils.Utils.signIn;
 import static app.utils.Utils.signUp;
-import static app.utils.Utils.*;
+import static app.utils.Utils.sortBalance;
+import static app.utils.Utils.sortDOB;
+import static app.utils.Utils.sortEmailAsc;
+import static app.utils.Utils.sortEmailDesc;
+import static app.utils.Utils.unsubscribe;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -53,10 +60,10 @@ public class Tester {
 					filterPaln(customersMap);
 					break;
 				case 11:
-					writeToFile(customersMap);
+					storeDetails(customersMap);
 					break;
 				case 12:
-					readFromFile();
+					customersMap = restoreDetails();
 					break;
 				default:
 					System.out.println("Please Enter Valid Input...!!!");

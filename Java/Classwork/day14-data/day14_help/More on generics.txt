@@ -1,0 +1,127 @@
+More on generics
+Solve : 
+Create Utils class --Add static method
+1. Add a method to print all elements from any of the following
+ Test cases : AL<String> , LL<Integer> , Vector<LocalDate> , HS<Double> , LHS,TS
+eg : method arg : Collection<?>
+
+
+1.5 Add a method to count the number of occurrences of elem in any List
+(lab work )
+
+	
+2. Add a method to find sum of salary of emps from any List 
+Test cases : AL<Mgr> ,LL<Worker> , Vector<SM> ....
+
+OR 
+display taste() of all the fruits from the basket : any List
+public static void displayTaste(List<? extends Fruit> basket)
+{
+  for (Fruit f : basket)
+   sop(f.taste());
+}
+
+
+Explain :
+public ArrayList​(Collection<? extends E> c)
+E : Emp 
+=>This ctor  creates  : a populated AL , populated from ANY Collection (AL,LL,Vector : no err
+HS,LHS,TS : no err
+HM,LHM ,TM : err)
+having generic type : Emp or it's subtype(eg : Mgr,Worker.....)
+
+
+
+2.5 Conside this method :
+public static double sumOfSalaries(List<? extends Emp> list) {
+		double sum=0;
+		for (Emp e : list)
+			sum += e.computeSalary();
+		return sum;
+}
+For calling this method from the Tester , You will be able to pass ANY List (AL | LL | Vector) of generic type : choose incorrect from below options
+1. Emp
+2. Mgr
+3. SalesMgr
+4. Object
+5. Worker
+6. HRMgr
+7. TempWorker
+8. Date
+9. LocalDate
+10. PermanentWorker
+
+Ans : 4 ,8  , 9
+
+Now answer this : 
+public static double sumOfSalaries(List<? extends Emp> list) {
+		double sum=0;
+		for (Emp e : list)
+			sum += e.computeSalary();
+		list.add(...);//what can be the legal replacement ?
+		return sum;
+}
+
+1. Emp
+2. Mgr
+3. SalesMgr
+4. Object
+5. Worker
+6. HRMgr
+7. TempWorker
+8. Date
+9. LocalDate
+10. PermanentWorker
+
+Ans : none of above !
+
+Why ? : Since the method arg : List<? extends Emp> => caller can pass ANY List of Emp or any of it's sub types (eg : arg : List<Mgr> : u can't add a worker, Emp , Object  to this list 
+List<PermanentWorker> " u can't pass Emp , Mgr , Worker....
+
+So what's the bottom line ? 
+
+When the argument : uses extends (upper bound)  : Collection<? extends E>
+The Collection acts as read only . You CANT add any elems to it !
+o.w : javac err! 
+
+PECS : Producer extends Consumer supers
+Producer(Reader) => Collection acting as a producer of data  ,i.e you can only access(Read) data
+extends 
+
+Consumer(Writer) => Collection acting as a consumer of data  ,i.e you can only add elems
+super
+
+
+
+
+eg : Java API eg :
+Collections.addAll
+public static <T> boolean addAll​(Collection<? super T> c, T... elements)
+=> Collection : consumer (super)
+T : Orange
+ boolean addAll​(Collection<? super Orange> c, Orange... elements)
+Legal method arg : Any Collection(any List / any Set) of generic type : Orange | Fruit | Object 
+To such a Collection : what all can u add ? Orange or it's subtypes (eg : Mandarine)
+
+eg : MUST Collections.copy(Collection<? super T> dest ,Collection<? extends T> src)
+
+
+
+
+
+	
+3. Add a method to add a sales mgr to the list
+What should be the type of the List ?
+
+4. Add a method to add any worker to the list (i.e TempWorker | PermWorker)
+What should be the type of the List ?
+public static void addWorker(List<? super Worker> list)
+{
+   list.add(new Worker(..);//no err
+   list.add(new TempWorker(..);//no err
+   list.add(new PermWorker(..);//no err
+    list.add(new Object();//err
+list.add(new Emp(..); // emp : concrete class : err
+list.add(new SalesMgr(....)); //err
+}
+-------------------------
