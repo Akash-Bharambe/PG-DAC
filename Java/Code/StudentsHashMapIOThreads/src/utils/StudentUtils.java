@@ -1,14 +1,16 @@
 package utils;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.Map;
 
 import core.Student;
 import core.Subject;
 
 public interface StudentUtils {
-	public static Map<Integer, Student> populateMap(Map<Integer, Student> studentMap) {
+	public static Map<Integer, Student> populateMap() {
 		// Adding sample student data to the map
+		Map<Integer, Student> studentMap = new HashMap<>();
 		studentMap.put(101, new Student(101, "Alice Smith", Subject.ENGLISH, LocalDate.of(2002, 3, 10)));
 		studentMap.put(102, new Student(102, "Bob Johnson", Subject.MATHS, LocalDate.of(2001, 7, 20)));
 		studentMap.put(103, new Student(103, "Eva Brown", Subject.SCIENCE, LocalDate.of(2003, 1, 5)));

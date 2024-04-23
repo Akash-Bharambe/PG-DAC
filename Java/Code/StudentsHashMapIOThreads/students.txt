@@ -1,0 +1,10 @@
+Student{rollNo=101, name='Alice Smith', subject=ENGLISH, dateOfBirth=2002-03-10}
+Student{rollNo=102, name='Bob Johnson', subject=MATHS, dateOfBirth=2001-07-20}
+Student{rollNo=103, name='Eva Brown', subject=SCIENCE, dateOfBirth=2003-01-05}
+Student{rollNo=104, name='David Lee', subject=HISTORY, dateOfBirth=2000-09-15}
+Student{rollNo=105, name='Sophia Wilson', subject=COMPUTER_SCIENCE, dateOfBirth=2002-05-30}
+Student{rollNo=106, name='James Miller', subject=GEOGRAPHY, dateOfBirth=2001-11-08}
+Student{rollNo=107, name='Olivia Davis', subject=ENGLISH, dateOfBirth=2003-02-12}
+Student{rollNo=108, name='William Taylor', subject=MATHS, dateOfBirth=2000-08-25}
+Student{rollNo=109, name='Emma Anderson', subject=SCIENCE, dateOfBirth=2002-04-18}
+Student{rollNo=110, name='Michael Thomas', subject=HISTORY, dateOfBirth=2001-12-03}
