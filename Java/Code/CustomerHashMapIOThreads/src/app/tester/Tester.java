@@ -13,10 +13,16 @@ public class Tester {
 
 	public static void main(String[] args) {
 		Map<String, Customer> map = new HashMap<>();
-		Thread populateThread = new Thread(() -> Utils.populateList(map), "populateThread");
+		Thread populateThread = new Thread(() -> {
+			System.out.println(Thread.currentThread().getName()+" thread started populating map");
+			Utils.populateList(map);
+			System.out.println(Thread.currentThread().getName()+" thread finished populating map");
+			
+		}, "populateThread");
 		Thread sortThread = new Thread(() -> {
 			try {
 				populateThread.join();
+				System.out.println(Thread.currentThread().getName()+" thread started sorting");
 				try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(
 						new FileOutputStream("customers1.ser"))) {
 					map.values().stream().sorted((c1, c2) -> c1.getDob().compareTo(c2.getDob())).forEach(c -> {
@@ -26,6 +32,7 @@ public class Tester {
 							e.printStackTrace();
 						}
 					});
+					System.out.println(Thread.currentThread().getName()+" thread finished sorting");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -35,6 +42,7 @@ public class Tester {
 		Thread sortPlanThread = new Thread(() -> {
 			try {
 				populateThread.join();
+				System.out.println(Thread.currentThread().getName()+" thread started sorting");
 				try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(
 						new FileOutputStream("customers2.ser"))) {
 					map.values().stream().sorted((c1, c2) -> c1.getPlan().compareTo(c2.getPlan())).forEach(c -> {
@@ -44,16 +52,17 @@ public class Tester {
 							e.printStackTrace();
 						}
 					});
+					System.out.println(Thread.currentThread().getName()+" thread finished sorting");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}, "sortPlanThread");
-		
+
 		populateThread.start();
 		sortThread.start();
 		sortPlanThread.start();
-		
+
 		try {
 			populateThread.join();
 			sortThread.join();
@@ -62,6 +71,6 @@ public class Tester {
 			e.printStackTrace();
 		}
 		System.out.println("Main Over");
-		
+
 	}
 }
