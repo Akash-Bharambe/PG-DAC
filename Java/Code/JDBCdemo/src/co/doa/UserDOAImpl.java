@@ -15,12 +15,14 @@ public class UserDOAImpl implements UserDOA {
 	public UserDOAImpl() {
 		try {
 			cn = openConnection();
-			pStatement = cn.prepareStatement("select * from user where email = ? and password = ?");
+			pStatement = cn.prepareStatement("select * from users where email=? and password=?");
+			System.out.println("User DAO created");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-
+	
+	@Override
 	public User authenticateUser(String email, String pass) throws SQLException {
 		pStatement.setString(1, email);
 		pStatement.setString(2, pass);
@@ -40,7 +42,8 @@ public class UserDOAImpl implements UserDOA {
 	}
 
 	public Connection openConnection() throws SQLException {
-		return DriverManager.getConnection("jdbc.mysql://localhost:3306/JDBC");
+		//jdbc:mysql://localhost:3306/acts_2024
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC","root","root");
 	}
 
 	@Override

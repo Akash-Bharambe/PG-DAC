@@ -1,0 +1,53 @@
+How to Protect a JDBC Application Against SQL Injection
+
+The Open Web Application Security Project (OWASP) is a non-profit organization founded in 2001, with the goal of helping website owners and security experts protect web applications from cyber attacks.
+
+SQL Injection : One of the top 10 security attacks
+
+
+The  RDBMS  parses and interprets the SQL statement and returns the result accordingly. 
+Typically ,  to communication with RDBMS—we fire an SQL statement and get back the result
+
+There are no authentication or validation processes to check on who fired the statement and the privilege one has on getting the output. An attacker can simply fire an SQL statement with malicious intent and gets back information that it is not supposed to get.
+
+ For example, an attacker can execute a SQL statement with a malicious payload with the harmless looking query to control a Web application's database server.
+
+How It Works
+eg :  one can bypass an application's authentication and authorization mechanism and retrieve so-called secure contents from the entire database. An SQL injection can be used to create, update, and delete records from the database. One can,  formulate a query limited to one's own imagination with SQL.
+
+Typically, an application frequently fires SQL queries to the database for numerous purposes, be it for fetching certain records, creating reports, authenticating user, CRUD transactions, and so forth. The attacker simply needs to find an SQL input query within some application input form. The query prepared by the form then can be used to embed the malicious content so that, when the application fires the query, it carries the injected payload as well.
+
+One of the ideal situations is when an application asks the user for input such as username or user id. The application opened up a vulnerable spot there. The SQL statement can be run unknowingly. An attacker takes advantage by injecting a payload that to be used as a part of the SQL query and processed by the database. 
+eg :
+
+
+
+String sql= select * FROM users where
+   user_name = '" + uname + "' and password= '" + pass + "'";
+
+Statement st=cn.createStatement();
+stmt.executeQuery(sql);
+
+This code is vulnerable to SQL injection attack because the input given to the SQL statement through the variable 'uname' and 'pass' can be manipulated 
+
+
+eg :  we can modify the query to run against the database server, as in MySQL.
+
+
+String sql= select * from users where
+   user_name = '" + uname + "' and password= '" + pass + "' OR 1=1";
+
+eg : TestSqlInjection with : i/ps as
+a b ' or '1' = '1
+
+
+This results in modifying the original SQL statement to a degree that enables one to bypasses authentication. This is a serious vulnerability and must be prevented from within the code.
+
+Defence Against an SQL Injection Attack
+
+One of the ways to reduce the chance of SQL injection attack is to ensure that the unfiltered strings of text must not be allowed to appended to the SQL statement before execution. 
+
+Use PreparedStatement instead of a Statement. It sends a pre-compiled SQL statement to the database, rather than a string. This means that query and data are separately sent to the database. This prevents the root cause of the SQL injection attack, because in SQL injection, the idea is to mix code and data wherein the data is actually a part of the code faked as  data. In PreparedStatement, there are multiple setType() methods, such as setString(). These methods are used to filter special characters such as a quotation contained within the SQL statements.
+
+
+

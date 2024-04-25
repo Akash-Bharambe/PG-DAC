@@ -11,21 +11,21 @@ public class Tester {
 
 	public static void main(String[] args) {
 		// Creating a map to store students
-		
+
 		Thread t1 = new Thread(() -> {
-				studentMap = StudentUtils.populateMap();
-		},"getMapTask");
-		
-		Thread t2 = new Thread(()-> {
-				try {
-					t1.join();
-					IOUtils.sortDOB(studentMap, "DOB.txt");
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+			studentMap = StudentUtils.populateMap();
+		}, "getMapTask");
+
+		Thread t2 = new Thread(() -> {
+			try {
+				t1.join();
+				IOUtils.sortDOB(studentMap, "DOB.txt");
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}, "sortDate");
-		
-		Thread t3 = new Thread(()->{
+
+		Thread t3 = new Thread(() -> {
 			try {
 				t1.join();
 				IOUtils.sortSubject(studentMap, "Subjects.txt");
@@ -33,11 +33,11 @@ public class Tester {
 				e.printStackTrace();
 			}
 		}, "sortSubjects");
-		
+
 		t1.start();
 		t2.start();
 		t3.start();
-		
+
 		try {
 			t1.join();
 			t2.join();
