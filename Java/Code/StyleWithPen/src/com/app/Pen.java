@@ -16,7 +16,7 @@ import java.time.LocalDate;
  * 
  * 4. Remove Pens which are never sold once listed in 9 months
  * 
- * You can define a class Pen with the following fields – a. ID (unique
+ * You can define a class Pen with the following fields ï¿½ a. ID (unique
  * identifier for each Pen, should be generated automatically) b. Brand
  * (Example: Cello, Parker, Reynolds etc.) c. Color d. InkColor e. Material
  * (Example: Plastic, Alloy Steel, Metal etc.) f. Stock (Available quantity) g.
@@ -97,7 +97,7 @@ public class Pen {
 	}
 
 	public int getPrice() {
-		return (int) (price * discount);
+		return price;
 	}
 
 	public void setPrice(int price) {
@@ -105,7 +105,7 @@ public class Pen {
 	}
 
 	public double getDiscount() {
-		return discount;
+		return price - (price * discount);
 	}
 
 	public void setDiscount(double discount) {
@@ -132,7 +132,8 @@ public class Pen {
 	@Override
 	public String toString() {
 		return "Pen [brand=" + brand + ", color=" + color + ", material=" + material + ", stock=" + stock
-				+ ", stockListingDate=" + stockListingDate + ", price=" + price + ", discount=" + discount + "]";
+				+ ", stockListingDate=" + stockListingDate + ", price=" + price + ", discounted Price="
+				+ this.getDiscount() + "]";
 	}
 
 }
