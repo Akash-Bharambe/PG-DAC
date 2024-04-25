@@ -4,17 +4,18 @@ import static utils.Utils.addTask;
 import static utils.Utils.deleteTask;
 import static utils.Utils.displayPendingTaskToday;
 import static utils.Utils.displayPendingTasks;
+import static utils.Utils.menuList;
+import static utils.Utils.populateTaskMap;
 import static utils.Utils.sortedTasks;
 import static utils.Utils.updateTaskStatus;
 
-import utils.Utils;
-
 public class Program {
-	
+
 	public static void main(String[] args) {
 		int ch;
+		populateTaskMap();
 
-		while ((ch = Utils.menuList()) != 0) {
+		while ((ch = menuList()) != 0) {
 			try {
 				switch (ch) {
 				case 1:
