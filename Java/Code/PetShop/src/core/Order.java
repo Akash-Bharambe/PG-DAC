@@ -1,30 +1,27 @@
 package core;
 
-import java.util.Random;
-
 public class Order {
 	
 	private int orderId;
 	private int petId;
 	private int quantity;
 	private StatusType status;
-	private static Random random;
 	
-	static {
-		random = new Random();
-	}
 	
-	public Order(int petId, int quantity, StatusType status) {
-		this.orderId = random.nextInt(9000) + 1000;
+	public Order(int orderId, int petId, int quantity) {
+		this.orderId = orderId;
 		this.petId = petId;
 		this.quantity = quantity;
-		this.status = status;
-	}
-
-	public Order(int orderId) {
-		this.orderId = random.nextInt(9000) + 1000;
+		this.status = StatusType.PLACED;
 	}
 	
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public int getPetId() {
+		return petId;
+	}
 
 	public StatusType getStatus() {
 		return status;
