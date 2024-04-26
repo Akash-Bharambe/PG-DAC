@@ -1,0 +1,155 @@
+mysql> create database college;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use college;
+Database changed
+mysql> create table student(roll int, name varchar(10), class varchar(10), marks double, age int);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| roll  | int         | YES  |     | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| class | varchar(10) | YES  |     | NULL    |       |
+| marks | double      | YES  |     | NULL    |       |
+| age   | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> INSERT INTO student (roll, name, class, marks, age)
+    -> VALUES
+    ->     (101, 'Alice', 'Math', 85.5, 20),
+    ->     (102, 'Bob', 'Science', 78.0, 21),
+    ->     (103, 'Charlie', 'History', 92.5, 19),
+    ->     (104, 'David', 'English', 70.2, 22),
+    ->     (105, 'Eva', 'Physics', 88.7, 20);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select *, if(marks > 75, 'Distinction', 'Not Disctinction') as passed from student;
++------+---------+---------+-------+------+------------------+
+| roll | name    | class   | marks | age  | passed           |
++------+---------+---------+-------+------+------------------+
+|  101 | Alice   | Math    |  85.5 |   20 | Distinction      |
+|  102 | Bob     | Science |    78 |   21 | Distinction      |
+|  103 | Charlie | History |  92.5 |   19 | Distinction      |
+|  104 | David   | English |  70.2 |   22 | Not Disctinction |
+|  105 | Eva     | Physics |  88.7 |   20 | Distinction      |
++------+---------+---------+-------+------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT *,
+    ->        CASE
+    ->            WHEN marks > 75 THEN 'A+'
+    ->            WHEN marks > 60 THEN 'A'
+    ->            WHEN marks > 55 THEN 'B+'
+    ->            WHEN marks > 50 THEN 'B'
+    ->            WHEN marks > 40 THEN 'C'
+    ->            WHEN marks < 40 THEN 'D'
+    ->        END AS grade
+    -> FROM student;
++------+---------+---------+-------+------+-------+
+| roll | name    | class   | marks | age  | grade |
++------+---------+---------+-------+------+-------+
+|  101 | Alice   | Math    |  85.5 |   20 | A+    |
+|  102 | Bob     | Science |    78 |   21 | A+    |
+|  103 | Charlie | History |  92.5 |   19 | A+    |
+|  104 | David   | English |  70.2 |   22 | A     |
+|  105 | Eva     | Physics |  88.7 |   20 | A+    |
++------+---------+---------+-------+------+-------+
+5 rows in set (0.00 sec)
+
+mysql> create procedure proc_sum()
+    ->   begin
+    ->     declare v_result int default 0;
+    ->     declare v_integer int default 1;
+    ->     label_loop: loop
+    ->        if v_integer > 10 then
+    ->          leave label_loop;
+    ->        end if;
+    ->        set v_result=v_result + v_integer ;
+    ->        set v_integer=v_integer+1;
+    ->     end loop;
+    ->     select v_result;
+    ->   end $
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call proc_sum$
++----------+
+| v_result |
++----------+
+|       55 |
++----------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter $
+mysql> create procedure proc_evenodd(in num int)
+    ->    begin
+    ->       declare type varchar(10) default '';
+    ->       if num % 2 = 0 then
+    ->          set type = 'Even';
+    ->       elseif num % 2 != 0 then
+    ->          set type = 'Odd';
+    ->       else
+    ->          set type = 'Zero';
+    ->       end if;
+    ->    select type;
+    ->    end ;$
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call proc_evenodd(7);
++------+
+| type |
++------+
+| Odd  |
++------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> call proc_evenodd(4);
++------+
+| type |
++------+
+| Even |
++------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> delimiter $
+mysql> create procedure proc_grade()
+    -> begin
+    -> SELECT *,
+    ->      CASE
+    ->          WHEN marks > 75 THEN 'A+'
+    ->          WHEN marks > 60 THEN 'A'
+    ->          WHEN marks > 55 THEN 'B+'
+    ->          WHEN marks > 50 THEN 'B'
+    ->          WHEN marks > 40 THEN 'C'
+    ->          WHEN marks < 40 THEN 'D'
+    ->      END AS grade
+    -> FROM student;
+    -> end;$
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call proc_grade$
++------+---------+---------+-------+------+-------+
+| roll | name    | class   | marks | age  | grade |
++------+---------+---------+-------+------+-------+
+|  101 | Alice   | Math    |  85.5 |   20 | A+    |
+|  102 | Bob     | Science |    78 |   21 | A+    |
+|  103 | Charlie | History |  92.5 |   19 | A+    |
+|  104 | David   | English |  70.2 |   22 | A     |
+|  105 | Eva     | Physics |  88.7 |   20 | A+    |
++------+---------+---------+-------+------+-------+
+5 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+         
+    
