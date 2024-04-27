@@ -1,43 +1,35 @@
 package tester;
 
-import static utils.Utils.*;
+import static util.Utils.*;
 
 public class Program {
 
 	public static void main(String[] args) {
 		int ch;
-		while ((ch = menuList())!= 0) {
+		while ((ch = menuList()) != 0) {
 			try {
 				switch (ch) {
 				case 1:
-					login();
+					addFullTimeEmployee();
 					break;
 				case 2:
-					addPet();
+					addPartTimeEmployee();
 					break;
 				case 3:
-					updatePetDetails();
+					deleteEmployee();
 					break;
 				case 4:
-					displayAllPets();
+					searchEmpDetails();
 					break;
 				case 5:
-					orderPet();
+					displayAllEmployee();
 					break;
 				case 6:
-					checkOrderStatus();
+					displayAllEmployeeSorted();
 					break;
-				case 7:
-					updateOrderStatus();
-					break;
-				case 8:
-					signUp();
-					break;
-				case 9:
-					logout();
-					break;
+
 				default:
-					System.out.println("Enter Valid Input...!!!\n");
+					System.out.println("Please Enter a valid Choice...!!!\n");
 					break;
 				}
 			} catch (Exception e) {
