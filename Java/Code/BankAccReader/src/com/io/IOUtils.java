@@ -12,7 +12,6 @@ import java.util.List;
 import com.app.BankStatement;
 
 public class IOUtils {
-
 	public static List<BankStatement> readStatements() throws FileNotFoundException, IOException {
 		String line;
 		List<BankStatement> statements = new ArrayList<>();
