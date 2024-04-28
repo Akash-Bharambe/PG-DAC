@@ -15,8 +15,8 @@ public class Program {
 		List<Item> items = new ArrayList<>();
 		populateData(items);
 		int ch;
-		try {
-			while ((ch = menuList()) != 0) {
+		while ((ch = menuList()) != 0) {
+			try {
 				switch (ch) {
 				case 1:
 					Utils.acceptData(items);
@@ -31,13 +31,14 @@ public class Program {
 					System.out.println("Please enter valid input...!!!/n");
 					break;
 				}
-
+			} catch (Exception e) {
+				System.out.println(e);
 			}
+		}
+		try {
 			sortItemCode(items);
 			sortPrice(items);
 		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
