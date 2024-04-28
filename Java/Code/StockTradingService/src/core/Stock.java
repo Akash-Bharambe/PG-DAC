@@ -1,9 +1,14 @@
 package core;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Stock {
+public class Stock implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6523976122936806769L;
 	private String stockID;
 	private String stockName;
 	private String companyName;
