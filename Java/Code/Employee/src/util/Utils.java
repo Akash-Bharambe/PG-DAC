@@ -6,6 +6,7 @@ import static core.ValidationRules.validatePhoneNumber;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Scanner;
 
 import core.Employee;
@@ -109,14 +110,13 @@ public class Utils {
 
 		System.out.print("\nEnter empid: ");
 		int empID = scanner.nextInt();
-		empMap.values().stream().filter(e -> e.getEmpID() == empID).map(e -> removeEmp(e)).toString();
+		
+		String aadharNumber = empMap.values().stream().filter(e -> e.getEmpID() == empID).map(e -> e.getAadhaarNumber())
+				.findFirst().orElseThrow();
+
+		empMap.remove(aadharNumber);
 
 		System.out.println("Employee Removed Successfully...!!!\n");
-	}
-
-	private static int removeEmp(Employee e) {
-		empMap.remove(e.getAadhaarNumber(), e);
-		return 0;
 	}
 
 	public static void searchEmpDetails() {
@@ -144,6 +144,7 @@ public class Utils {
 		System.out.println("4. Search employee details by Aadhaar number");
 		System.out.println("5. Display all employee details");
 		System.out.println("6. Display all employee details sorted by date of joining");
+		System.out.println("0. EXIT");
 		System.out.println("Enter Choice: ");
 		int ch = scanner.nextInt();
 		scanner.nextLine();
