@@ -1,0 +1,71 @@
+Can you design similar questions:
+Create an application called EBank. This application
+should have an
+Account [accountNumber, name, email, phone, balance]
+class. This application should contain a Tester class
+which displays the following menu:
+
+1. Add Account.
+2. Display Account.
+3. Display All Accounts.
+4. Remove Account.
+5. Withdraw Amount.
+6. Deposit Amount.
+7. Transfer Amount.
+8. Search Account Using Name
+9. Search Account Using Email
+10. SearchAccountUsingPhone
+11. Exit
+
+Use collection to save Account instances. Use
+exceptions like InvalidAccountException,
+AccountNotFoundException &
+InsufficientBalanceException and implement your own
+interface called Operations which should contain
+operations like addAccount, displayAccount and so on.
+Create AccountUtils class to implement this
+functionality and create Tester class for defining
+main method.
+Consider Following validations on Account:
+10. Name should be more than 5 characters
+11. Balance should be more than 100
+12. email should contain . And @
+13. phone should be 10 digits(consider it as a
+string).
+
+
+
+Create a library management system that allows users to search for books, add new books, and remove books from the library.
+The system should have a Book class that stores information like book title, author, and ISBN number.
+Use collections to save book instances, and implement your own interface called Operations that contains methods like addBook, displayBook, and so on.
+The system should also perform some basic validations like ensuring that book titles are at least 5 characters long and that ISBN numbers are unique.
+Develop an online shopping application that allows customers to add products to their cart, checkout, and make payments.
+The application should have a Product class that stores information like product name, price, and availability. Use collections to save product instances, and implement your own interface called Operations that contains methods like addProduct, displayProduct, and so on.
+The application should also validate user inputs like ensuring that product names are at least 5 characters long and that prices are greater than 0.
+
+
+
+
+Create a task management system that allows users to add tasks, mark tasks as completed, and delete tasks.
+The system should have a Task class that stores information like task name, due date, and priority level.
+Use collections to save task instances, and implement your own interface called Operations that contains methods like addTask, displayTask, and so on.
+The system should also validate user inputs like ensuring that task names are at least 5 characters long and that due dates are not in the past.
+
+
+
+
+Build a restaurant reservation system that allows users to book tables, view available tables, and cancel reservations.
+The system should have a Table class that stores information like table number, seating capacity, and availability.
+Use collections to save table instances, and implement your own interface called Operations that contains methods like bookTable, displayTable, and so on.
+The system should also validate user inputs like ensuring that table numbers are unique and that seating capacities are greater than 0.
+
+
+
+
+Design a Ticket Booking System application that has a Ticket class with attributes like ticketId, passengerName, source, destination, and fare.
+The application should contain a Tester class that displays a menu with options like booking a ticket, displaying a ticket, displaying all tickets, canceling a ticket, and searching for a ticket by passenger name or ticket id. Use collections to save Ticket instances.
+Use exceptions like InvalidTicketIdException, TicketNotFoundException, and InsufficientFareException, and implement an interface called TicketOperations which should contain operations like bookTicket, displayTicket, and so on.
+Create TicketUtils class to implement this functionality and create a Tester class for defining the main method.
+Consider following validations on Ticket:
+Passenger name should be at least 5 characters long
+Fare should be greater than
