@@ -1,0 +1,64 @@
+mysql> CREATE TABLE employees (
+    ->     eid INT PRIMARY KEY,
+    ->     name VARCHAR(50),
+    ->     experience INT,
+    ->     salary INT
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> INSERT INTO employees (eid, name, experience, salary)
+    -> VALUES
+    ->     (101, 'Vijay', 12, 56000),
+    ->     (103, 'Rani', 0, 14000),
+    ->     (104, 'Ramesh', 6, 45000),
+    ->     (105, 'Anil', 5, 34600),
+    ->     (107, 'Akash', 14, 67800),
+    ->     (108, 'Priya', 7, 60000);
+Query OK, 6 rows affected (0.01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE emp (
+    ->     eid INT PRIMARY KEY,
+    ->     name VARCHAR(50),
+    ->     salary VARCHAR(10)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> delimiter &&
+mysql> create procedure copycur()
+    -> BEGIN
+    -> DECLARE done INT DEFAULT 0;
+    -> DECLARE eid1 INT;
+    -> DECLARE name1 VARCHAR(50);
+    -> DECLARE salary1 VARCHAR(10);
+    -> DECLARE fullSal INT;
+    -> DECLARE cur1 CURSOR FOR SELECT eid, name, salary from employees;
+    -> DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+    ->
+    -> OPEN cur1;
+    -> label: LOOP
+    -> FETCH cur1 INTO eid1, name1, fullSal;
+    -> set salary1 = CONCAT(FORMAT( fullSal /1000,0), 'K');
+    -> INSERT INTO emp(eid, name, salary) VALUES(eid1, name1, salary1);
+    -> IF done = 1 THEN LEAVE label;
+    -> END IF;
+    -> END LOOP;
+    -> CLOSE cur1;
+    -> END&&
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delimiter ;
+mysql> call copycur();
+ERROR 1062 (23000): Duplicate entry '108' for key 'emp.PRIMARY'
+mysql> select * from emp;
++-----+--------+--------+
+| eid | name   | salary |
++-----+--------+--------+
+| 101 | Vijay  | 56K    |
+| 103 | Rani   | 14K    |
+| 104 | Ramesh | 45K    |
+| 105 | Anil   | 35K    |
+| 107 | Akash  | 68K    |
+| 108 | Priya  | 60K    |
++-----+--------+--------+
+6 rows in set (0.00 sec)

@@ -1,0 +1,120 @@
+mysql> CREATE TABLE product (
+    ->     type VARCHAR(3),
+    ->     name VARCHAR(50),
+    ->     cost INT
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO product (type, name, cost)
+    -> VALUES
+    ->     ('FUR', 'Chair', 1500),
+    ->     ('FUR', 'Cupboard', 15000),
+    ->     ('ELE', 'Mobile', 25000),
+    ->     ('FUR', 'Table', 6500),
+    ->     ('ELE', 'Television', 18500),
+    ->     ('STA', 'Notebook', 45),
+    ->     ('STA', 'Stapler', 40);
+Query OK, 7 rows affected (0.01 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> delimiter &&
+mysql> CREATE TRIGGER before_insert_product
+    -> BEFORE INSERT ON product FOR EACH ROW
+    -> BEGIN
+    -> IF(NEW.cost < 0 ) THEN
+    ->  SET NEW.cost = ABS(NEW.cost);
+    -> END IF;
+    -> END &&
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> delimiter ;
+mysql> INSERT INTO product (type, name, cost) VALUES('FUR', 'Recliner', -1500);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from product;
++------+------------+-------+
+| type | name       | cost  |
++------+------------+-------+
+| FUR  | Chair      |  1500 |
+| FUR  | Cupboard   | 15000 |
+| ELE  | Mobile     | 25000 |
+| FUR  | Table      |  6500 |
+| ELE  | Television | 18500 |
+| STA  | Notebook   |    45 |
+| STA  | Stapler    |    40 |
+| FUR  | Recliner   |  1500 |
++------+------------+-------+
+8 rows in set (0.00 sec)
+
+mysql> CREATE TABLE backup (
+    -> type VARCHAR(3),
+    -> name VARCHAR(50),
+    -> cost INT
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter &&
+mysql> CREATE TRIGGER after_insert_product
+    -> AFTER INSERT ON product FOR EACH ROW
+    -> BEGIN
+    -> INSERT INTO backup VALUES(NEW.type, NEW.name, NEW.cost);
+    -> END &&
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> create table log (kon varchar(20), kab datetime, oldcost int, newcost int);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> delimiter &&
+mysql> CREATE TRIGGER after_update_product
+    -> AFTER UPDATE ON product FOR EACH ROW
+    -> BEGIN
+    -> INSERT INTO log VALUES(user(),now(),OLD.cost,NEW.cost);
+    -> END &&
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter;
+
+mysql> delimiter &&
+mysql> CREATE TRIGGER after_delete_product
+    -> AFTER DELETE ON product FOR EACH ROW
+    -> BEGIN
+    -> SET @var = CONCAT(user(),' deleted a ',OLD.type);
+    -> END &&
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+
+mysql> INSERT INTO product values('FUR', 'Recliner2', 6000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from backup;
++------+-----------+------+
+| type | name      | cost |
++------+-----------+------+
+| FUR  | Recliner2 | 6000 |
++------+-----------+------+
+1 row in set (0.00 sec)
+
+mysql> update product SET cost = 8000 WHERE name = 'Recliner2';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from log;
++----------------+---------------------+---------+---------+
+| kon            | kab                 | oldcost | newcost |
++----------------+---------------------+---------+---------+
+| root@localhost | 2024-04-30 15:01:29 |    6000 |    8000 |
++----------------+---------------------+---------+---------+
+1 row in set (0.00 sec)
+
+mysql> delete from product where name = 'Recliner2';
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select @var;
++------------------------------+
+| @var                         |
++------------------------------+
+| root@localhost deleted a FUR |
++------------------------------+
+1 row in set (0.00 sec)
