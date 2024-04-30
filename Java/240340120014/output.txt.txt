@@ -1,0 +1,112 @@
+0. EXIT
+1. Add New Shoe
+2. Update Stock of a Shoe
+3. Set 20% discount for shoes which are not sold in last 4 months
+4. Remove Shoes that were listed a year ago and have not sold even a single piece yet
+5. Display all available Shoes
+Enter Choice: 1
+MENS_RUNNING_SHOES
+MENS_WALKING_SHOES
+MENS_SNEAKERS
+WOMENS_RUNNING_SHOES
+WOMENS_WALKING_SHOES
+WOMENS_SNEAKERS
+Enter shoe Category: mens_walking_shoes
+Enter Shoe Listing Date(dd-MM-yyyy): 26-03-2024
+Enter Stock Size: 50
+Enter Stock Update Date(dd-MM-yyyy): 27-03-2024
+Enter price of shoe: 5600.32
+Enter Discount: 0
+Shoe Added Successfully...!!!
+
+0. EXIT
+1. Add New Shoe
+2. Update Stock of a Shoe
+3. Set 20% discount for shoes which are not sold in last 4 months
+4. Remove Shoes that were listed a year ago and have not sold even a single piece yet
+5. Display all available Shoes
+Enter Choice: 5
+Shoe [ShoeID=3456, listingDate=2022-02-02, stockSize=30, stockUpdateDate=2023-02-02, price=9600.5, discount=0.0]
+Shoe [ShoeID=1234, listingDate=2023-02-02, stockSize=10, stockUpdateDate=2023-02-02, price=9000.5, discount=0.0]
+Shoe [ShoeID=6789, listingDate=2023-02-02, stockSize=60, stockUpdateDate=2023-12-02, price=9900.5, discount=0.0]
+Shoe [ShoeID=4567, listingDate=2023-02-02, stockSize=40, stockUpdateDate=2024-02-02, price=9000.5, discount=0.0]
+Shoe [ShoeID=2648, listingDate=2024-03-26, stockSize=50, stockUpdateDate=2024-03-27, price=5600.32, discount=0.0]
+Shoe [ShoeID=2345, listingDate=2024-02-02, stockSize=20, stockUpdateDate=2024-02-02, price=9050.5, discount=0.0]
+Shoe [ShoeID=5678, listingDate=2023-03-02, stockSize=50, stockUpdateDate=2023-12-02, price=8000.5, discount=0.0]
+0. EXIT
+1. Add New Shoe
+2. Update Stock of a Shoe
+3. Set 20% discount for shoes which are not sold in last 4 months
+4. Remove Shoes that were listed a year ago and have not sold even a single piece yet
+5. Display all available Shoes
+Enter Choice: 2
+Enter Shoe ID to update Stock: 3456
+Enter added Stock: 70
+Stock updated successfully...!!!
+
+0. EXIT
+1. Add New Shoe
+2. Update Stock of a Shoe
+3. Set 20% discount for shoes which are not sold in last 4 months
+4. Remove Shoes that were listed a year ago and have not sold even a single piece yet
+5. Display all available Shoes
+Enter Choice: 5
+Shoe [ShoeID=3456, listingDate=2022-02-02, stockSize=100, stockUpdateDate=2024-04-29, price=9600.5, discount=0.0]
+Shoe [ShoeID=1234, listingDate=2023-02-02, stockSize=10, stockUpdateDate=2023-02-02, price=9000.5, discount=0.0]
+Shoe [ShoeID=6789, listingDate=2023-02-02, stockSize=60, stockUpdateDate=2023-12-02, price=9900.5, discount=0.0]
+Shoe [ShoeID=4567, listingDate=2023-02-02, stockSize=40, stockUpdateDate=2024-02-02, price=9000.5, discount=0.0]
+Shoe [ShoeID=2648, listingDate=2024-03-26, stockSize=50, stockUpdateDate=2024-03-27, price=5600.32, discount=0.0]
+Shoe [ShoeID=2345, listingDate=2024-02-02, stockSize=20, stockUpdateDate=2024-02-02, price=9050.5, discount=0.0]
+Shoe [ShoeID=5678, listingDate=2023-03-02, stockSize=50, stockUpdateDate=2023-12-02, price=8000.5, discount=0.0]
+0. EXIT
+1. Add New Shoe
+2. Update Stock of a Shoe
+3. Set 20% discount for shoes which are not sold in last 4 months
+4. Remove Shoes that were listed a year ago and have not sold even a single piece yet
+5. Display all available Shoes
+Enter Choice: 3
+Discont of 20% set successfully...!!!
+
+0. EXIT
+1. Add New Shoe
+2. Update Stock of a Shoe
+3. Set 20% discount for shoes which are not sold in last 4 months
+4. Remove Shoes that were listed a year ago and have not sold even a single piece yet
+5. Display all available Shoes
+Enter Choice: 5
+Shoe [ShoeID=3456, listingDate=2022-02-02, stockSize=100, stockUpdateDate=2024-04-29, price=9600.5, discount=0.0]
+Shoe [ShoeID=1234, listingDate=2023-02-02, stockSize=10, stockUpdateDate=2023-02-02, price=7200.4, discount=0.2]
+Shoe [ShoeID=6789, listingDate=2023-02-02, stockSize=60, stockUpdateDate=2023-12-02, price=7920.4, discount=0.2]
+Shoe [ShoeID=4567, listingDate=2023-02-02, stockSize=40, stockUpdateDate=2024-02-02, price=9000.5, discount=0.0]
+Shoe [ShoeID=2648, listingDate=2024-03-26, stockSize=50, stockUpdateDate=2024-03-27, price=5600.32, discount=0.0]
+Shoe [ShoeID=2345, listingDate=2024-02-02, stockSize=20, stockUpdateDate=2024-02-02, price=9050.5, discount=0.0]
+Shoe [ShoeID=5678, listingDate=2023-03-02, stockSize=50, stockUpdateDate=2023-12-02, price=6400.4, discount=0.2]
+0. EXIT
+1. Add New Shoe
+2. Update Stock of a Shoe
+3. Set 20% discount for shoes which are not sold in last 4 months
+4. Remove Shoes that were listed a year ago and have not sold even a single piece yet
+5. Display all available Shoes
+Enter Choice: 4
+Shoes Removed Successfully...!!!
+
+0. EXIT
+1. Add New Shoe
+2. Update Stock of a Shoe
+3. Set 20% discount for shoes which are not sold in last 4 months
+4. Remove Shoes that were listed a year ago and have not sold even a single piece yet
+5. Display all available Shoes
+Enter Choice: 5
+Shoe [ShoeID=3456, listingDate=2022-02-02, stockSize=100, stockUpdateDate=2024-04-29, price=9600.5, discount=0.0]
+Shoe [ShoeID=6789, listingDate=2023-02-02, stockSize=60, stockUpdateDate=2023-12-02, price=7920.4, discount=0.2]
+Shoe [ShoeID=4567, listingDate=2023-02-02, stockSize=40, stockUpdateDate=2024-02-02, price=9000.5, discount=0.0]
+Shoe [ShoeID=2648, listingDate=2024-03-26, stockSize=50, stockUpdateDate=2024-03-27, price=5600.32, discount=0.0]
+Shoe [ShoeID=2345, listingDate=2024-02-02, stockSize=20, stockUpdateDate=2024-02-02, price=9050.5, discount=0.0]
+Shoe [ShoeID=5678, listingDate=2023-03-02, stockSize=50, stockUpdateDate=2023-12-02, price=6400.4, discount=0.2]
+0. EXIT
+1. Add New Shoe
+2. Update Stock of a Shoe
+3. Set 20% discount for shoes which are not sold in last 4 months
+4. Remove Shoes that were listed a year ago and have not sold even a single piece yet
+5. Display all available Shoes
+Enter Choice: 0
