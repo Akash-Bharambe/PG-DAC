@@ -1,0 +1,337 @@
+college> db.books.insert({refno : '1001', name : 'Python Prog', author : 'Shayam', coauthor : 'Rakesh', pages : 350, price : 450});
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('66322d2b2821ece57246b79d') }
+}
+college> db.books.insert({refno : '1002', name : 'Java Prog', author : 'Amita', pages : 300, price : 500});
+college> db.books.insert({refno : '1003', name : 'HTML', author : 'Amita', coauthor : 'Shyam', pages : 225, price : 300});
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('66322d5d2821ece57246b79f') }
+}
+college> db.books.insert({refno : '1004', name : 'MongoDB', author : 'Shyam', pages : 440, price : 500});
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('66322d7f2821ece57246b7a0') }
+}
+college> db.books.insert({refno : '1005', name : 'MySQL', author : 'Shrikant', coauthor : 'Nitin', pages : 330, price : 630})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('66322ddb2821ece57246b7a1') }
+}
+
+college> db.books.find().pretty()
+[
+  {
+    _id: ObjectId('66322d2b2821ece57246b79d'),
+    refno: '1001',
+    name: 'Python Prog',
+    author: 'Shayam',
+    coauthor: 'Rakesh',
+    pages: 350,
+    price: 450
+  },
+  {
+    _id: ObjectId('66322d3c2821ece57246b79e'),
+    refno: '1002',
+    name: 'Java Prog',
+    author: 'Amita',
+    pages: 300,
+    price: 500
+  },
+  {
+    _id: ObjectId('66322d5d2821ece57246b79f'),
+    refno: '1003',
+    name: 'HTML',
+    author: 'Amita',
+    coauthor: 'Shyam',
+    pages: 225,
+    price: 300
+  },
+college>
+    _id: ObjectId('66322d7f2821ece57246b7a0'),
+    refno: '1004',
+    name: 'MongoDB',
+    author: 'Shyam',
+    pages: 440,
+    price: 500
+  },
+  {
+    _id: ObjectId('66322ddb2821ece57246b7a1'),
+    refno: '1005',
+    name: 'MySQL',
+    author: 'Shrikant',
+    coauthor: 'Nitin',
+    pages: 330,
+    price: 630
+  }
+]
+
+college> db.books.find({$or : [{author : 'Amita'},{coauthor : 'Amita'}]}).count()
+2
+college> db.books.find({$or : [{author : 'Shyam'},{author : 'Shayam'},{coauthor : 'Shyam'}]}).count()
+3
+college> db.books.distinct('author')
+[ 'Amita', 'Shayam', 'Shrikant', 'Shyam' ]
+college> db.books.aggregate([{$group: {_id:null, sum:{$sum:'$pages'}}},{$project: {_id:0, sum:1}}])
+[ { sum: 1645 } ]
+college> db.books.aggregate([{$group: {_id:0, sum:{$avg:'$price'}}},{$project: {_id:0, sum:1}}])
+[ { sum: 476 } ]
+college> db.books.aggregate([{$match:{$or:[{author : 'Shyam'},{author : 'Shayam'},{coauthor : 'Shyam'}]}},{$group: {_id:null, sum:{$sum:'$pages'}}},{$project: {_id:0, sum:1}}])
+[ { sum: 1015 } ]
+college> db.books.find().sort({pages : -1})
+[
+  {
+    _id: ObjectId('66322d7f2821ece57246b7a0'),
+    refno: '1004',
+    name: 'MongoDB',
+    author: 'Shyam',
+    pages: 440,
+    price: 500
+  },
+  {
+    _id: ObjectId('66322d2b2821ece57246b79d'),
+    refno: '1001',
+    name: 'Python Prog',
+    author: 'Shayam',
+    coauthor: 'Rakesh',
+    pages: 350,
+    price: 450
+  },
+  {
+    _id: ObjectId('66322ddb2821ece57246b7a1'),
+    refno: '1005',
+    name: 'MySQL',
+    author: 'Shrikant',
+    coauthor: 'Nitin',
+    pages: 330,
+    price: 630
+  },
+  {
+    _id: ObjectId('66322d3c2821ece57246b79e'),
+    refno: '1002',
+    name: 'Java Prog',
+    author: 'Amita',
+    pages: 300,
+    price: 500
+  },
+  {
+    _id: ObjectId('66322d5d2821ece57246b79f'),
+    refno: '1003',
+    name: 'HTML',
+    author: 'Amita',
+    coauthor: 'Shyam',
+    pages: 225,
+    price: 300
+  }
+]
+college> db.books.update({ name: 'MongoDB' },{$set: { refno: '1014', name: 'MongoDB', author: 'Shyam', pages: 440, price: 500 }})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+college> db.books.find().pretty()
+[
+  {
+    _id: ObjectId('66322d2b2821ece57246b79d'),
+    refno: '1001',
+    name: 'Python Prog',
+    author: 'Shayam',
+    coauthor: 'Rakesh',
+    pages: 350,
+    price: 450
+  },
+  {
+    _id: ObjectId('66322d3c2821ece57246b79e'),
+    refno: '1002',
+    name: 'Java Prog',
+    author: 'Amita',
+    pages: 300,
+    price: 500
+  },
+  {
+    _id: ObjectId('66322d5d2821ece57246b79f'),
+    refno: '1003',
+    name: 'HTML',
+    author: 'Amita',
+    coauthor: 'Shyam',
+    pages: 225,
+    price: 300
+  },
+  {
+    _id: ObjectId('66322d7f2821ece57246b7a0'),
+    refno: '1014',
+    name: 'MongoDB',
+    author: 'Shyam',
+    pages: 440,
+    price: 500
+  },
+  {
+    _id: ObjectId('66322ddb2821ece57246b7a1'),
+    refno: '1005',
+    name: 'MySQL',
+    author: 'Shrikant',
+    coauthor: 'Nitin',
+    pages: 330,
+    price: 630
+  }
+]
+college> db.books.find({price:{$gt :400}}).count()
+4
+college> db.books.update({name :'MySQL'},{$unset:{"coauthor":""}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+college> db.books.find({name :'MySQL'})
+[
+  {
+    _id: ObjectId('66322ddb2821ece57246b7a1'),
+    refno: '1005',
+    name: 'MySQL',
+    author: 'Shrikant',
+    pages: 330,
+    price: 630
+  }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+college> db.cricketer.insert({name: 'ajay',matches: 58, runs: 7009, catches:32})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('66323f372821ece57246b7a6') }
+}
+college> db.cricketer.insert({name: 'vijay',matches: 32, runs: 4205, catches:11})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('66323f452821ece57246b7a7') }
+}
+college> db.cricketer.insert({name: 'ram',matches: 230, runs: 6390, catches:105})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('66323f502821ece57246b7a8') }
+}
+college> db.cricketer.insert({name: 'ahmed',matches: 192, runs: 5502,wickets:13, catches:111, stumpings:11})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('66323f5b2821ece57246b7a9') }
+}
+college> db.cricketer.insert({name: 'akshay',matches: 101, runs: 699,wickets:89, catches:71})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('66323f862821ece57246b7aa') }
+}
+college> db.cricketer.insert({name: 'prem',matches: 57, runs: 1054,wickets:69, catches:55})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('66323fa62821ece57246b7ab') }
+}
+
+college> db.cricketer.find({wickets:{$gt:0}},{_id:0,name:1,matches:1,runs:1,wickets:1,catches:1,stumpings:1}).pretty()
+[
+  {
+    name: 'ahmed',
+    matches: 192,
+    runs: 5502,
+    wickets: 13,
+    catches: 111,
+    stumpings: 11
+  },
+  { name: 'akshay', matches: 101, runs: 699, wickets: 89, catches: 71 },
+  { name: 'prem', matches: 57, runs: 1054, wickets: 69, catches: 55 }
+]
+
+college> db.cricketer.find({stumpings:{$gt:0}},{_id:0,name:1,matches:1,runs:1,wickets:1,catches:1,stumpings:1}).pretty()
+[
+  {
+    name: 'ahmed',
+    matches: 192,
+    runs: 5502,
+    wickets: 13,
+    catches: 111,
+    stumpings: 11
+  }
+]
+
+college> db.cricketer.find({stumpings:{$gt:0}})
+[
+  {
+    _id: ObjectId('66323f5b2821ece57246b7a9'),
+    name: 'ahmed',
+    matches: 192,
+    runs: 5502,
+    catches: 111,
+    stumpings: 11
+  }
+]
+
+college> db.cricketer.update({name:'ram'},{$set:{name: 'ram',matches: 61,wickets:71, runs: 6390, catches:105}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+college> db.cricketer.find({name:'ram'}).pretty()
+[
+  {
+    _id: ObjectId('66323f502821ece57246b7a8'),
+    name: 'ram',
+    matches: 61,
+    runs: 6390,
+    catches: 105,
+    wickets: 71
+  }
+]
+
+college> db.cricketer.find({name:'ram'}).pretty()
+[
+  {
+    _id: ObjectId('66323f502821ece57246b7a8'),
+    name: 'ram',
+    matches: 61,
+    runs: 6390,
+    catches: 105,
+    wickets: 71
+  }
+]
+
+college> db.cricketer.find({catches:{$gt: 100}}).pretty()
+[
+  {
+    _id: ObjectId('66323f502821ece57246b7a8'),
+    name: 'ram',
+    matches: 61,
+    runs: 6390,
+    catches: 105,
+    wickets: 71
+  },
+  {
+    _id: ObjectId('66323f5b2821ece57246b7a9'),
+    name: 'ahmed',
+    matches: 192,
+    runs: 5502,
+    catches: 111,
+    stumpings: 11
+  }
+]
