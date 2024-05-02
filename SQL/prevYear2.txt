@@ -1,0 +1,230 @@
+mysql> -- Create employees table
+mysql> CREATE TABLE employees (
+    ->     emp_id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     emp_name VARCHAR(50),
+    ->     emp_salary DECIMAL(10, 2),
+    ->     emp_hire_date DATE,
+    ->     emp_manager_id INT,
+   emp_    ->     emp_department_id INT,
+    ->     emp_commission DECIMAL(10, 2)
+    -> );
+
+mysql> -- Insert sample data into employees table
+mysql> INSERT INTO employees (emp_name, emp_salary, emp_hire_date, emp_manager_id, emp_department_id, emp_commission)
+    -> VALUES
+    ->     ('John Doe', 50000, '2010-01-15', 1, 10, 1000),
+    ->     ('Jane Smith', 60000, '2012-05-20', 1, 20, 2000),
+    ->     ('Tom Jones', 70000, '2015-02-10', 2, 30, 1500),
+    ->     ('Alice Johnson', 55000, '2011-08-25', 3, 10, 500),
+
+    ->     ('Bob Brown', 65000, '2014-03-18', 3, 20, 800),
+    ->     ('Ted Turner', 75000, '2016-11-30', 2, 10, 1200),
+    ->     ('Tina Turner', 62000, '2013-09-12', 2, 20, 1000);
+Query OK, 7 rows affected (0.02 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> select * from employees;
++--------+---------------+------------+---------------+----------------+-------------------+----------------+
+| emp_id | emp_name      | emp_salary | emp_hire_date | emp_manager_id | emp_department_id | emp_commission |
++--------+---------------+------------+---------------+----------------+-------------------+----------------+
+|      1 | John Doe      |   50000.00 | 2010-01-15    |              1 |                10 |        1000.00 |
+|      2 | Jane Smith    |   60000.00 | 2012-05-20    |              1 |                20 |        2000.00 |
+|      3 | Tom Jones     |   70000.00 | 2015-02-10    |              2 |                30 |        1500.00 |
+|      4 | Alice Johnson |   55000.00 | 2011-08-25    |              3 |                10 |         500.00 |
+|      5 | Bob Brown     |   65000.00 | 2014-03-18    |              3 |                20 |         800.00 |
+|      6 | Ted Turner    |   75000.00 | 2016-11-30    |              2 |                10 |        1200.00 |
+|      7 | Tina Turner   |   62000.00 | 2013-09-12    |              2 |                20 |        1000.00 |
++--------+---------------+------------+---------------+----------------+-------------------+----------------+
+7 rows in set (0.01 sec)
+
+mysql> select emp_name, emp_salary * 0.12 as bonus from employees;
++---------------+-----------+
+| emp_name      | bonus     |
++---------------+-----------+
+| John Doe      | 6000.0000 |
+| Jane Smith    | 7200.0000 |
+| Tom Jones     | 8400.0000 |
+| Alice Johnson | 6600.0000 |
+| Bob Brown     | 7800.0000 |
+| Ted Turner    | 9000.0000 |
+| Tina Turner   | 7440.0000 |
++---------------+-----------+
+7 rows in set (0.02 sec)
+
+mysql> select emp_name, DATEDIFF(CURDATE(), emp_hire_date)/365 as experience from employees;
++---------------+------------+
+| emp_name      | experience |
++---------------+------------+
+| John Doe      |    14.3041 |
+| Jane Smith    |    11.9589 |
+| Tom Jones     |     9.2301 |
+| Alice Johnson |    12.6959 |
+| Bob Brown     |    10.1315 |
+| Ted Turner    |     7.4247 |
+| Tina Turner   |    10.6438 |
++---------------+------------+
+7 rows in set (0.02 sec)
+
+mysql> select emp_name, DATE_ADD(emp_hire_date , INTERVAL 5 YEAR) as date_of_5_years_exp from employees;
++---------------+---------------------+
+| emp_name      | date_of_5_years_exp |
++---------------+---------------------+
+| John Doe      | 2015-01-15          |
+| Jane Smith    | 2017-05-20          |
+| Tom Jones     | 2020-02-10          |
+| Alice Johnson | 2016-08-25          |
+| Bob Brown     | 2019-03-18          |
+| Ted Turner    | 2021-11-30          |
+| Tina Turner   | 2018-09-12          |
++---------------+---------------------+
+7 rows in set (0.01 sec)
+
+mysql> select * from employees where year(emp_hire_date) = 2012;
++--------+------------+------------+---------------+----------------+-------------------+----------------+
+| emp_id | emp_name   | emp_salary | emp_hire_date | emp_manager_id | emp_department_id | emp_commission |
++--------+------------+------------+---------------+----------------+-------------------+----------------+
+|      2 | Jane Smith |   60000.00 | 2012-05-20    |              1 |                20 |        2000.00 |
++--------+------------+------------+---------------+----------------+-------------------+----------------+
+1 row in set (0.01 sec)
+
+mysql> select * from employees where year(emp_hire_date) = 2012 and emp_manager_id is null;
+Empty set (0.01 sec)
+
+mysql> select * from employees where emp_name like 'T%';
++--------+-------------+------------+---------------+----------------+-------------------+----------------+
+| emp_id | emp_name    | emp_salary | emp_hire_date | emp_manager_id | emp_department_id | emp_commission |
++--------+-------------+------------+---------------+----------------+-------------------+----------------+
+|      3 | Tom Jones   |   70000.00 | 2015-02-10    |              2 |                30 |        1500.00 |
+|      6 | Ted Turner  |   75000.00 | 2016-11-30    |              2 |                10 |        1200.00 |
+|      7 | Tina Turner |   62000.00 | 2013-09-12    |              2 |                20 |        1000.00 |
++--------+-------------+------------+---------------+----------------+-------------------+----------------+
+3 rows in set (0.01 sec)
+
+mysql> select * from employees where emp_department_id != 30;
++--------+---------------+------------+---------------+----------------+-------------------+----------------+
+| emp_id | emp_name      | emp_salary | emp_hire_date | emp_manager_id | emp_department_id | emp_commission |
++--------+---------------+------------+---------------+----------------+-------------------+----------------+
+|      1 | John Doe      |   50000.00 | 2010-01-15    |              1 |                10 |        1000.00 |
+|      2 | Jane Smith    |   60000.00 | 2012-05-20    |              1 |                20 |        2000.00 |
+|      4 | Alice Johnson |   55000.00 | 2011-08-25    |              3 |                10 |         500.00 |
+|      5 | Bob Brown     |   65000.00 | 2014-03-18    |              3 |                20 |         800.00 |
+|      6 | Ted Turner    |   75000.00 | 2016-11-30    |              2 |                10 |        1200.00 |
+|      7 | Tina Turner   |   62000.00 | 2013-09-12    |              2 |                20 |        1000.00 |
++--------+---------------+------------+---------------+----------------+-------------------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> select emp_id as number, emp_name as name from employees;
++--------+---------------+
+| number | name          |
++--------+---------------+
+|      1 | John Doe      |
+|      2 | Jane Smith    |
+|      3 | Tom Jones     |
+|      4 | Alice Johnson |
+|      5 | Bob Brown     |
+|      6 | Ted Turner    |
+|      7 | Tina Turner   |
++--------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from employees where emp_commission >= 400;
++--------+---------------+------------+---------------+----------------+-------------------+----------------+
+| emp_id | emp_name      | emp_salary | emp_hire_date | emp_manager_id | emp_department_id | emp_commission |
++--------+---------------+------------+---------------+----------------+-------------------+----------------+
+|      1 | John Doe      |   50000.00 | 2010-01-15    |              1 |                10 |        1000.00 |
+|      2 | Jane Smith    |   60000.00 | 2012-05-20    |              1 |                20 |        2000.00 |
+|      3 | Tom Jones     |   70000.00 | 2015-02-10    |              2 |                30 |        1500.00 |
+|      4 | Alice Johnson |   55000.00 | 2011-08-25    |              3 |                10 |         500.00 |
+|      5 | Bob Brown     |   65000.00 | 2014-03-18    |              3 |                20 |         800.00 |
+|      6 | Ted Turner    |   75000.00 | 2016-11-30    |              2 |                10 |        1200.00 |
+|      7 | Tina Turner   |   62000.00 | 2013-09-12    |              2 |                20 |        1000.00 |
++--------+---------------+------------+---------------+----------------+-------------------+----------------+
+7 rows in set (0.01 sec)
+
+
+mysql> select * from employees where emp_name like '%m' and emp_salary between 1000 and 45;
+Empty set (0.01 sec)
+
+
+mysql> select * from employees where emp_name like '__l%';
+Empty set (0.00 sec)
+
+mysql> select emp_name, INSTR(emp_name, 'r') as position from employees;
++---------------+----------+
+| emp_name      | position |
++---------------+----------+
+| John Doe      |        0 |
+| Jane Smith    |        0 |
+| Tom Jones     |        0 |
+| Alice Johnson |        0 |
+| Bob Brown     |        6 |
+| Ted Turner    |        7 |
+| Tina Turner   |        8 |
++---------------+----------+
+7 rows in set (0.02 sec)
+
+mysql> select e1.emp_name, e1.emp_salary, e1.emp_manager_id from employees as e1 where emp_salary > (select emp_salary from em
+ployees where emp_id = e1.emp_manager_id);
++-------------+------------+----------------+
+| emp_name    | emp_salary | emp_manager_id |
++-------------+------------+----------------+
+| Jane Smith  |   60000.00 |              1 |
+| Tom Jones   |   70000.00 |              2 |
+| Ted Turner  |   75000.00 |              2 |
+| Tina Turner |   62000.00 |              2 |
++-------------+------------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employees where emp_commission > emp_salary * 0.2;
+Empty set (0.00 sec)
+
+mysql> select e.emp_name as employee_name, m.emp_name as manager_name from employees as e join employees m on e.emp_manager_id = m.emp_id;
++---------------+--------------+
+| employee_name | manager_name |
++---------------+--------------+
+| John Doe      | John Doe     |
+| Jane Smith    | John Doe     |
+| Tom Jones     | Jane Smith   |
+| Alice Johnson | Tom Jones    |
+| Bob Brown     | Tom Jones    |
+| Ted Turner    | Jane Smith   |
+| Tina Turner   | Jane Smith   |
++---------------+--------------+
+7 rows in set (0.00 sec)
+
+mysql> select e.emp_name as employee_name, m.emp_name as manager_name from employees as e join employees m on e.emp_manager_id = m.emp_id order by e.emp_name;
++---------------+--------------+
+| employee_name | manager_name |
++---------------+--------------+
+| Alice Johnson | Tom Jones    |
+| Bob Brown     | Tom Jones    |
+| Jane Smith    | John Doe     |
+| John Doe      | John Doe     |
+| Ted Turner    | Jane Smith   |
+| Tina Turner   | Jane Smith   |
+| Tom Jones     | Jane Smith   |
++---------------+--------------+
+7 rows in set (0.02 sec)
+
+mysql> select now();
++---------------------+
+| now()               |
++---------------------+
+| 2024-05-02 11:42:40 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from employees order by emp_name asc;
++--------+---------------+------------+---------------+----------------+-------------------+----------------+
+| emp_id | emp_name      | emp_salary | emp_hire_date | emp_manager_id | emp_department_id | emp_commission |
++--------+---------------+------------+---------------+----------------+-------------------+----------------+
+|      4 | Alice Johnson |   55000.00 | 2011-08-25    |              3 |                10 |         500.00 |
+|      5 | Bob Brown     |   65000.00 | 2014-03-18    |              3 |                20 |         800.00 |
+|      2 | Jane Smith    |   60000.00 | 2012-05-20    |              1 |                20 |        2000.00 |
+|      1 | John Doe      |   50000.00 | 2010-01-15    |              1 |                10 |        1000.00 |
+|      6 | Ted Turner    |   75000.00 | 2016-11-30    |              2 |                10 |        1200.00 |
+|      7 | Tina Turner   |   62000.00 | 2013-09-12    |              2 |                20 |        1000.00 |
+|      3 | Tom Jones     |   70000.00 | 2015-02-10    |              2 |                30 |        1500.00 |
++--------+---------------+------------+---------------+----------------+-------------------+----------------+
+7 rows in set (0.00 sec)
+

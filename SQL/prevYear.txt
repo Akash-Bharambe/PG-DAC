@@ -1,0 +1,131 @@
+test> db.student.insertMany([{ Name: 'Binay', Marks: 550 },{Name: 'Sanket', Marks: 430},{Name : 'Ashish', Marks: 499}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66330dbae5504b04dd46b799'),
+    '1': ObjectId('66330dbae5504b04dd46b79a'),
+    '2': ObjectId('66330dbae5504b04dd46b79b')
+  }
+}
+test> db.student.find().pretty()
+[
+  {
+    _id: ObjectId('66330dbae5504b04dd46b799'),
+    Name: 'Binay',
+    Marks: 550
+  },
+  {
+    _id: ObjectId('66330dbae5504b04dd46b79a'),
+    Name: 'Sanket',
+    Marks: 430
+  },
+  {
+    _id: ObjectId('66330dbae5504b04dd46b79b'),
+    Name: 'Ashish',
+    Marks: 499
+  }
+]
+
+test> db.student.find({Marks: {$gt:450}}).pretty()
+[
+  {
+    _id: ObjectId('66330dbae5504b04dd46b799'),
+    Name: 'Binay',
+    Marks: 550
+  },
+  {
+    _id: ObjectId('66330dbae5504b04dd46b79b'),
+    Name: 'Ashish',
+    Marks: 499
+  }
+]
+
+test> db.student.find().sort({Marks:1}).limit(1)
+[
+  {
+    _id: ObjectId('66330dbae5504b04dd46b79a'),
+    Name: 'Sanket',
+    Marks: 430
+  }
+]
+
+test> db.student.aggregate([
+{
+	$group:{
+		_id:null,
+		low:{$min:'$Marks'},
+		high:{$max:'$Marks'}
+	}
+},
+{	
+	$project:{
+		_id:0,
+		sum:{$add:['$low','$high']},
+		average:{$avg:['$low','$high']}
+	}
+}])
+[ { sum: 980, average: 490 } ]
+
+
+
+mysql> use exam;
+Database changed
+mysql> create table bike_information(bike_company varchar(10), bike_name varchar(20), bike_price int, launch_year int);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> insert into bike_information values('RE', 'Classic 350', 200000, 2023),('JAWA', '42', 180000, 2022),('HONDA', 'CB 300', 250000, 2002),('YAMAHA', 'R15', 140000, 2019);
+Query OK, 4 rows affected (0.03 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from bike_information;
++--------------+-------------+------------+-------------+
+| bike_company | bike_name   | bike_price | launch_year |
++--------------+-------------+------------+-------------+
+| RE           | Classic 350 |     200000 |        2023 |
+| JAWA         | 42          |     180000 |        2022 |
+| HONDA        | CB 300      |     250000 |        2002 |
+| YAMAHA       | R15         |     140000 |        2019 |
++--------------+-------------+------------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> delete from bike_information where bike_company = 'HONDA';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from bike_information;
++--------------+-------------+------------+-------------+
+| bike_company | bike_name   | bike_price | launch_year |
++--------------+-------------+------------+-------------+
+| RE           | Classic 350 |     200000 |        2023 |
+| JAWA         | 42          |     180000 |        2022 |
+| YAMAHA       | R15         |     140000 |        2019 |
++--------------+-------------+------------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from bike_information where launch_year != 2022;
++--------------+-------------+------------+-------------+
+| bike_company | bike_name   | bike_price | launch_year |
++--------------+-------------+------------+-------------+
+| RE           | Classic 350 |     200000 |        2023 |
+| YAMAHA       | R15         |     140000 |        2019 |
++--------------+-------------+------------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from bike_information order by bike_price limit 1;
++--------------+-----------+------------+-------------+
+| bike_company | bike_name | bike_price | launch_year |
++--------------+-----------+------------+-------------+
+| YAMAHA       | R15       |     140000 |        2019 |
++--------------+-----------+------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> insert into bike_information values('HONDA', 'CB 300', 250000, 2002);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from bike_information where bike_price = 200000 or bike_price > 200000;
++--------------+-------------+------------+-------------+
+| bike_company | bike_name   | bike_price | launch_year |
++--------------+-------------+------------+-------------+
+| RE           | Classic 350 |     200000 |        2023 |
+| HONDA        | CB 300      |     250000 |        2002 |
++--------------+-------------+------------+-------------+
+2 rows in set (0.00 sec)

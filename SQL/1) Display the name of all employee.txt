@@ -1,0 +1,46 @@
+1) Display the name of all employees, and their bonus. Assume each employee gets a bonus of 12
+percent of his salary.
+2) Display the name of the employees and the experience in yrs
+3) Show the names of all employees, and the date on which they completed 5 years of services.
+4) Find the managers hired in the year 2012 1981
+5) Display the names of all employees which are starting with 'T'.
+6) Find the names of all MANAGERs who are not in department 30.
+7) List the employee name and employee number of the employees with the headings as NUMBER and
+NAME.
+8) Find the names of all employees who are receiving the commission > 400
+9) Find the names of all employees whose name ends with letter 'M' and salary between 1000 and 45
+
+/10) Find the names of all employees who have a letter 'L' as a third letter in their name.
+11) Display all the name, salary, department name, location for all the departments. (use left outer
+12) Find the name, salary and mgr of the employees who are senior to their manager (use subquery)
+13) Display the position at which the string 'R' occurs in the name.
+14) Find the department names and location of departments for which employees are existing
+15) Find the employees whose commission is greater than 20 percent of their salary.
+16) Find the details of all manager (in any dept) and all clerks in dept 10
+17) Find the details of all managers in dept 10 and all clerks in dept 20.
+18) Display the employee name and the manager name (use self join).
+19)The above query sort by name.
+20) Display the information from the emp table for all the employees whose sal is greater than the
+sal of the same deptno using subquery.
+
+21) Display the date and time for the current date
+22) Display the details of all employee name and sal, deptno, sorted on the names.
+23)Create the account table with the given structure
+
+Accno int NOT NULL constraint and PRIMARY KEY
+accHoldername varchar(50) not null
+city varchar(20) default city should be mumbai
+should allow only 3 cities banglore, Chennai, mumbai
+telephone_number char(10)
+balance decimal(10,2) should be greater than 10000
+
+24) insert 4 records
+25)24 ) update the first record change the city to baglore
+26)25 ) delete the same record
+27)26) truncate the table
+28)27) add a new column as email varchar(20)
+/29) 28) Find the details of all the analyst in dept 10, all clerk in dept 20
+30) 29)And all employees who are neither clerks nor manager but whose salary is greater than or equal
+Rs. 2000
+31)30)Find the employees who earns between Rs. 2000 and Rs.2500
+32)31)Find the employees who are clerks, analysts or salesman.
