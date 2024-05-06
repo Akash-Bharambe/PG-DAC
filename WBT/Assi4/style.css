@@ -1,0 +1,46 @@
+
+body{
+    background-color: antiquewhite;
+    border: 2px solid #259fe6;
+
+}
+
+#volc1{
+    float: left;
+    width: 300px;
+    border: 2px solid black;
+    margin: 0.5em 10px;
+}
+#volc2{
+    float: right;
+    width: 300px;
+    border: 2px solid black;
+    margin: 0.5em 10px;
+}
+
+p{
+    margin: 1em 5px;
+}
+
+h1 {
+    margin: 0.5em 10px;
+}
+/* unvisited link */
+a:link {
+    color: rgb(0, 255, 157);
+  }
+  
+  /* visited link */
+  a:visited {
+    color: rgb(255, 0, 0);
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: rgb(255, 0, 128);
+  }
+  
+  /* selected link */
+  a:active {
+    color: rgb(255, 251, 0);
+  }
