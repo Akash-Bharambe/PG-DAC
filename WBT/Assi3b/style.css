@@ -1,0 +1,23 @@
+
+nav{
+    background-color: #333;
+    height: 30px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+a{
+    display: inline;
+    padding: 1em 10px;
+    color: white;
+    text-decoration: none;
+    
+}
+a:hover{
+    padding: 10px;
+    background-color: #111;
+}
+
+a:visited , a:active{
+    color: white;
+}

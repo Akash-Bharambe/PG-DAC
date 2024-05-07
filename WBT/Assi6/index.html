@@ -9,49 +9,126 @@
 </head>
 
 <body>
-    <h3>Internet Usage Survey</h3>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque ad laboriosam architecto reiciendis quidem
-        expedita!</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis tempore aperiam laboriosam, placeat quasi
-        incidunt nihil.</p>
+    <div id="page">
+        <h3>Internet Usage Survey</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque ad laboriosam architecto reiciendis quidem
+            expedita!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis tempore aperiam laboriosam, placeat
+            quasi
+            incidunt nihil.</p>
 
-    <table>
-        <tr>
-            <td>What type of Internet connection do you have</td>
-            <td><select name="Internet" id="Internet">
-                    <option value="Dail-up">Dail-up</option>
-                    <option value="DSL">DSL</option>
-                    <option value="Cable">High Speed Cable</option>
-                    <option value="other">other</option>
-                </select></td>
-        </tr>
-        <tr>
-            <td>What type of Computer do you use most at home?</td>
-            <td>
-                <input type="radio" name="desktop" id="desktop ">
-                <label for="desktop">Desktop</label>
-                <input type="radio" name="laptop" id="laptop ">
-                <label for="laptop">Laptop</label>
-            </td>
-        </tr>
-        <tr>
-            <td>How would you describe your main reason for using the Internet</td>
-            <td>
-                <input type="radio" name="work" id="work ">
-                <label for="work">To do work related activities</label><br>
-                <input type="radio" name="school" id="school">
-                <label for="school">To do School related activities</label><br>
-                <input type="radio" name="entertainment" id="entertainment ">
-                <label for="entertainment">For Entertainment Purpose</label><br>
-                <input type="radio" name="other" id="other ">
-                <label for="other">Other Activities</label>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
+        <form>
+            <table id="table">
+                <tr>
+                    <td>What type of Internet connection do you have? <p>(Select One)</p>
+                    </td>
+                    <td><select name="Internet" id="Internet" multiple="4">
+                            <option value="Dail-up">Dail-up</option>
+                            <option value="DSL">DSL</option>
+                            <option value="Cable" selected>High Speed Cable</option>
+                            <option value="other">other</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>What type of Computer do you use most at home?</td>
+                    <td>
+                        <input type="radio" name="computer" id="desktop ">
+                        <label for="desktop">Desktop</label>
+                        <input type="radio" name="computer" id="laptop ">
+                        <label for="laptop">Laptop</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>How would you describe your main reason for using the Internet</td>
+                    <td>
+                        <input type="radio" name="reason" id="work ">
+                        <label for="work">To do work related activities</label><br>
+                        <input type="radio" name="reason" id="school">
+                        <label for="school">To do School related activities</label><br>
+                        <input type="radio" name="reason" id="entertainment ">
+                        <label for="entertainment">For Entertainment Purpose</label><br>
+                        <input type="radio" name="reason" id="other ">
+                        <label for="other">Other Activities</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <fieldset>
+                            <legend>Types of sites visited</legend>
+                            <p>What types of web sites do you access most often?</p>
+                            <p>Check all that apply</p>
+
+                            <input type="radio" name="sites" id="self">
+                            <label for="self">Self Improvement</label><br>
+                            <input type="radio" name="sites" id="entertainment">
+                            <label for="entertainment">Entertainment</label><br>
+                            <input type="radio" name="sites" id="news">
+                            <label for="news">News and Sports</label><br>
+                            <input type="radio" name="sites" id="reference">
+                            <label for="reference">Reference<label><br>
+                                    <input type="radio" name="sites" id="email">
+                                    <label for="email">Email<label>
+                        </fieldset>
+                    </td>
+                    <td>
+                        <fieldset>
+                            <legend>Time spend using Iternet</legend>
+                            <p>During an average week, how long do you spend online</p>
+
+                            <input type="radio" name="time" id="three">
+                            <label for="three">0-3 Hours</label><br>
+                            <input type="radio" name="time" id="six">
+                            <label for="six">4-6 Hours</label><br>
+                            <input type="radio" name="time" id="ten">
+                            <label for="ten">7-10 Hours</label><br>
+                            <input type="radio" name="time" id="fourteen">
+                            <label for="fourteen">11-14 Hours<label><br>
+                                    <input type="radio" name="time" id="fifteen">
+                                    <label for="fifteen">15+ Hours<label>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p>
+                            <label for="area">Please comment on your opinions conserning internet privacy and
+                                safety</label>
+                        </p>
+                        <textarea name="area" id="area" cols="100" rows="5"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="fname">First Name: </label>
+                        <input type="text" id="fname">
+                    </td>
+                    <td>
+                        <label for="lname">Last Name: </label>
+                        <input type="text" id="lname">
+                    </td>
+                </tr>
+                <tr id="names">
+                    <td>
+                        <label for="age"> Age: </label>
+                        <input type="number" id="age">
+                    </td>
+                    <td>
+                        <label for="zipcode"> Zip Code: </label>
+                        <input type="number" id="zipcode">
+                    </td>
+                </tr>
+                <tr>
+                    <td><button id="submit" type="submit">Click to Submit</button></td>
+                    <td><button id="reset" type="reset">Clear Form</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+
+
+
 </body>
 
 </html>
