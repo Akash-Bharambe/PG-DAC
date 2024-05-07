@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main-form">
+        <form action="" method="post">
+            <fieldset>
+            <legend>Type of Problem: </legend>
+            <input type="radio" name="probelm" id="technical">
+            <label for="technical">Technical</label>
+            <input type="radio" name="problem" id="not-available">
+            <label for="not-available">Product not available</label>
+            <input type="radio" name="problem" id="missing">
+            <label for="missing">Mising product info</label>
+        </fieldset>
+
+        <div id="ip" >
+        <label for="uname">Username <span class="red">*</span> : </label>
+        <input type="text" id="uname" required>
+        <label for="email">Email <span class="red">*</span> : </label>
+        <input type="email" id="email" required>
+        <label for="location">Location <span class="red">*</span> : </label>
+        <input name="location" id="location" list="country" required onselect="changeList()" >
+
+        <datalist id="country">
+            <option value="United States of America">USA</option>
+            <option value="India">IND</option>
+            <option value="United Kingdoms">UK</option>
+            <option value="Russia">RUS</option>
+        </datalist>
+        <br>
+        <label for="city">City<span class="red">*</span>: </label>
+        <input name="city" id="city" required>
+
+        <datalist id="USA">
+            <option value="Washington"></option>
+            <option value="New York"></option>
+        </datalist>
+        <datalist id="IND">
+            <option value="Mumbai"></option>
+            <option value="Pune"></option>
+        </datalist>
+        <datalist id="UK">
+            <option value="London"></option>
+            <option value="Paris"></option>
+        </datalist>
+        <datalist id="RUS">
+            <option value="Moscow"></option>
+            <option value="Dunkirk"></option>
+        </datalist>
+
+    </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
