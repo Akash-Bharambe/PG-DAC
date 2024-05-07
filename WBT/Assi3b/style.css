@@ -1,23 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+header > img{
+    float: left;
+    height: 78px;
+}
+
+.name{
+    margin: 0px;
+    font-size: 78px;
+    color: rgb(1, 201, 157);
+    -webkit-text-stroke: 1px black;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+}
+#conf{
+    clear: both;
+}
 nav{
-    background-color: #333;
+    background-color: rgb(1, 201, 157);
     height: 30px;
     text-align: center;
     padding-top: 15px;
 }
 
-a{
+nav > a{
     display: inline;
     padding: 1em 10px;
-    color: white;
+    color: #111;
     text-decoration: none;
     
 }
-a:hover{
+nav >a:hover{
     padding: 10px;
-    background-color: #111;
+    background-color: rgba(0, 174, 255, 0.356);
 }
 
-a:visited , a:active{
+nav >a:visited , nav >a:active{
     color: white;
+}
+.right p{
+    text-align: right;
+    padding: 0px;
+    margin: 0;
+}
+.first{
+    background-color: bisque;
+}
+#schedule{
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 100%;
+    text-align: center;
+}
+#schedule td{
+    width: calc(100% / 20) ;
+}
+
+#schedule thead{
+    background-color: rgb(1, 201, 157);
+}
+
+.left{
+    width: 40%;
+    float: left;
+}
+
+.righttable{
+    margin-top: 20px;
+    display: inline-block;
+    width: 35%;
+    border: 2px solid blueviolet;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 10px 5px 5px blueviolet ;
+}
+
+footer, footer >p{
+    background-color: rgb(1, 201, 157);
+    margin-bottom: 0;
+    padding-bottom: 0px;
+    text-align: center;
+}
+
+body{
+    border: 1px solid black;
 }
