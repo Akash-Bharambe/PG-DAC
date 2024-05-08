@@ -9,13 +9,41 @@
 <body>
     <div id="main-form">
         <form action="" method="post">
-            <p>Type of Problem: </p>
-            <label for="technical">Technical</label>
+            <fieldset>
+            <legend>Type of Problem: </legend>
             <input type="radio" name="probelm" id="technical">
-            <label for="not-available">Product not available</label>
+            <label for="technical">Technical</label>
             <input type="radio" name="problem" id="not-available">
+            <label for="not-available">Product not available</label>
             <input type="radio" name="problem" id="missing">
+            <label for="missing">Mising product info</label>
+        </fieldset>
+
+        <div id="ip" >
+        <label for="uname">Username <span class="red">*</span> : </label>
+        <input type="text" id="uname" required>
+        <label for="email">Email <span class="red">*</span> : </label>
+        <input type="email" id="email" required>
+        <label for="location">Location <span class="red">*</span> : </label>
+        <input name="location" id="location" list="country" required >
+
+        <datalist id="country">
+            <option value="United States of America">USA</option>
+            <option value="India">IND</option>
+            <option value="United Kingdoms">UK</option>
+            <option value="Russia">RUS</option>
+        </datalist>
+        
+        <label for="phone">Phone Number: </label>
+        <input name="phone" id="phone" type="number">
+
+        <textarea name="desc" id="desc" cols="50" rows="5" required ></textarea>
+
+        
+
+    </div>
         </form>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

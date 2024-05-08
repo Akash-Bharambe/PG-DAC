@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Appointment Scheduler</h1>
+
+    <fieldset>
+        <legend>Personal Information</legend>
+
+        <table>
+            <tr>
+                <td>
+                    <label for="name">Name</label><p></p>
+                    <input type="text" name="name" id="name">
+                </td>
+            
+                <td>
+                    <label for="number">Mobile Number</label><p></p>
+                    <input type="number" name="number" id="number">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="email">E-mail Address</label><p></p>
+                    <input type="email" name="email" id="email">
+                </td>
+            
+                <td>
+                    <label for="dob">Date of Birth</label><p></p>
+                    <input type="date" name="dob" id="dob">
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend>Appointment Request</legend>
+        <table>
+            <tr>
+                <td>
+                    <label for="reson">What is your reason to visit?</label><p></p>
+                    <input type="text" name="reson" id="reson" list="reasons">
+
+                    <datalist id="reasons">
+                        <option value="stomachache">Stomochache</option>
+                        <option value="headache">Headache</option>
+                        <option value="migranine">Migraine</option>
+                        <option value="injury">Injury</option>
+                    </datalist>
+                </td>
+            
+                <td>
+                    <label for="pain">Current Pain Level</label><p></p>
+                    <input type="range" name="pain" id="pain" max="5" min="1">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="date">Preferred Date</label><p></p>
+                    <input type="date" name="date" id="date">
+                </td>
+            
+                <td>
+                    <label for="time">Preferred Time</label><p></p>
+                    <input type="time" name="time" id="time">
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <button type="submit" id="submit" name="submit">Submit</button>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+body{
+    background-color: cornflowerblue;
+    text-align: center;
+    color: white;
+    height: max-content;
+}
+fieldset{
+    border-color: white;
+    margin-bottom: 20px;
+}
+.btn{
+    border-radius: 50%;
+    background-color: rgb(136, 226, 1);
+}
+
+table{
+    margin: 1em 15vw;
+}
+td{
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+tr>td:first-child{
+    text-align: right;
+}
+tr>td:nth-child(2){
+    text-align: left;
+}
+legend{
+    text-align: left;
+}
