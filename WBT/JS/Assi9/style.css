@@ -1,0 +1,28 @@
+#container{
+    display: flex;
+    align-items: center;
+}
+
+#p, #r, #years{
+    width: 25px;
+}
+#r100{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#horizontal-line{
+    padding: 10px 1em ;
+}
+#i100{
+    margin: 2px;
+}
+
+#years{
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    top:-24px;
+    left: -11px;
+}

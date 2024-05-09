@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <form method="post">
+        <div id="container">
+            <span id="ci">Compound Intrest = </span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Left_square_bracket.svg" alt=""
+                id="left-bracket">
+
+            <input type="number" name="p" id="p" placeholder="P">
+
+            <span>&nbsp X </span>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="100" viewBox="0 0 50 100">
+                <path d="M 40,10 Q 10,50 40,90" stroke-width="2" stroke="black" fill="transparent" />
+            </svg>
+
+            <span>1 &nbsp; +</span>
+
+            <div id="r100">
+                <input type="number" name="r" id="r" placeholder="r">
+                <svg id="horizontal-line" height="2" width="50" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="0" y1="0" x2="50" y2="0" style="stroke:rgb(0, 0, 0);stroke-width:2" />
+                  </svg>
+                <p id="i100" >100</p>
+            </div>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="100" viewBox="0 0 50 100">
+                <path d="M 10,10 Q 40,50 10,90" stroke-width="2" stroke="black" fill="transparent" />
+            </svg>
+
+            <input type="number" id="years" placeholder="n"  >
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Right_square_bracket.svg" alt=""
+                id="left-bracket">
+            <span id="minus" >-</span>
+                <span id="p2" >&nbsp;P</span>
+        </div>
+    </form>
+    <script src="script.js"></script>
+</body>
+
+</html>
