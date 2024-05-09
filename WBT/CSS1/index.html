@@ -42,23 +42,24 @@
 
         <table>
             <tr>
-                <td><label for="uname">SSN: </label></td>
+                <td><label for="uname">Username: </label></td>
                 <td><input type="text" name="uname" id="uname"></td>
             </tr>
             <tr>
-                <td><label for="pass">Full name: </label></td>
-                <td><input type="text" name="pass" id="pass"></td>
+                <td><label for="pass">Password: </label></td>
+                <td><input type="password" name="pass" id="pass"></td>
             </tr>
             <tr>
                 <td></td>
                 <td>
-                    <input type="checkbox" name="show" id="show">
-                    <label for="show">show password</label>
+                    <input type="checkbox" onclick="togglePass()" name="show" id="show">
+                    <label for="show" >show password</label>
                 </td>
             </tr>
         </table>
     </fieldset>
     <button type="submit" id="register">Register</button>
+    <script src="script.js"></script>
 </body>
 
 </html>
