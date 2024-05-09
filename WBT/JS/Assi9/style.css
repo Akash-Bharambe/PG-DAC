@@ -6,6 +6,14 @@
 #p, #r, #years{
     width: 25px;
 }
+
+#p:focus, #r:focus{
+    width: 50px;
+}
+
+#years:focus{
+    width: 40px;
+}
 #r100{
     display: flex;
     flex-direction: column;
@@ -26,3 +34,12 @@
     top:-24px;
     left: -11px;
 }
+
+#btn{
+    margin-left: 400px;
+}
+
+#ci{
+    font-size: 42px;
+}
+
