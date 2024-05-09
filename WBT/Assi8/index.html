@@ -1,49 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="main-form">
-        <form action="" method="post">
-            <fieldset>
-            <legend>Type of Problem: </legend>
-            <input type="radio" name="probelm" id="technical">
-            <label for="technical">Technical</label>
-            <input type="radio" name="problem" id="not-available">
-            <label for="not-available">Product not available</label>
-            <input type="radio" name="problem" id="missing">
-            <label for="missing">Mising product info</label>
-        </fieldset>
+        <h2 id="heading">Feedback for problems faced during placing order</h2>
+        <h3>Akash Bharambe</h3>
+        <form method="post">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <fieldset>
+                            <legend>Type of Problem: </legend>
 
-        <div id="ip" >
-        <label for="uname">Username <span class="red">*</span> : </label>
-        <input type="text" id="uname" required>
-        <label for="email">Email <span class="red">*</span> : </label>
-        <input type="email" id="email" required>
-        <label for="location">Location <span class="red">*</span> : </label>
-        <input name="location" id="location" list="country" required >
+                            <input type="radio" name="problem" id="technical">
+                            <label for="technical">Technical</label>
 
-        <datalist id="country">
-            <option value="United States of America">USA</option>
-            <option value="India">IND</option>
-            <option value="United Kingdoms">UK</option>
-            <option value="Russia">RUS</option>
-        </datalist>
-        
-        <label for="phone">Phone Number: </label>
-        <input name="phone" id="phone" type="number">
+                            <input type="radio" name="problem" id="not-available">
+                            <label for="not-available">Product not available</label>
 
-        <textarea name="desc" id="desc" cols="50" rows="5" required ></textarea>
+                            <input type="radio" name="problem" id="missing">
+                            <label for="missing">Mising product info</label>
+                        </fieldset>
+                    </td>
+                </tr>
 
-        
+                <tr>
+                    <td><label for="uname">Username: <span class="red">*</span> </label></td>
+                    <td><input type="text" id="uname" required></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email <span class="red">*</span> : </label></td>
+                    <td>
+                        <input type="email" id="email" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="location">Location <span class="red">*</span> : </label></td>
+                    <td><input name="location" id="location" list="country" required>
+                        <datalist id="country">
+                            <option value="United States of America">USA</option>
+                            <option value="India">IND</option>
+                            <option value="United Kingdoms">UK</option>
+                            <option value="Russia">RUS</option>
+                        </datalist>
+                    </td>
 
-    </div>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="phone">Phone Number: </label>
+                    </td>
+                    <td>
+                        <input name="phone" id="phone" type="number">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><label for="desc">Description: </label></td>
+                    <td><textarea name="desc" id="desc" cols="25" rows="5" required></textarea></td>
+
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="checkbox" name="noti" id="noti">
+                        <label for="noti">Do you Want to receive notification when problem gets resolved</label>
+                    </td>
+                </tr>
+            </table>
         </form>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

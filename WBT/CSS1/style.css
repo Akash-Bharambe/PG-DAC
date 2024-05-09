@@ -1,0 +1,21 @@
+body{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+fieldset{
+    border: 3px solid blue;
+    border-radius: 15px;
+    width: 400px;
+    margin: 1em calc(50vw - 220px);
+}
+table{
+    margin: auto;
+}
+td{
+    padding: 5px;
+}
+tr > td:first-child{
+    text-align: right;
+}

@@ -5,3 +5,16 @@ fieldset{
 .red{
     color: red;
 }
+
+td{
+    padding: 5px 1em;
+}
+table{
+    width: 500px;
+}
+h2,h3{
+    text-align: center;
+}
+table{
+    margin: 1em calc(50vw - 250px);
+}

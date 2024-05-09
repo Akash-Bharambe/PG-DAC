@@ -1,5 +1,5 @@
 body{
-    background-color: cornflowerblue;
+    background-color: rgb(33, 69, 136);
     text-align: center;
     color: white;
     height: max-content;
@@ -7,14 +7,21 @@ body{
 fieldset{
     border-color: white;
     margin-bottom: 20px;
+    width: 20vw;
+    margin-left: 30vw;
 }
 .btn{
     border-radius: 50%;
-    background-color: rgb(136, 226, 1);
+    background-color: rgb(110, 182, 1);
+    color: white;
+    border: none;
+}
+.btn:hover{
+    cursor: pointer;
 }
 
 table{
-    margin: 1em 15vw;
+    margin: 1em 10vw;
 }
 td{
     padding-left: 20px;
