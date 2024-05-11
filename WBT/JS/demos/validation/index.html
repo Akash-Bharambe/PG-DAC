@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="https://google.com" onsubmit="return validateData()" method="get" >
+        <select name="branch" id="branch">
+            <option value="select">--select--</option>
+            <option value="entc">E&TC</option>
+            <option value="cs">Computer Science</option>
+            <option value="civil">Civil</option>
+            <option value="electrical">Electrical</option>
+            <option value="mechanical">Mechanical</option>
+        </select>
+        <input type="radio" name="gender" id="male">
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="female">
+        <label for="female">Female</label>
+
+        <input type="checkbox" name="skill" id="c">
+        <label for="c">C</label>
+        <input type="checkbox" name="skill" id="cpp">
+        <label for="cpp">C++</label>
+        <input type="checkbox" name="skill" id="java">
+        <label for="java">Java</label>
+        <input type="checkbox" name="skill" id="net">
+        <label for="net">.NET</label>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="out1">
+    </div>
+    <div id="out2"></div>
+    <div id="out3"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>
