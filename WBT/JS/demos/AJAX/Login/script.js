@@ -1,4 +1,4 @@
-let API_DATA = [];
+var API_DATA = [];
 var isLoggedIn = false;
 const out = document.getElementById("out");
 const tableout = document.getElementById("tableout");
@@ -10,38 +10,76 @@ const loginDiv = document.getElementById("login");
 const searchDiv = document.getElementById("search-div");
 const searchBox = document.getElementById("search-box");
 const searchBy = document.getElementById("search-by");
+const rememberMe = document.getElementById("remember-me");
 
+window.addEventListener("load", main);
 loginBtn.addEventListener("click", login);
 logoutBtn.addEventListener("click", logout);
 searchBox.addEventListener("keyup", searchData);
 logoutBtn.style.display = "none";
 searchDiv.style.display = "none";
-(function fetchData() {
-  let response = fetch("https://jsonplaceholder.org/users")
+
+async function fetchData() {
+  fetch("https://jsonplaceholder.org/users")
     .then((result) => {
       return result.json();
     })
-    .catch((err) => {
-      console.log("catch1");
-      throw err;
-    });
-
-  response
     .then((r) => {
       API_DATA = r;
-      console.log(r);
+      if (Boolean(localStorage.isRemember) === true) {
+        login();
+        logoutBtn.style.display = "";
+        searchDiv.style.display = "";
+      } else {
+        logoutBtn.style.display = "none";
+        searchDiv.style.display = "none";
+      }
     })
     .catch((err) => {
-      console.log("catch2");
-
       console.log(err);
     });
-})();
+}
+
+async function store() {
+  if (localStorage.isRemember === undefined) {
+    localStorage.setItem("isRemember", "");
+  }
+  if (localStorage.username === undefined) {
+    localStorage.setItem("username", "");
+  } else {
+    if (rememberMe.checked) {
+      username.value = localStorage.getItem("username");
+    }
+  }
+  if (localStorage.password === undefined) {
+    localStorage.setItem("password", "");
+  } else {
+    if (rememberMe.checked) {
+      password.value = localStorage.getItem("password");
+    }
+  }
+}
+
+async function main() {
+  await store();
+  await fetchData();
+}
 
 function login() {
   let username1 = username.value;
   let password1 = password.value;
   let name = "";
+  if (localStorage.isRemember) {
+    const foundUser = API_DATA.find(
+      (user) => user.login.username === localStorage.username
+    );
+    console.log(foundUser);
+    if (foundUser) {
+      username1 = foundUser.login.username;
+      password1 = foundUser.login.password;
+    }
+  }
+
   API_DATA.forEach((element) => {
     if (
       username1 === element.login.username &&
@@ -49,6 +87,11 @@ function login() {
     ) {
       name = element.firstname + " " + element.lastname;
       isLoggedIn = true;
+      if (rememberMe.checked) {
+        localStorage.isRemember = true;
+        localStorage.username = element.login.username;
+        localStorage.password = element.login.password;
+      }
       return;
     }
   });
@@ -60,32 +103,50 @@ function login() {
     logoutBtn.style.display = "";
   } else {
     out.innerHTML = "Invalid Cerdentials";
+    $('#out').css("color", "red")
+    setTimeout(() => {
+      out.innerHTML = "";
+      $('#out').css("color", "")
+    }, 2000);
   }
   clearBoxes();
 }
 
 function searchData() {
-  let text = Number(searchBox.value);
+  tableout.innerHTML = "";
+  let text = searchBox.value;
   let searchResultArr = API_DATA.filter((user) => {
-    user[searchBy] == text;
+    if (searchBy.value === "username")
+      return (user.login[searchBy.value] + "")
+        .toLowerCase()
+        .includes(text.toLowerCase());
+    return (user[searchBy.value] + "")
+      .toLowerCase()
+      .includes(text.toLowerCase());
   });
-  displayTable(searchResultArr);
+
+  tableout.innerHTML = displayTable(searchResultArr);
 }
 
 function clearBoxes() {
-  document.getElementById("username").value = document.getElementById(
-    "password"
-  ).value = "";
+  username.value = password.value = "";
 }
 
 function logout() {
-  let tableOut = tableout;
   if (isLoggedIn) {
     isLoggedIn = false;
     out.innerHTML = "Successfully Logged out";
-    tableOut.innerHTML = "";
+    setTimeout(() => {
+      out.innerHTML = "";
+    }, 2000);
+    tableout.innerHTML = "";
     loginDiv.style.display = "";
     logoutBtn.style.display = "none";
+    searchDiv.style.display = "none";
+    rememberMe.checked = false;
+    localStorage.removeItem("isRemember");
+    localStorage.removeItem("username");
+    localStorage.removeItem("password");
     username.focus();
   } else {
     out.innerHTML = "Please login first";
@@ -94,7 +155,7 @@ function logout() {
 
 function addHead(arr) {
   let str = "<thead><tr>";
-  if (Array.isArray(arr)) {
+  if (Array.isArray(arr) && arr != null) {
     for (let k of Object.getOwnPropertyNames(arr[0])) {
       str += `<th>${k}</th>`;
     }
@@ -127,7 +188,6 @@ function addBody(arr) {
 
 function displayTable(arr) {
   if (arr instanceof Object && !Array.isArray(arr)) {
-    console.log("in if");
     arr = [arr];
   }
   let str = "<table border = '1' >";

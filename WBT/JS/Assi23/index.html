@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form >
+        <h3>Enter Loan Information:</h3>
+        <table>
+            <tr id="amt">
+                <td>1.</td>
+                <td><label for="amount">Amount of the Loan (Any Currency)</label></td>
+                <td><input type="number" id="amount" min="0" max="1500000" ></td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td><label for="rate">Annual Percentage rate of Intrest</label></td>
+                <td><input type="number" id="rate" min="0" max="50"></td>
+            </tr>
+            <tr id="yrs">
+                <td>3.</td>
+                <td><label for="time">Repayment period in years</label></td>
+                <td><input type="number" id="time" min="0" max="50"></td>
+            </tr>
+        </table>
+        <button type="button" id="compute">Compute</button>
+    </form>
+    <h3>Payment Information</h3>
+    <table>
+        <tr>
+            <td>4.</td>
+            <td><label for="payment">Your Monthly Payment will be:</label></td>
+            <td><input type="number" id="payment"></td>
+        </tr>
+        <tr>
+            <td>5.</td>
+            <td><label for="total">Your Total Payment will be: </label></td>
+            <td><input type="number" id="total"></td>
+        </tr>
+        <tr>
+            <td>6.</td>
+            <td><label for="interest">Your total interest payments will be</label></td>
+            <td><input type="number" id="interest"></td>
+        </tr>
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>

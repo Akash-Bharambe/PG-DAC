@@ -5,22 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <span id="out"></span>
+    <button type="button" id="logout-btn">logout</button>
     <div id="login">
         <label for="username">Username:</label>
-        <input type="text" name="uname" id="username">
+        <input type="text" name="uname" id="username" list="username-list">
+        <datalist id="username-list">
+            <option value="johndoe">johndoe</option>
+        </datalist>
+        <br>
         <label for="password">Password:</label>
-        <input type="text" name="pass" id="password">
+        <input type="text" name="pass" id="password" list="password-list">
+        <datalist id="password-list">
+            <option value="jsonplaceholder.org">jsonplaceholder.org</option>
+        </datalist>
+        <br>
+        <input type="checkbox" name="remember-me" id="remember-me">
+        <label for="remember-me">Remember Me</label>
         <button type="button" id="login-btn">login</button>
+
     </div>
 
 
-
-    <button type="button" id="logout-btn">logout</button>
-    <div id="out"></div>
     
+
+
     <div id="search-div"><label for="search">Search Data:</label>
         <input type="text" name="search" id="search-box">
         <select name="property" id="search-by">
@@ -30,6 +43,7 @@
         </select>
     </div>
     <div id="tableout"></div>
+    <script src='https://code.jquery.com/jquery-3.7.1.js' integrity='sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=' crossorigin='anonymous'></script>
     <script src="script.js"></script>
 </body>
 
