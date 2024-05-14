@@ -5,6 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        select{
+            appearance: none;
+            width: 60px;
+            text-align: center;
+        }
+        select::-webkit-scrollbar{
+            display: none;
+        }
+        option{
+            overflow-y: hidden;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,61 +29,67 @@
                     <label for="name">Name: </label>
                 </td>
                 <td>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" required>
                 </td>
+                <td id="nameerr" class="err"></td>
             </tr>
             <tr>
                 <td>
                     <label for="bdate">Birth Date: </label>
                 </td>
                 <td>
-                    <select name="month" id="month">
-
+                    <select name="month" id="month" required>
+                        <option value="select">--select--</option>
                     </select>
-                    <select name="date" id="date">
-
+                    <select name="date" id="date" required>
+                        <option value="select">--select--</option>
                     </select>
-                    <select name="year" id="year">
-
+                    <select name="year" id="year" required>
+                        <option value="select">--select--</option>
                     </select>
                 </td>
+                <td id="bdateerr" class="err"></td>
             </tr>
             <tr>
                 <td>
                     Gender:
                 </td>
                 <td>
-                    <input type="radio" name="gender" id="male" value="Male">
+                    <input type="radio" name="gender" id="male" value="Male" required>
                     <label for="male">Male</label>
 
-                    <input type="radio" name="gender" id="female" value="Female">
+                    <input type="radio" name="gender" id="female" value="Female" required>
                     <label for="female">Female</label>
                 </td>
+                <td id="gendererr" class="err"></td>
             </tr>
             <tr>
                 <td><label for="email">Email Address: </label></td>
-                <td><input type="text" id="email"></td>
+                <td><input type="text" id="email" required></td>
+                <td id="mailerr" class="err"></td>
             </tr>
             <tr>
                 <td>
                     <label for="lucky-no">Lucky Number</label>
                 </td>
                 <td>
-                    <input type="number" name="lucky" id="lucky-no">
+                    <input type="number" name="lucky" id="lucky-no" required>
                 </td>
+                <td id="luckyerr" class="err"></td>
             </tr>
             <tr>
                 <td>
                     Favourite Food
                 </td>
                 <td>
-                    <input type="checkbox" name="fav-food" id="pizza" value="Pizza">
+                    <input type="checkbox" name="fav-food" id="pizza" value="Pizza" required>
                     <label for="pizza">Pizza</label>
-                    <input type="checkbox" name="fav-food" id="pasta" value="Pasta">
+                    <input type="checkbox" name="fav-food" id="pasta" value="Pasta" required>
                     <label for="pasta">Pasta</label>
-                    <input type="checkbox" name="fav-food" id="chinese" value="Chinese">
+                    <input type="checkbox" name="fav-food" id="chinese" value="Chinese" required>
                     <label for="chinese">Chinese</label>
                 </td>
+                <td id="faverr" class="err"></td>
             </tr>
         </table>
         <button type="submit" id="btn">Send Data</button>
