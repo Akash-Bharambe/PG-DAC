@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    <label for="name">Name: </label>
+                </td>
+                <td>
+                    <input type="text" name="name" id="name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="bdate">Birth Date: </label>
+                </td>
+                <td>
+                    <select name="month" id="month">
+
+                    </select>
+                    <select name="date" id="date">
+
+                    </select>
+                    <select name="year" id="year">
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gender:
+                </td>
+                <td>
+                    <input type="radio" name="gender" id="male" value="Male">
+                    <label for="male">Male</label>
+
+                    <input type="radio" name="gender" id="female" value="Female">
+                    <label for="female">Female</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="email">Email Address: </label></td>
+                <td><input type="text" id="email"></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="lucky-no">Lucky Number</label>
+                </td>
+                <td>
+                    <input type="number" name="lucky" id="lucky-no">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Favourite Food
+                </td>
+                <td>
+                    <input type="checkbox" name="fav-food" id="pizza" value="Pizza">
+                    <label for="pizza">Pizza</label>
+                    <input type="checkbox" name="fav-food" id="pasta" value="Pasta">
+                    <label for="pasta">Pasta</label>
+                    <input type="checkbox" name="fav-food" id="chinese" value="Chinese">
+                    <label for="chinese">Chinese</label>
+                </td>
+            </tr>
+        </table>
+        <button type="submit" id="btn">Send Data</button>
+    </form>
+    <div id="out"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

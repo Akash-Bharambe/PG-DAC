@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="orderid">Order ID: <span style="color: red;">*</span></label>
+    <input type="text" name="orderid" id="orderid" required ><br>
+    <label for="name">Name: <span style="color: red;">*</span></label><span id="err" style="color: red;" ></span>
+    <input type="text" name="name" id="name" required ><br>
+    <label for="billing-date">Billing Date: <span style="color: red;">*</span></label>
+    <input type="date" name="billing" id="billing-date" required ><br>
+    <label for="shipping-date">Shipping Date: <span style="color: red;">*</span></label>
+    <input type="date" name="shipping" id="shipping-date" required disabled="true" ><br>
+    <label for="total">Order Total: <span style="color: red;">*</span></label>
+    <input type="text" name="total" id="total" required ><br>
+
+    <button type="button" id="btn">Display</button>
+<div id="out"></div>
+    <script src="script.js"></script>
+</body>
+</html>
