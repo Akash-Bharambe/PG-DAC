@@ -63,6 +63,7 @@
             regionSelect.onchange = function () {
                 stateSelect.length = 1; // remove all options bar first
                 districtSelect.length = 1; // remove all options bar first
+                console.log(this.value);
                 if (this.selectedIndex < 1) return; // done
                 for (var state in stateObject[this.value]) {
                     stateSelect.options[stateSelect.options.length] = new Option(state, state);
@@ -71,6 +72,7 @@
             regionSelect.onchange(); // reset in case page is reloaded
             stateSelect.onchange = function () {
                 districtSelect.length = 1; // remove all options bar first
+                console.log(this);
                 if (this.selectedIndex < 1) return; // done
                 var district = stateObject[regionSelect.value][this.value];
                 for (var i = 0; i < district.length; i++) {

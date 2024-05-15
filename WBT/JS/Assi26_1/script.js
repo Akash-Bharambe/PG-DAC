@@ -50,16 +50,14 @@ document.getElementById("btn").addEventListener("click", (e) => {
 
 function validateData() {
   let flag = [true, true, true, true, true, true];
-  let err = document.getElementsByClassName('err')
-  for(let e of err){
-    e.style.color = 'red'
-    e.innerHTML = ''
+  let err = document.getElementsByClassName("err");
+  for (let e of err) {
+    e.style.color = "red";
+    e.innerHTML = "";
   }
-  if (name1.value === "") {
+  if (name1.value.trim() === "") {
     flag[0] = false;
-    document.getElementById(
-      "nameerr"
-    ).innerHTML = `Please Enter Name`;
+    document.getElementById("nameerr").innerHTML = `Please Enter Name`;
   }
   if (
     bmonth.selectedIndex === 0 ||
@@ -67,33 +65,23 @@ function validateData() {
     year.selectedIndex === 0
   ) {
     flag[1] = false;
-    document.getElementById(
-      "bdateerr"
-    ).innerHTML = `Please Select Date`;
+    document.getElementById("bdateerr").innerHTML = `Please Select Date`;
   }
-  if ( getData(gender) === '') {
+  if (getData(gender) === "") {
     flag[2] = false;
-    document.getElementById(
-      "gendererr"
-    ).innerHTML = `Please Select Gender`;
+    document.getElementById("gendererr").innerHTML = `Please Select Gender`;
   }
-  if (email.value === "") {
+  if (email.value.trim() === "") {
     flag[3] = false;
-    document.getElementById(
-      "mailerr"
-    ).innerHTML = `Please Enter Mail`;
+    document.getElementById("mailerr").innerHTML = `Please Enter Mail`;
   }
-  if (luckyNo.value === "") {
+  if (luckyNo.value.trim() === "") {
     flag[4] = false;
-    document.getElementById(
-      "luckyerr"
-    ).innerHTML = `Please Enter Lucky Number`;
+    document.getElementById("luckyerr").innerHTML = `Please Enter Lucky Number`;
   }
-  if (getData(favFood) === '') {
+  if (getData(favFood) === "") {
     flag[5] = false;
-    document.getElementById(
-      "faverr"
-    ).innerHTML = `Please Select Fav Food`;
+    document.getElementById("faverr").innerHTML = `Please Select Fav Food`;
   }
 
   for (let bool of flag) {

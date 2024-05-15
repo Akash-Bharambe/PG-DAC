@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="name" id="name" placeholder="Enter Your Name..." required><br><span class="err" id="nameerr"></span></td>
+            </tr>
+            <tr>
+                <td>Employee Code</td>
+                <td><input type="number" name="name" id="empcode" placeholder="Enter Emp Code..." required maxlength="4"><br><span class="err" id="empcodeerr"></span></td>
+            </tr>
+            <tr>
+                <td>Department</td>
+                <td>
+                    <input type="radio" name="department" id="admin" value="Admin" required>
+                    <label for="admin">Admin</label><br>
+                    <input type="radio" name="department" id="hr" required value="HR" >
+                    <label for="hr">HR</label><br>
+                    <input type="radio" name="department" id="technical" required value="Technical" >
+                    <label for="technical">TECHNICAL</label><br>
+                    <input type="radio" name="department" id="accounts" required value="Accounts" >
+                    <label for="accounts">Accounts</label>
+                    <br><span class="err" id="depterr"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Date of Joining</td>
+                <td><input type="date" name="DoJ" id="DoJ" required>
+                <br><span class="err" id="DoJerr"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><textarea name="address" id="address" cols="30" rows="3" placeholder="Enter Address"></textarea>
+                <br><span class="err" id="addresserr"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Training Programs Attended</td>
+                <td>
+                    <input type="checkbox" name="program" value="html" id="dhtml">
+                    <label for="dhtml">HTML/DHTML</label><br>
+                    <input type="checkbox" name="program" value="java" id="java">
+                    <label for="java">JAVA</label><br>
+                    <input type="checkbox" name="program" value="client" id="client">
+                    <label for="client">CLIENT/SERVER</label><br>
+                    <input type="checkbox" name="program" value="net" id="net">
+                    <label for="net">.NET</label>
+                    <br><span class="err" id="trainingerr"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Traning Programs need to attend</td>
+                <td> <select name="prgrms" id="prgrms">
+                    <option value="select">select</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Jstruts">JSTRUTS</option>
+                </select> 
+                <br><span class="err" id="prgrmserr"></span>
+            </td>
+            </tr>
+            <tr>
+                <td>Send the information at</td>
+                <td><a href="mailto:aakashbharambe100@gmail.com">aakashbharambe100@gmail.com</a>
+                <br><span class="err" id="mailerr"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" id="btn" >Submit</button>
+    <div id="out"></div>
+    <script src='https://code.jquery.com/jquery-3.7.1.js' integrity='sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=' crossorigin='anonymous'></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

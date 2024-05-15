@@ -1,0 +1,26 @@
+table{
+    border-collapse: collapse;
+    background-color: pink;
+    border: 1px solid black ;
+}
+td{
+    width: 300px;
+    height: 30px;
+}
+#empcode{
+    width: 110px;
+}
+
+#empcode:focus{
+    width: 50px;
+}
+#empcode:focus::placeholder{
+    color: transparent;
+}
+
+.err{
+    color: red;
+}
+#btn{
+    margin-left: 200px;
+}
