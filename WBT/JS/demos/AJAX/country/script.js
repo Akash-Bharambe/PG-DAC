@@ -1,22 +1,3 @@
-// $(window).on("load", function () {
-//   $.ajax({
-//     url: "https://restcountries.com/v3.1/all",
-//     type: "GET",
-//     async: true,
-//     success: function (result) {
-//       addCountries(result);
-//     },
-//     error: function (err) {
-//       console.log(err);
-//     },
-//   });
-// });
-// $.getJSON("countries+states+cities.json", function (data) {
-//   addCountries(data);
-// }).fail(function () {
-//   console.log("An error has occurred.");
-// });
-
 var countriesData = [];
 var selectedCountry = "";
 var selectedState = "";
@@ -29,6 +10,7 @@ $.ajax({
   success: function (res) {
     countriesData = res;
     addCountries(res);
+    console.log(res);
   },
   error: function (err) {
     console.log(err);
@@ -36,6 +18,7 @@ $.ajax({
 });
 
 $("#country").on("change", function () {
+  $("#city").html('<option value="select">Select City</option>');
   selectedCountry = $(this).val();
 
   for (let country of countriesData) {
@@ -108,3 +91,13 @@ function addCities(cities) {
     );
   }
 }
+
+navigator.geolocation.getCurrentPosition(
+  (loc) => {
+    console.log(loc.coords.latitude);
+    console.log(loc.coords.longitude);
+  },
+  (err) => {
+    console.log(err);
+  }
+);
