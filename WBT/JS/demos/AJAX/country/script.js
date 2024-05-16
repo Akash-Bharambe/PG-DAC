@@ -10,12 +10,49 @@ $.ajax({
   success: function (res) {
     countriesData = res;
     addCountries(res);
-    console.log(res);
+    getLocation();
+    // console.log(res);
   },
   error: function (err) {
     console.log(err);
   },
 });
+
+function getLocation() {
+  navigator.geolocation.getCurrentPosition(
+    (loc) => {
+      let lat = loc.coords.latitude;
+      let long = loc.coords.longitude;
+      $('#coords').html(`latitude: ${lat}, longitude: ${long}`);
+      getCity(lat, long);
+    },
+    (err) => {
+      console.log(err);
+    }
+  );
+}
+
+// pk.594e3871c287ba0773821cf02ea575b9
+
+function getCity(lat, lng) {
+const AUTH_TOKEN = "pk.594e3871c287ba0773821cf02ea575b9"
+  // Paste your LocationIQ token below.
+  var url = "https://us1.locationiq.com/v1/reverse.php?key="+AUTH_TOKEN+"&lat=" + lat + "&lon=" + lng + "&format=json";
+
+  $.ajax({
+      url: url,
+      type: 'GET',
+      async: true,
+      success: function(data) {
+          // var city = data.address.city;
+          console.log(data);
+          $('#curLoc').html(`${data.address.road !== undefined ? data.address.road +", " : ""}${data.address.neighbourhood !== undefined ? data.address.neighbourhood +", " : ""}${data.address.suburb !== undefined ? data.address.suburb+", " : ""} ${data.address.city || data.address.village}, ${data.address.state}, ${data.address.country}`);
+      },
+      error: function(error) {
+          console.log(error);
+      }
+  });
+}
 
 $("#country").on("change", function () {
   $("#city").html('<option value="select">Select City</option>');
@@ -45,8 +82,8 @@ $("#state").on("change", function () {
 
 $("#city").on("change", function () {
   selectedCity = $(this).val();
-  console.log(`Country: ${selectedCountry}
-State: ${selectedState}
+  $('#selLoc').html(`Country: ${selectedCountry}<br>
+State: ${selectedState}<br>
 City: ${selectedCity}`);
 });
 
@@ -91,13 +128,3 @@ function addCities(cities) {
     );
   }
 }
-
-navigator.geolocation.getCurrentPosition(
-  (loc) => {
-    console.log(loc.coords.latitude);
-    console.log(loc.coords.longitude);
-  },
-  (err) => {
-    console.log(err);
-  }
-);
