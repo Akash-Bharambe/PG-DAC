@@ -20,8 +20,9 @@ function isPrime(num) {
 function printTable(num) {
     let str = ""
     for(let i = 1; i<= 10; i++){
-        str+= `${num} * ${i} = ${num*i}\n`
+        str+= `${num} * ${i} = ${num*i} | `
     }
+    str = str.slice(0, str.length-2)
     return str
 }
 
