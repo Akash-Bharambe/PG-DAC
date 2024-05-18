@@ -4,7 +4,7 @@ const funs = require("./module");
 const url = require("url");
 
 http
-  .createServer(async function (req, res) {
+  .createServer( function (req, res) {
     console.log(req.url + "-->" + req.method);
     let q = url.parse(req.url, true);
     console.log("q --> ");
@@ -22,12 +22,13 @@ http
       case "/output":
         console.log("outputpage");
         rs.pipe(res);
-        rs.on("", function () {
+        rs.on("data", function () {
+          let num = parseInt(q.query.number)
           if (q.query.number <= 5)
-            res.write("Factorial: " + funs.factorial(q.query.number));
-          else if (q.query.number > 5 && q.query.number < 10)
-            res.write(funs.printTable(q.query.number));
-          else res.write(funs.isPrime(q.query.number));
+            res.write("Factorial: " + funs.factorial(num));
+          else if (num > 5 && num < 10)
+            res.write(funs.printTable(num));
+          else res.write(funs.isPrime(num));
         });
         break;
 
@@ -36,6 +37,6 @@ http
         break;
     }
   })
-  .listen(8080, function () {
-    console.log(`Server is on @: http://localhost:8080/home`);
+  .listen(8080,'192.168.40.24', function () {
+    console.log(`Server is on @: http://192.168.40.24:8080/home`);
   });
