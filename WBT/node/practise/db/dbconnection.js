@@ -4,7 +4,7 @@ const mysql = require("mysql2")
     host : 'localhost',
     user: "root",
     password: "root",
-    database: 'college',
+    database: 'employees',
     port: 3306
 })
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>Employee Form</h2>
+
+    <form action="/submit_form" method="post">
+        <label for="empno">Empno:</label>
+        <input type="text" id="empno" name="empno"><br>
+        <label for="ename">Ename:</label>
+        <input type="text" id="ename" name="ename"><br>
+        <label for="job">Job:</label>
+        <input type="text" id="job" name="job"><br>
+        <label for="mgr">Mgr:</label>
+        <input type="text" id="mgr" name="mgr"><br>
+        <label for="hiredate">Hiredate:</label>
+        <input type="date" id="hiredate" name="hiredate"><br>
+        <label for="sal">Sal:</label>
+        <input type="text" id="sal" name="sal"><br>
+        <label for="comm">Comm:</label>
+        <input type="text" id="comm" name="comm"><br>
+        <label for="deptno">Deptno:</label>
+        <input type="text" id="deptno" name="deptno"><br>
+        <button type="submit" value="Submit">Submit</button>
+    </form>
+    <%- data1 %>
+</body>
+
+</html>
