@@ -11,7 +11,7 @@ function createtable(arr) {
     for (let i in a) {
       str += `<td>${a[i]}</td>`;
     }
-    str += "</tr>";
+    str += `<td><a href = '/delete/${a.Empno}'>Delete</a>/<a href = '/edit/${a.Empno}'>Edit</a></td></tr>`;
   }
   str += "</tbody></table>";
   return str;

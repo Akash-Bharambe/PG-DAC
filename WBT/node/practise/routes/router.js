@@ -12,16 +12,74 @@ router.get("/", (req, res) => {
 });
 
 router.post("/submit_form", (req, res) => {
-  const [empno, ename, job, mgr, hiredate, sal, comm, deptno] = [req.body];
+  console.log(req.body);
   myConnection.query(
-    "insert into table emp values(?,?,?,?,?,?,?,?)",
-    [empno, ename, job, mgr, hiredate, sal, comm, deptno],
-    (err) => {
-      err
-        ? res.status(404).send("Cannot add Data")
-        : res.status(202).send("Added Successfully");
+    "insert into emp values(?,?,?,?,?,?,?,?);",
+    [
+      parseInt(req.body.empno),
+      req.body.ename,
+      req.body.job,
+      parseInt(req.body.mgr),
+      req.body.hiredate,
+      parseInt(req.body.sal),
+      parseInt(req.body.comm),
+      parseInt(req.body.deptno),
+    ],
+    (err, result) => {
+      if (err) {
+        res.status(500).send("error occurred");
+      } else {
+        if (result.affectedRows > 0) {
+          res.redirect("/");
+        }
+      }
+    }
+  );
+});
 
-      console.log(fields);
+router.get("/delete/:Empno", (req, res) => {
+  myConnection.query(
+    "delete from emp where Empno=?",
+    [req.params.Empno],
+    (err, result) => {
+      if (err) {
+        res.status(500).send("error occurred");
+      } else {
+        if (result.affectedRows > 0) {
+          res.redirect("/");
+        }
+      }
+    }
+  );
+});
+
+router.get("/edit/:Empno", (req, res) => {
+  res.render("edit",{empno: req.params.Empno});
+  res.redirect("/")
+});
+
+router.post("/edit/:Empno", (req, res) => {
+  myConnection.query(
+    "update emp set Empno=?, Ename=?, Job=?, Mgr=?, Hiredate=?, Sal=?, Comm=?, Deptno=? where Empno=?",
+    [
+      parseInt(req.body.empno),
+      req.body.ename,
+      req.body.job,
+      parseInt(req.body.mgr),
+      req.body.hiredate,
+      parseInt(req.body.sal),
+      parseInt(req.body.comm),
+      parseInt(req.body.deptno),
+      req.params.Empno,
+    ],
+    (err, result) => {
+      if (err) {
+        res.status(500).send("error occurred");
+      } else {
+        if (result.affectedRows > 0) {
+          res.redirect("/");
+        }
+      }
     }
   );
 });

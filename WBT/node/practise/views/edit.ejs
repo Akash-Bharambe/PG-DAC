@@ -11,7 +11,7 @@
 <body>
     <h2>Employee Form</h2>
 
-    <form action="/submit_form" method="post">
+    <form action="/edit/<%= empno %>" method="post">
         <label for="empno">Empno:</label>
         <input type="text" id="empno" name="empno"><br>
         <label for="ename">Ename:</label>
@@ -30,7 +30,6 @@
         <input type="text" id="deptno" name="deptno"><br>
         <button type="submit" value="Submit">Submit</button>
     </form>
-    <%- data1 || data2 %>
 </body>
 
 </html>
