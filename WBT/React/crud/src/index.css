@@ -4,10 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  
+  color: rgba(255, 255, 255, 0.7);
+  background-image: url("https://images.unsplash.com/photo-1525454473724-c6273f88a80d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 }
 
 h1 {
@@ -22,7 +20,7 @@ input{
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    
   }
   a:hover {
     color: #747bff;

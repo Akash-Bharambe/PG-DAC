@@ -1,19 +1,88 @@
 /* eslint-disable react/prop-types */
-import "./Form.css"
-
+import { useEffect, useState } from "react";
+import "./Form.css";
+import Image from "./Image.jsx";
 
 export default function Form(props) {
+  const [fruit, setName] = useState("");
+  const [update, setUpdate] = useState("");
+  const [updateTo, setUpdateTo] = useState("");
 
-    function addFruit(event) {
-        props.addFruit(event.target.value)
+  useEffect(() => {
+    let btn = document.getElementsByClassName("btn");
+    for (let b of btn) {
+      b.addEventListener("click", handleClear);
     }
 
+    function handleClear() {
+      document.getElementById("add").value = "";
+    }
+  }, [fruit]);
+
+  useEffect(() => {
+    document.getElementById("up").addEventListener("click", () => {
+      let update = document.getElementsByName("update");
+
+      for (let u of update) {
+        u.value = "";
+      }
+    });
+  });
+
+  function addFruit() {
+    if (fruit !== "") props.addFruit(fruit);
+    setName("");
+  }
+
+  function deleteFruit() {
+    props.deleteFruit(fruit);
+    setName("");
+  }
+
+  function updateFruit() {
+    props.updateFruit(update, updateTo);
+  }
+
   return (
-    <div id="form">
-        <h1 id="operations">List Operations</h1>
-      <input type="text" name="add" id="add" onChange={addFruit} />
-      <button type="button" onClick={addFruit} >Add Fruit</button>
-      <button type="button">Delete Fruit</button>
-    </div>
-  )
+    <>
+      <div id="form">
+        <h1 className="headings">List Operations</h1>
+        <input
+          type="text"
+          name="add"
+          id="add"
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Enter Fruit"
+        />
+        <br />
+        <button type="button" className="btn" onClick={deleteFruit}>
+          Delete
+        </button>
+        <button type="button" className="btn" onClick={addFruit}>
+          Add
+        </button>
+        <h1 className="headings">Update</h1>
+        <input
+          type="text"
+          name="update"
+          id="update"
+          onChange={(e) => setUpdate(e.target.value)}
+          placeholder="Enter Fruit"
+        />
+        <br />
+        <input
+          type="text"
+          name="update"
+          id="update-to"
+          onChange={(e) => setUpdateTo(e.target.value)}
+          placeholder="Updated Fruit"
+        />
+        <br />
+        <button type="button" className="btn" id="up" onClick={updateFruit}>
+          Update
+        </button>
+      </div>
+      <Image></Image>
+    </>
+  );
 }

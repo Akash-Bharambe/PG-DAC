@@ -1,6 +1,7 @@
 #head{
+    color: rgb(56, 56, 56);
     text-align: center;
-    background-color: aquamarine;
+    background-color: hwb(160 50% 0% / 0.7);
     width: 100vw;
 }
 *{

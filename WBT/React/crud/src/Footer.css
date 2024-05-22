@@ -2,7 +2,7 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: hsl(192, 63%, 36%);
+    background-color: hsla(0, 0%, 21%, 0.164);
     width: 100vw;
     height: max-content;
     text-align: center;

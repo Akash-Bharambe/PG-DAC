@@ -2,16 +2,27 @@
     float: right;
     display: felx;
     flex-direction: column;
-    padding-right: 20vw;
+    margin-right: 20vw;
+    margin-top: 80px;
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+    width: 250px;
+}
+
+.headings{
+    font-size: 30px;
     padding-top: 20px;
 }
 
-#operations{
-    font-size: 30px;
-}
-
 input{
-    height: 20px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.548);
+    border: 1px solid black;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
 }
 
 button{

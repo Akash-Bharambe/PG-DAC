@@ -6,25 +6,25 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [fruits, setFruits] = useState([
-    "🍎Apple",
-    "🍌Banana",
-    "🍒Cherry",
-    "🍓Strawberry",
-    "🍋Lemon",
-    "🍊Orange",
-    "🍑Peach",
-    "🍐Pear",
-    "🍍Pineapple",
-    "🍉Watermelon",
-    "🍇Grapes",
-    "🥭Mango",
-    "🥥Coconut",
-    "🥝Kiwi",
-    "🍅Tomato",
-    "🥑Avocado",
-    "🍆Eggplant",
-    "🥕Carrot",
-    "🥦Broccoli",
+    "Apple",
+    "Banana",
+    "Cherry",
+    "Strawberry",
+    "Lemon",
+    "Orange",
+    "Peach",
+    "Pear",
+    "Pineapple",
+    "Watermelon",
+    "Grapes",
+    "Mango",
+    "Coconut",
+    "Kiwi",
+    "Tomato",
+    "Avocado",
+    "Eggplant",
+    "Carrot",
+    "Broccoli",
   ]);
   const [searchFruits, setSearchFruits] = useState([fruits]);
   const [search, setSearch] = useState("");
@@ -41,8 +41,24 @@ function App() {
     }
   }, [search]);
 
-  function addFruits(fruit) {
+  function addFruit(fruit) {
     setFruits([...fruits, fruit]);
+    setSearchFruits([...fruits, fruit]);
+  }
+
+  function deleteFruit(fruit) {
+    let newarr = fruits.filter(
+      (f) => f.toLocaleLowerCase() !== fruit.toLocaleLowerCase()
+    );
+    setFruits(newarr);
+    setSearchFruits(newarr);
+  }
+
+  function updateFruit(update, updateTo) {
+    let newarr = [...fruits];
+    newarr.splice(newarr.indexOf(update), 1, updateTo);
+    setFruits(newarr);
+    setSearchFruits(newarr);
   }
 
   function changeSearch(fruit) {
@@ -52,11 +68,12 @@ function App() {
 
   return (
     <>
-      <Header></Header>
       <List
         fruits={searchFruits}
-        addFruits={addFruits}
+        addFruit={addFruit}
+        deleteFruit={deleteFruit}
         changeSearch={changeSearch}
+        updateFruit={updateFruit}
       ></List>
       <Footer></Footer>
     </>
