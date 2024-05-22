@@ -1,0 +1,11 @@
+#foot{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: hsl(192, 63%, 36%);
+    width: 100vw;
+    height: max-content;
+    text-align: center;
+    margin: 0;
+    font-size: 40px;
+}

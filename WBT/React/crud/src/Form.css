@@ -1,0 +1,27 @@
+#form{
+    float: right;
+    display: felx;
+    flex-direction: column;
+    padding-right: 20vw;
+    padding-top: 20px;
+}
+
+#operations{
+    font-size: 30px;
+}
+
+input{
+    height: 20px;
+}
+
+button{
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #747bff;
+    margin: 5px;
+}
+
+button:hover{
+    cursor: pointer;
+}

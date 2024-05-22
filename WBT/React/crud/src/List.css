@@ -1,0 +1,15 @@
+#fruits-list{
+    font-size: 30px;
+}
+#list-container{
+    padding-top: 20px;
+    padding-left: 20vw;
+    float: left;
+}
+
+#f-list{
+    padding-top: 20px;
+    padding-left: 40px;
+    font-weight: 500;
+}
+
