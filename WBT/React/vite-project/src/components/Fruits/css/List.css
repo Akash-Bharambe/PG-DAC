@@ -1,0 +1,44 @@
+#fruits-list {
+  padding-top: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+#list-container {
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.35);
+  border-radius: 20px;
+  text-align: center;
+  margin-left: 73px;
+  height: max-content;
+}
+#search-box {
+  text-align: center;
+}
+
+ol {
+  margin-left: 30px;
+  padding-bottom: 20px;
+  text-align: left;
+}
+
+#f-list {
+  padding-top: 20px;
+  padding-left: 40px;
+  font-weight: 500;
+}
+
+#fruit-img {
+  width: 400px;
+  height: 400px;
+  margin-top: 200px;
+}
+
+#box {
+  display: flex;
+  justify-content: start;
+}
+
+#blank-div{
+    width: 200px;
+    height: 200px;
+}

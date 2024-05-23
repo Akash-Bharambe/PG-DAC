@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap");
+
+#form{
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+    width: 250px;
+    margin-left: 200px;
+    height: max-content;
+}
+
+.headings{
+    font-size: 30px;
+    padding-top: 20px;
+}
+
+input{
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid black;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+button{
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #747bff;
+    margin: 5px;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+
