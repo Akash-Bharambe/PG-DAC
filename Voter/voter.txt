@@ -1,0 +1,28 @@
+create table voters (id int primary key auto_increment,first_name varchar(20),last_name varchar(20),email varchar(20) unique,password varchar(20),dob date,status boolean,role varchar(20));
+
+
+ INSERT INTO voters (first_name, last_name, email, password, dob, status, role)
+ VALUES
+     ('John', 'Doe', 'john@example.com', 'password123', '1990-05-15', true, 'voter'),
+('Jane', 'Smith', 'jane@example.com', 'password456', '1985-10-20', true, 'voter'),
+('Michael', 'Johnson', 'michael@example.com', 'password789', '1978-07-25', false, 'voter'),
+('Emily', 'Brown', 'emily@example.com', 'passwordABC', '1995-02-10', true, 'voter'),
+('William', 'Taylor', 'william@example.com', 'passwordDEF', '1982-09-30', false, 'voter'),
+('Olivia', 'Wilson', 'olivia@example.com', 'passwordGHI', '1998-11-05', true, 'voter'),
+('James', 'Anderson', 'james@example.com', 'passwordJKL', '1989-03-12', true, 'voter'),
+('Emma', 'Martinez', 'emma@example.com', 'passwordMNO', '1976-12-18', false, 'voter'),
+('Daniel', 'Harris', 'daniel@example.com', 'passwordPQR', '1993-08-22', true, 'voter'),
+('Sophia', 'Clark', 'sophia@example.com', 'passwordSTU', '1984-06-28', false, 'voter');
+
+
+ create table candidates(id int primary key auto_increment,
+ name varchar(20) unique,party varchar(20),votes int);
+
+
+ INSERT INTO candidates (name, party, votes)
+ VALUES
+('Narendra Modi', 'BJP', 1000),
+('Rahul Gandhi', 'INC', 75),
+('Arvind Kejrival', 'AAP',200),
+('Donald Tatya', 'TRParty', 150),
+('Vladimir Putin', 'United Russia', 500);
