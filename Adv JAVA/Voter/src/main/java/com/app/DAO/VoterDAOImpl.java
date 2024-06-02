@@ -19,7 +19,7 @@ public class VoterDAOImpl implements VoterDAO {
 	public VoterDAOImpl() throws SQLException {
 		this.connection = DBUtils.getConnection();
 		this.pstLogin = connection.prepareStatement("select * from voters where email = ? and password = ?");
-		this.pstVoted = connection.prepareStatement("update voter set status=true where email=? and password=?");
+		this.pstVoted = connection.prepareStatement("update voters set status=true where email=? and password=?");
 		this.pstVoterRegistration = connection.prepareStatement(
 				"insert into voters (first_name, last_name, email, password, dob, status, role) values(?,?,?,?,?,?,?)");
 	}

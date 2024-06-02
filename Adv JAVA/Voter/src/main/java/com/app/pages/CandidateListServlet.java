@@ -10,10 +10,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.app.DAO.CandidateDAO;
 import com.app.DAO.CandidateDAOImpl;
 import com.app.core.Candidate;
+import com.app.core.Voter;
 
 /**
  * Servlet implementation class CandidateListServlet
@@ -58,6 +60,9 @@ public class CandidateListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	        throws ServletException, IOException {
 	    response.setContentType("text/html");
+	    HttpSession httpSession = request.getSession();
+	    
+	    Voter voter = (Voter) httpSession.getAttribute("voter");
 
 	    Map<Integer, Candidate> allCandidates = candidateDAO.getAllCandidates();
 	    StringBuilder html = new StringBuilder();
@@ -75,6 +80,7 @@ public class CandidateListServlet extends HttpServlet {
 	        .append("</style>")
 	        .append("</head>")
 	        .append("<body>")
+	        .append("<h1>Hello, "+voter.getFirst_name()+" "+voter.getLast_name()+"</h1>")
 	        .append("<table>")
 	        .append("<thead>")
 	        .append("<tr>")

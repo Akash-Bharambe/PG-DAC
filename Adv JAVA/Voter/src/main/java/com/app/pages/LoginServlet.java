@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.app.DAO.CandidateDAO;
 import com.app.DAO.CandidateDAOImpl;
@@ -40,9 +41,11 @@ public class LoginServlet extends HttpServlet {
 
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
+		HttpSession httpSession = req.getSession();
 
 		try (PrintWriter pw = resp.getWriter()) {
 			Voter voter = voterDOA.login(email, password);
+			httpSession.setAttribute("voter", voter);
 			if (voter == null) {
 				pw.print("<h5>Invalid Login , Please <a href='login.html'>Retry</a></h5>");
 			} else {

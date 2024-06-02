@@ -24,6 +24,7 @@ public class LogoutServlet extends HttpServlet {
 		try (PrintWriter writer = response.getWriter()) {
 			writer.print("<h3>Voted Successfully<br></h3><h5><a href='login.html'>Login</a></h5>");
 		};
+		request.getSession().invalidate();
 	}
 
 }
