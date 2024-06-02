@@ -52,21 +52,7 @@ public class LoginServlet extends HttpServlet {
 					if (voter.isStatus()) {
 						resp.sendRedirect("logout");
 					} else {
-						Map<Integer, Candidate> allCandidates = candidateDAO.getAllCandidates();
-						string = "<table>\r\n" + "        <thead>\r\n" + "            <tr>\r\n"
-								+ "                <th>Party</th>\r\n" + "                <th>Candidate Name</th>\r\n"
-								+ "                <th>Vote</th>\r\n" + "            </tr>\r\n" + "        </thead>\r\n"
-								+ "        <tbody>\r\n";
-						allCandidates.values().stream().forEach(c -> {
-							string += "<tr><td>" + c.getParty() + "</td><td>" + c.getName() + "</td><td><a href= 'vote/"
-									+ c.getId() + "'>Vote</a></td></tr>";
-						});
-						string += "</tbody></table>";
-						pw.print(string);
-						allCandidates.values().stream().sorted((a, b) -> b.getVotes() - a.getVotes())
-								.forEach(System.out::println);
-
-//						resp.sendRedirect("candidate_list");
+						resp.sendRedirect("candidate_list");
 					}
 				}
 			}
