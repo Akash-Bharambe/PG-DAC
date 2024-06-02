@@ -3,7 +3,6 @@ package com.app.core;
 import java.time.LocalDate;
 
 public class Voter {
-	private int id;
 	private String first_name;
 	private String last_name;
 	private String email;
@@ -25,10 +24,6 @@ public class Voter {
 
 	public boolean isStatus() {
 		return status;
-	}
-
-	public int getId() {
-		return id;
 	}
 
 	public String getFirst_name() {

@@ -10,8 +10,7 @@ public class DBUtils {
 	private static final String USER_NAME = "root";
 	private static final String PASSWORD = "root";
 
-	public static Connection openConnection() throws SQLException {
-		System.out.println("Connected to Database...!!!");
+	public static Connection getConnection() throws SQLException {
 		connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
 		return connection;
 	}

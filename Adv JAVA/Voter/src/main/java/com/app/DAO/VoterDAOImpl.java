@@ -17,8 +17,8 @@ public class VoterDAOImpl implements VoterDAO {
 	private PreparedStatement pstVoterRegistration;
 
 	public VoterDAOImpl() throws SQLException {
-		this.connection = DBUtils.openConnection();
-		this.pstLogin = connection.prepareStatement("select * from voters where email=? and password=?");
+		this.connection = DBUtils.getConnection();
+		this.pstLogin = connection.prepareStatement("select * from voters where email = ? and password = ?");
 		this.pstVoted = connection.prepareStatement("update voter set status=true where email=? and password=?");
 		this.pstVoterRegistration = connection.prepareStatement(
 				"insert into voters (first_name, last_name, email, password, dob, status, role) values(?,?,?,?,?,?,?)");
@@ -28,12 +28,16 @@ public class VoterDAOImpl implements VoterDAO {
 	public Voter login(String email, String password) throws SQLException {
 		pstLogin.setString(1, email);
 		pstLogin.setString(2, password);
+		System.out.println(email);
+		System.out.println(password);
 		try (ResultSet resultSet = pstLogin.executeQuery()) {
-			return new Voter(resultSet.getString("first_name"), resultSet.getString("last_name"),
-					resultSet.getString("email"), resultSet.getString("password"),
-					LocalDate.parse(resultSet.getString("dob")), resultSet.getBoolean("status"),
-					resultSet.getString("role"));
+			if (resultSet.next())
+				return new Voter(resultSet.getString("first_name"), resultSet.getString("last_name"),
+						resultSet.getString("email"), resultSet.getString("password"),
+						LocalDate.parse(resultSet.getString("dob")), resultSet.getBoolean("status"),
+						resultSet.getString("role"));
 		}
+		return null;
 	}
 
 	@Override

@@ -26,3 +26,8 @@ create table voters (id int primary key auto_increment,first_name varchar(20),la
 ('Arvind Kejrival', 'AAP',200),
 ('Donald Tatya', 'TRParty', 150),
 ('Vladimir Putin', 'United Russia', 500);
+
+
+INSERT INTO voters (first_name, last_name, email, password, dob, status, role)
+ VALUES
+     ('Akash', 'Bharambe', 'akash@example.com', 'akash', '2002-06-26', false, 'admin');
