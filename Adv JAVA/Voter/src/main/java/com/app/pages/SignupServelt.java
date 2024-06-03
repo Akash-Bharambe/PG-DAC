@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.app.DAO.VoterDAO;
 import com.app.DAO.VoterDAOImpl;
@@ -21,20 +22,14 @@ import com.app.core.Voter;
 @WebServlet("/signup")
 public class SignupServelt extends HttpServlet {
 
-	private VoterDAO voterDOA;
+	private VoterDAO voterDAO;
 
-	@Override
-	public void init() throws ServletException {
-		try {
-			voterDOA = new VoterDAOImpl();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
+		HttpSession httpSession = request.getSession();
+		voterDAO = (VoterDAOImpl) httpSession.getAttribute("voterDAO");
 
 		String first_name = request.getParameter("first_name");
 		String last_name = request.getParameter("last_name");
@@ -50,7 +45,7 @@ public class SignupServelt extends HttpServlet {
 		} else {
 
 			try {
-				if (voterDOA.voterRegistration(
+				if (voterDAO.voterRegistration(
 						new Voter(first_name, last_name, email, password, LocalDate.parse(dob), false, "voter")))
 					response.sendRedirect("login.html");
 

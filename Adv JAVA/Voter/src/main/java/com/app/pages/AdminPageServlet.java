@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.app.DAO.CandidateDAO;
 import com.app.DAO.CandidateDAOImpl;
@@ -23,16 +24,6 @@ public class AdminPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private CandidateDAO candidateDAO;
 	private static String string;
-	
-	@Override
-	public void init() throws ServletException {
-		try {
-			candidateDAO = new CandidateDAOImpl();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
        
    
 
@@ -59,8 +50,9 @@ public class AdminPageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    response.setContentType("text/html");
 	    try (PrintWriter writer = response.getWriter()) {
+	        HttpSession httpSession = request.getSession();
+	        candidateDAO = (CandidateDAOImpl) httpSession.getAttribute("candidateDAO");
 	        Map<Integer, Candidate> candidates = candidateDAO.getAllCandidates();
-	        
 	        StringBuilder html = new StringBuilder();
 	        html.append("<html>");
 	        html.append("<head>");

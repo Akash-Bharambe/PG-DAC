@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Map;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,21 +19,27 @@ import com.app.DAO.VoterDAO;
 import com.app.DAO.VoterDAOImpl;
 import com.app.core.Candidate;
 import com.app.core.Voter;
+import com.app.db.DBUtils;
 
-@WebServlet(value = "/login", loadOnStartup = 1)
+//@WebServlet(value = "/login", loadOnStartup = 1)
 public class LoginServlet extends HttpServlet {
-	private VoterDAO voterDOA;
+	private VoterDAO voterDAO;
 	private CandidateDAO candidateDAO;
-	private static String string;
 
 	@Override
-	public void init() throws ServletException {
+	public void init(ServletConfig config) throws ServletException {
 		try {
-			voterDOA = new VoterDAOImpl();
+			DBUtils.openConnection(config.getInitParameter("url"), config.getInitParameter("uname"), config.getInitParameter("password"));
+			voterDAO = new VoterDAOImpl();
 			candidateDAO = new CandidateDAOImpl();
 		} catch (SQLException e) {
 			throw new ServletException("Error in INIT" + getClass(), e);
 		}
+	}
+	
+	@Override
+	public void init() throws ServletException {
+		
 	}
 
 	@Override
@@ -44,8 +51,10 @@ public class LoginServlet extends HttpServlet {
 		HttpSession httpSession = req.getSession();
 
 		try (PrintWriter pw = resp.getWriter()) {
-			Voter voter = voterDOA.login(email, password);
+			Voter voter = voterDAO.login(email, password);
 			httpSession.setAttribute("voter", voter);
+			httpSession.setAttribute("voterDAO", voterDAO);
+			httpSession.setAttribute("candidateDAO", candidateDAO);
 			if (voter == null) {
 				pw.print("<h5>Invalid Login , Please <a href='login.html'>Retry</a></h5>");
 			} else {
@@ -68,7 +77,7 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	public void destroy() {
 		try {
-			voterDOA.cleanUp();
+			voterDAO.cleanUp();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

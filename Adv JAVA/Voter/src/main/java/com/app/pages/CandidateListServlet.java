@@ -16,6 +16,7 @@ import com.app.DAO.CandidateDAO;
 import com.app.DAO.CandidateDAOImpl;
 import com.app.core.Candidate;
 import com.app.core.Voter;
+import com.app.db.DBUtils;
 
 /**
  * Servlet implementation class CandidateListServlet
@@ -26,20 +27,6 @@ public class CandidateListServlet extends HttpServlet {
 	private CandidateDAO candidateDAO;
 	private static String string;
 
-	@Override
-	public void init() throws ServletException {
-		try {
-			candidateDAO = new CandidateDAOImpl();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 //	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 //			throws ServletException, IOException {
 //		Map<Integer, Candidate> allCandidates = candidateDAO.getAllCandidates();
@@ -61,7 +48,7 @@ public class CandidateListServlet extends HttpServlet {
 	        throws ServletException, IOException {
 	    response.setContentType("text/html");
 	    HttpSession httpSession = request.getSession();
-	    
+	    candidateDAO = (CandidateDAOImpl) httpSession.getAttribute("candidateDAO");
 	    Voter voter = (Voter) httpSession.getAttribute("voter");
 
 	    Map<Integer, Candidate> allCandidates = candidateDAO.getAllCandidates();

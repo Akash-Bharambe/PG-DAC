@@ -24,17 +24,6 @@ public class VotedServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private CandidateDAO candidateDAO;
 	private VoterDAO voterDAO;
-	
-	@Override
-	public void init() throws ServletException {
-		try {
-			candidateDAO = new CandidateDAOImpl();
-			voterDAO = new VoterDAOImpl();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,6 +31,8 @@ public class VotedServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pathInfo = request.getPathInfo();
 		HttpSession httpSession = request.getSession();
+		voterDAO = (VoterDAOImpl) httpSession.getAttribute("voterDAO");
+		candidateDAO = (CandidateDAOImpl) httpSession.getAttribute("candidateDAO");
 		
 		Voter voter = (Voter) httpSession.getAttribute("voter");
 		
