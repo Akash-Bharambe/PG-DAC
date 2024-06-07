@@ -55,7 +55,7 @@
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form action="/login" method="post">
+        <form action="validate.jsp" method="post">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required>
 

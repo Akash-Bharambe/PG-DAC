@@ -20,16 +20,14 @@
 	}%>
 <body>
 	<%
-String email = request.getParameter("username");
-String pass = request.getParameter("password");
+	String email = request.getParameter("username");
+	String pass = request.getParameter("password");
 
-User user = users.get(email);
-if(user != null && user.getPass().equals(pass)){%>
-	<h2>Email: <%=email %></h2>
-	<h2>Password: <%=pass%></h2>
-	<h2><a href="logout.jsp">Logout</a></h2>
-	<%} else{%>
-		<h2>Invalid Credentials<a href="login.jsp">retry</a></h2>
-	<%} %>
+	User user = users.get(email);
+	session.setAttribute("email", email);
+	session.setAttribute("pass", pass);
+	session.setAttribute("isValid", (user != null && user.getPass().equals(pass)));
+	%>
+	<jsp:forward page="details.jsp" />
 </body>
 </html>
