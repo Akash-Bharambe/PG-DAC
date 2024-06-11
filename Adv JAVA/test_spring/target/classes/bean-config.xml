@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- dependency bean config -->
+	<!-- Maths Teacher Singleton and Eager -->
+	<bean id="maths" class="dependency.MathsTeacher" />
+
+	<!-- English Teacher Singleton and Lazy -->
+	<bean id="eng" class="dependency.EnglishTeacher" lazy-init="true" />
+
+	<!-- Science Teacher Prototype -->
+	<bean id="science" class="dependency.ScienceTeacher"
+		scope="prototype" />
+		
+	<!-- Cricket Coach Singleton -->
+	<bean id="cricket" class="dependency.CricketCoach" />
+
+	<!-- Football Coach Prototype -->
+	<bean id="football" class="dependency.FootballCoach" scope="prototype" />
+	
+	<!-- Swim Coach Singleton Lazy -->
+	<bean id="swim" class="dependency.SwimmingCoach" lazy-init="true" />
+
+	<!-- Configure dependent Bean Singleton and Eager -->
+	<bean id="school" class="dependent.PublicSchool" >
+		<!-- CTOR based Dependency Injection -->
+		<constructor-arg name="teacher" ref="eng" />
+		
+		<!-- Setter Based Dependency Injection -->
+		<property name="sportsCoach" ref="cricket" />
+	</bean>
+
+</beans>
+
+
+
+
