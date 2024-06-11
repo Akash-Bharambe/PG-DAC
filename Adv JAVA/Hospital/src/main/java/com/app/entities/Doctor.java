@@ -12,12 +12,13 @@ import lombok.Data;
 @Entity
 @Table(name = "doctors")
 public @Data class Doctor {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "doctor_id")
 	private Long doctorId;
 	
-	@Column(nullable = false, name = "doctor_name", length = 20)
+	@Column(name = "doctor_name", length = 20)
 	private String name;
 	
 }

@@ -18,6 +18,12 @@
 		<property name="hibernate.connection.pool_size">10</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
-		<property name="hibernate.hbm2ddl.auto">update</property>			
+		<property name="hibernate.hbm2ddl.auto">update</property>	
+		
+		<mapping class="com.app.entities.Doctor"  />
+		<mapping class="com.app.entities.Patient"  />
+		<mapping class="com.app.entities.Appointment"  />
+				
 	</session-factory>
+	
 </hibernate-configuration>
