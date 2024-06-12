@@ -1,0 +1,12 @@
+{
+  "firstName": "a13",
+  "lastName": "b13",
+  "email": "a13@gmail.com",
+  "password": "1334",
+  "confirmPassword": "1334",
+  "joinDate": "2024-11-22",
+  "inTime": "2024-11-30T11:20:30",
+  "type": "FULL_TIME",
+  "salary": 77789,
+  "deptId": 2
+}
