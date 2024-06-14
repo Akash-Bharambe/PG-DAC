@@ -65,12 +65,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-<<<<<<< HEAD
+
 		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->
-=======
+
 		<!-- Additional dependencies required ONLY for Spring MVC with JSP based 
 			view layer -->
->>>>>>> 5922645 (added)
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
