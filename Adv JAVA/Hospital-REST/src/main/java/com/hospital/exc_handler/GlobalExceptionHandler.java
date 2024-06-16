@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.hospital.dto.APIResponse;
 import com.hospital.exceptions.AppointmentException;
+import com.hospital.exceptions.DoctorException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -30,6 +31,12 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(AppointmentException.class)
 	@ResponseStatus(value = HttpStatus.NOT_FOUND)
 	public APIResponse handleAppointmentException(AppointmentException e) {
+		return new APIResponse(e.getMessage());
+	}
+	
+	@ExceptionHandler(DoctorException.class)
+	@ResponseStatus(value = HttpStatus.NOT_FOUND)
+	public APIResponse handleDoctorException(DoctorException e) {
 		return new APIResponse(e.getMessage());
 	}
 	
