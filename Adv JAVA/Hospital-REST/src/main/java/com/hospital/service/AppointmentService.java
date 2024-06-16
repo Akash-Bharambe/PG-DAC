@@ -2,6 +2,7 @@ package com.hospital.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.transaction.Transactional;
 
@@ -44,14 +45,19 @@ public class AppointmentService {
 		Patient patient = patientRepository.findByName(appointmentDTO.getPatient().getName());
 
 		Appointment appointment = mapper.map(appointmentDTO, Appointment.class);
-		if (doctor != null) {
-			appointment.setDoctor(doctor);
-			appointment.setPatient(patient);
-			System.out.println(appointment);
-			appointment = appointmentRepository.save(appointment);
-		} else {
+		if (doctor == null)
 			throw new AppointmentException("Please Enter patient and Doctor Names");
-		}
+		int size = getAllAppointments().stream().filter(
+				a -> !a.getAppointmentDateTime().plusMinutes(30).isBefore(appointmentDTO.getAppointmentDateTime())
+					&& !a.getAppointmentDateTime().isAfter(appointmentDTO.getAppointmentDateTime().plusMinutes(30))
+						&& a.getDoctor().equals(appointmentDTO.getDoctor()))
+				.collect(Collectors.toList()).size();
+		if (size > 0)
+			throw new AppointmentException("Apointment already Booked");
+		appointment.setDoctor(doctor);
+		appointment.setPatient(patient);
+		System.out.println(appointment);
+		appointment = appointmentRepository.save(appointment);
 		return mapper.map(appointment, AppointmentDTO.class);
 	}
 
