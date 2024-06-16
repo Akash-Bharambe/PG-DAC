@@ -2,18 +2,20 @@ package com.jobs.service;
 
 import java.util.List;
 
-import com.jobs.entities.Job;
+import com.jobs.DTO.JobDTO;
 
 public interface JobsService {
 
-	List<Job> getAllJobs();
+	List<JobDTO> getAllJobs();
 
-	Job getJob(Long id);
+	JobDTO getJob(Long id);
 
-	Job addJob(Job job);
+	JobDTO addJob(JobDTO jobDTO);
 
-	String updateJob(Long id, Job job);
+	String updateJob(Long id, JobDTO jobDTO);
 
 	String deleteJob(Long id);
+
+	List<JobDTO> getBySalaryMoreThan(Double salary);
 	
 }

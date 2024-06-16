@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jobs.DTO.APIResponse;
-import com.jobs.entities.Job;
+import com.jobs.DTO.JobDTO;
 import com.jobs.service.JobsService;
 
 @RestController
@@ -30,38 +29,35 @@ public class JobsController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<?> getJob(@PathVariable Long id) {
-		try {
-			return ResponseEntity.status(HttpStatus.OK).body(service.getJob(id));
-		} catch (RuntimeException e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new APIResponse(e.getMessage()));
-		}
+
+		return ResponseEntity.status(HttpStatus.OK).body(service.getJob(id));
 	}
 
 	@PostMapping
-	public ResponseEntity<?> addJob(@RequestBody Job job) {
-		try {
-			return ResponseEntity.status(HttpStatus.CREATED).body(service.addJob(job));
-		} catch (RuntimeException e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new APIResponse(e.getMessage()));
-		}
+	public ResponseEntity<?> addJob(@RequestBody JobDTO jobDTO) {
+
+		return ResponseEntity.status(HttpStatus.CREATED).body(service.addJob(jobDTO));
+
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<?> updateJob(@PathVariable Long id, @RequestBody Job job) {
-		try {
-			return ResponseEntity.status(HttpStatus.OK).body(service.updateJob(id, job));
-		} catch (RuntimeException e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new APIResponse(e.getMessage()));
-		}
+	public ResponseEntity<?> updateJob(@PathVariable Long id, @RequestBody JobDTO jobDTO) {
+
+		return ResponseEntity.status(HttpStatus.OK).body(service.updateJob(id, jobDTO));
+
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteJob(@PathVariable Long id) {
-		try {
-			return ResponseEntity.status(HttpStatus.OK).body(service.deleteJob(id));
-		} catch (RuntimeException e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new APIResponse(e.getMessage()));
-		}
+
+		return ResponseEntity.status(HttpStatus.OK).body(service.deleteJob(id));
+
 	}
 	
+	@GetMapping("/salary/{salary}")
+	public ResponseEntity<?> getBySalaryMoreThan(@PathVariable Double salary) {
+		return ResponseEntity.status(HttpStatus.OK).body(service.getBySalaryMoreThan(salary));
+		
+	}
+
 }

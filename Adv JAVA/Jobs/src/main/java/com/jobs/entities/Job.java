@@ -37,6 +37,6 @@ public class Job {
 	private double salary;
 	
 	@Column
-	private LocalDate postingDate;
+	private LocalDate postingDate = LocalDate.now();
 	
 }
