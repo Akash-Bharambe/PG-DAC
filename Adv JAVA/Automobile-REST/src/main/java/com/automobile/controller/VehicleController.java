@@ -49,5 +49,15 @@ public class VehicleController {
 	}
 	
 	
+	@GetMapping("/user/{name}")
+	public ResponseEntity<?> getVehiclesByUser(@PathVariable String name) {
+		return ResponseEntity.status(HttpStatus.OK).body(vehicleService.getVehiclesByUser(name));
+	}
+	
+	@DeleteMapping("/user/{name}")
+	public ResponseEntity<?> deleteByUsername(@PathVariable String name) {
+		return ResponseEntity.status(HttpStatus.OK).body(vehicleService.deleteByUsername(name));
+	}
+	
 	
 }

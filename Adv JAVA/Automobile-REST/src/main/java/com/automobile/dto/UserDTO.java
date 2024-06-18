@@ -1,5 +1,6 @@
 package com.automobile.dto;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import lombok.Getter;
@@ -11,18 +12,19 @@ import lombok.Setter;
 @NoArgsConstructor
 public class UserDTO {
 
-	@NotBlank
+	@NotBlank(message = "Username cannot be empty")
 	private String username;
 	
-	@NotBlank
+	@NotBlank(message = "Email cannot be empty")
+	@Email
 	private String email;
 	
-	@NotBlank
+	@NotBlank(message = "Password cannot be empty")
 	private String password;
 	
-	@NotBlank
+	@NotBlank(message = "City cannot be empty")
 	private String city;
 	
-	@NotBlank
+	@NotBlank(message = "Contact Number cannot be empty")
 	private String contactNumber;
 }

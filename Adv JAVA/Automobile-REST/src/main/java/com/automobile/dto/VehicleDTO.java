@@ -17,18 +17,18 @@ import lombok.ToString;
 @ToString
 public class VehicleDTO {
 
-	@NotBlank
+	@NotBlank(message = "Vehicle Name cannot be empty")
 	private String vehicleName;
 
-	@NotNull
+	@NotNull(message = "Company cannot be empty")
 	private Company company;
 
-	@NotBlank
+	@NotBlank(message = "Vehicle Number cannot be empty")
 	private String vehicleNumber;
 
-	@NotNull
+	@NotNull(message = "Vehicle Type cannot be empty")
 	private VehicleType vehicleType;
 
-	@NotNull
+	@NotNull(message = "User cannot be empty")
 	private UserDTO user;
 }

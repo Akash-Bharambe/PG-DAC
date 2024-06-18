@@ -62,4 +62,15 @@ public class VehicleService {
 		throw new VehicleException("Vehicle Not Found");
 	}
 
+	public List<VehicleDTO> getVehiclesByUser(String name) {
+		List<Vehicle> vehicles = vehicleRepository.findAllByUsername(name);
+		List<VehicleDTO> list = vehicles.stream().map(entity-> mapper.map(entity, VehicleDTO.class)).collect(Collectors.toList());
+		return list;
+	}
+	
+	public String deleteByUsername(String name) {
+		vehicleRepository.deleteByUsername(name);
+		return "Deleted Successfully";
+	}
+
 }
