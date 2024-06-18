@@ -28,6 +28,9 @@ public class Reservation {
 	@Column(name = "check_out_date")
 	private LocalDate checkOutDate;
 	
+	@Column(name = "check_in_date")
+	private LocalDate checkInDate;
+	
 	@ManyToOne
 	@JoinColumn(name = "room_id")
 	private Room room;

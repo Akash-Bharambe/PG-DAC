@@ -17,10 +17,8 @@ public class ReservationDTO {
 	private String guestName;
 	
 	private LocalDate checkOutDate;
+	private LocalDate checkInDate;
 	
 	@NotNull(message = "Room number cannot be empty")
 	private RoomDTO room;
-	
-	private double totalPrice;
-	
 }
