@@ -1,21 +1,26 @@
 package com.room.dto;
 
+import java.time.LocalDate;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.room.entities.RoomType;
-
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class ReservationDTO {
-	@NotBlank(message = "Room Number Cannot Be Empty")
-	private String roomNumber;
-	@NotNull(message = "Room Type Cannot Be Empty")
-	private RoomType roomType; 
-	private double price;
-	private boolean available;
+	@NotBlank(message = "Guest Name Cannot be Empty")
+	private String guestName;
+	
+	private LocalDate checkOutDate;
+	
+	@NotNull(message = "Room number cannot be empty")
+	private RoomDTO room;
+	
+	private double totalPrice;
 	
 }
