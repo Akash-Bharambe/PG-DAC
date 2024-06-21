@@ -90,17 +90,4 @@ public class Stackk<T> implements StackInterface<T> {
 			}
 		};
 	}
-
-	@Override
-	public boolean contains(T[] array) {
-		
-		for (int i = 0; i < arr.length; i++) {
-			for (int j = 0; j < array.length; j++) {
-				if (arr[i].equals(array[j])) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
 }

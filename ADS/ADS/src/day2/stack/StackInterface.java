@@ -7,5 +7,4 @@ public interface StackInterface<T> extends Iterable<T> {
 	T pop();
 	T peek();
 	int size();
-	boolean contains(T[] arr);
 }
