@@ -4,7 +4,7 @@ public interface LinkedList<T> extends Iterable<LinkedList.Node<T>> {
 
 	class Node<T> {
 
-		private T value;
+		T value;
 		Node<T> next;
 
 		public Node() {
@@ -38,5 +38,11 @@ public interface LinkedList<T> extends Iterable<LinkedList.Node<T>> {
 	void insertAtStart(T element);
 
 	void insertAtPosition(int pos, T element);
+	
+	int size();
 
+	T deleteAtEnd();
+	T deleteAtStart();
+	T deleteAtPosition(int pos);
+	void display();
 }
