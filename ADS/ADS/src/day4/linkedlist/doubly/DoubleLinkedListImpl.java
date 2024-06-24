@@ -4,15 +4,46 @@ import java.util.Iterator;
 
 public class DoubleLinkedListImpl<T> implements DoublyLinkedList<T> {
 
+	private Node<T> head;
+	private Node<T> tail;
+	private int size;
+
+	public DoubleLinkedListImpl() {
+		head = null;
+		tail = null;
+		size = 0;
+	}
+
 	@Override
 	public Iterator<Node<T>> iterator() {
-		return null;
+		return new Iterator<DoublyLinkedList.Node<T>>() {
+
+			private Node<T> current = head;
+
+			@Override
+			public boolean hasNext() {
+				return current != null;
+			}
+
+			@Override
+			public Node<T> next() {
+				Node<T> node = current;
+				current = current.next;
+				return node;
+			}
+		};
 	}
 
 	@Override
 	public void insertAtEnd(T element) {
-		// TODO Auto-generated method stub
-
+		Node<T> node = new Node<>(element);
+	
+		if (head == null) {
+			
+		}
+		tail.next = node;
+		tail = node;
+	
 	}
 
 	@Override
@@ -29,8 +60,7 @@ public class DoubleLinkedListImpl<T> implements DoublyLinkedList<T> {
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return size;
 	}
 
 	@Override
@@ -53,7 +83,7 @@ public class DoubleLinkedListImpl<T> implements DoublyLinkedList<T> {
 
 	@Override
 	public T deleteAtPosition(int pos) {
-		
+
 		return null;
 	}
 

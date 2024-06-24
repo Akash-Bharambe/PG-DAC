@@ -91,6 +91,7 @@ public class SortedLinkedListImpl<T extends Number & Comparable<T>> implements S
 
 	@Override
 	public void reverseList() {
+		
 		Node<T> current = head;
 		Node<T> prevNode = null;
 		Node<T> nextNode = null;
