@@ -33,6 +33,7 @@ public interface SortedLinkedList<T extends Number> extends Iterable<SortedLinke
 
 	}
 
+	
 	void insert(T element);
 	int size();
 	T delete(T num);

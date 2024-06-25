@@ -52,6 +52,9 @@ public class Queue<T> implements QueueInterface<T> {
 	public void enqueue(T element) {
 		if (!isFull()) {
 			arr[++rear] = element;
+			if (front == -1) {
+				front = 0;
+			}
 			return;
 		}
 		throw new QueueFullException("Queue is Full");
@@ -60,8 +63,8 @@ public class Queue<T> implements QueueInterface<T> {
 	@Override
 	public T dequeue() {
 		if (!isEmpty()) {
-			T dequeued = arr[++front];
-			arr[front] = null;
+			T dequeued = arr[front++];
+			arr[front-1] = null;
 			if (isEmpty()) {
 				this.front = -1;
 				this.rear = -1;
@@ -95,10 +98,14 @@ public class Queue<T> implements QueueInterface<T> {
 		for (int i = 0; i < 10; i++) {
 			queue.enqueue(i);
 		}
-		for (int i = 0; i < 10; i++) {
-			queue.dequeue();
-		}
-		queue.enqueue(100);
+		queue.dequeue();
+		queue.dequeue();
+		queue.dequeue();
+		queue.dequeue();
+//		for (int i = 0; i < 9; i++) {
+//			queue.dequeue();
+//		}
+//		queue.enqueue(100);
 
 		System.out.println(queue);
 	}

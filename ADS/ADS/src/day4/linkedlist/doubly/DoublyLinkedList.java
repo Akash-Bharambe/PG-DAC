@@ -36,15 +36,11 @@ public interface DoublyLinkedList<T> extends Iterable<DoublyLinkedList.Node<T>> 
 
 	}
 
-	void insertAtEnd(T element);
-	void insertAtStart(T element);
-	void insertAtPosition(int pos, T element);
-	
+	void insert(T element);
+	boolean isEmpty();
 	int size();
 	void reverseList();
 
-	T deleteAtEnd();
-	T deleteAtStart();
-	T deleteAtPosition(int pos);
+	T delete(T element);
 	
 }
