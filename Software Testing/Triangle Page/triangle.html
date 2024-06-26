@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            color: #444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #f6d365;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #fda085;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f6f6f6;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <form>
+        <label for="num1">Number1</label>
+        <input type="number" id="num1">
+
+        <label for="num2">Number2</label>
+        <input type="number" id="num2">
+
+        <label for="num3">Number3</label>
+        <input type="number" id="num3">
+
+        <button type="button" id="btn">Submit</button>
+
+        <div id="output"></div>
+    </form>
+
+    <script>
+        const btn = document.getElementById("btn");
+        const out = document.getElementById("output");
+
+        btn.addEventListener("click", () => {
+
+            out.innerHTML = ``;
+
+            const num1 = Number(document.getElementById("num1").value);
+            const num2 = Number(document.getElementById("num2").value);
+            const num3 = Number(document.getElementById("num3").value);
+
+            let max = num1 > num2 ? (num1 > num3 ? num1 : num3) : (num2 > num3 ? num2 : num3);
+
+            out.innerHTML = `Max: ${max}<br/>`;
+
+            if (max >= (num1 + num2) || max >= (num2 + num3) || max >= (num1 + num3)) {
+                out.innerHTML += `Cannot Form a triangle`;
+            } else {
+                let sq1 = Math.pow(num1, 2);
+                let sq2 = Math.pow(num2, 2);
+                let sq3 = Math.pow(num3, 2);
+                if ((sq1 === sq2 + sq3) || (sq2 === sq1 + sq3) || (sq3 === sq1 + sq2)) {
+                    out.innerHTML += `Right Angled Triangle`
+                } else if ((num1 === num2) && (num1 === num3)) {
+                    out.innerHTML += `Equilateral Triangle`;
+                } else if (num1 === num2 || num1 === num3 || num2 === num3) {
+                    out.innerHTML += `Isosceles Triangle`;
+                } else {
+                    out.innerHTML += `Scalene Triangle`
+                }
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
