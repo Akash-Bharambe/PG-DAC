@@ -42,5 +42,6 @@ public interface DoublyLinkedList<T> extends Iterable<DoublyLinkedList.Node<T>> 
 	void reverseList();
 
 	T delete(T element);
+	T deleteAll(T element);
 	
 }

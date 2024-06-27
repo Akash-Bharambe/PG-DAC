@@ -1,25 +1,28 @@
-package day4.linkedlist.sorted;
+package day5.linkedlist.doubly.circular;
 
-public interface SortedLinkedList<T extends Number> extends Iterable<SortedLinkedList.Node<T>> {
-
-	class Node<T extends Number> {
+public interface DoublyCircularList<T> extends Iterable<DoublyCircularList.Node<T>> {
+	class Node<T> {
 
 		T value;
 		Node<T> next;
+		Node<T> prev;
 
 		public Node() {
 			this.value = null;
 			this.next = null;
+			this.prev = null;
 		}
 
 		public Node(T value) {
 			this.value = value;
 			this.next = null;
+			this.next = prev;
 		}
 
-		public Node(T value, Node<T> next) {
+		public Node(Node<T> prev,T value, Node<T> next) {
 			this.value = value;
 			this.next = next;
+			this.prev = prev;
 		}
 
 		public T getValue() {
@@ -33,11 +36,12 @@ public interface SortedLinkedList<T extends Number> extends Iterable<SortedLinke
 
 	}
 
-	
 	void insert(T element);
+	boolean isEmpty();
 	int size();
-	T delete(T num);
 	void reverseList();
-	T deleteAll(T num);
+
+	T delete(T element);
+	T deleteAll(T element);
 	
 }

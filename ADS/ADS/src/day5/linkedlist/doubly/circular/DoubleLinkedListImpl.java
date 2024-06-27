@@ -1,8 +1,8 @@
-package day4.linkedlist.doubly;
+package day5.linkedlist.doubly.circular;
 
 import java.util.Iterator;
 
-public class DoubleLinkedListImpl<T extends Number & Comparable<T>> implements DoublyLinkedList<T> {
+public class DoubleLinkedListImpl<T extends Number & Comparable<T>> implements DoublyCircularList<T> {
 
 	private Node<T> head;
 	private int size;
@@ -14,20 +14,20 @@ public class DoubleLinkedListImpl<T extends Number & Comparable<T>> implements D
 
 	@Override
 	public Iterator<Node<T>> iterator() {
-		return new Iterator<DoublyLinkedList.Node<T>>() {
+		return new Iterator<DoublyCircularList.Node<T>>() {
 
 			private Node<T> current = head;
-//			private boolean flag = false;
+			private boolean flag = false;
 
 			@Override
 			public boolean hasNext() {
-				return current != null;
+				return !flag && current != head;
 			}
 
 			@Override
 			public Node<T> next() {
 				Node<T> node = current;
-//				flag = true;
+				flag = true;
 				current = current.next;
 				return node;
 			}
@@ -45,27 +45,39 @@ public class DoubleLinkedListImpl<T extends Number & Comparable<T>> implements D
 		Node<T> current = head;
 
 		if (isEmpty()) {
+			System.out.println("empty if");
 			head = newNode;
-		} else if (head.next == null && head.value.compareTo(element) > 0) {
+			head.prev = head;
+			head.next = head;
+		} else if (head.value.compareTo(element) > 0) {
+			System.out.println("empty else if");
 			newNode.next = head;
+			newNode.prev = head.prev;
 			head.prev = newNode;
 			head = newNode;
 		} else {
 
-			while (current.next != null && current.next.value.compareTo(element) < 0) {
+			while (current.next != head && current.next.value.compareTo(element) < 0) {
+				System.out.println("while");
 				current = current.next;
 			}
 
-			if (current.prev == null && current.value.compareTo(element) > 0) {
-				current.prev = newNode;
-				newNode.next = head;
-				head = newNode;
-			} else if (current.next != null) {
+//			if (current.prev == null && current.value.compareTo(element) > 0) {
+//				current.prev = newNode;
+//				newNode.next = head;
+//				head = newNode;
+//			} else 
+			if (current.value.compareTo(element) < 0) {
+				System.out.println("if");
 				newNode.next = current.next;
 				newNode.prev = current;
 				current.next = newNode;
 				newNode.next.prev = newNode;
-			} else {
+			}else {
+				System.out.println("else");
+				newNode.prev = current;
+				newNode.next = current.next;
+				current.next.prev = newNode;
 				current.next = newNode;
 			}
 		}

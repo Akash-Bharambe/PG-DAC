@@ -64,7 +64,7 @@ public class SortedLinkedListImpl<T extends Number & Comparable<T>> implements S
 	}
 
 	@Override
-	public T delete(T num) {
+	public T deleteAll(T num) {
 		T value = null;
 
 		if (head != null && head.value.equals(num)) {
@@ -104,6 +104,28 @@ public class SortedLinkedListImpl<T extends Number & Comparable<T>> implements S
 			current= nextNode;
 		}
 		head = prevNode;
+	}
+
+	@Override
+	public T delete(T num) {
+		T value = null;
+		
+		if (head != null && head.value.equals(num)) {
+			value = head.value;
+			head = head.next;
+			size--;
+		}
+		
+		Node<T> current = head;
+		while (current.next != null && !current.next.value.equals(num)) {
+			current = current.next;
+		}
+		if (current.next != null) {
+			current.next = current.next.next;
+			return value;
+		}
+		
+		return null;
 	}
 
 }
