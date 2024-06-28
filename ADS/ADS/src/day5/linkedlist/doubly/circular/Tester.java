@@ -9,15 +9,15 @@ public class Tester {
 
 		list.insert(0);
 		list.insert(4);
-//		list.insert(2);
-//		list.insert(2);
-//		list.insert(2);
+		list.insert(2);
+		list.insert(2);
+		list.insert(2);
 		
 		
-//		list.delete(0);
-//		
-//		list.delete(4);
-//		list.deleteAll(2);
+		list.deleteAll(2);
+		list.delete(4);
+		list.deleteAll(2);
+
 		for (Node<Integer> node : list) {
 			System.out.print(node + " ");
 		}

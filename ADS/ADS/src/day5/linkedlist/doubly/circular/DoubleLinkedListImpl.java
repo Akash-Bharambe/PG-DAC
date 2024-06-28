@@ -21,7 +21,7 @@ public class DoubleLinkedListImpl<T extends Number & Comparable<T>> implements D
 
 			@Override
 			public boolean hasNext() {
-				return !flag && current != head;
+				return (!flag || current != head) && head != null;
 			}
 
 			@Override
@@ -45,86 +45,71 @@ public class DoubleLinkedListImpl<T extends Number & Comparable<T>> implements D
 		Node<T> current = head;
 
 		if (isEmpty()) {
-			System.out.println("empty if");
 			head = newNode;
 			head.prev = head;
 			head.next = head;
 		} else if (head.value.compareTo(element) > 0) {
-			System.out.println("empty else if");
 			newNode.next = head;
 			newNode.prev = head.prev;
+			head.prev.next = newNode;
 			head.prev = newNode;
 			head = newNode;
 		} else {
 
 			while (current.next != head && current.next.value.compareTo(element) < 0) {
-				System.out.println("while");
 				current = current.next;
 			}
 
-//			if (current.prev == null && current.value.compareTo(element) > 0) {
-//				current.prev = newNode;
-//				newNode.next = head;
-//				head = newNode;
-//			} else 
-			if (current.value.compareTo(element) < 0) {
-				System.out.println("if");
-				newNode.next = current.next;
-				newNode.prev = current;
-				current.next = newNode;
-				newNode.next.prev = newNode;
-			}else {
-				System.out.println("else");
-				newNode.prev = current;
-				newNode.next = current.next;
-				current.next.prev = newNode;
-				current.next = newNode;
-			}
+			newNode.prev = current;
+			newNode.next = current.next;
+			current.next.prev = newNode;
+			current.next = newNode;
+
 		}
 
 	}
 
 	@Override
 	public void reverseList() {
-		Node<T> current = head;
-		Node<T> prev = null;
-
-		while (current != null) {
-
-			prev = current.prev;
-			current.prev = current.next;
-			current.next = prev;
-			current = current.prev;
-		}
-		head = prev.prev;
+//		Node<T> current = head;
+//		Node<T> prev = null;
+//
+//		while (current != null) {
+//
+//			prev = current.prev;
+//			current.prev = current.next;
+//			current.next = prev;
+//			current = current.prev;
+//		}
+//		head = prev.prev;
 	}
 
 	@Override
 	public T delete(T element) {
 		Node<T> current = head;
+		boolean started = false;
 		T value = null;
 
 		if (isEmpty()) {
 			throw new RuntimeException("Empty");
 		}
 
-		if (head.value.compareTo(element) == 0) {
+		if (head.value.equals(element)) {
 			value = head.value;
-			if (head.next != null) {
-				head.next.prev = null;
+			if (head.next != head) {
+				head.next.prev = head.prev;
+				head.prev.next = head.next;
 				head = head.next;
 				return value;
 			}
 			head = null;
 		} else {
-			while (current.next != null) {
-				if (current.next.value.compareTo(element) == 0) {
-					if (current.next.next != null) {
-						current.next.next.prev = current;
-						current.next = current.next.next;
-					} else {
-						current.next = null;
-					}
+			while (!started || current != head) {
+				started = true;
+				if (current.value.equals(element)) {
+					value = current.value;
+					current.prev.next = current.next;
+					current.next.prev = current.prev;
 					return value;
 				}
 				current = current.next;
@@ -144,22 +129,31 @@ public class DoubleLinkedListImpl<T extends Number & Comparable<T>> implements D
 
 		while (head != null && head.value.equals(element)) {
 			value = head.value;
+
+			if (head.next == head) {
+				head = null;
+				continue;
+			}
+			head.prev.next = head.next;
+			head.next.prev = head.prev;
 			head = head.next;
-			if (head != null)
-				head.prev = null;
 
 			size--;
 		}
+		if (isEmpty()) {
+			return value;
+		}
 
 		Node<T> current = head;
+		boolean started = false;
 
-		while (current != null) {
+		while (!started || current != head) {
+			started = true;
 			if (current.value.equals(element)) {
 				value = current.value;
 				current.prev.next = current.next;
-				if (current.next != null) {
-					current.next.prev = current.prev;
-				}
+				current.next.prev = current.prev;
+
 				size--;
 
 			}
