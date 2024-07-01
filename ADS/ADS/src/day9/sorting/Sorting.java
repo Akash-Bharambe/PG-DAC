@@ -3,6 +3,38 @@ package day9.sorting;
 import java.util.Arrays;
 
 public class Sorting {
+	
+	public static <T extends Comparable<T>> boolean isArraySorted(T[] arr) {
+		// Let us assume that array is sorted in ascending order
+		boolean isAscending = true;
+		int i = 1;
+		int j = i + 1;
+		
+		// skip all equal elements
+		while (arr[i++].equals(arr[j++])) {
+		}
+
+		// Check if array is sorted in descending order
+		if (arr[i].compareTo(arr[j]) > 0) {
+			isAscending = false;
+		}
+		
+		// Check remaining elements
+		for (; i < arr.length; i++) {
+			for (; j < arr.length; j++) {
+				if (isAscending) {
+					if (arr[i].compareTo(arr[j]) > 0) {
+						return false;
+					}
+				} else {
+					if (arr[i].compareTo(arr[j]) < 0) {
+						return false;
+					}
+				}
+			}
+		}
+		return true;
+	}
 
 	public static <T extends Comparable<T>> void insertionSort(T[] arr) {
 		int sortedSize = 1;
@@ -22,44 +54,27 @@ public class Sorting {
 		}
 	}
 
-	public static <T extends Comparable<T>> boolean isArraySorted(T[] arr) {
-		boolean isAscending = true;
-		int i = 1;
-		int j = i + 1;
-		while (arr[i++].equals(arr[j++])) {
-		}
-
-		if (arr[i].compareTo(arr[j]) > 0) {
-			isAscending = false;
-		}
-		for (; i < arr.length; i++) {
-			for (; j < arr.length; j++) {
-				if (isAscending) {
-					if (arr[i].compareTo(arr[j]) > 0) {
-						return false;
-					}
-				} else {
-					if (arr[i].compareTo(arr[j]) < 0) {
-						return false;
-					}
-				}
-			}
-		}
-		return true;
-	}
-
 	public static <T extends Comparable<T>> void mergeSort(T[] arr) {
 		mergeSort(arr, 0, arr.length - 1);
 	}
 
 	private static <T extends Comparable<T>> void mergeSort(T[] arr, int start, int end) {
+		
+		// If size of sub array is 1 or less than 1 STOP
 		if ((end - start + 1) <= 1) {
 			return;
 		}
+		
+		// Calculate middle of the array
 		int middle = start + ((end - start) / 2);
+		
+		// Sort first half of sub array
 		mergeSort(arr, start, middle);
+		
+		// Sort second half of sub array
 		mergeSort(arr, middle + 1, end);
-
+		
+		// Merge
 		merge(arr, start, middle, middle + 1, end);
 	}
 
@@ -89,6 +104,7 @@ public class Sorting {
 			newArr[r++] = arr[i2++];
 		}
 
+		// Elements in newArr is sorted
 		// Copy elements from newArr to original array
 		for (int i = start1, j = 0; i < r; j++, i++) {
 			arr[i] = newArr[j];
@@ -97,13 +113,71 @@ public class Sorting {
 	}
 
 	public static <T extends Comparable<T>> void quickSort(T[] arr) {
+		quickSort(arr, 0, arr.length - 1);
+	}
 
+	private static <T extends Comparable<T>> void quickSort(T[] arr, int start, int end) {
+
+		// if size of sub array is 1 or less than 1 STOP
+		if ((end - start + 1) <= 1) {
+			return;
+		}
+
+		// create partition and get new pivot position
+		int pivotPos = partition(arr, start, end);
+
+		// Sort for sub array to the left of pivot
+		quickSort(arr, start, pivotPos - 1);
+
+		// Sort for sub array to the right of pivot
+		quickSort(arr, pivotPos + 1, end);
+	}
+
+	private static <T extends Comparable<T>> int partition(T[] arr, int start, int end) {
+
+		// Assume pivot position at start
+		int pivotPos = start;
+		int left = start + 1;
+		int right = end;
+
+		while (left <= right) {
+
+			// If element at left is less than pivot increment left
+			while (left <= right && arr[left].compareTo(arr[pivotPos]) < 0) {
+				left++;
+			}
+			// If element at right is greater than pivot decrement right
+			while (left <= right && arr[right].compareTo(arr[pivotPos]) > 0) {
+				right--;
+			}
+
+			// If element at left is greater than pivot and element at right is less than
+			// pivot, control comes here
+
+			// if left is less than right swap element at left with element at right
+			if (left < right) {
+				T temp = arr[right];
+				arr[right] = arr[left];
+				arr[left] = temp;
+			}
+		}
+
+		// left and right crossed each other, so control comes here
+
+		// Now to the right of right there are elements greater than element at pivot
+		// To the left of right there are elements less than pivot
+		// Hence proper position of pivot is found, so swap element at right and element
+		// at pivot
+		T temp = arr[right];
+		arr[right] = arr[pivotPos];
+		arr[pivotPos] = temp;
+		return right;
 	}
 
 	public static void main(String[] args) {
 		Integer[] arr = { 2, 4, 1, 5, 8, 9, 7 };
 //		Integer[] arr = { 1, 2, 4, 5, 7, 8, 9 };
-		mergeSort(arr);
+		quickSort(arr);
 		System.out.println(Arrays.toString(arr));
 		System.out.println(isArraySorted(arr));
 	}
