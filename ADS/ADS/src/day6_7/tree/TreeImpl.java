@@ -1,5 +1,6 @@
 package day6_7.tree;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -18,22 +19,26 @@ public class TreeImpl<T extends Comparable<T>> implements Tree<T> {
 
 	@Override
 	public Iterator<Node<T>> iterator() {
-//		// TODO Auto-generated method stub
-//		return new Iterator<Tree.Node<T>>() {
-//			private Node<T> current = root;
-//
-//			@Override
-//			public boolean hasNext() {
-//				return current.right;
-//			}
-//
-//			@Override
-//			public Node<T> next() {
-//				// TODO Auto-generated method stub
-//				return null;
-//			}
-//		};
-		return null;
+		return new Iterator<Tree.Node<T>>() {
+			private Queue<Node<T>> queue = new LinkedList<Tree.Node<T>>(Arrays.asList(root));
+			
+			@Override
+			public boolean hasNext() {
+				return !queue.isEmpty();
+			}
+
+			@Override
+			public Node<T> next() {
+				Node<T> node = queue.remove();
+				if (node.left != null) {
+					queue.add(node.left);
+				}
+				if (node.right != null) {
+					queue.add(node.right);
+				}
+				return node;
+			}
+		};
 	}
 
 	@Override

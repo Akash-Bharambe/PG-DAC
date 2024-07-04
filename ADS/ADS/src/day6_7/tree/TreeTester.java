@@ -1,5 +1,7 @@
 package day6_7.tree;
 
+import day6_7.tree.Tree.Node;
+
 public class TreeTester {
 
 	public static void main(String[] args) {
@@ -13,6 +15,10 @@ public class TreeTester {
 		tree.insert(6);
 		tree.insert(7);
 		tree.insert(1);
+		
+		for (Node<Integer> node : tree) {
+			System.out.print(node.data +" ");
+		}
 
 //		System.out.print("Inorder: ");
 //		tree.inOrder();
@@ -32,8 +38,8 @@ public class TreeTester {
 //		System.out.println(tree.countNodesWithValue(600));
 //		System.out.println(tree.exists(100));
 //		System.out.println(tree.findSmallest());
-		System.out.println(tree.delete(2));
-		tree.inOrder();
+//		System.out.println(tree.delete(2));
+//		tree.inOrder();
 	}
 
 }

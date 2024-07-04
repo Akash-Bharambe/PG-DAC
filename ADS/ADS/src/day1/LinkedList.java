@@ -31,7 +31,7 @@ public class LinkedList {
 		ListNode<String> current = nameList;
 		for (int i = 0; i < name.length(); i++) {
 			current.value = name.charAt(i) + "";
-			current.next = 
+//			current.next = 
 			
 		}
 	}
