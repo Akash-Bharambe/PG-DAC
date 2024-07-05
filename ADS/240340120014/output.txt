@@ -1,0 +1,109 @@
+
+0. EXIT
+1. Add Node
+2. Check Palindrome
+3. Display Reverse
+4. Size
+5. Display List
+6. Delete Node From End
+Enter Choice: 5
+10 -> 20 -> 30 -> 40 -> 50 -> 60 -> 50 -> 40 -> 30 -> 20 -> 10 -> 
+
+0. EXIT
+1. Add Node
+2. Check Palindrome
+3. Display Reverse
+4. Size
+5. Display List
+6. Delete Node From End
+Enter Choice: 2
+10 -> 20 -> 30 -> 40 -> 50 -> 60 -> 50 -> 40 -> 30 -> 20 -> 10 ->  isPalindrome:  YES 
+
+0. EXIT
+1. Add Node
+2. Check Palindrome
+3. Display Reverse
+4. Size
+5. Display List
+6. Delete Node From End
+Enter Choice: 1
+Enter a number: 100
+
+0. EXIT
+1. Add Node
+2. Check Palindrome
+3. Display Reverse
+4. Size
+5. Display List
+6. Delete Node From End
+Enter Choice: 5
+10 -> 20 -> 30 -> 40 -> 50 -> 60 -> 50 -> 40 -> 30 -> 20 -> 10 -> 100 -> 
+
+0. EXIT
+1. Add Node
+2. Check Palindrome
+3. Display Reverse
+4. Size
+5. Display List
+6. Delete Node From End
+Enter Choice: 2
+10 -> 20 -> 30 -> 40 -> 50 -> 60 -> 50 -> 40 -> 30 -> 20 -> 10 -> 100 ->  isPalindrome:  NO 
+
+0. EXIT
+1. Add Node
+2. Check Palindrome
+3. Display Reverse
+4. Size
+5. Display List
+6. Delete Node From End
+Enter Choice: 3
+100 -> 10 -> 20 -> 30 -> 40 -> 50 -> 60 -> 50 -> 40 -> 30 -> 20 -> 10 -> 
+
+0. EXIT
+1. Add Node
+2. Check Palindrome
+3. Display Reverse
+4. Size
+5. Display List
+6. Delete Node From End
+Enter Choice: 4
+Size of Linked List is 12
+
+0. EXIT
+1. Add Node
+2. Check Palindrome
+3. Display Reverse
+4. Size
+5. Display List
+6. Delete Node From End
+Enter Choice: 5
+10 -> 20 -> 30 -> 40 -> 50 -> 60 -> 50 -> 40 -> 30 -> 20 -> 10 -> 100 -> 
+
+0. EXIT
+1. Add Node
+2. Check Palindrome
+3. Display Reverse
+4. Size
+5. Display List
+6. Delete Node From End
+Enter Choice: 6
+100 deleted 
+
+0. EXIT
+1. Add Node
+2. Check Palindrome
+3. Display Reverse
+4. Size
+5. Display List
+6. Delete Node From End
+Enter Choice: 5
+10 -> 20 -> 30 -> 40 -> 50 -> 60 -> 50 -> 40 -> 30 -> 20 -> 10 -> 
+
+0. EXIT
+1. Add Node
+2. Check Palindrome
+3. Display Reverse
+4. Size
+5. Display List
+6. Delete Node From End
+Enter Choice: 0
