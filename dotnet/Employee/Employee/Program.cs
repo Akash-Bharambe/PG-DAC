@@ -10,15 +10,12 @@
             {
                 if (value != null && !value.Equals(""))
 
-                    this.name = value;
+                    name = value;
                 else
                     Console.WriteLine("Name Cannot be blank");
             }
 
-            get
-            {
-                return this.name;
-            }
+            get => name;
         }
 
         private int id;
@@ -26,12 +23,9 @@
         {
             set
             {
-                if (value > 0) this.id = value;
+                if (value > 0) id = value;
             }
-            get
-            {
-                return this.id;
-            }
+            get => id;
         }
 
         private decimal basicSalary;
@@ -39,12 +33,9 @@
         {
             set
             {
-                if (value <= 50000 && value >= 100000) this.basicSalary = value;
+                if (value <= 50000 && value >= 100000) basicSalary = value;
             }
-            get
-            {
-                return this.basicSalary;
-            }
+            get => basicSalary;
         }
 
         private short deptNo;
@@ -52,17 +43,12 @@
         {
             set
             {
-                if (value > 0) this.deptNo = value;
+                if (value > 0) deptNo = value;
             }
-            get
-            {
-                return this.deptNo;
-            }
+            get => deptNo;
         }
 
-        public Employee() : this(0, "Default", 50000, 100)
-        {
-        }
+        public Employee() : this(0, "Default", 50000, 100) { }
 
         public Employee(int id = 0, string name = "Default", decimal basicSalary = 50000, short deptNo = 100)
         {
@@ -75,12 +61,12 @@
 
         public decimal GetNetSalary()
         {
-            return this.basicSalary * (decimal)(1 + 0.25);
+            return basicSalary * (decimal)(1 + 0.25);
         }
 
         public override string ToString()
         {
-            return this.id + ". " + this.name + " | basic salary = " + this.GetNetSalary() + " | Department No = " + this.deptNo;
+            return $"{id} . {name} | salary = {GetNetSalary()} | Department No =  {deptNo}";
         }
 
     }

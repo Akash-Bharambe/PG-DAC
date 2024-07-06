@@ -8,17 +8,13 @@
         {
             set
             {
-                if (value != null && !value.Equals(""))
-
-                    this.name = value;
+                if (!string.IsNullOrWhiteSpace(value))
+                    name = value;
                 else
                     Console.WriteLine("Name Cannot be blank");
             }
 
-            get
-            {
-                return this.name;
-            }
+            get => name;
         }
 
         private int id;
@@ -26,12 +22,9 @@
         {
             set
             {
-                if (value > 0) this.id = value;
+                if (value > 0) id = value;
             }
-            get
-            {
-                return this.id;
-            }
+            get => id;
         }
 
         private decimal basicSalary;
@@ -39,25 +32,20 @@
         {
             set
             {
-                if (value <= 50000 && value >= 100000) this.basicSalary = value;
+                if (value <= 50000 && value >= 100000) basicSalary = value;
             }
-            get
-            {
-                return this.basicSalary;
-            }
-        }
+            get => basicSalary;
+        }   
 
         private short deptNo;
         public short DeptNo
         {
             set
             {
-                if (value > 0) this.deptNo = value;
+                if (value > 0) deptNo = value;
             }
-            get
-            {
-                return this.deptNo;
-            }
+            get => deptNo;
+            
         }
         private static int empCount;
 
@@ -66,13 +54,13 @@
             empCount = 0;
         }
 
-        public Employee() : this("Default", 50000, 100)
+        public Employee() : this("Default", 50000, 500)
         {
         }
 
         public Employee(string name = "Default", decimal basicSalary = 50000, short deptNo = 100)
         {
-            this.id = ++empCount;
+            id = ++empCount;
             this.name = name;
             this.basicSalary = basicSalary;
             this.deptNo = deptNo;
@@ -81,12 +69,12 @@
 
         public decimal GetNetSalary()
         {
-            return this.basicSalary * (decimal)(1 + 0.25);
+            return basicSalary * (1 + 0.25m);
         }
 
         public override string ToString()
         {
-            return this.id + ". " + this.name + " | salary = " + this.GetNetSalary() + " | Department No = " + this.deptNo;
+            return $"{id} . {name} | salary = {GetNetSalary()} | Department No =  {deptNo}";
         }
 
     }
