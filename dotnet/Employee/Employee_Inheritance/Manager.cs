@@ -10,18 +10,22 @@ namespace Employee_Inheritance
     {
         public override decimal BasicSalary { get; set; }
 
-        private string? designation;
+        private string? _designation;
         public string? Designation
         {
             set
             {
-                if (!string.IsNullOrWhiteSpace(value)) designation = value;
+                if (!string.IsNullOrWhiteSpace(value)) _designation = value;
             }
-            get => designation;
+            get => _designation;
         }
 
+        /// <summary>
+        /// Calculate Net Salary of a Manager
+        /// </summary>
+        /// <returns> net salary of manager </returns>
         public override decimal CalcNetSalary()
-        {
+        { 
             return BasicSalary * (1 + 0.25m);
         }
 

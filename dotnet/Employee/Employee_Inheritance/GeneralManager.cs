@@ -15,6 +15,10 @@ namespace Employee_Inheritance
             this.Perks = Perks;
         }
 
+        /// <summary>
+        /// Calculate Net Salary of a General Manager
+        /// </summary>
+        /// <returns> net salary of general manager </returns>
         public override decimal CalcNetSalary()
         {
             return BasicSalary * 0.9M;

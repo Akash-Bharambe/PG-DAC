@@ -9,9 +9,9 @@ namespace Employee_Inheritance
     internal abstract class Employee : IDbFunctions
     {
 
-        private static int count = 0;
-        private string? name;
-        private short deptNo;
+        protected static int s_count = 0;
+        private string? _name;
+        private short _deptNo;
 
         public int EmployeeNo { get; }
 
@@ -19,19 +19,21 @@ namespace Employee_Inheritance
         {
             set
             {
-                if (!string.IsNullOrWhiteSpace(value)) name = value;
+                if (!string.IsNullOrWhiteSpace(value)) _name = value;
             }
-            get => name;
+            get => _name;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public short DeptNo
         {
             set
             {
-                if (short.IsPositive(value)) deptNo = value;
+                if (short.IsPositive(value)) _deptNo = value;
             }
-            get => deptNo;
+            get => _deptNo;
         }
 
         public abstract decimal BasicSalary { set; get; }
@@ -43,13 +45,13 @@ namespace Employee_Inheritance
 
         public Employee(string? name, short deptNo)
         {
-            EmployeeNo = ++count;
+            EmployeeNo = ++s_count;
             Name = name;
             DeptNo = deptNo;
         }
         public override string ToString()
         {
-            return $"{EmployeeNo} . {name} | DeptNo: {DeptNo}";
+            return $"{EmployeeNo} . {_name} | DeptNo: {DeptNo}";
         }
     }
 }
