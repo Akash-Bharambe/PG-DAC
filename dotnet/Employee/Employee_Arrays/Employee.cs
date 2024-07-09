@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Globalization;
-namespace Employee_Dictionary
+
+namespace Employee_Arrays
 {
     internal class Employee
     {
@@ -49,7 +50,7 @@ namespace Employee_Dictionary
         {
             set
             {
-                if (value > 0) deptNo = value;
+                if (int.IsPositive(value)) deptNo = value;
                 else throw new ArgumentException("Department Number cannot be negative");
             }
             get => deptNo;

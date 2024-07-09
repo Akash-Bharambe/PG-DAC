@@ -1,4 +1,7 @@
-﻿namespace Employee
+﻿using System.Globalization;
+using System.Text;
+
+namespace Employee
 {
 
     class Employee
@@ -33,7 +36,7 @@
         {
             set
             {
-                if (value <= 50000 && value >= 100000) basicSalary = value;
+                if (value >= 50000 && value <= 100000) basicSalary = value;
             }
             get => basicSalary;
         }
@@ -66,7 +69,8 @@
 
         public override string ToString()
         {
-            return $"{id} . {name} | salary = {GetNetSalary()} | Department No =  {deptNo}";
+            Console.OutputEncoding = Encoding.UTF8;
+            return $"{id} . {name} | salary = {GetNetSalary().ToString("C", CultureInfo.CreateSpecificCulture("hi-IN"))} | Department No =  {deptNo}";
         }
 
     }
