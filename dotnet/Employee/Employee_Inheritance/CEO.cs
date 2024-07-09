@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Employee_Inheritance
 {
@@ -37,7 +39,8 @@ namespace Employee_Inheritance
 
         public override string ToString()
         {
-            return $"{base.ToString()} | Salary : {CalcNetSalary()}";
+            Console.OutputEncoding = Encoding.UTF8;
+            return $"{base.ToString()} | Salary : {CalcNetSalary().ToString("C", CultureInfo.CreateSpecificCulture("hi-IN"))}";
         }
 
     }

@@ -10,7 +10,7 @@ namespace Employee_Dictionary
     internal class Utils
     {
 
-        internal static int MenuList()
+        internal static Choice MenuList()
         {
             Console.WriteLine("0. Exit");
             Console.WriteLine("1. Accept Employee Details");
@@ -19,7 +19,7 @@ namespace Employee_Dictionary
             Console.WriteLine("4. Nth Employee");
             Console.WriteLine("5. Display All Employees");
             Console.Write("Enter Choice: ");
-            return Convert.ToInt32(Console.ReadLine());
+            return (Choice)Convert.ToInt32(Console.ReadLine());
         }
 
         internal static void AcceptEmployees(Dictionary<int, Employee> employees)
@@ -50,6 +50,9 @@ namespace Employee_Dictionary
 
         internal static void DisplayAllEmployees(Dictionary<int, Employee> employees)
         {
+            if (employees.Count < 1)
+                throw new ArgumentException("Employee array is empty");
+
             foreach (KeyValuePair<int, Employee> employee in employees)
             {
                 Console.WriteLine(employee.Value);
@@ -58,6 +61,9 @@ namespace Employee_Dictionary
 
         internal static Employee GetEmployeeWithHighestSalary(Dictionary<int, Employee> employees)
         {
+            if (employees.Count < 1)
+                throw new ArgumentException("Employee array is empty");
+
             int id = -1;
             decimal maxSal = decimal.MinValue;
 
@@ -75,11 +81,20 @@ namespace Employee_Dictionary
 
         internal static Employee GetNthEmployee(Dictionary<int, Employee> employees, int index)
         {
+            if (employees.Count < 1)
+                throw new ArgumentException("Employee array is empty");
+            if (index < 0 || index >= employees.Count)
+                throw new ArgumentOutOfRangeException(nameof(index), "Index is out of range");
+
             return employees.ElementAtOrDefault(index).Value;
         }
 
         internal static Employee SearchEmployee(Dictionary<int, Employee> employees, int id)
         {
+            if (employees.Count < 1)
+                throw new ArgumentException("Employee array is empty");
+            if (!employees.ContainsKey(id))
+                throw new ArgumentException("Employee not Found");
             return employees[id];
         }
     }

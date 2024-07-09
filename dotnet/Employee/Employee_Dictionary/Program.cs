@@ -1,13 +1,11 @@
 ﻿namespace Employee_Dictionary
 {
+    internal enum Choice
+    {
+        EXIT, ACCEPT_EMPLOYEES, HIGHEST_SALARY, SEARCH_EMPLOYEE, N_EMPLOYEE, ALL_EMPLOYEES
+    }
     internal class Program
     {
-
-        enum Choice
-        {
-            EXIT, ACCEPT_EMPLOYEES, HIGHEST_SALARY, SEARCH_EMPLOYEE, N_EMPLOYEE, ALL_EMPLOYEES
-        }
-
         static void Main()
         {
             Dictionary<int, Employee> employees = [];
@@ -16,15 +14,12 @@
             employees.Add(3, new Employee(3, "Chinmay", 78765, 30));
             Choice choice;
 
-            while ((choice = (Choice)Utils.MenuList()) != Choice.EXIT)
+            while ((choice = Utils.MenuList()) != Choice.EXIT)
             {
                 try
                 {
                     switch (choice)
                     {
-                        case Choice.EXIT:
-                            Console.WriteLine("Quitting...!!!");
-                            break;
 
                         case Choice.ACCEPT_EMPLOYEES:
                             Utils.AcceptEmployees(employees);
