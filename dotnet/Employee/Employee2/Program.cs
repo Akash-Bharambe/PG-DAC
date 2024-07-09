@@ -32,7 +32,7 @@
         {
             set
             {
-                if (value <= 50000 && value >= 100000) basicSalary = value;
+                if (value >= 50000 && value <= 100000) basicSalary = value;
             }
             get => basicSalary;
         }   
