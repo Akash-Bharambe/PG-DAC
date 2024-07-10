@@ -13,3 +13,17 @@ D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\temp\obj\Debug\net8.0\refint\temp.dll
 D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\temp\obj\Debug\net8.0\temp.pdb
 D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\temp\obj\Debug\net8.0\temp.genruntimeconfig.cache
 D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\temp\obj\Debug\net8.0\ref\temp.dll
+D:\Akash\dotnet\Assignments\temp\obj\Debug\net8.0\temp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Akash\dotnet\Assignments\temp\obj\Debug\net8.0\temp.AssemblyInfoInputs.cache
+D:\Akash\dotnet\Assignments\temp\obj\Debug\net8.0\temp.AssemblyInfo.cs
+D:\Akash\dotnet\Assignments\temp\obj\Debug\net8.0\temp.csproj.CoreCompileInputs.cache
+D:\Akash\dotnet\Assignments\temp\obj\Debug\net8.0\temp.dll
+D:\Akash\dotnet\Assignments\temp\obj\Debug\net8.0\refint\temp.dll
+D:\Akash\dotnet\Assignments\temp\obj\Debug\net8.0\temp.pdb
+D:\Akash\dotnet\Assignments\temp\bin\Debug\net8.0\temp.exe
+D:\Akash\dotnet\Assignments\temp\bin\Debug\net8.0\temp.deps.json
+D:\Akash\dotnet\Assignments\temp\bin\Debug\net8.0\temp.runtimeconfig.json
+D:\Akash\dotnet\Assignments\temp\bin\Debug\net8.0\temp.dll
+D:\Akash\dotnet\Assignments\temp\bin\Debug\net8.0\temp.pdb
+D:\Akash\dotnet\Assignments\temp\obj\Debug\net8.0\temp.genruntimeconfig.cache
+D:\Akash\dotnet\Assignments\temp\obj\Debug\net8.0\ref\temp.dll

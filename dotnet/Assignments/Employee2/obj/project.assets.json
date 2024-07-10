@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\aakas\\.nuget\\packages\\": {}
+    "C:\\Users\\dac\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\Assignments\\Employee2\\Employee2.csproj",
+      "projectUniqueName": "D:\\Akash\\dotnet\\Assignments\\Employee2\\Employee2.csproj",
       "projectName": "Employee2",
-      "projectPath": "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\Assignments\\Employee2\\Employee2.csproj",
-      "packagesPath": "C:\\Users\\aakas\\.nuget\\packages\\",
-      "outputPath": "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\Assignments\\Employee2\\obj\\",
+      "projectPath": "D:\\Akash\\dotnet\\Assignments\\Employee2\\Employee2.csproj",
+      "packagesPath": "C:\\Users\\dac\\.nuget\\packages\\",
+      "outputPath": "D:\\Akash\\dotnet\\Assignments\\Employee2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\aakas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dac\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
