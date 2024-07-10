@@ -1,0 +1,15 @@
+D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\Array_List_Conversions\obj\Debug\net8.0\Array_List_Conversions.GeneratedMSBuildEditorConfig.editorconfig
+D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\Array_List_Conversions\obj\Debug\net8.0\Array_List_Conversions.AssemblyInfoInputs.cache
+D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\Array_List_Conversions\obj\Debug\net8.0\Array_List_Conversions.AssemblyInfo.cs
+D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\Array_List_Conversions\obj\Debug\net8.0\Array_List_Conversions.csproj.CoreCompileInputs.cache
+D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\Array_List_Conversions\obj\Debug\net8.0\Array_List_Conversions.sourcelink.json
+D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\Array_List_Conversions\bin\Debug\net8.0\Array_List_Conversions.exe
+D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\Array_List_Conversions\bin\Debug\net8.0\Array_List_Conversions.deps.json
+D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\Array_List_Conversions\bin\Debug\net8.0\Array_List_Conversions.runtimeconfig.json
+D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\Array_List_Conversions\bin\Debug\net8.0\Array_List_Conversions.dll
+D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\Array_List_Conversions\bin\Debug\net8.0\Array_List_Conversions.pdb
+D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\Array_List_Conversions\obj\Debug\net8.0\Array_List_Conversions.dll
+D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\Array_List_Conversions\obj\Debug\net8.0\refint\Array_List_Conversions.dll
+D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\Array_List_Conversions\obj\Debug\net8.0\Array_List_Conversions.pdb
+D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\Array_List_Conversions\obj\Debug\net8.0\Array_List_Conversions.genruntimeconfig.cache
+D:\Study\PG-DAC\PG-DAC\dotnet\Assignments\Array_List_Conversions\obj\Debug\net8.0\ref\Array_List_Conversions.dll

@@ -47,6 +47,9 @@
                         case Choice.ALL_EMPLOYEES:
                             Utils.DisplayAllEmployees(employees);
                             break;
+                        default:
+                            Console.WriteLine("Please Enter a Valid Choice...!!!");
+                            break;
                     }
 
                     Console.WriteLine();

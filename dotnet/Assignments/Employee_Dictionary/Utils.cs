@@ -93,9 +93,7 @@ namespace Employee_Dictionary
         {
             if (employees.Count < 1)
                 throw new ArgumentException("Employee array is empty");
-            if (!employees.ContainsKey(id))
-                throw new ArgumentException("Employee not Found");
-            return employees[id];
+            return employees.TryGetValue(id, out Employee? value) ? value : throw new ArgumentException("Employee not Found");
         }
     }
 }
