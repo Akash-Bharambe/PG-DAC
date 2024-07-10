@@ -1,0 +1,14 @@
+D:\Akash\dotnet\Employee\Employee_Arrays\bin\Debug\net8.0\Employee_Arrays.exe
+D:\Akash\dotnet\Employee\Employee_Arrays\bin\Debug\net8.0\Employee_Arrays.deps.json
+D:\Akash\dotnet\Employee\Employee_Arrays\bin\Debug\net8.0\Employee_Arrays.runtimeconfig.json
+D:\Akash\dotnet\Employee\Employee_Arrays\bin\Debug\net8.0\Employee_Arrays.dll
+D:\Akash\dotnet\Employee\Employee_Arrays\bin\Debug\net8.0\Employee_Arrays.pdb
+D:\Akash\dotnet\Employee\Employee_Arrays\obj\Debug\net8.0\Employee_Arrays.GeneratedMSBuildEditorConfig.editorconfig
+D:\Akash\dotnet\Employee\Employee_Arrays\obj\Debug\net8.0\Employee_Arrays.AssemblyInfoInputs.cache
+D:\Akash\dotnet\Employee\Employee_Arrays\obj\Debug\net8.0\Employee_Arrays.AssemblyInfo.cs
+D:\Akash\dotnet\Employee\Employee_Arrays\obj\Debug\net8.0\Employee_Arrays.csproj.CoreCompileInputs.cache
+D:\Akash\dotnet\Employee\Employee_Arrays\obj\Debug\net8.0\Employee_Arrays.dll
+D:\Akash\dotnet\Employee\Employee_Arrays\obj\Debug\net8.0\refint\Employee_Arrays.dll
+D:\Akash\dotnet\Employee\Employee_Arrays\obj\Debug\net8.0\Employee_Arrays.pdb
+D:\Akash\dotnet\Employee\Employee_Arrays\obj\Debug\net8.0\Employee_Arrays.genruntimeconfig.cache
+D:\Akash\dotnet\Employee\Employee_Arrays\obj\Debug\net8.0\ref\Employee_Arrays.dll

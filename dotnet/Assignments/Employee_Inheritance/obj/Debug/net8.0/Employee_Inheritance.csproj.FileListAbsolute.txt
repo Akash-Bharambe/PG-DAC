@@ -1,0 +1,14 @@
+D:\Akash\dotnet\Employee\Employee_Inheritance\bin\Debug\net8.0\Employee_Inheritance.exe
+D:\Akash\dotnet\Employee\Employee_Inheritance\bin\Debug\net8.0\Employee_Inheritance.deps.json
+D:\Akash\dotnet\Employee\Employee_Inheritance\bin\Debug\net8.0\Employee_Inheritance.runtimeconfig.json
+D:\Akash\dotnet\Employee\Employee_Inheritance\bin\Debug\net8.0\Employee_Inheritance.dll
+D:\Akash\dotnet\Employee\Employee_Inheritance\bin\Debug\net8.0\Employee_Inheritance.pdb
+D:\Akash\dotnet\Employee\Employee_Inheritance\obj\Debug\net8.0\Employee_Inheritance.GeneratedMSBuildEditorConfig.editorconfig
+D:\Akash\dotnet\Employee\Employee_Inheritance\obj\Debug\net8.0\Employee_Inheritance.AssemblyInfoInputs.cache
+D:\Akash\dotnet\Employee\Employee_Inheritance\obj\Debug\net8.0\Employee_Inheritance.AssemblyInfo.cs
+D:\Akash\dotnet\Employee\Employee_Inheritance\obj\Debug\net8.0\Employee_Inheritance.csproj.CoreCompileInputs.cache
+D:\Akash\dotnet\Employee\Employee_Inheritance\obj\Debug\net8.0\Employee_Inheritance.dll
+D:\Akash\dotnet\Employee\Employee_Inheritance\obj\Debug\net8.0\refint\Employee_Inheritance.dll
+D:\Akash\dotnet\Employee\Employee_Inheritance\obj\Debug\net8.0\Employee_Inheritance.pdb
+D:\Akash\dotnet\Employee\Employee_Inheritance\obj\Debug\net8.0\Employee_Inheritance.genruntimeconfig.cache
+D:\Akash\dotnet\Employee\Employee_Inheritance\obj\Debug\net8.0\ref\Employee_Inheritance.dll
