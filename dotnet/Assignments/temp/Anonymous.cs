@@ -20,7 +20,7 @@ namespace temp
 
             //var obj4 = new { a = 1, b = 2, Func<int, int, bool> c = (x, y) => x == y };
 
-            var obj5 = new { a = 1, b = 2, c = new Func<int, int, bool>(( x, y) => x == y) };
+            var obj5 = new { a = 1, b = 2, c = new Func<int, int, bool>((x, y) => x == y) };
             var obj6 = new { a = 1, b = 2, c = (Func<int, int, bool>)((x, y) => x == y) };
             Console.WriteLine(obj5.c(4, 4));
         }
