@@ -1,0 +1,14 @@
+D:\Akash\dotnet\Assignments\ILDASM\bin\Debug\net8.0\ILDASM.exe
+D:\Akash\dotnet\Assignments\ILDASM\bin\Debug\net8.0\ILDASM.deps.json
+D:\Akash\dotnet\Assignments\ILDASM\bin\Debug\net8.0\ILDASM.runtimeconfig.json
+D:\Akash\dotnet\Assignments\ILDASM\bin\Debug\net8.0\ILDASM.dll
+D:\Akash\dotnet\Assignments\ILDASM\bin\Debug\net8.0\ILDASM.pdb
+D:\Akash\dotnet\Assignments\ILDASM\obj\Debug\net8.0\ILDASM.GeneratedMSBuildEditorConfig.editorconfig
+D:\Akash\dotnet\Assignments\ILDASM\obj\Debug\net8.0\ILDASM.AssemblyInfoInputs.cache
+D:\Akash\dotnet\Assignments\ILDASM\obj\Debug\net8.0\ILDASM.AssemblyInfo.cs
+D:\Akash\dotnet\Assignments\ILDASM\obj\Debug\net8.0\ILDASM.csproj.CoreCompileInputs.cache
+D:\Akash\dotnet\Assignments\ILDASM\obj\Debug\net8.0\ILDASM.dll
+D:\Akash\dotnet\Assignments\ILDASM\obj\Debug\net8.0\refint\ILDASM.dll
+D:\Akash\dotnet\Assignments\ILDASM\obj\Debug\net8.0\ILDASM.pdb
+D:\Akash\dotnet\Assignments\ILDASM\obj\Debug\net8.0\ILDASM.genruntimeconfig.cache
+D:\Akash\dotnet\Assignments\ILDASM\obj\Debug\net8.0\ref\ILDASM.dll
