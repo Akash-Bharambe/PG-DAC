@@ -1,0 +1,14 @@
+D:\Akash\dotnet\Assignments\FileHandling\bin\Debug\net8.0\FileHandling.exe
+D:\Akash\dotnet\Assignments\FileHandling\bin\Debug\net8.0\FileHandling.deps.json
+D:\Akash\dotnet\Assignments\FileHandling\bin\Debug\net8.0\FileHandling.runtimeconfig.json
+D:\Akash\dotnet\Assignments\FileHandling\bin\Debug\net8.0\FileHandling.dll
+D:\Akash\dotnet\Assignments\FileHandling\bin\Debug\net8.0\FileHandling.pdb
+D:\Akash\dotnet\Assignments\FileHandling\obj\Debug\net8.0\FileHandling.GeneratedMSBuildEditorConfig.editorconfig
+D:\Akash\dotnet\Assignments\FileHandling\obj\Debug\net8.0\FileHandling.AssemblyInfoInputs.cache
+D:\Akash\dotnet\Assignments\FileHandling\obj\Debug\net8.0\FileHandling.AssemblyInfo.cs
+D:\Akash\dotnet\Assignments\FileHandling\obj\Debug\net8.0\FileHandling.csproj.CoreCompileInputs.cache
+D:\Akash\dotnet\Assignments\FileHandling\obj\Debug\net8.0\FileHandling.dll
+D:\Akash\dotnet\Assignments\FileHandling\obj\Debug\net8.0\refint\FileHandling.dll
+D:\Akash\dotnet\Assignments\FileHandling\obj\Debug\net8.0\FileHandling.pdb
+D:\Akash\dotnet\Assignments\FileHandling\obj\Debug\net8.0\FileHandling.genruntimeconfig.cache
+D:\Akash\dotnet\Assignments\FileHandling\obj\Debug\net8.0\ref\FileHandling.dll

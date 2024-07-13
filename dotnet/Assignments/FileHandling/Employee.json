@@ -1,0 +1,20 @@
+[
+  {
+    "BasicSalary": 75000,
+    "DeptNo": 101,
+    "Id": 1,
+    "Name": "John Doe"
+  },
+  {
+    "BasicSalary": 80000,
+    "DeptNo": 102,
+    "Id": 2,
+    "Name": "Jane Smith"
+  },
+  {
+    "BasicSalary": 90000,
+    "DeptNo": 103,
+    "Id": 3,
+    "Name": "Michael Johnson"
+  }
+]

@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array_List_Conversions", "A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "temp", "temp\temp.csproj", "{B85B4BC1-0DC6-44B8-BD0E-368E716B9606}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILDASM", "ILDASM\ILDASM.csproj", "{842A5F2C-3489-42BD-996A-131FEC52AE2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ILDASM", "ILDASM\ILDASM.csproj", "{842A5F2C-3489-42BD-996A-131FEC52AE2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileHandling", "FileHandling\FileHandling.csproj", "{27C41925-5BE9-4D71-8589-A1259D8758E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +103,14 @@ Global
 		{842A5F2C-3489-42BD-996A-131FEC52AE2E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{842A5F2C-3489-42BD-996A-131FEC52AE2E}.Release|x86.ActiveCfg = Release|Any CPU
 		{842A5F2C-3489-42BD-996A-131FEC52AE2E}.Release|x86.Build.0 = Release|Any CPU
+		{27C41925-5BE9-4D71-8589-A1259D8758E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C41925-5BE9-4D71-8589-A1259D8758E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C41925-5BE9-4D71-8589-A1259D8758E7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{27C41925-5BE9-4D71-8589-A1259D8758E7}.Debug|x86.Build.0 = Debug|Any CPU
+		{27C41925-5BE9-4D71-8589-A1259D8758E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C41925-5BE9-4D71-8589-A1259D8758E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C41925-5BE9-4D71-8589-A1259D8758E7}.Release|x86.ActiveCfg = Release|Any CPU
+		{27C41925-5BE9-4D71-8589-A1259D8758E7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
