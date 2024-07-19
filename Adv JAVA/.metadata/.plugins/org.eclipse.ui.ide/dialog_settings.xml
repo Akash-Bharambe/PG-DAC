@@ -108,6 +108,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="D:\Study\PG-DAC\PG-DAC\ADV Java\240340120014\240340120014\240340120014"/>
 			<item value="D:\Study\PG-DAC\Adv Java\day9-data\code\day9.1"/>
 			<item value="D:\Study\PG-DAC\PG-DAC\ADV Java\JSP_DEMO"/>
 			<item value="D:\Study\PG-DAC\PG-DAC\ADV Java\Voter"/>
