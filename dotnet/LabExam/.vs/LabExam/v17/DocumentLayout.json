@@ -1,0 +1,154 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\aakas\\source\\repos\\LabExam\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6F1D32-88CC-4733-84C8-54055AF51D76}|LabExam\\LabExam.csproj|c:\\users\\aakas\\source\\repos\\labexam\\labexam\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6F1D32-88CC-4733-84C8-54055AF51D76}|LabExam\\LabExam.csproj|solutionrelative:labexam\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6F1D32-88CC-4733-84C8-54055AF51D76}|LabExam\\LabExam.csproj|c:\\users\\aakas\\source\\repos\\labexam\\labexam\\utility\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6F1D32-88CC-4733-84C8-54055AF51D76}|LabExam\\LabExam.csproj|solutionrelative:labexam\\utility\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6F1D32-88CC-4733-84C8-54055AF51D76}|LabExam\\LabExam.csproj|c:\\users\\aakas\\source\\repos\\labexam\\labexam\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1F6F1D32-88CC-4733-84C8-54055AF51D76}|LabExam\\LabExam.csproj|solutionrelative:labexam\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6F1D32-88CC-4733-84C8-54055AF51D76}|LabExam\\LabExam.csproj|c:\\users\\aakas\\source\\repos\\labexam\\labexam\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6F1D32-88CC-4733-84C8-54055AF51D76}|LabExam\\LabExam.csproj|solutionrelative:labexam\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6F1D32-88CC-4733-84C8-54055AF51D76}|LabExam\\LabExam.csproj|c:\\users\\aakas\\source\\repos\\labexam\\labexam\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6F1D32-88CC-4733-84C8-54055AF51D76}|LabExam\\LabExam.csproj|solutionrelative:labexam\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6F1D32-88CC-4733-84C8-54055AF51D76}|LabExam\\LabExam.csproj|c:\\users\\aakas\\source\\repos\\labexam\\labexam\\views\\employees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F6F1D32-88CC-4733-84C8-54055AF51D76}|LabExam\\LabExam.csproj|solutionrelative:labexam\\views\\employees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6F1D32-88CC-4733-84C8-54055AF51D76}|LabExam\\LabExam.csproj|c:\\users\\aakas\\source\\repos\\labexam\\labexam\\views\\employees\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F6F1D32-88CC-4733-84C8-54055AF51D76}|LabExam\\LabExam.csproj|solutionrelative:labexam\\views\\employees\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6F1D32-88CC-4733-84C8-54055AF51D76}|LabExam\\LabExam.csproj|c:\\users\\aakas\\source\\repos\\labexam\\labexam\\views\\employees\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F6F1D32-88CC-4733-84C8-54055AF51D76}|LabExam\\LabExam.csproj|solutionrelative:labexam\\views\\employees\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\aakas\\source\\repos\\LabExam\\LabExam\\Views\\Employees\\Create.cshtml",
+              "RelativeDocumentMoniker": "LabExam\\Views\\Employees\\Create.cshtml",
+              "ToolTip": "C:\\Users\\aakas\\source\\repos\\LabExam\\LabExam\\Views\\Employees\\Create.cshtml",
+              "RelativeToolTip": "LabExam\\Views\\Employees\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-29T03:23:59.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\aakas\\source\\repos\\LabExam\\LabExam\\Program.cs",
+              "RelativeDocumentMoniker": "LabExam\\Program.cs",
+              "ToolTip": "C:\\Users\\aakas\\source\\repos\\LabExam\\LabExam\\Program.cs",
+              "RelativeToolTip": "LabExam\\Program.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T03:08:05.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\aakas\\source\\repos\\LabExam\\LabExam\\Views\\Employees\\Edit.cshtml",
+              "RelativeDocumentMoniker": "LabExam\\Views\\Employees\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\aakas\\source\\repos\\LabExam\\LabExam\\Views\\Employees\\Edit.cshtml",
+              "RelativeToolTip": "LabExam\\Views\\Employees\\Edit.cshtml",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-29T03:05:22.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\aakas\\source\\repos\\LabExam\\LabExam\\Views\\Employees\\Index.cshtml",
+              "RelativeDocumentMoniker": "LabExam\\Views\\Employees\\Index.cshtml",
+              "ToolTip": "C:\\Users\\aakas\\source\\repos\\LabExam\\LabExam\\Views\\Employees\\Index.cshtml",
+              "RelativeToolTip": "LabExam\\Views\\Employees\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACsAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-29T03:04:51.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Utils.cs",
+              "DocumentMoniker": "C:\\Users\\aakas\\source\\repos\\LabExam\\LabExam\\Utility\\Utils.cs",
+              "RelativeDocumentMoniker": "LabExam\\Utility\\Utils.cs",
+              "ToolTip": "C:\\Users\\aakas\\source\\repos\\LabExam\\LabExam\\Utility\\Utils.cs",
+              "RelativeToolTip": "LabExam\\Utility\\Utils.cs",
+              "ViewState": "AQIAAFkAAAAAAAAAAAAAAFkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T02:58:46.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "C:\\Users\\aakas\\source\\repos\\LabExam\\LabExam\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "LabExam\\Controllers\\EmployeesController.cs",
+              "ToolTip": "C:\\Users\\aakas\\source\\repos\\LabExam\\LabExam\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "LabExam\\Controllers\\EmployeesController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T02:57:26.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\aakas\\source\\repos\\LabExam\\LabExam\\appsettings.json",
+              "RelativeDocumentMoniker": "LabExam\\appsettings.json",
+              "ToolTip": "C:\\Users\\aakas\\source\\repos\\LabExam\\LabExam\\appsettings.json",
+              "RelativeToolTip": "LabExam\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-29T02:56:13.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "C:\\Users\\aakas\\source\\repos\\LabExam\\LabExam\\Models\\Employee.cs",
+              "RelativeDocumentMoniker": "LabExam\\Models\\Employee.cs",
+              "ToolTip": "C:\\Users\\aakas\\source\\repos\\LabExam\\LabExam\\Models\\Employee.cs",
+              "RelativeToolTip": "LabExam\\Models\\Employee.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T02:52:37.713Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
