@@ -10,7 +10,6 @@ namespace WebApplication1.Controllers
         // https://localhost:1234/Employees/Index
         public async Task<ActionResult> Index()
         {
-
             IEnumerable<Employee> employees = await Employee.GetAllEmployees();
 
             return View(employees);

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OnCNW6i/Zh0=",
+  "dgSpecHash": "0SJRgd+jYKA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\aakas\\source\\repos\\StudentsAPI\\StudentsAPI.csproj",
+  "projectFilePath": "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\StudentsAPI\\StudentsAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aakas\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\aakas\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

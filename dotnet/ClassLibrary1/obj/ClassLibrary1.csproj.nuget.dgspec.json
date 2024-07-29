@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\StudentsAPI\\StudentsAPI.csproj": {}
+    "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\ClassLibrary1\\ClassLibrary1.csproj": {}
   },
   "projects": {
-    "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\StudentsAPI\\StudentsAPI.csproj": {
+    "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\ClassLibrary1\\ClassLibrary1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\StudentsAPI\\StudentsAPI.csproj",
-        "projectName": "StudentsAPI",
-        "projectPath": "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\StudentsAPI\\StudentsAPI.csproj",
+        "projectUniqueName": "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\ClassLibrary1\\ClassLibrary1.csproj",
+        "projectName": "ClassLibrary1",
+        "projectPath": "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\ClassLibrary1\\ClassLibrary1.csproj",
         "packagesPath": "C:\\Users\\aakas\\.nuget\\packages\\",
-        "outputPath": "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\StudentsAPI\\obj\\",
+        "outputPath": "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\ClassLibrary1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aakas\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,30 +45,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[8.0.7, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[8.0.7, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.7, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[8.0.3, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.4.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -81,9 +57,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

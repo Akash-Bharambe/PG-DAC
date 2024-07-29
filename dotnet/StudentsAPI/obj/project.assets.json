@@ -8269,11 +8269,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aakas\\source\\repos\\StudentsAPI\\StudentsAPI.csproj",
+      "projectUniqueName": "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\StudentsAPI\\StudentsAPI.csproj",
       "projectName": "StudentsAPI",
-      "projectPath": "C:\\Users\\aakas\\source\\repos\\StudentsAPI\\StudentsAPI.csproj",
+      "projectPath": "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\StudentsAPI\\StudentsAPI.csproj",
       "packagesPath": "C:\\Users\\aakas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aakas\\source\\repos\\StudentsAPI\\obj\\",
+      "outputPath": "D:\\Study\\PG-DAC\\PG-DAC\\dotnet\\StudentsAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\aakas\\AppData\\Roaming\\NuGet\\NuGet.Config",
