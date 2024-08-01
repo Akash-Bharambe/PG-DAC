@@ -19,11 +19,14 @@ $("#submit").on("click", () => {
     alert("Invalid Email");
     return;
   }
-  if($("#title").val() === 'Title'){
+  if ($("#title").val() === "Title") {
     alert("Please Select Title");
-    return
+    return;
   }
-console.log(getName());
+  console.log(getName());
+});
+$(document).ready(() => {
+  $("#out").css({display:"none"});
 });
 
 $("#display-cost").on("click", () => {
@@ -54,21 +57,21 @@ function calculateCost(seminar, level) {
 }
 
 function getName() {
-
-  return $("#title").val() +" "+ $("#fname").val() +" " + $("#lname").val();
+  return $("#title").val() + " " + $("#fname").val() + " " + $("#lname").val();
 }
-$("#display").on("click",()=>{
-    let name = getName();
-    let email = $("#email").val();
-    let seminar = $("#seminars").val();
-    let level = $("input[type='radio']:checked").val();
-    let cost = $("#Cost").val();
-    
-    $("#out").html(
-        `Name: ${name} <br>
+$("#display").on("click", () => {
+  let name = getName();
+  let email = $("#email").val();
+  let seminar = $("#seminars").val();
+  let level = $("input[type='radio']:checked").val();
+  let cost = $("#Cost").val();
+  $("#out").css({display:""});
+  $("#out").html(``);
+  $("#out").html(  
+    `Name: ${name} <br>
          Email: ${email} <br>
          Seminar: ${seminar}<br>
          Level: ${level}<br>
          Cost: ${cost}`
-    )
-})
+  );
+});
